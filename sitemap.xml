@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/theme-preview/</loc>
+    <loc>https://m2kar.github.io/tags/theme-preview/</loc>
     <lastmod>2019-08-15T01:45:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/theme-preview/</loc>
+    <loc>https://m2kar.github.io/categories/theme-preview/</loc>
     <lastmod>2019-08-15T01:45:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -156,14 +156,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/%E4%B8%AD%E6%96%87/</loc>
+    <loc>https://m2kar.github.io/tags/%E4%B8%AD%E6%96%87/</loc>
     <lastmod>2019-08-15T01:45:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E4%B8%AD%E6%96%87/</loc>
+    <loc>https://m2kar.github.io/categories/%E4%B8%AD%E6%96%87/</loc>
     <lastmod>2019-08-15T01:45:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -205,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/syntax-highlighting/</loc>
+    <loc>https://m2kar.github.io/categories/syntax-highlighting/</loc>
     <lastmod>2019-08-15T01:45:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/syntax-highlighting/</loc>
+    <loc>https://m2kar.github.io/tags/syntax-highlighting/</loc>
     <lastmod>2019-08-15T01:45:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
