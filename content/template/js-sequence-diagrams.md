@@ -6,6 +6,8 @@ draft: false
 sequenceDiagrams: 
   enable: true
   options: "{theme: 'hand'}"
+
+hiddenFromHomePage: true
 ---
 
 ## Usage

@@ -8,6 +8,7 @@ categories: ["Syntax Highlighting"]
 
 toc: false
 
+hiddenFromHomePage: true
 ---
 
 

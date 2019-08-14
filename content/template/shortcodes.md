@@ -6,6 +6,7 @@ draft: false
 tags: ["shortcodes"]
 categories: ["shortcodes"]
 
+hiddenFromHomePage: true
 ---
 
 # Admonition

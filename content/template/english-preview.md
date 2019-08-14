@@ -10,6 +10,7 @@ author: "Michael Henderson"
 autoCollapseToc: true
 contentCopyright: '<a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a>'
 
+hiddenFromHomePage: true
 ---
 
 ## Introduction

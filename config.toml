@@ -15,7 +15,7 @@ pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 
 hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
-paginate = 5                                              # 首页每页显示的文章数
+paginate = 50                                              # 首页每页显示的文章数
 disqusShortname = ""      # disqus_shortname
 googleAnalytics = ""      # UA-XXXXXXXX-X
 copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
@@ -69,7 +69,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   description = "M2kar的个人博客,用于记录日常技术."
 
   # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
-  archivePaginate = 15
+  archivePaginate = 1000
 
   # show 'xx Posts In Total' in archive page ?            # 是否在归档页显示文章的总数
   showArchiveCount = true
@@ -91,8 +91,8 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   # mathjax
   mathjax = true # see https://www.mathjax.org/                              # 是否使用mathjax（数学公式）
-  mathjaxEnableSingleDollar = false                                                     # 是否使用 $...$ 即可進行inline latex渲染
-  mathjaxEnableAutoNumber = false                                                       # 是否使用公式自动编号
+  mathjaxEnableSingleDollar = true # 是否使用 $...$ 即可進行inline latex渲染
+  mathjaxEnableAutoNumber = true                                                     # 是否使用公式自动编号
   mathjaxUseLocalFiles = false  # You should install mathjax in `yout-site/static/lib/mathjax`
 
   postMetaInFooter = true   # contain author, lastMod, markdown link, license           # 包含作者，上次修改时间，markdown链接，许可信息

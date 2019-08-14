@@ -11,6 +11,7 @@ contentCopyright: MIT
 mathjax: true
 autoCollapseToc: true
 
+hiddenFromHomePage: true
 ---
 
 > Based on [MarkdownPreview test.md](https://github.com/facelessuser/MarkdownPreview/blob/master/examples/test.md).
