@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>shortcodes on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/categories/shortcodes/</link>
-    <description>Recent content in shortcodes on Even - A super concise theme for Hugo</description>
+    <title>shortcodes on M2kar - Security World</title>
+    <link>https://m2kar.github.io/categories/shortcodes/</link>
+    <description>Recent content in shortcodes on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-cn</language>
     <lastBuildDate>Tue, 30 Aug 2016 16:01:23 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/shortcodes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.github.io/categories/shortcodes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Shortcodes</title>
-      <link>http://localhost:1313/post/shortcodes/</link>
+      <link>https://m2kar.github.io/post/shortcodes/</link>
       <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/shortcodes/</guid>
+      <guid>https://m2kar.github.io/post/shortcodes/</guid>
       <description>&lt;h1 id=&#34;admonition&#34;&gt;Admonition&lt;/h1&gt;
 
 &lt;div class=&#34;admonition note&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;I&amp;#39;m title!&lt;/p&gt;
