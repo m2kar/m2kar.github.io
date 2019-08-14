@@ -1,0 +1,6 @@
+[submodule "themes/even"]
+	path = themes/even
+	url = git@github.com:olOwOlo/hugo-theme-even.git
+[submodule "public"]
+	path = public
+	url = git@github.com:m2kar/m2kar.github.io.git
