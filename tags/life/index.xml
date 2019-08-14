@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Life on M2kar - Security World</title>
+    <link>https://m2kar.github.io/tags/life/</link>
+    <description>Recent content in Life on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 15 Aug 2019 01:37:56 +0800</lastBuildDate>
+    
+	<atom:link href="https://m2kar.github.io/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Life] 欢迎</title>
+      <link>https://m2kar.github.io/post/2019-08-15-new-bolg/</link>
+      <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
+      
+      <guid>https://m2kar.github.io/post/2019-08-15-new-bolg/</guid>
+      <description>欢迎来到新博客 m2kar.github.io</description>
+    </item>
+    
+  </channel>
+</rss>
