@@ -51,8 +51,8 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 [[menu.main]]
   name = "关于"
   weight = 50
-  identifier = "about"
-  url = "https://m2kar.github.io/cv/"
+  identifier = "cv"
+  url = "/cv/"
 
 [params]
   version = "4.x"           # Used to give a friendly message when you have an incompatible update
