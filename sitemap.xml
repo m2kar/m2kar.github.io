@@ -10,49 +10,49 @@
   
   <url>
     <loc>https://m2kar.github.io/post/2019-08-15-new-bolg/</loc>
-    <lastmod>2019-08-15T05:07:41+08:00</lastmod>
+    <lastmod>2019-08-15T05:10:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.github.io/categories/</loc>
-    <lastmod>2019-08-15T05:07:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://m2kar.github.io/tags/life/</loc>
-    <lastmod>2019-08-15T05:07:41+08:00</lastmod>
+    <lastmod>2019-08-15T05:10:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.github.io/categories/life/</loc>
-    <lastmod>2019-08-15T05:07:41+08:00</lastmod>
+    <lastmod>2019-08-15T05:10:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/life/</loc>
+    <lastmod>2019-08-15T05:10:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.github.io/</loc>
-    <lastmod>2019-08-15T05:07:41+08:00</lastmod>
+    <lastmod>2019-08-15T05:10:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.github.io/post/</loc>
-    <lastmod>2019-08-15T05:07:41+08:00</lastmod>
+    <lastmod>2019-08-15T05:10:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.github.io/tags/</loc>
-    <lastmod>2019-08-15T05:07:41+08:00</lastmod>
+    <lastmod>2019-08-15T05:10:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -121,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/english/</loc>
+    <loc>https://m2kar.github.io/categories/english/</loc>
     <lastmod>2019-08-15T05:07:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/english/</loc>
+    <loc>https://m2kar.github.io/tags/english/</loc>
     <lastmod>2019-08-15T05:07:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -205,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/shortcodes/</loc>
+    <loc>https://m2kar.github.io/tags/shortcodes/</loc>
     <lastmod>2019-08-15T05:07:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/shortcodes/</loc>
+    <loc>https://m2kar.github.io/categories/shortcodes/</loc>
     <lastmod>2019-08-15T05:07:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -233,14 +233,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/syntax-highlighting/</loc>
+    <loc>https://m2kar.github.io/tags/syntax-highlighting/</loc>
     <lastmod>2019-08-15T05:07:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/syntax-highlighting/</loc>
+    <loc>https://m2kar.github.io/categories/syntax-highlighting/</loc>
     <lastmod>2019-08-15T05:07:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
