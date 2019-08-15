@@ -5,7 +5,7 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 pushd public
 git checkout master
-rm -rf *
+# rm -rf *
 popd
 
 ${hugo} -t even
