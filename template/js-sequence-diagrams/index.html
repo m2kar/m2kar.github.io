@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.57.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://m2kar.github.io/template/js-sequence-diagrams/" />
@@ -56,8 +56,9 @@ Andrew-&gt;&gt;China: I am good thanks!
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m2kar.github.io/template/js-sequence-diagrams/" />
-<meta property="article:published_time" content="2015-03-04T21:57:45+08:00" />
-<meta property="article:modified_time" content="2019-08-15T05:07:41+08:00" />
+<meta property="article:published_time" content="2015-03-04T21:57:45&#43;08:00"/>
+<meta property="article:modified_time" content="2019-08-15T05:07:41&#43;08:00"/>
+
 <meta itemprop="name" content="JS Sequence Diagrams">
 <meta itemprop="description" content="Usage
 
@@ -78,7 +79,7 @@ Andrew-&gt;&gt;China: I am good thanks!
 
 <meta itemprop="datePublished" content="2015-03-04T21:57:45&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-15T05:07:41&#43;08:00" />
-<meta itemprop="wordCount" content="290">
+<meta itemprop="wordCount" content="297">
 
 
 
@@ -182,15 +183,20 @@ Andrew-&gt;&gt;China: I am good thanks!</code></pre></td></tr></table>
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sequence" data-lang="sequence"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code class="language-sequence" data-lang="sequence"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-sequence" data-lang="sequence">    Andrew-&gt;China: Says Hello
@@ -201,60 +207,68 @@ Andrew-&gt;&gt;China: I am good thanks!</code></pre></td></tr></table>
 
 ## Configuration
 
-Configure for all home and regular pages:</code></pre></td></tr></table>
-</div>
-</div>
-<p>toml
+Configure for all home and regular pages:
+
+```toml
 [params.sequenceDiagrams]
   enable = true
-  options = &ldquo;{theme: &lsquo;hand&rsquo;}&rdquo;</p>
+  options = &#34;{theme: &#39;hand&#39;}&#34;</code></pre></td></tr></table>
+</div>
+</div>
+<p>Configure for a single post in the front matter (<strong>Params in front matter have higher precedence</strong>):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Configure for a single post in the front matter (**Params in front matter have higher precedence**):</pre></td></tr></table>
-</div>
-</div>
-<p>yaml
-sequenceDiagrams:
-  enable: true
-  options: &ldquo;{theme: &lsquo;hand&rsquo;}&rdquo;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">### Options</pre></td></tr></table>
-</div>
-</div>
-<p>js
-options = {
-  // Change the styling of the diagram, typically one of &lsquo;simple&rsquo;, &lsquo;hand&rsquo;. New themes can be registered with registerTheme(&hellip;).
-  theme: string,</p>
-
-<p>// CSS style to apply to the diagram&rsquo;s svg tag. (Only supported if using snap.svg)
-  css_class: string,
-}</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">See more information from https://github.com/bramp/js-sequence-diagrams.
-
-## Examples</pre></td></tr></table>
+<pre class="chroma"><code class="language-yaml" data-lang="yaml">sequenceDiagrams<span class="p">:</span><span class="w"> 
+</span><span class="w">  </span>enable<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span>options<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{theme: &#39;hand&#39;}&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>sequence
-Title: Here is a title
-A-&gt;B: Normal line
-B&ndash;&gt;C: Dashed line
-C-&gt;&gt;D: Open arrow
-D&ndash;&gt;&gt;A: Dashed open arrow</p>
+<h3 id="options">Options</h3>
 <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// Change the styling of the diagram, typically one of &#39;simple&#39;, &#39;hand&#39;. New themes can be registered with registerTheme(...).
+</span><span class="c1"></span>  <span class="nx">theme</span><span class="o">:</span> <span class="nx">string</span><span class="p">,</span>
+
+  <span class="c1">// CSS style to apply to the diagram&#39;s svg tag. (Only supported if using snap.svg)
+</span><span class="c1"></span>  <span class="nx">css_class</span><span class="o">:</span> <span class="nx">string</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>See more information from <a href="https://github.com/bramp/js-sequence-diagrams">https://github.com/bramp/js-sequence-diagrams</a>.</p>
+
+<h2 id="examples">Examples</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sequence" data-lang="sequence"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sequence" data-lang="sequence">Title: Here is a title
+A-&gt;B: Normal line
+B--&gt;C: Dashed line
+C-&gt;&gt;D: Open arrow
+D--&gt;&gt;A: Dashed open arrow</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
@@ -263,31 +277,34 @@ D&ndash;&gt;&gt;A: Dashed open arrow</p>
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">    ```sequence
-    Title: Here is a title
-    A-&gt;B: Normal line
-    B--&gt;C: Dashed line
-    C-&gt;&gt;D: Open arrow
-    D--&gt;&gt;A: Dashed open arrow
-    ```
-
----</pre></td></tr></table>
+<pre class="chroma">```sequence
+Title: Here is a title
+A-&gt;B: Normal line
+B--&gt;C: Dashed line
+C-&gt;&gt;D: Open arrow
+D--&gt;&gt;A: Dashed open arrow
+```</pre></td></tr></table>
 </div>
 </div>
-<p>sequence</p>
-
-<h1 id="example-of-a-comment">Example of a comment.</h1>
-
-<p>Note left of A: Note to the\n left of A
+<hr />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sequence" data-lang="sequence"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sequence" data-lang="sequence"># Example of a comment.
+Note left of A: Note to the\n left of A
 Note right of A: Note to the\n right of A
 Note over A: Note over A
-Note over A,B: Note over both A and B
-```</p>
-<div class="highlight"><div class="chroma">
+Note over A,B: Note over both A and B</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
