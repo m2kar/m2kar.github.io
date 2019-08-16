@@ -1,0 +1,34 @@
+language: go
+
+branches:
+  only:
+    - blog  # 设置自动化部署的源码分支
+
+# cache this directory
+cache:
+  directories:
+    - themes
+    - public
+    #- themes 主题没有更改时可以缓存
+
+before_install:
+- export TZ='Asia/Shanghai'  # 设置时区
+- npm install -g hexo
+- npm install -g hexo-cli
+
+# 安装依赖组件
+install:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.tar.gz
+  - tar -xzvf hugo_0.51_Linux-64bit.tar.gz
+  - chmod +x hugo
+  - export PATH=$PATH:$PWD
+  - hugo version
+  - git clone https://github.com/gohugoio/hugoBasicExample.git
+  - cd hugoBasicExample
+  - git submodule add -f https://github.com/EmielH/tale-hugo.git themes/tale
+  - sudo apt-get install -y tree
+  - tree
+
+script:
+  - hugo -t tale
+  - tree
