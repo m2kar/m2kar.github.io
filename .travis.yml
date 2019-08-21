@@ -26,7 +26,7 @@ install:
     #- git clone -b ${TRAVIS_BRANCH} --recursive https://github.com/m2kar.github.io.git
     #- cd m2kar.github.io
   - git log -p -2 | cat
-  - git clone --recursive -b master https://${GH_APIKEY}@github.com/m2kar.github.io.git public
+  - git clone --recursive -b master https://${GH_APIKEY}@github.com:m2kar/m2kar.github.io.git public
   - sudo apt-get install -y tree
   - tree
 
