@@ -14,8 +14,8 @@ cache:
 
 before_install:
 - export TZ='Asia/Shanghai'  # 设置时区
-- npm install -g hexo
-- npm install -g hexo-cli
+  #- npm install -g hexo
+  #- npm install -g hexo-cli
 
 # 安装依赖组件
 install:
@@ -24,12 +24,18 @@ install:
   - chmod +x hugo
   - export PATH=$PATH:$PWD
   - hugo version
-  - git clone https://github.com/gohugoio/hugoBasicExample.git
-  - cd hugoBasicExample
-  - git submodule add -f https://github.com/EmielH/tale-hugo.git themes/tale
+    #- git clone -b ${TRAVIS_BRANCH} --recursive https://github.com/m2kar.github.io.git
+    #- cd m2kar.github.io
+  - git log -p -2 | cat
+  - git clone --recursive -b master https://${GH_APIKEY}@github.com/m2kar/m2kar.github.io.git public
   - sudo apt-get install -y tree
   - tree
 
 script:
-  - hugo -t tale
+  - hugo -t even
   - tree
+  - pushd public 
+  - git add .
+  - git commit -m "auto depoly ${TRAVIS_COMMIT_MESSAGE}"
+  - git push
+  - echo "depoly done"
