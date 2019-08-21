@@ -3,6 +3,7 @@ language: go
 branches:
   only:
     - blog  # 设置自动化部署的源码分支
+    - 2-travis-auto-depoly # test for travis
 
 # cache this directory
 cache:
