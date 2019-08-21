@@ -1,5 +1,5 @@
 #!/bin/bash
-hugo=/mnt/c/ProgramData/chocolatey/bin/hugo.exe
+# hugo=/mnt/c/ProgramData/chocolatey/bin/hugo.exe
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 
