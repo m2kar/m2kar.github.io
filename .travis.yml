@@ -9,7 +9,7 @@ branches:
 cache:
   directories:
     - themes
-    - public
+    # - public
     #- themes 主题没有更改时可以缓存
 
 before_install:
