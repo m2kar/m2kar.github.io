@@ -37,6 +37,6 @@ script:
   - tree
   - pushd public 
   - git add .
-  - git commit -m "auto depoly ${commit_msg} ${TRAVIS_COMMIT_MESSAGE}"
+  - git commit -m "auto depoly ${commit_msg} "
   - git push
   - echo "depoly done"
