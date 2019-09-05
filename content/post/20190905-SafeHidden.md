@@ -24,17 +24,34 @@ Information hiding (IH) is an important building block for many defenses against
 In this paper, we propose a new IH technique called SafeHidden. It continuously re-randomizes the locations of safe areas and thus prevents the attackers from probing and inferring the memory layout to find its location. A new thread-private memory mechanism is proposed to isolate the thread-local safe areas and prevent adversaries from reducing the randomization entropy. It also randomizes the safe areas after the TLB misses to prevent attackers from inferring the address of safe areas using cache side-channels. Existing IH-based defenses can utilize SafeHidden directly without any change. Our experiments show that SafeHidden not only prevents existing attacks effectively but also incurs low performance overhead.
 
 ## 关键词
-系统安全；信息隐藏；安全区；地址空间布局随机化
+系统安全；信息隐藏；安全区；地址空间布局随机化(ASLR)
+## 出处
+USENix Security 2019, 赫赫有名的安全顶级学术会议
 ## 引用格式
-[1]WANG Z, WU C, ZHANG Y, 等. SafeHidden: An Efficient and Secure Information Hiding Technique Using Re-randomization[C]//28th USENIX Security Symposium (USENIX Security 19). Santa Clara, CA: USENIX Association, 2019: 1239–1256.
+[1]Wang Z, Wu C, Zhang Y, Tang B, Yew P-C, Xie M, Lai Y, Kang Y, Cheng Y, Shi Z. SafeHidden: an efficient and secure information hiding technique using re-randomization. 28th USENIX Security Symposium (USENIX Security 19). Santa Clara, CA: USENIX Association, 2019: 1239–1256.
+
+**URL**: https://www.usenix.org/conference/usenixsecurity19/presentation/wang
 
 ## 作者
+>Zhe Wang and Chenggang Wu, State Key Laboratory of Computer Architecture, Institute of Computing Technology, Chinese Academy of Sciences, University of Chinese Academy of Sciences; Yinqian Zhang, The Ohio State University; Bowen Tang, State Key Laboratory of Computer Architecture, Institute of Computing Technology, Chinese Academy of Sciences, University of Chinese Academy of Sciences; Pen-Chung Yew, University of Minnesota at Twin-Cities; Mengyao Xie, Yuanming Lai, and Yan Kang, State Key Laboratory of Computer Architecture, Institute of Computing Technology, Chinese Academy of Sciences, University of Chinese Academy of Sciences; Yueqiang Cheng, Baidu USA; Zhiping Shi, The Capital Normal University
+
+一作为Zhe Wang，其导师武成岗为二作，来自中科院计算所国家计算机体系结构重点实验室。
+
+三作张殷乾来自俄亥俄州立大学，曾有幸在[InfoSec][2]听过他对于安全方面论文发表的经验，其实验室和手下的博士生发表了很多的安全顶会论文。
+
+
 # 笔记
 ## 论文主题
+一种新型的内存地址随机化的增强方案SafeHidden，可以解决内存地址随机化（ASLR）的不安全问题。
 ## 待解决问题
-[ASLR][1]
+先来介绍下内存地址随机化技术,这个技术，可以看一下这个[ASLR][1]。一些攻击，比如return-oriented programming (ROP)之类的[代码复用攻击][4]，会试图得到被攻击者的内存布局信息。这样就可以知道代码或者数据放在哪里，来定位并进行攻击。比如可以找到ROP里面的gadget。而ASLR让这些内存区域随机分布，来提高攻击者成功难度，让他们只能通过猜猜猜来进行不断试错的攻击(理想状况下)。下图举了个例子。
+
+![1111](20190905-SafeHidden.assets/1111.png)
+
+
 
 ## 之前方案不足
+
 ## 解决方案
 ## 效果
 # 思考
@@ -50,4 +67,8 @@ In this paper, we propose a new IH technique called SafeHidden. It continuously 
 
 # 参考
 [1]:https://www.inforsec.org/wp/?p=1009	"地址空间布局随机化(ASLR)增强研究综述"
+[2]:http://www.inforsec.org/ "Infosec 网络安全研究国际学术论坛"
 
+[3]: https://en.wikipedia.org/wiki/Address_space_layout_randomization	"Address space layout randomization（Wikipedia）"
+
+[4]:https://zhuanlan.zhihu.com/p/39695776	"JOP代码复用攻击（知乎）"
