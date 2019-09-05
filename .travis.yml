@@ -27,6 +27,7 @@ install:
     #- git clone -b ${TRAVIS_BRANCH} --recursive https://github.com/m2kar.github.io.git
     #- cd m2kar.github.io
   - git log -p -2 | cat
+  - commit_msg=$(git log -n1 --pretty=format:"%s")
   - git clone --recursive -b master https://${GH_APIKEY}@github.com/m2kar/m2kar.github.io.git public
   - sudo apt-get install -y tree
   - tree
@@ -36,6 +37,6 @@ script:
   - tree
   - pushd public 
   - git add .
-  - git commit -m "auto depoly ${TRAVIS_COMMIT_MESSAGE}"
+  - git commit -m "auto depoly ${commit_msg} ${TRAVIS_COMMIT_MESSAGE}"
   - git push
   - echo "depoly done"
