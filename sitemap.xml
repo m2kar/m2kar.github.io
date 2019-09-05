@@ -3,6 +3,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://m2kar.github.io/post/20190905-jos-csl/</loc>
+    <lastmod>2019-09-05T21:14:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/post/20190821-deploy-use-travis-ci/</loc>
+    <lastmod>2019-09-05T21:05:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://m2kar.github.io/post/20190815-new-bolg/</loc>
     <lastmod>2019-08-21T14:22:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -31,14 +45,14 @@
   
   <url>
     <loc>https://m2kar.github.io/</loc>
-    <lastmod>2019-08-21T14:22:24+08:00</lastmod>
+    <lastmod>2019-09-05T21:14:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.github.io/post/</loc>
-    <lastmod>2019-08-21T14:22:24+08:00</lastmod>
+    <lastmod>2019-09-05T21:14:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -46,6 +60,48 @@
   <url>
     <loc>https://m2kar.github.io/tags/</loc>
     <lastmod>2019-08-21T14:22:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/devops/</loc>
+    <lastmod>2019-09-05T21:05:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/hugo/</loc>
+    <lastmod>2019-09-05T21:05:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</loc>
+    <lastmod>2019-09-05T21:14:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/%E8%B5%84%E6%BA%90/</loc>
+    <lastmod>2019-09-05T21:14:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/categories/%E8%B5%84%E6%BA%90/</loc>
+    <lastmod>2019-09-05T21:14:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/categories/%E8%BF%90%E7%BB%B4/</loc>
+    <lastmod>2019-09-05T21:05:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

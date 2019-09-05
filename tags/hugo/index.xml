@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on M2kar - Security World</title>
+    <link>https://m2kar.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 21 Aug 2019 14:17:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://m2kar.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Travis-CI部署Hugo，实现自动化部署</title>
+      <link>https://m2kar.github.io/post/20190821-deploy-use-travis-ci/</link>
+      <pubDate>Wed, 21 Aug 2019 14:17:57 +0800</pubDate>
+      
+      <guid>https://m2kar.github.io/post/20190821-deploy-use-travis-ci/</guid>
+      <description>需求描述 Hugo是一个静态网站生成工具。</description>
+    </item>
+    
+  </channel>
+</rss>
