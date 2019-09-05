@@ -3,7 +3,7 @@ title: "SafeHidden: An Efficient and Secure Information
 Hiding Technique Using Re-randomization"
 date: 2019-09-05T18:05:00+08:00
 lastmod: 2019-09-05T18:05:00+08:00
-draft: true
+draft: false
 keywords: ["论文","SafeHidden","系统安全"]
 description: "论文描述"
 tags: ["论文笔记","系统安全","流量分析","静态分析"]
