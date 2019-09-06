@@ -42,15 +42,15 @@
 <meta property="og:description" content="一种新型的内存地址随机化的增强方案SafeHidden，可以解决内存地址随机化（ASLR）的不安全问题。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m2kar.github.io/post/20190905-safehidden/" /><meta property="article:published_time" content="2019-09-05T18:05:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-09-06T20:45:25&#43;08:00"/>
+<meta property="article:modified_time" content="2019-09-06T20:46:32&#43;08:00"/>
 
 <meta itemprop="name" content="SafeHidden: An Efficient and Secure Information Hiding Technique Using Re-randomization">
 <meta itemprop="description" content="一种新型的内存地址随机化的增强方案SafeHidden，可以解决内存地址随机化（ASLR）的不安全问题。">
 
 
 <meta itemprop="datePublished" content="2019-09-05T18:05:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-09-06T20:45:25&#43;08:00" />
-<meta itemprop="wordCount" content="2849">
+<meta itemprop="dateModified" content="2019-09-06T20:46:32&#43;08:00" />
+<meta itemprop="wordCount" content="2848">
 
 
 
@@ -165,7 +165,8 @@
 <ul>
 <li><a href="#对于攻击类型1">对于攻击类型1</a></li>
 <li><a href="#对于攻击类型2">对于攻击类型2</a></li>
-<li><a href="#对于攻击类型3">对于攻击类型3</a>
+<li><a href="#对于攻击类型3">对于攻击类型3</a></li>
+<li><a href="#对于攻击类型4">对于攻击类型4</a>
 <ul>
 <li><a href="#将tlb-miss转为页错误">将TLB miss转为页错误</a></li>
 <li><a href="#页表错误处理器的流程图">页表错误处理器的流程图</a></li>
@@ -319,9 +320,11 @@
  - 使用线程专用内存机制隔离线程本地安全区域。
    - 不会减少熵。
    - 使用硬件辅助虚拟化技术
-   - 每个线程将被分配一个线程专用EPT（扩展页表）
-###　对于攻击类型4
- 攻击类型4使用缓存侧通道监控页表访问模式。
+   - 每个线程将被分配一个线程专用EPT（扩展页表）</p>
+
+<h3 id="对于攻击类型4">对于攻击类型4</h3>
+
+<p>攻击类型4使用缓存侧通道监控页表访问模式。
  - 它需要数百个Prime + Probe或Evict + Time测试。
  - PTE的地址对应于此也是必要的内存区域不会改变。
  - 这些PTE映射的缓存条目不会更改。</p>
@@ -443,7 +446,7 @@
     <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-09-06
-        <a href="#ZgotmplZ/commit/e0f767300c5427d246c2a5319258b10e94eeef77" title="20190905-SafeHidden fix error">(e0f7673)</a>
+        <a href="#ZgotmplZ/commit/a19eef6757777711f9a0ea0fadf8ff7f2eafdb29" title="20190905-SafeHidden fix error">(a19eef6)</a>
     </span>
   </p>
   <p class="copyright-item">
