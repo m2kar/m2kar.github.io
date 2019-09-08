@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://m2kar.github.io/post/20190908-bytedance-code-exam/</loc>
+    <lastmod>2019-09-08T21:53:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://m2kar.github.io/post/20190905-jos-csl/</loc>
     <lastmod>2019-09-06T20:43:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -37,13 +44,6 @@
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/life/</loc>
-    <lastmod>2019-08-21T14:22:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://m2kar.github.io/categories/life/</loc>
     <lastmod>2019-08-21T14:22:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -51,15 +51,22 @@
   </url>
   
   <url>
+    <loc>https://m2kar.github.io/tags/life/</loc>
+    <lastmod>2019-08-21T14:22:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://m2kar.github.io/</loc>
-    <lastmod>2019-09-06T20:43:49+08:00</lastmod>
+    <lastmod>2019-09-08T21:53:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.github.io/post/</loc>
-    <lastmod>2019-09-06T20:43:49+08:00</lastmod>
+    <lastmod>2019-09-08T21:53:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -67,6 +74,13 @@
   <url>
     <loc>https://m2kar.github.io/tags/</loc>
     <lastmod>2019-08-21T14:22:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/code/</loc>
+    <lastmod>2019-09-08T21:53:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -93,6 +107,27 @@
   </url>
   
   <url>
+    <loc>https://m2kar.github.io/categories/%E7%AC%94%E8%AF%95/</loc>
+    <lastmod>2019-09-08T21:53:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/%E7%AC%94%E8%AF%95/</loc>
+    <lastmod>2019-09-08T21:53:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2019-09-08T21:53:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://m2kar.github.io/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2019-09-08T21:24:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -107,13 +142,6 @@
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-09-08T21:24:40+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://m2kar.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-08T21:24:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -121,14 +149,21 @@
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E8%B5%84%E6%BA%90/</loc>
-    <lastmod>2019-09-06T20:43:49+08:00</lastmod>
+    <loc>https://m2kar.github.io/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2019-09-08T21:24:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.github.io/categories/%E8%B5%84%E6%BA%90/</loc>
+    <lastmod>2019-09-06T20:43:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/%E8%B5%84%E6%BA%90/</loc>
     <lastmod>2019-09-06T20:43:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
