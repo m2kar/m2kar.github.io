@@ -28,7 +28,7 @@ In this paper, we propose a new IH technique called SafeHidden. It continuously 
 ## 出处
 USENix Security 2019, 赫赫有名的安全顶级学术会议
 ## 引用格式
-[[1]] Wang Z, Wu C, Zhang Y, Tang B, Yew P-C, Xie M, Lai Y, Kang Y, Cheng Y, Shi Z. SafeHidden: an efficient and secure information hiding technique using re-randomization. 28th USENIX Security Symposium (USENIX Security 19). Santa Clara, CA: USENIX Association, 2019: 1239–1256.
+\[1\] Wang Z, Wu C, Zhang Y, Tang B, Yew P-C, Xie M, Lai Y, Kang Y, Cheng Y, Shi Z. SafeHidden: an efficient and secure information hiding technique using re-randomization. 28th USENIX Security Symposium (USENIX Security 19). Santa Clara, CA: USENIX Association, 2019: 1239–1256.
 
 **URL**: https://www.usenix.org/conference/usenixsecurity19/presentation/wang
 
