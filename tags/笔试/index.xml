@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>快手笔试题目</title>
+      <link>https://m2kar.github.io/post/20190917-kuaishou-code-exam/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://m2kar.github.io/post/20190917-kuaishou-code-exam/</guid>
+      <description>快手考试遇到了几个笔试题目，先记一下，有些题得重新做 句子逆序 字符串距离 质数分解 数独正确性检测</description>
+    </item>
+    
+    <item>
       <title>美团点评的几道笔试题</title>
       <link>https://m2kar.github.io/post/20190912-meituan-code-exam/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
