@@ -42,15 +42,15 @@
 <meta property="og:description" content="一种新型的内存地址随机化的增强方案SafeHidden，可以解决内存地址随机化（ASLR）的不安全问题。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m2kar.github.io/post/20190905-safehidden/" /><meta property="article:published_time" content="2019-09-05T18:05:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-09-19T14:44:14&#43;08:00"/>
+<meta property="article:modified_time" content="2019-09-19T17:06:59&#43;08:00"/>
 
 <meta itemprop="name" content="【论文笔记】SafeHidden: An Efficient and Secure Information Hiding Technique Using Re-randomization">
 <meta itemprop="description" content="一种新型的内存地址随机化的增强方案SafeHidden，可以解决内存地址随机化（ASLR）的不安全问题。">
 
 
 <meta itemprop="datePublished" content="2019-09-05T18:05:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-09-19T14:44:14&#43;08:00" />
-<meta itemprop="wordCount" content="2858">
+<meta itemprop="dateModified" content="2019-09-19T17:06:59&#43;08:00" />
+<meta itemprop="wordCount" content="2857">
 
 
 
@@ -156,7 +156,10 @@
 <li><a href="#笔记">笔记</a>
 <ul>
 <li><a href="#论文主题">论文主题</a></li>
-<li><a href="#待解决问题">待解决问题</a></li>
+<li><a href="#待解决问题">待解决问题</a>
+<ul>
+<li><a href="#攻击方式">攻击方式</a></li>
+</ul></li>
 <li><a href="#之前方案不足">之前方案不足</a></li>
 <li><a href="#攻击模型">攻击模型</a>
 <ul>
@@ -256,14 +259,20 @@
 
 <p><img src="./ASLR.png" alt="ASLR" /></p>
 
-<p>但是ASLR已经不再安全，有多种方式可以对它发起攻击。如：
- - CROP Attack[NDSS 16]: 使用错误处理机制绕过读取安全区的crash。
- - 克隆探测攻击[S&amp;P 14]: 通过探测子进程来避免让父进程crash。
- - 不断克隆安全区[Secruity 16]: 不断分发线程的安全区，通过不断开启新线程。
- - 通过填补内存区空白[Security 16]: 不断分发内存占满未映射的区域。
- - 对页表进行攻击</p>
+<p>但是ASLR已经不再安全，有多种方式可以对它发起攻击。如：</p>
 
-<h2 id="之前方案不足">之前方案不足</h2>
+<h3 id="攻击方式">攻击方式</h3>
+
+<ul>
+<li>CROP Attack[NDSS 16]: 使用错误处理机制绕过读取安全区的crash。</li>
+<li>克隆探测攻击[S&amp;P 14]: 通过探测子进程来避免让父进程crash。</li>
+<li>不断克隆安全区[Secruity 16]: 不断分发线程的安全区，通过不断开启新线程。</li>
+<li>通过填补内存区空白[Security 16]: 不断分发内存占满未映射的区域。</li>
+
+<li><p>对页表进行攻击</p>
+
+<h2 id="之前方案不足">之前方案不足</h2></li>
+</ul>
 
 <h2 id="攻击模型">攻击模型</h2>
 
@@ -449,7 +458,7 @@
     <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-09-19
-        <a href="#ZgotmplZ/commit/de3d08725a65d284d81770f447fc6ab51b555a6b" title="修改标题">(de3d087)</a>
+        <a href="#ZgotmplZ/commit/67ef70840973de223ad8896e9c6f816cc4bc79e3" title="modified:   content/post/20190905-SafeHidden/index.md">(67ef708)</a>
     </span>
   </p>
   <p class="copyright-item">
