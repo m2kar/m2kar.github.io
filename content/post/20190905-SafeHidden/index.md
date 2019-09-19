@@ -1,5 +1,5 @@
 ---
-title: "SafeHidden: An Efficient and Secure Information
+title: "【论文笔记】SafeHidden: An Efficient and Secure Information
 Hiding Technique Using Re-randomization"
 date: 2019-09-05T18:05:00+08:00
 lastmod: 2019-09-05T18:05:00+08:00
@@ -12,6 +12,8 @@ author: "m2kar"
 
 ---
 
+SafeHidden: An Efficient and Secure Information
+=======
 # 概览
 ## 摘要
 ### 中文（翻译）
@@ -128,7 +130,7 @@ SafeHidden可以防止未映射区域的无限缩小安全区域不受限制地�
     - Incurred 2.75% and 2.76% when protecting O-CFI and Shadow Stack.
  - Multi-threaded Parsec-2.1 benchmark with native input
    - Incurred 5.78% and 6.44% when protecting O-CFI and Shadow Stack.
-  
+
 在网络I/O和磁盘I/O也都产生了一定的性能损耗，但都不超过15%
 
 # 思考
