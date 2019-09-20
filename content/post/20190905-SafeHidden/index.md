@@ -89,6 +89,7 @@ USENix Security 2019, 赫赫有名的安全顶级学术会议
 攻击类型3是减少随机安全区域位置的熵。
 
 SafeHidden可以防止未映射区域的无限缩小安全区域不受限制地增长。
+
  - 映射区域的最大大小设置为64 TB。
  - 使用线程专用内存机制隔离线程本地安全区域。
    - 不会减少熵。
@@ -96,6 +97,7 @@ SafeHidden可以防止未映射区域的无限缩小安全区域不受限制地�
    - 每个线程将被分配一个线程专用EPT（扩展页表）
 ### 对于攻击类型4
  攻击类型4使用缓存侧通道监控页表访问模式。
+ 
  - 它需要数百个Prime + Probe或Evict + Time测试。
  - PTE的地址对应于此也是必要的内存区域不会改变。
  - 这些PTE映射的缓存条目不会更改。
@@ -106,6 +108,7 @@ SafeHidden可以防止未映射区域的无限缩小安全区域不受限制地�
 
 ![force-page-table-walk](./force-page-table-walk.png)
 #### 将TLB miss转为页错误
+
  - 设置保留位后，将在页表行走期间触发页面错误异常。
  - 设置保留位后，将在页表行走期间触发页面错误异常。
    - 当TLB未命中时，它将被捕获到pf处理程序中。
@@ -117,6 +120,7 @@ SafeHidden可以防止未映射区域的无限缩小安全区域不受限制地�
 
 ## 效果
 ### 实验环境
+
  - X86_64/Linux
  - SafeHidden保护两个使用IH的防御。
    - 影子堆栈和O-CFI。
@@ -127,6 +131,7 @@ SafeHidden可以防止未映射区域的无限缩小安全区域不受限制地�
    - **磁盘I/O**：Bonnie ++基准测试工具 
 ### 性能评价
 #### CPU密集型基准测试
+
  - SPEC CPU2006 benchmark with ref input
     - Incurred 2.75% and 2.76% when protecting O-CFI and Shadow Stack.
  - Multi-threaded Parsec-2.1 benchmark with native input
@@ -137,6 +142,7 @@ SafeHidden可以防止未映射区域的无限缩小安全区域不受限制地�
 # 思考
 
 ## 收获
+
  - SafeHidden提出了针对所有已知攻击的基于重新随机化的IH技术。
  - SafeHidden引入了线程专用内存的使用来隔离线程本地安全区域。
  - 它设计了一种检测TLB未命中的新技术。
