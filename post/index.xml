@@ -6,10 +6,19 @@
     <description>Recent content in Posts on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 12 Sep 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2019 10:44:55 +0800</lastBuildDate>
     
 	<atom:link href="https://m2kar.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【工具】sci-hub：一个神奇的免费下载文献的网站</title>
+      <link>https://m2kar.github.io/post/20190920-scihub/</link>
+      <pubDate>Fri, 20 Sep 2019 10:44:55 +0800</pubDate>
+      
+      <guid>https://m2kar.github.io/post/20190920-scihub/</guid>
+      <description>sci-hub：一个神奇的免费下载文献的网站（使用技巧） 转载自 https://zhuanlan.zhihu.com/p/24299207，侵</description>
+    </item>
     
     <item>
       <title>快手笔试题目</title>

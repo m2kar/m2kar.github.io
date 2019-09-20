@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://m2kar.github.io/post/20190920-scihub/</loc>
+    <lastmod>2019-09-20T10:52:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://m2kar.github.io/post/20190917-kuaishou-code-exam/</loc>
     <lastmod>2019-09-18T10:17:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -87,14 +94,14 @@
   
   <url>
     <loc>https://m2kar.github.io/</loc>
-    <lastmod>2019-09-18T10:17:06+08:00</lastmod>
+    <lastmod>2019-09-20T10:52:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.github.io/post/</loc>
-    <lastmod>2019-09-18T10:17:06+08:00</lastmod>
+    <lastmod>2019-09-20T10:52:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -123,6 +130,27 @@
   <url>
     <loc>https://m2kar.github.io/tags/hugo/</loc>
     <lastmod>2019-09-06T20:43:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/sci-hub/</loc>
+    <lastmod>2019-09-20T10:52:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2019-09-20T10:52:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2019-09-20T10:52:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
