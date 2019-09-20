@@ -2,7 +2,7 @@
 title: "【工具】sci-hub：一个神奇的免费下载文献的网站"
 date: 2019-09-20T10:44:55+08:00
 lastmod: 2019-09-20T10:44:55+08:00
-draft: true
+draft: false
 keywords: []
 description: ""
 tags: ["工具","sci-hub"]
