@@ -2,65 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on M2kar - Security World</title>
-    <link>https://m2kar.github.io/categories/</link>
+    <link>https://m2kar.cn/categories/</link>
     <description>Recent content in Categories on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     
-	<atom:link href="https://m2kar.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Life</title>
-      <link>https://m2kar.github.io/categories/life/</link>
+      <link>https://m2kar.cn/categories/life/</link>
       <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/categories/life/</guid>
+      <guid>https://m2kar.cn/categories/life/</guid>
       <description></description>
     </item>
     
     <item>
       <title>工具</title>
-      <link>https://m2kar.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+      <link>https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Mon, 23 Sep 2019 10:11:39 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/categories/%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>笔试</title>
-      <link>https://m2kar.github.io/categories/%E7%AC%94%E8%AF%95/</link>
+      <link>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/categories/%E7%AC%94%E8%AF%95/</guid>
+      <guid>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>论文笔记</title>
-      <link>https://m2kar.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</link>
+      <link>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 05 Sep 2019 18:05:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>资源</title>
-      <link>https://m2kar.github.io/categories/%E8%B5%84%E6%BA%90/</link>
+      <link>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</link>
       <pubDate>Thu, 05 Sep 2019 21:11:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/categories/%E8%B5%84%E6%BA%90/</guid>
+      <guid>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</guid>
       <description></description>
     </item>
     
     <item>
       <title>运维</title>
-      <link>https://m2kar.github.io/categories/%E8%BF%90%E7%BB%B4/</link>
+      <link>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</link>
       <pubDate>Wed, 21 Aug 2019 14:17:57 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/categories/%E8%BF%90%E7%BB%B4/</guid>
+      <guid>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</guid>
       <description></description>
     </item>
     

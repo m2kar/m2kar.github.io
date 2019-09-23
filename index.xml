@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>M2kar - Security World</title>
-    <link>https://m2kar.github.io/</link>
+    <link>https://m2kar.cn/</link>
     <description>Recent content on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 23 Sep 2019 10:11:39 +0800</lastBuildDate>
     
-	<atom:link href="https://m2kar.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.cn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Index</title>
-      <link>https://m2kar.github.io/post/20190923-passcrack/</link>
+      <link>https://m2kar.cn/post/20190923-passcrack/</link>
       <pubDate>Mon, 23 Sep 2019 10:11:39 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190923-passcrack/</guid>
+      <guid>https://m2kar.cn/post/20190923-passcrack/</guid>
       <description></description>
     </item>
     
     <item>
       <title>【工具】sci-hub：一个神奇的免费下载文献的网站</title>
-      <link>https://m2kar.github.io/post/20190920-scihub/</link>
+      <link>https://m2kar.cn/post/20190920-scihub/</link>
       <pubDate>Fri, 20 Sep 2019 10:44:55 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190920-scihub/</guid>
+      <guid>https://m2kar.cn/post/20190920-scihub/</guid>
       <description>sci-hub：一个神奇的免费下载文献的网站（使用技巧） 转载自 https://zhuanlan.zhihu.com/p/24299207，侵</description>
     </item>
     
     <item>
       <title>快手笔试题目</title>
-      <link>https://m2kar.github.io/post/20190917-kuaishou-code-exam/</link>
+      <link>https://m2kar.cn/post/20190917-kuaishou-code-exam/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190917-kuaishou-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190917-kuaishou-code-exam/</guid>
       <description>快手考试遇到了几个笔试题目，先记一下，有些题得重新做 句子逆序 字符串距离 质数分解 数独正确性检测</description>
     </item>
     
     <item>
       <title>美团点评的几道笔试题</title>
-      <link>https://m2kar.github.io/post/20190912-meituan-code-exam/</link>
+      <link>https://m2kar.cn/post/20190912-meituan-code-exam/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190912-meituan-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190912-meituan-code-exam/</guid>
       <description>美团考试遇到了几个笔试题目，先记一下，有些题得重新做 黑客入侵点定位 题目描述 实现 分为两段执行： 1. 分别将模块1-12，模块1-24，模块1-48</description>
     </item>
     
     <item>
       <title>美团点评的几道笔试题</title>
-      <link>https://m2kar.github.io/post/20190917-yuewen-code-exam/</link>
+      <link>https://m2kar.cn/post/20190917-yuewen-code-exam/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190917-yuewen-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190917-yuewen-code-exam/</guid>
       <description>美团考试遇到了几个笔试题目，先记一下，有些题得重新做 黑客入侵点定位 题目描述 实现 分为两段执行： 1. 分别将模块1-12，模块1-24，模块1-48</description>
     </item>
     
     <item>
       <title>华为的几道笔试题</title>
-      <link>https://m2kar.github.io/post/20190912-huawei-code-exam/</link>
+      <link>https://m2kar.cn/post/20190912-huawei-code-exam/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190912-huawei-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190912-huawei-code-exam/</guid>
       <description>华为考试遇到了几个笔试题目，先记一下，有些题得重新做、 &amp;gt;笔试信息试卷名称：【华为2019年校园招聘】2019-9-11 软件题 &amp;gt;考</description>
     </item>
     
     <item>
       <title>字节跳动的几道笔试题</title>
-      <link>https://m2kar.github.io/post/20190908-bytedance-code-exam/</link>
+      <link>https://m2kar.cn/post/20190908-bytedance-code-exam/</link>
       <pubDate>Sun, 08 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190908-bytedance-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190908-bytedance-code-exam/</guid>
       <description>字节跳动考试遇到了几个笔试题目，先记一下，有些题得重新做 机器人向前看 数字二义性解码 三只水桶倒水问题 数字方块问题</description>
     </item>
     
     <item>
       <title>软件学报zotero文献格式</title>
-      <link>https://m2kar.github.io/post/20190905-jos-csl/</link>
+      <link>https://m2kar.cn/post/20190905-jos-csl/</link>
       <pubDate>Thu, 05 Sep 2019 21:11:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190905-jos-csl/</guid>
+      <guid>https://m2kar.cn/post/20190905-jos-csl/</guid>
       <description>转自https://download.csdn.net/download/yesterday_sky/11065808 格式说明 软件学报的cs</description>
     </item>
     
     <item>
       <title>【论文笔记】SafeHidden: An Efficient and Secure Information Hiding Technique Using Re-randomization</title>
-      <link>https://m2kar.github.io/post/20190905-safehidden/</link>
+      <link>https://m2kar.cn/post/20190905-safehidden/</link>
       <pubDate>Thu, 05 Sep 2019 18:05:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190905-safehidden/</guid>
+      <guid>https://m2kar.cn/post/20190905-safehidden/</guid>
       <description>SafeHidden: An Efficient and Secure Information 概览 摘要 中文（翻译） 在众多代码重用攻击的防御手段中，信息隐藏(Information Hiding,IH)由于其有效性和高性能，成</description>
     </item>
     
     <item>
       <title>使用Travis-CI部署Hugo，实现自动化部署</title>
-      <link>https://m2kar.github.io/post/20190821-deploy-use-travis-ci/</link>
+      <link>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</link>
       <pubDate>Wed, 21 Aug 2019 14:17:57 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190821-deploy-use-travis-ci/</guid>
+      <guid>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</guid>
       <description>需求描述 Hugo是一个静态网站生成工具。</description>
     </item>
     
     <item>
       <title>[Life] 欢迎</title>
-      <link>https://m2kar.github.io/post/20190815-new-bolg/</link>
+      <link>https://m2kar.cn/post/20190815-new-bolg/</link>
       <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190815-new-bolg/</guid>
+      <guid>https://m2kar.cn/post/20190815-new-bolg/</guid>
       <description>欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io</description>
     </item>
     

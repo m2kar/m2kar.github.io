@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>笔试 on M2kar - Security World</title>
-    <link>https://m2kar.github.io/categories/%E7%AC%94%E8%AF%95/</link>
+    <link>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</link>
     <description>Recent content in 笔试 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 12 Sep 2019 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://m2kar.github.io/categories/%E7%AC%94%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>快手笔试题目</title>
-      <link>https://m2kar.github.io/post/20190917-kuaishou-code-exam/</link>
+      <link>https://m2kar.cn/post/20190917-kuaishou-code-exam/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190917-kuaishou-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190917-kuaishou-code-exam/</guid>
       <description>快手考试遇到了几个笔试题目，先记一下，有些题得重新做 句子逆序 字符串距离 质数分解 数独正确性检测</description>
     </item>
     
     <item>
       <title>美团点评的几道笔试题</title>
-      <link>https://m2kar.github.io/post/20190912-meituan-code-exam/</link>
+      <link>https://m2kar.cn/post/20190912-meituan-code-exam/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190912-meituan-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190912-meituan-code-exam/</guid>
       <description>美团考试遇到了几个笔试题目，先记一下，有些题得重新做 黑客入侵点定位 题目描述 实现 分为两段执行： 1. 分别将模块1-12，模块1-24，模块1-48</description>
     </item>
     
     <item>
       <title>美团点评的几道笔试题</title>
-      <link>https://m2kar.github.io/post/20190917-yuewen-code-exam/</link>
+      <link>https://m2kar.cn/post/20190917-yuewen-code-exam/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190917-yuewen-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190917-yuewen-code-exam/</guid>
       <description>美团考试遇到了几个笔试题目，先记一下，有些题得重新做 黑客入侵点定位 题目描述 实现 分为两段执行： 1. 分别将模块1-12，模块1-24，模块1-48</description>
     </item>
     
     <item>
       <title>华为的几道笔试题</title>
-      <link>https://m2kar.github.io/post/20190912-huawei-code-exam/</link>
+      <link>https://m2kar.cn/post/20190912-huawei-code-exam/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190912-huawei-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190912-huawei-code-exam/</guid>
       <description>华为考试遇到了几个笔试题目，先记一下，有些题得重新做、 &amp;gt;笔试信息试卷名称：【华为2019年校园招聘】2019-9-11 软件题 &amp;gt;考</description>
     </item>
     
     <item>
       <title>字节跳动的几道笔试题</title>
-      <link>https://m2kar.github.io/post/20190908-bytedance-code-exam/</link>
+      <link>https://m2kar.cn/post/20190908-bytedance-code-exam/</link>
       <pubDate>Sun, 08 Sep 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190908-bytedance-code-exam/</guid>
+      <guid>https://m2kar.cn/post/20190908-bytedance-code-exam/</guid>
       <description>字节跳动考试遇到了几个笔试题目，先记一下，有些题得重新做 机器人向前看 数字二义性解码 三只水桶倒水问题 数字方块问题</description>
     </item>
     

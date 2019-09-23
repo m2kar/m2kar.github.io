@@ -1,246 +1,246 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<?xml-stylesheet type="text/xsl" href="https://m2kar.github.io/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://m2kar.cn/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://m2kar.github.io/post/20190923-passcrack/</loc>
+    <loc>https://m2kar.cn/post/20190923-passcrack/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190920-scihub/</loc>
+    <loc>https://m2kar.cn/post/20190920-scihub/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190917-kuaishou-code-exam/</loc>
+    <loc>https://m2kar.cn/post/20190917-kuaishou-code-exam/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190912-meituan-code-exam/</loc>
+    <loc>https://m2kar.cn/post/20190912-meituan-code-exam/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190917-yuewen-code-exam/</loc>
+    <loc>https://m2kar.cn/post/20190917-yuewen-code-exam/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190912-huawei-code-exam/</loc>
+    <loc>https://m2kar.cn/post/20190912-huawei-code-exam/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190908-bytedance-code-exam/</loc>
+    <loc>https://m2kar.cn/post/20190908-bytedance-code-exam/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190905-jos-csl/</loc>
+    <loc>https://m2kar.cn/post/20190905-jos-csl/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190905-safehidden/</loc>
+    <loc>https://m2kar.cn/post/20190905-safehidden/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190821-deploy-use-travis-ci/</loc>
+    <loc>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/20190815-new-bolg/</loc>
+    <loc>https://m2kar.cn/post/20190815-new-bolg/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/</loc>
+    <loc>https://m2kar.cn/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/life/</loc>
+    <loc>https://m2kar.cn/tags/life/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/life/</loc>
+    <loc>https://m2kar.cn/categories/life/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/</loc>
+    <loc>https://m2kar.cn/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/post/</loc>
+    <loc>https://m2kar.cn/post/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/</loc>
+    <loc>https://m2kar.cn/tags/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/code/</loc>
+    <loc>https://m2kar.cn/tags/code/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/devops/</loc>
+    <loc>https://m2kar.cn/tags/devops/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/hugo/</loc>
+    <loc>https://m2kar.cn/tags/hugo/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/sci-hub/</loc>
+    <loc>https://m2kar.cn/tags/sci-hub/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://m2kar.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</loc>
+    <loc>https://m2kar.cn/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E7%AC%94%E8%AF%95/</loc>
+    <loc>https://m2kar.cn/tags/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/%E7%AC%94%E8%AF%95/</loc>
+    <loc>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://m2kar.cn/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://m2kar.cn/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</loc>
+    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E8%B5%84%E6%BA%90/</loc>
+    <loc>https://m2kar.cn/tags/%E8%B5%84%E6%BA%90/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/%E8%B5%84%E6%BA%90/</loc>
+    <loc>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/categories/%E8%BF%90%E7%BB%B4/</loc>
+    <loc>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.github.io/tags/%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90/</loc>
+    <loc>https://m2kar.cn/tags/%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>

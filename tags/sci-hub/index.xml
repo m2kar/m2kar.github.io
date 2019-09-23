@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sci-hub on M2kar - Security World</title>
-    <link>https://m2kar.github.io/tags/sci-hub/</link>
+    <link>https://m2kar.cn/tags/sci-hub/</link>
     <description>Recent content in sci-hub on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 20 Sep 2019 10:44:55 +0800</lastBuildDate>
     
-	<atom:link href="https://m2kar.github.io/tags/sci-hub/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.cn/tags/sci-hub/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>【工具】sci-hub：一个神奇的免费下载文献的网站</title>
-      <link>https://m2kar.github.io/post/20190920-scihub/</link>
+      <link>https://m2kar.cn/post/20190920-scihub/</link>
       <pubDate>Fri, 20 Sep 2019 10:44:55 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/20190920-scihub/</guid>
+      <guid>https://m2kar.cn/post/20190920-scihub/</guid>
       <description>sci-hub：一个神奇的免费下载文献的网站（使用技巧） 转载自 https://zhuanlan.zhihu.com/p/24299207，侵</description>
     </item>
     
