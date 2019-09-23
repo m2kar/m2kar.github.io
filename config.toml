@@ -61,7 +61,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   since = "2019"            # Site creation time          # 站点建立时间
   # use public git repo url to link lastmod git commit, enableGitInfo should be true.
   # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
-  gitRepo = "git@github.com:m2kar/m2kar.github.io.git"
+  gitRepo = "https://github.com/m2kar/m2kar.github.io"
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
   logoTitle = ""        # default: the title value    # 默认值: 上面设置的title值
