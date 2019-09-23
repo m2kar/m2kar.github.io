@@ -1,4 +1,4 @@
-baseURL = "https://m2kar.github.io/"
+baseURL = "https://m2kar.cn/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "M2kar - Security World"
