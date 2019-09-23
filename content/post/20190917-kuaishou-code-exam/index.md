@@ -5,6 +5,7 @@ lastmod: 2019-09-12T00:00:00+08:00
 draft: false
 tags: ["code","笔试","算法"]
 categories: ["笔试"]
+author: "m2kar <m2kar.cn@gmail.com>"
 ---
 
 快手考试遇到了几个笔试题目，先记一下，有些题得重新做

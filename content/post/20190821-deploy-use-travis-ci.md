@@ -7,8 +7,7 @@ keywords: []
 description: ""
 tags: ["devOps","hugo"]
 categories: ["运维"]
-author: "m2kar"
-
+author: "m2kar <m2kar.cn@gmail.com>"
 ---
 
 <!--more-->

@@ -7,8 +7,7 @@ keywords: []
 description: ""
 tags: ["工具","sci-hub"]
 categories: ["工具"]
-author: ""
-
+author: "m2kar <m2kar.cn@gmail.com>"
 ---
 
 

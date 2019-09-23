@@ -8,7 +8,7 @@ keywords: ["论文","SafeHidden","系统安全"]
 description: "一种新型的内存地址随机化的增强方案SafeHidden，可以解决内存地址随机化（ASLR）的不安全问题。"
 tags: ["论文笔记","系统安全","流量分析","静态分析"]
 categories: ["论文笔记"]
-author: "m2kar"
+author: "m2kar <m2kar.cn@gmail.com>"
 
 ---
 

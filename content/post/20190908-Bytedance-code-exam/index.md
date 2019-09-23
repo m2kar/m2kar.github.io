@@ -11,6 +11,7 @@ categories: ["笔试"]
 字节跳动考试遇到了几个笔试题目，先记一下，有些题得重新做
 
 # 机器人向前看
+
 <script src="https://gist.github.com/m2kar/13a2290bb0157f76dd1ee1d0d2a641c0.js"></script>
 
 # 数字二义性解码
