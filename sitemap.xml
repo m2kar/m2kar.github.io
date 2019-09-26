@@ -79,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/life/</loc>
+    <loc>https://m2kar.cn/categories/life/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/life/</loc>
+    <loc>https://m2kar.cn/tags/life/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -142,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://m2kar.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E7%AC%94%E8%AF%95/</loc>
+    <loc>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</loc>
+    <loc>https://m2kar.cn/tags/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -198,13 +198,6 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-09-23T10:22:33+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -212,7 +205,7 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E8%B5%84%E6%BA%90/</loc>
+    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -220,6 +213,13 @@
   
   <url>
     <loc>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</loc>
+    <lastmod>2019-09-23T10:22:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/%E8%B5%84%E6%BA%90/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
