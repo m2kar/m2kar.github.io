@@ -33,6 +33,7 @@ install:
 
 script:
   - hugo -t even
+  - cp CNAME public/
   - pushd public 
   - git add .
   - git commit -m "auto depoly ${commit_msg} "
