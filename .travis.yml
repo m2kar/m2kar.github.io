@@ -33,7 +33,6 @@ install:
 
 script:
   - hugo -t even
-  - tree
   - pushd public 
   - git add .
   - git commit -m "auto depoly ${commit_msg} "
