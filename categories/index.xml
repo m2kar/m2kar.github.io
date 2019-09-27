@@ -6,10 +6,18 @@
     <description>Recent content in Categories on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Sep 2019 10:44:55 +0800</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Life</title>
+      <link>https://m2kar.cn/categories/life/</link>
+      <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/categories/life/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>工具</title>
@@ -30,15 +38,6 @@
     </item>
     
     <item>
-      <title>资源</title>
-      <link>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</link>
-      <pubDate>Thu, 05 Sep 2019 21:11:00 +0800</pubDate>
-      
-      <guid>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>论文笔记</title>
       <link>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 05 Sep 2019 18:05:00 +0800</pubDate>
@@ -48,20 +47,20 @@
     </item>
     
     <item>
+      <title>资源</title>
+      <link>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Thu, 05 Sep 2019 21:11:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>运维</title>
       <link>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</link>
       <pubDate>Wed, 21 Aug 2019 14:17:57 +0800</pubDate>
       
       <guid>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Life</title>
-      <link>https://m2kar.cn/categories/life/</link>
-      <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
-      
-      <guid>https://m2kar.cn/categories/life/</guid>
       <description></description>
     </item>
     
