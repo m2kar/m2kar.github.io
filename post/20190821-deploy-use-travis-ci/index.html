@@ -42,15 +42,15 @@
 <meta property="og:description" content="需求描述 Hugo是一个静态网站生成工具，如果每次都要手动编译然后上传着实麻烦，如果能每次编辑完提交之后使用自动化运维自动生成对应的网站，则回" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m2kar.cn/post/20190821-deploy-use-travis-ci/" /><meta property="article:published_time" content="2019-08-21T14:17:57&#43;08:00"/>
-<meta property="article:modified_time" content="2019-09-27T10:39:36&#43;08:00"/>
+<meta property="article:modified_time" content="2019-09-27T10:55:06&#43;08:00"/>
 
 <meta itemprop="name" content="使用Travis-CI部署Hugo，实现自动化部署">
 <meta itemprop="description" content="需求描述 Hugo是一个静态网站生成工具，如果每次都要手动编译然后上传着实麻烦，如果能每次编辑完提交之后使用自动化运维自动生成对应的网站，则回">
 
 
 <meta itemprop="datePublished" content="2019-08-21T14:17:57&#43;08:00" />
-<meta itemprop="dateModified" content="2019-09-27T10:39:36&#43;08:00" />
-<meta itemprop="wordCount" content="950">
+<meta itemprop="dateModified" content="2019-09-27T10:55:06&#43;08:00" />
+<meta itemprop="wordCount" content="1134">
 
 
 
@@ -140,8 +140,12 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#需求描述">需求描述</a></li>
-<li><a href="#blog分支中配置-travis-yml">blog分支中配置 <code>.travis.yml</code></a></li>
+<li><a href="#需求描述">需求描述</a>
+<ul>
+<li><a href="#步骤说明">步骤说明</a></li>
+</ul></li>
+<li><a href="#建立hugo-项目分支">建立hugo 项目分支</a></li>
+<li><a href="#blog分支中配置-travis-yml">blog分支中配置<code>.travis.yml</code></a></li>
 <li><a href="#申请github-key">申请github key</a></li>
 <li><a href="#在travis上配置">在travis上配置</a></li>
 <li><a href="#在linux-mac上部署docker实现hugo">在Linux/Mac上部署docker实现hugo</a>
@@ -161,7 +165,47 @@
 
 <p>travis则提供了这样一个自动化运维的功能，而且对github的开源工程是免费的，和GitHub能较好的集成。</p>
 
-<h1 id="blog分支中配置-travis-yml">blog分支中配置 <code>.travis.yml</code></h1>
+<p>使用travis配置自动化部署需要如下几步：</p>
+
+<h2 id="步骤说明">步骤说明</h2>
+
+<ol>
+<li>建立hugo 项目分支</li>
+<li>blog分支中配置<code>.travis.yml</code></li>
+<li>申请github key</li>
+<li>在travis上配置</li>
+</ol>
+
+<p>下面开始详细叙述。</p>
+
+<h1 id="建立hugo-项目分支">建立hugo 项目分支</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">hugo new site blog
+cd blog
+git init
+git remote add origin git@github.com:m2kar/m2kar.github.io.git
+git checkout -b blog
+git add .
+git commit -m &#34;first commit&#34;
+git push -u origin blog</pre></td></tr></table>
+</div>
+</div>
+<p>然后在github的项目设置中把blog设置为主分支。</p>
+
+<p>其他细节可以参考: <a href="https://mogeko.me/2018/018/">https://mogeko.me/2018/018/</a> 不再赘述。</p>
+
+<h1 id="blog分支中配置-travis-yml">blog分支中配置<code>.travis.yml</code></h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt"> 1
@@ -318,7 +362,7 @@
     <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-09-27
-        <a href="https://github.com/m2kar/m2kar.github.io/commit/78e3d22f9badb2a1008f383a75e5e06398ef3c9e" title="Update 20190821-deploy-use-travis-ci.md">(78e3d22)</a>
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/7e659cb5cbe86b81f2c26d334f1b7661798b3136" title="Update 20190821-deploy-use-travis-ci.md">(7e659cb)</a>
     </span>
   </p>
   
