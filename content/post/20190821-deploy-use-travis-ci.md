@@ -16,7 +16,34 @@ Hugo是一个静态网站生成工具，如果每次都要手动编译然后上�
 
 travis则提供了这样一个自动化运维的功能，而且对github的开源工程是免费的，和GitHub能较好的集成。
 
-# blog分支中配置 `.travis.yml`
+使用travis配置自动化部署需要如下几步：
+
+## 步骤说明
+1. 建立hugo 项目分支
+2. blog分支中配置`.travis.yml` 
+3. 申请github key
+4. 在travis上配置
+
+下面开始详细叙述。
+# 建立hugo 项目分支
+
+```
+hugo new site blog
+cd blog
+git init
+git remote add origin git@github.com:m2kar/m2kar.github.io.git
+git checkout -b blog
+git add .
+git commit -m "first commit"
+git push -u origin blog
+
+```
+
+然后在github的项目设置中把blog设置为主分支。
+
+其他细节可以参考: https://mogeko.me/2018/018/ 不再赘述。
+
+# blog分支中配置`.travis.yml`
 
 ```yml
 
