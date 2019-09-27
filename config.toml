@@ -209,14 +209,14 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
 # 将下面这段配置取消注释可以使 hugo 生成 .md 文件
 # Uncomment these options to make hugo output .md files.
-#[mediaTypes]
-# [mediaTypes."text/plain"]
-#   suffixes = ["md"]
+[mediaTypes]
+ [mediaTypes."text/plain"]
+   suffixes = ["md"]
 
-#[outputFormats.MarkDown]
-# mediaType = "text/plain"
-# isPlainText = true
-# isHTML = false
+[outputFormats.MarkDown]
+ mediaType = "text/plain"
+ isPlainText = true
+ isHTML = false
 
 [outputs]
  home = ["HTML", "RSS"]
