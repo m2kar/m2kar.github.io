@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="m2kar" /><meta name="description" content="" /><meta name="keywords" content="hugo, travis" />
+<meta name="author" content="m2kar" /><meta name="description" content="需求描述 Hugo是一个静态网站生成工具，如果每次都要手动编译然后上传着实麻烦，如果能每次编辑完提交之后使用自动化运维自动生成对应的网站，则回" /><meta name="keywords" content="hugo, travis" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0 with theme even" />
+<meta name="generator" content="Hugo 0.51 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://m2kar.cn/post/20190821-deploy-use-travis-ci/" />
@@ -39,26 +39,25 @@
 
 
 <meta property="og:title" content="使用Travis-CI部署Hugo，实现自动化部署" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="需求描述 Hugo是一个静态网站生成工具，如果每次都要手动编译然后上传着实麻烦，如果能每次编辑完提交之后使用自动化运维自动生成对应的网站，则回" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://m2kar.cn/post/20190821-deploy-use-travis-ci/" />
-<meta property="article:published_time" content="2019-08-21T14:17:57&#43;08:00"/>
+<meta property="og:url" content="https://m2kar.cn/post/20190821-deploy-use-travis-ci/" /><meta property="article:published_time" content="2019-08-21T14:17:57&#43;08:00"/>
 <meta property="article:modified_time" content="2019-09-27T10:55:06&#43;08:00"/>
 
 <meta itemprop="name" content="使用Travis-CI部署Hugo，实现自动化部署">
-<meta itemprop="description" content="">
+<meta itemprop="description" content="需求描述 Hugo是一个静态网站生成工具，如果每次都要手动编译然后上传着实麻烦，如果能每次编辑完提交之后使用自动化运维自动生成对应的网站，则回">
 
 
 <meta itemprop="datePublished" content="2019-08-21T14:17:57&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-27T10:55:06&#43;08:00" />
-<meta itemprop="wordCount" content="1116">
+<meta itemprop="wordCount" content="1134">
 
 
 
 <meta itemprop="keywords" content="devOps,hugo,travis," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用Travis-CI部署Hugo，实现自动化部署"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="需求描述 Hugo是一个静态网站生成工具，如果每次都要手动编译然后上传着实麻烦，如果能每次编辑完提交之后使用自动化运维自动生成对应的网站，则回"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -280,10 +279,10 @@ git push -u origin blog</pre></td></tr></table>
 </span><span class="w">  </span>-<span class="w"> </span>hugo<span class="w"> </span>version<span class="w">
 </span><span class="w">    </span><span class="c">#- git clone -b ${TRAVIS_BRANCH} --recursive https://github.com/m2kar.github.io.git</span><span class="w">
 </span><span class="w">    </span><span class="c">#- cd m2kar.github.io</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-p<span class="w"> </span>-<span class="m">2</span><span class="w"> </span>|<span class="w"> </span>cat<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>commit_msg=$(git<span class="w"> </span>log<span class="w"> </span>-n1<span class="w"> </span>--pretty=format<span class="p">:</span><span class="s2">&#34;%s&#34;</span>)<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>-b<span class="w"> </span>master<span class="w"> </span>https<span class="p">:</span>//${GH_APIKEY}@github.com/m2kar/m2kar.github.io.git<span class="w"> </span>public<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>public/*<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-p<span class="w"> </span>-<span class="m">2</span><span class="w"> </span><span class="sd">| cat
+</span><span class="sd">  - commit_msg=$(git log -n1 --pretty=format:&#34;%s&#34;)
+</span><span class="sd">  - git clone --recursive -b master https://${GH_APIKEY}@github.com/m2kar/m2kar.github.io.git public
+</span><span class="sd">  - rm -rf public/*</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span>script<span class="p">:</span><span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>hugo<span class="w"> </span>-t<span class="w"> </span>even<span class="w">
@@ -366,12 +365,10 @@ git push -u origin blog</pre></td></tr></table>
         <a href="https://github.com/m2kar/m2kar.github.io/commit/7e659cb5cbe86b81f2c26d334f1b7661798b3136" title="Update 20190821-deploy-use-travis-ci.md">(7e659cb)</a>
     </span>
   </p>
-  
-    <p class="copyright-item">
+  <p class="copyright-item">
       <span class="item-title">原始文档</span>
-      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20190821-deploy-use-travis-ci.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+      <span class="item-content"><a class="link-to-markdown" href="https://m2kar.cn/post/20190821-deploy-use-travis-ci/index.md" target="_blank">查看本文 Markdown 版本 »</a></span>
     </p>
-    
   <p class="copyright-item">
     <span class="item-title">许可协议</span>
     <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
@@ -399,7 +396,7 @@ git push -u origin blog</pre></td></tr></table>
   </article>
         </div>
         
-
+  
   
 
   
