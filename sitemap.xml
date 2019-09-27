@@ -60,7 +60,7 @@
   
   <url>
     <loc>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</loc>
-    <lastmod>2019-09-27T10:38:48+08:00</lastmod>
+    <lastmod>2019-09-27T10:39:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -122,14 +122,14 @@
   
   <url>
     <loc>https://m2kar.cn/tags/devops/</loc>
-    <lastmod>2019-09-27T10:38:48+08:00</lastmod>
+    <lastmod>2019-09-27T10:39:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/hugo/</loc>
-    <lastmod>2019-09-27T10:38:48+08:00</lastmod>
+    <lastmod>2019-09-27T10:39:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -137,6 +137,13 @@
   <url>
     <loc>https://m2kar.cn/tags/sci-hub/</loc>
     <lastmod>2019-09-23T10:22:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/travis/</loc>
+    <lastmod>2019-09-27T10:39:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -227,7 +234,7 @@
   
   <url>
     <loc>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</loc>
-    <lastmod>2019-09-27T10:38:48+08:00</lastmod>
+    <lastmod>2019-09-27T10:39:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
