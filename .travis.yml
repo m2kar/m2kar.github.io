@@ -1,41 +1,34 @@
 language: go
 
+services:
+  - docker
+
 branches:
   only:
     - blog  # 设置自动化部署的源码分支
     - 2-travis-auto-depoly # test for travis
 
 # cache this directory
-cache:
-  directories:
-    - themes
-    # - public
+
+# cache:
+#   directories:
+  # - themes
+  
     #- themes 主题没有更改时可以缓存
 
-before_install:
-- export TZ='Asia/Shanghai'  # 设置时区
-  #- npm install -g hexo
-  #- npm install -g hexo-cli
-
 # 安装依赖组件
+before_install:
+  - export TZ='Asia/Shanghai'  # 设置时区
+  - docker pull jguyomard/hugo-builder
+  - docker run --rm -it -v $PWD:/src -u ${UID}:hugo jguyomard/hugo-builder hugo version
+
 install:
-  - wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.tar.gz
-  - tar -xzvf hugo_0.51_Linux-64bit.tar.gz
-  - chmod +x hugo
-  - export PATH=$PATH:$PWD
-  - hugo version
-    #- git clone -b ${TRAVIS_BRANCH} --recursive https://github.com/m2kar.github.io.git
-    #- cd m2kar.github.io
   - git log -p -2 | cat
   - commit_msg=$(git log -n1 --pretty=format:"%s")
   - git clone --recursive -b master https://${GH_APIKEY}@github.com/m2kar/m2kar.github.io.git public
-  - rm -rf public/*
 
 script:
-  - hugo -t even
-  - cp CNAME public/
+  - docker run --rm -it -v $PWD:/src -u $UID:hugo jguyomard/hugo-builder hugo
   - pushd public 
-  - git add .
-  - git commit -m "auto depoly ${commit_msg} "
-  - git push
+  - ( git add . && git commit -m "" && git push ) || echo "nothing to commit"
   - echo "depoly done"

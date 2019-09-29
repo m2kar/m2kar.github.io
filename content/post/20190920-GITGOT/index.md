@@ -2,7 +2,7 @@
 title: "[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具"
 date: 2019-09-20T14:54:24+08:00
 lastmod: 2019-09-20T14:54:24+08:00
-draft: true
+draft: false
 keywords: ["工具","GitGot","复现"]
 description: ""
 tags: []

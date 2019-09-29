@@ -2,7 +2,7 @@
 title: "[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码"
 date: 2019-09-20T10:54:24+08:00
 lastmod: 2019-09-20T10:54:24+08:00
-draft: true
+draft: false
 keywords: ["工具","EMAGNET","复现"]
 description: ""
 tags: []
