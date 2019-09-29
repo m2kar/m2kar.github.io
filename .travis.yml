@@ -9,11 +9,11 @@ branches:
     - 2-travis-auto-depoly # test for travis
 
 # cache this directory
-cache:
-  directories:
-   - public
-    # - themes
-    # - public
+
+# cache:
+#   directories:
+  # - themes
+  
     #- themes 主题没有更改时可以缓存
 
 # 安装依赖组件
