@@ -34,7 +34,7 @@ author: "m2kar <m2kar.cn@gmail.com>"
 ACCESS_TOKEN= "<NO-PERMISSION-GITHUB-TOKEN-HERE>"
 ```
 
-![1568962383377](1568962383377.png)
+![1568962383377](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568962383377.png)
 
 
 
@@ -58,19 +58,19 @@ ACCESS_TOKEN= "<NO-PERMISSION-GITHUB-TOKEN-HERE>"
 
 搜索到了一些手机号,邮箱,姓名这样的敏感信息 
 
-![1568963130665](1568963130665.png)
+![1568963130665](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568963130665.png)
 
 发现很多机器学习的恶意邮件分类数据集中竟然包含很多的较为敏感的邮箱和域名信息
 
-![1568963695626](1568963695626.png)
+![1568963695626](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568963695626.png)
 
 可以使用交互命令设置是否显示内容。如果设置是否忽略相似内容，则会根据相似度判断是否忽略。
 
-![1568963367464](1568963367464.png)
+![1568963367464](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568963367464.png)
 
 还有这种极度敏感的信息。
 
-![1568963974671](1568963974671.png)
+![1568963974671](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568963974671.png)
 
 这是PHP的password_hash函数生成的密码。
 

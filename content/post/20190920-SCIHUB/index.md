@@ -7,7 +7,6 @@ keywords: []
 description: ""
 tags: ["工具","sci-hub"]
 categories: ["工具"]
-author: "m2kar <m2kar.cn@gmail.com>"
 ---
 
 
@@ -58,9 +57,9 @@ http://www.sci-hub.org.cn/
 
 下面在网址上加[http://sci-hub.cc](https://link.zhihu.com/?target=http%3A//sci-hub.cc)的方法，目前可以改成加[http://sci-hub.tw](https://link.zhihu.com/?target=http%3A//sci-hub.tw)，这样还是可以用的。
 
-![img](v2-eee237643cb814d3c5e118c3a27ae68c_hd.jpg)如果你使用www.sci-hub.org.cn这个网站，sci-hub和谷歌联合起来的搜索引擎，检索的结果点击全文下载，会出现意想不到的结果。
+![img](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/v2-eee237643cb814d3c5e118c3a27ae68c_hd.jpg)如果你使用www.sci-hub.org.cn这个网站，sci-hub和谷歌联合起来的搜索引擎，检索的结果点击全文下载，会出现意想不到的结果。
 
-![img](v2-e0a758ec7e1650ee37909c1e558f4d41_hd.jpg)
+![img](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/v2-e0a758ec7e1650ee37909c1e558f4d41_hd.jpg)
 
 出现的结果会给出影响因子和中科院JCR分区，右侧几个按钮尝试一下，很多是可以一键下载的。
 
@@ -76,7 +75,7 @@ http://www.sci-hub.org.cn/
 
 sci-hub的主页长这样
 
-![img](v2-b7809fb09be8946371b5dd63efe1cd82_hd.jpg)
+![img](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/v2-b7809fb09be8946371b5dd63efe1cd82_hd.jpg)
 
 
 
@@ -92,15 +91,15 @@ sci-hub的宗旨是移除科研道路上的所有障碍。
 
 而，sci-hub可以解决这个问题。这些下载不了的文献sci-hub基本可以解决90%。假设我平时文献有20%下载不了。现在sci-hub能解决其中的90%，那就只剩下20%*10%=2%的我需要的文献无法下载了。是不是很开心。
 
-![img](v2-3c558d5abd6601aaf6605cb7616a1c8c_hd.jpg)
+![img](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/v2-3c558d5abd6601aaf6605cb7616a1c8c_hd.jpg)
 
-![img](v2-0461e7d8c50566c4c3386e01375ed469_hd.jpg)
+![img](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/v2-0461e7d8c50566c4c3386e01375ed469_hd.jpg)
 
 
 
 sci-hub的创始人是哈萨克斯坦的一个女研究生，苦于自己太穷下不起论文，一言不合自己写了一个网站，供全球科研工作者下载论文。到现在有800万的用户，3700万的访问，7000多万次的下载。按照10美元一次下载计算，他为科研工作者节省了7亿美元。
 
-![img](v2-3eecee1c6eca1ab154cbe13032054230_hd.jpg)
+![img](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/v2-3eecee1c6eca1ab154cbe13032054230_hd.jpg)
 
 
 
@@ -116,13 +115,13 @@ sci-hub的创始人是哈萨克斯坦的一个女研究生，苦于自己太穷�
 
 例如下面这个例子:
 
-![img](v2-c26ffece733ef4d0761c5d5e48bb381d_hd.jpg)
+![img](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/v2-c26ffece733ef4d0761c5d5e48bb381d_hd.jpg)
 
 
 
 [Lake Qinghai, China: closed-basin like levels and the oxygen isotope record for ostracoda since the latest Pleistocene](https://link.zhihu.com/?target=http%3A//www.sciencedirect.com/science/article/pii/003101829190041O)这个网址，这篇论文是需要purchase的。但是在.com后面加上.sci-hub.tw([Science, health and medical journals, full text articles and books.](https://link.zhihu.com/?target=http%3A//www.sciencedirect.com/).sci-hub.tw/science/article/pii/003101829190041O)立刻就变成了可下载状态。
 
-![img](v2-02e29c61edd7edd2a3b8274e21ac0f2b_hd.jpg)
+![img](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/v2-02e29c61edd7edd2a3b8274e21ac0f2b_hd.jpg)
 
 
 

@@ -48,7 +48,7 @@ USENix Security 2019, 赫赫有名的安全顶级学术会议
 ## 待解决问题
 先来介绍下内存地址随机化技术,这个技术，可以看一下这个[ASLR][1]。一些攻击，比如return-oriented programming (ROP)之类的[代码复用攻击][4]，会试图得到被攻击者的内存布局信息。这样就可以知道代码或者数据放在哪里，来定位并进行攻击。比如可以找到ROP里面的gadget。而ASLR让这些内存区域随机分布，来提高攻击者成功难度，让他们只能通过猜猜猜来进行不断试错的攻击(理想状况下)。下图举了个例子。
 
-![ASLR](./ASLR.png)
+![ASLR](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/ASLR.png)
 
 但是ASLR已经不再安全，有多种方式可以对它发起攻击。如：
 ### 攻击方式
@@ -80,11 +80,11 @@ USENix Security 2019, 赫赫有名的安全顶级学术会议
 ### 对于攻击类型1 
 攻击类型1是收集内存布局信息以帮助找到安全区域。
 
-![memory layout event](./vector1.png)
+![memory layout event](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/vector1.png)
 ### 对于攻击类型2
  攻击类型2是创建探测机会而不会使系统崩溃。
 
-![probe safe area](./vector2.png)
+![probe safe area](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/vector2.png)
 ### 对于攻击类型3
 攻击类型3是减少随机安全区域位置的熵。
 
@@ -106,17 +106,17 @@ SafeHidden可以防止未映射区域的无限缩小安全区域不受限制地�
  - 一旦检测到这样的合法访问，安全隐藏将随机化安全区域的位置。
  - 对页表缓存侧通道攻击的**关键步骤**是强制页表行走。
 
-![force-page-table-walk](./force-page-table-walk.png)
+![force-page-table-walk](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/force-page-table-walk.png)
 #### 将TLB miss转为页错误
 
  - 设置保留位后，将在页表行走期间触发页面错误异常。
  - 设置保留位后，将在页表行走期间触发页面错误异常。
    - 当TLB未命中时，它将被捕获到pf处理程序中。
 #### 页表错误处理器的流程图
-![Flowchart-of-Page-Fault-Handler.png](./Flowchart-of-Page-Fault-Handler.png)
+![Flowchart-of-Page-Fault-Handler.png](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/Flowchart-of-Page-Fault-Handler.png)
 
 ### 系统整体设计
-![architecture-overview.png](./architecture-overview.png)
+![architecture-overview.png](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/architecture-overview.png)
 
 ## 效果
 ### 实验环境

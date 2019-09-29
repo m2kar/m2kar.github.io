@@ -26,7 +26,7 @@ chmod +x emagnet*
 ./emagnet --emagnet
 ```
 
-![1568950222186](1568950222186.png)
+![1568950222186](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568950222186.png)
 
 运行失败,提示IP被锁
 
@@ -41,7 +41,7 @@ chmod +x emagnet*
 
 
 
-![1568960925457](1568960925457.png)
+![1568960925457](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568960925457.png)
 
 ## docker 运行
 

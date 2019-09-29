@@ -13,7 +13,7 @@ author: "m2kar <m2kar.cn@gmail.com>"
 # 黑客入侵点定位
 ## 题目描述
 
-![黑客入侵点定位](黑客入侵点定位.png)
+![黑客入侵点定位](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/黑客入侵点定位.png)
 
 ## 实现
 分为两段执行：
@@ -82,9 +82,9 @@ def findMaxSubListLen( A, B):
 # 美团送餐分箱问题
 棋手拿出装有货物的保温箱
 
-![美团送餐问题1](美团送餐问题1.png)
+![美团送餐问题1](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/美团送餐问题1.png)
 
-![美团送餐问题2](美团送餐问题2.png)
+![美团送餐问题2](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/美团送餐问题2.png)
 
 ## 实现
 ### python

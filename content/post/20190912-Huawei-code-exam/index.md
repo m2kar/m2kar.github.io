@@ -18,18 +18,18 @@ author: "m2kar <m2kar.cn@gmail.com>"
 >软件模拟试卷链接：https://www.nowcoder.com/cts/9540156/summary
 >注：可提前进入模拟试卷链接熟悉题型和考试环境，方便您更顺利通过考试。
 >
->![1568223500508](1568223500508.png)
+>![1568223500508](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223500508.png)
 
 # 数轴相邻点问题
 ## 题目描述
 
 s
 
-![1568223716592](1568223716592.png)
+![1568223716592](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223716592.png)
 
-![1568223741218](1568223741218.png)
+![1568223741218](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223741218.png)
 
-![1568223775864](1568223775864.png)
+![1568223775864](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223775864.png)
 ## 解答
 ```python
 s=input()
@@ -80,11 +80,11 @@ print()
 
 # 字符串倒序排列问题
 ## 题目描述
-![1568223787906](1568223787906.png)
+![1568223787906](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223787906.png)
 
-![1568223801491](1568223801491.png)
+![1568223801491](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223801491.png)
 
-![1568223816084](1568223816084.png)
+![1568223816084](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223816084.png)
 ## 解答
 ```python
 import string
@@ -109,11 +109,11 @@ print(" ".join(l[::-1]),end=" ")
 ```
 # 航班线路问题
 ## 题目描述
-![1568223832820](1568223832820.png)
+![1568223832820](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223832820.png)
 
-![1568223841507](1568223841507.png)
+![1568223841507](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223841507.png)
 
-![1568223914401](1568223914401.png)
+![1568223914401](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223914401.png)
 ## 解答
 ```python
 N=int(input())
