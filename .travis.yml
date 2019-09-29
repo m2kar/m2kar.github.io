@@ -28,7 +28,7 @@ install:
   - git clone --recursive -b master https://${GH_APIKEY}@github.com/m2kar/m2kar.github.io.git public
 
 script:
-  - $docker run --rm -it -v $PWD:/src -u $UID:hugo jguyomard/hugo-builder hugo
+  - docker run --rm -it -v $PWD:/src -u $UID:hugo jguyomard/hugo-builder hugo
   - pushd public 
   - ( git add . && git commit -m "" && git push ) || echo "nothing to commit"
   - echo "depoly done"
