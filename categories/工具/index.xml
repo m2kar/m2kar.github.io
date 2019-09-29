@@ -6,10 +6,28 @@
     <description>Recent content in 工具 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Sep 2019 10:44:55 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2019 14:54:24 +0800</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具</title>
+      <link>https://m2kar.cn/post/20190920-gitgot/</link>
+      <pubDate>Fri, 20 Sep 2019 14:54:24 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190920-gitgot/</guid>
+      <description>介绍 今天给大家介绍的是一款名叫GitGot的半自动信息收集工具，在GitGot的帮助下，广大研究人员可以轻松从GitHub公开数据中搜索敏感</description>
+    </item>
+    
+    <item>
+      <title>[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码</title>
+      <link>https://m2kar.cn/post/20190920-emagnet/</link>
+      <pubDate>Fri, 20 Sep 2019 10:54:24 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190920-emagnet/</guid>
+      <description>介绍 Emagnet是一款非常强大的工具，其主要目的是从pastebin上传的泄漏数据库中捕获电子邮件地址和密码。当密码在pastebin.c</description>
+    </item>
     
     <item>
       <title>【工具】sci-hub：一个神奇的免费下载文献的网站</title>

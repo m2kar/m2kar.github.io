@@ -6,10 +6,37 @@
     <description>Recent content in Posts on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Sep 2019 10:44:55 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>蔡高厅高等数学课程教材pdf</title>
+      <link>https://m2kar.cn/post/20190929-caigaoting-mathematics/</link>
+      <pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190929-caigaoting-mathematics/</guid>
+      <description>蔡高厅高等数学课程教材pdf 附件内容 附件中包括 - 高等数学上册.pdf - 高等数学试题精选与解答.pdf - 高等数学下册.pdf 下载地址 蔡高厅高等</description>
+    </item>
+    
+    <item>
+      <title>[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具</title>
+      <link>https://m2kar.cn/post/20190920-gitgot/</link>
+      <pubDate>Fri, 20 Sep 2019 14:54:24 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190920-gitgot/</guid>
+      <description>介绍 今天给大家介绍的是一款名叫GitGot的半自动信息收集工具，在GitGot的帮助下，广大研究人员可以轻松从GitHub公开数据中搜索敏感</description>
+    </item>
+    
+    <item>
+      <title>[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码</title>
+      <link>https://m2kar.cn/post/20190920-emagnet/</link>
+      <pubDate>Fri, 20 Sep 2019 10:54:24 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190920-emagnet/</guid>
+      <description>介绍 Emagnet是一款非常强大的工具，其主要目的是从pastebin上传的泄漏数据库中捕获电子邮件地址和密码。当密码在pastebin.c</description>
+    </item>
     
     <item>
       <title>【工具】sci-hub：一个神奇的免费下载文献的网站</title>
@@ -71,7 +98,7 @@
       <pubDate>Thu, 05 Sep 2019 21:11:00 +0800</pubDate>
       
       <guid>https://m2kar.cn/post/20190905-jos-csl/</guid>
-      <description>转自https://download.csdn.net/download/yesterday_sky/11065808 格式说明 软件学报的cs</description>
+      <description></description>
     </item>
     
     <item>
@@ -89,7 +116,7 @@
       <pubDate>Wed, 21 Aug 2019 14:17:57 +0800</pubDate>
       
       <guid>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</guid>
-      <description>需求描述 Hugo是一个静态网站生成工具，如果每次都要手动编译然后上传着实麻烦，如果能每次编辑完提交之后使用自动化运维自动生成对应的网站，则回</description>
+      <description></description>
     </item>
     
     <item>
