@@ -12,6 +12,10 @@ hiddenFromHomePage: true
 ---
 
 蔡高厅高等数学课程教材pdf
+## 介绍
+**蔡高厅**，任天津大学数学系教授。他在学生中具有很高的威望，在视频教学中，蔡老师细致的讲解以及认真负责的态度，很让同学们感动,网上可以下载到蔡高厅高等数学视频、教学软件等。蔡老师一丝不苟的板书让人很是钦佩。
+
+适合基础薄弱的同学认认真真仔细的把高数学习一遍。
 ## 附件内容
 
 附件中包括
@@ -24,6 +28,10 @@ hiddenFromHomePage: true
 [蔡高厅高等数学.zip](http://cdn.jsdelivr.net/gh/m2kar/bucket/annex/%E8%94%A1%E9%AB%98%E5%8E%85%E9%AB%98%E6%95%B0%E6%95%99%E6%9D%90.zip)
 
 [备用地址](https://download.csdn.net/download/still_night/9821338)
+
+## 视频观看地址
+[高等数学 蔡高厅 上册](https://www.bilibili.com/video/av17759189)
+[高等数学 蔡高厅 下册](https://www.bilibili.com/video/av9989150/)
 
 ## 上册目录
 ![上册目录1](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929140031.png)
