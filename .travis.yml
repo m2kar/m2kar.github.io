@@ -24,12 +24,11 @@ before_install:
 
 install:
   - git log -p -2 | cat
-  - commit_msg=$(git log -n1 --pretty=format:"%s")
+  - commit_msg="auto depoly $(date) $(git --git-dir=../.git log -n1 --oneline)"
   - git clone --recursive -b master https://${GH_APIKEY}@github.com/m2kar/m2kar.github.io.git public
 
 script:
   - docker run --rm -it -v $PWD:/src -u $UID:hugo jguyomard/hugo-builder hugo
-  - pushd public 
-  - commit_msg="auto depoly $(date) $(git --git-dir=../.git log -n1 --oneline)"
+  - pushd public
   - ( git add . && git commit -m "${commit_msg}" && git push ) || echo "nothing to commit"
   - echo "depoly done"
