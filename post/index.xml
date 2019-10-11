@@ -6,10 +6,19 @@
     <description>Recent content in Posts on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 29 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SoK: Security Evaluation of Home-Based IoT Deployments</title>
+      <link>https://m2kar.cn/post/20191011-sok/</link>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191011-sok/</guid>
+      <description>概览 摘要 Home-based IoT devices have a bleak reputation regarding their security practices. On the surface, the insecurities of IoT devices seem to be caused by integration problems that may be addressed by simple measures, but this work finds that to be a naive assumption. The truth is, IoT deployments, at their core, utilize traditional compute systems, such as embedded, mobile, and network. These components have many unexplored</description>
+    </item>
     
     <item>
       <title>蔡高厅高等数学课程教材pdf</title>
@@ -17,7 +26,7 @@
       <pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://m2kar.cn/post/20190929-caigaoting-mathematics/</guid>
-      <description>蔡高厅高等数学课程教材pdf 附件内容 附件中包括 - 高等数学上册.pdf - 高等数学试题精选与解答.pdf - 高等数学下册.pdf 下载地址 蔡高厅高等</description>
+      <description>蔡高厅高等数学课程教材pdf 介绍 蔡高厅，任天津大学数学系教授。他在学生中具有很高的威望，在视频教学中，蔡老师细致的讲解以及认真负责的态度，很</description>
     </item>
     
     <item>

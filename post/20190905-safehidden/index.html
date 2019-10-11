@@ -43,14 +43,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m2kar.cn/post/20190905-safehidden/" />
 <meta property="article:published_time" content="2019-09-05T18:05:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-09-23T10:22:33&#43;08:00"/>
+<meta property="article:modified_time" content="2019-09-29T16:32:54&#43;08:00"/>
 
 <meta itemprop="name" content="【论文笔记】SafeHidden: An Efficient and Secure Information Hiding Technique Using Re-randomization">
 <meta itemprop="description" content="一种新型的内存地址随机化的增强方案SafeHidden，可以解决内存地址随机化（ASLR）的不安全问题。">
 
 
 <meta itemprop="datePublished" content="2019-09-05T18:05:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-09-23T10:22:33&#43;08:00" />
+<meta itemprop="dateModified" content="2019-09-29T16:32:54&#43;08:00" />
 <meta itemprop="wordCount" content="2849">
 
 
@@ -258,7 +258,7 @@
 
 <p>先来介绍下内存地址随机化技术,这个技术，可以看一下这个<a href="https://www.inforsec.org/wp/?p=1009" title="地址空间布局随机化(ASLR)增强研究综述">ASLR</a>。一些攻击，比如return-oriented programming (ROP)之类的<a href="https://zhuanlan.zhihu.com/p/39695776" title="JOP代码复用攻击（知乎）">代码复用攻击</a>，会试图得到被攻击者的内存布局信息。这样就可以知道代码或者数据放在哪里，来定位并进行攻击。比如可以找到ROP里面的gadget。而ASLR让这些内存区域随机分布，来提高攻击者成功难度，让他们只能通过猜猜猜来进行不断试错的攻击(理想状况下)。下图举了个例子。</p>
 
-<p><img src="./ASLR.png" alt="ASLR" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/ASLR.png" alt="ASLR" /></p>
 
 <p>但是ASLR已经不再安全，有多种方式可以对它发起攻击。如：</p>
 
@@ -317,13 +317,13 @@
 <p>攻击类型1是收集内存布局信息以帮助找到安全区域。</p></li>
 </ul>
 
-<p><img src="./vector1.png" alt="memory layout event" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/vector1.png" alt="memory layout event" /></p>
 
 <h3 id="对于攻击类型2">对于攻击类型2</h3>
 
 <p>攻击类型2是创建探测机会而不会使系统崩溃。</p>
 
-<p><img src="./vector2.png" alt="probe safe area" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/vector2.png" alt="probe safe area" /></p>
 
 <h3 id="对于攻击类型3">对于攻击类型3</h3>
 
@@ -360,7 +360,7 @@
 <li><p>对页表缓存侧通道攻击的<strong>关键步骤</strong>是强制页表行走。</p></li>
 </ul>
 
-<p><img src="./force-page-table-walk.png" alt="force-page-table-walk" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/force-page-table-walk.png" alt="force-page-table-walk" /></p>
 
 <h4 id="将tlb-miss转为页错误">将TLB miss转为页错误</h4>
 
@@ -374,13 +374,13 @@
 
 <h4 id="页表错误处理器的流程图">页表错误处理器的流程图</h4>
 
-<p><img src="./Flowchart-of-Page-Fault-Handler.png" alt="Flowchart-of-Page-Fault-Handler.png" /></p></li>
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/Flowchart-of-Page-Fault-Handler.png" alt="Flowchart-of-Page-Fault-Handler.png" /></p></li>
 </ul></li>
 </ul>
 
 <h3 id="系统整体设计">系统整体设计</h3>
 
-<p><img src="./architecture-overview.png" alt="architecture-overview.png" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/architecture-overview.png" alt="architecture-overview.png" /></p>
 
 <h2 id="效果">效果</h2>
 
@@ -469,14 +469,14 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-09-23
-        <a href="https://github.com/m2kar/m2kar.github.io/commit/41bbfde1bae76050bb6891baf226fce8ed2bdaeb" title="update author">(41bbfde)</a>
+        2019-09-29
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/c9e05b6bb7c6fde8814239272021b0d97ba00be8" title="rebuild struct">(c9e05b6)</a>
     </span>
   </p>
   
     <p class="copyright-item">
       <span class="item-title">原始文档</span>
-      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20190905-SafeHidden/index.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20190905-SafeHidden.md" target="_blank">查看本文 Markdown 版本 »</a></span>
     </p>
     
   <p class="copyright-item">
@@ -552,7 +552,7 @@
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">m2kar</span>
+    <span class="author">m2kar(m2kar.cn@gmail.com)</span>
   </span>
 </div>
     </footer>
