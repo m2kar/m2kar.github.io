@@ -30,20 +30,28 @@ hiddenFromHomePage: true
 [备用地址](https://download.csdn.net/download/still_night/9821338)
 
 ## 视频观看地址
-[高等数学 蔡高厅 上册](https://www.bilibili.com/video/av17759189)
-[高等数学 蔡高厅 下册](https://www.bilibili.com/video/av9989150/)
+ - [高等数学 蔡高厅 上册](https://www.bilibili.com/video/av17759189)
+ - [高等数学 蔡高厅 下册](https://www.bilibili.com/video/av9989150/)
 
 ## 上册目录
 ![上册目录1](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929140031.png)
+
 ![上册目录2](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929140106.png)
+
 ![上册目录3](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929140115.png)
+
 ![上册目录4](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929140124.png)
+
 ![上册目录5](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929140131.png)
 
 ## 下册目录
 ![下册目录1](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929135629.png)
+
 ![下册目录2](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929135705.png)
+
 ![下册目录3](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929135748.png)
+
 ![下册目录4](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929135807.png)
+
 ![下册目录5](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20190929135832.png)
 
