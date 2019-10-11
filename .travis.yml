@@ -24,7 +24,7 @@ before_install:
 
 install:
   - git log -p -2 | cat
-  - commit_msg="auto depoly $(date) $(git --git-dir=../.git log -n1 --oneline)"
+  - commit_msg="auto depoly $(date) $(git log -n1 --oneline)"
   - git clone --recursive -b master https://${GH_APIKEY}@github.com/m2kar/m2kar.github.io.git public
 
 script:
