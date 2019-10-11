@@ -30,5 +30,6 @@ install:
 script:
   - docker run --rm -it -v $PWD:/src -u $UID:hugo jguyomard/hugo-builder hugo
   - pushd public 
-  - ( git add . && git commit -m "auto depoly ${commit_msg} ${TRAVIS_COMMIT_MESSAGE} $(date)" && git push ) || echo "nothing to commit"
+  - commit_msg="auto depoly $(date) $(git --git-dir=../.git log -n1 --oneline)"
+  - ( git add . && git commit -m "${commit_msg}" && git push ) || echo "nothing to commit"
   - echo "depoly done"
