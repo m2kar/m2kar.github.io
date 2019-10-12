@@ -3,7 +3,6 @@ title: "【论文笔记】标题"
 date: 2019-MM-DD
 lastmod: 2019-MM-DD
 draft: true
-keywords: ["论文","标题关键字","系统安全"]
 description: "论文描述"
 tags: ["论文笔记","系统安全","流量分析","静态分析"]
 categories: ["论文笔记"]
