@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>【论文笔记】1.	PassGAN: A Deep Learning Approach for Password Guessing - M2kar - Security World</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="论文描述" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.0 with theme even" />
+
+
+<link rel="canonical" href="https://m2kar.cn/post/20191012-passgan/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="【论文笔记】1.	PassGAN: A Deep Learning Approach for Password Guessing" />
+<meta property="og:description" content="论文描述" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://m2kar.cn/post/20191012-passgan/" />
+<meta property="article:published_time" content="2019-10-12T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-10-12T14:00:37&#43;08:00"/>
+
+<meta itemprop="name" content="【论文笔记】1.	PassGAN: A Deep Learning Approach for Password Guessing">
+<meta itemprop="description" content="论文描述">
+
+
+<meta itemprop="datePublished" content="2019-10-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-12T14:00:37&#43;08:00" />
+<meta itemprop="wordCount" content="2021">
+
+
+
+<meta itemprop="keywords" content="论文笔记,隐私安全,密码,深度学习,GAN,PassGAN,密码猜解," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【论文笔记】1.	PassGAN: A Deep Learning Approach for Password Guessing"/>
+<meta name="twitter:description" content="论文描述"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">M2kar - Security World</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">目录</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/cv/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">M2kar - Security World</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">目录</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/cv/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">【论文笔记】1.	PassGAN: A Deep Learning Approach for Password Guessing</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-10-12 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#论文主题">论文主题</a></li>
+<li><a href="#摘要">摘要</a>
+<ul>
+<li><a href="#中文">中文</a></li>
+<li><a href="#英文">英文</a></li>
+<li><a href="#关键字">关键字</a></li>
+</ul></li>
+<li><a href="#解决问题">解决问题</a>
+<ul>
+<li><a href="#现实问题">现实问题</a></li>
+<li><a href="#之前研究的不足">之前研究的不足</a></li>
+</ul></li>
+<li><a href="#方法">方法</a></li>
+<li><a href="#特点与不足">特点与不足</a>
+<ul>
+<li><a href="#特点">特点</a></li>
+</ul></li>
+<li><a href="#不足">不足</a></li>
+<li><a href="#作者">作者</a></li>
+<li><a href="#论文出处">论文出处</a></li>
+<li><a href="#实验及效果">实验及效果</a></li>
+<li><a href="#收获">收获</a></li>
+<li><a href="#可扩展结合的点">可扩展结合的点</a></li>
+<li><a href="#论文评价">论文评价</a></li>
+<li><a href="#参考资料及附件">参考资料及附件</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="论文主题">论文主题</h1>
+
+<p>使用对抗神经网络的方式进行密码生成和密码猜解。</p>
+
+<h1 id="摘要">摘要</h1>
+
+<h2 id="中文">中文</h2>
+
+<p>最先进的密码猜测工具，例如HashCat和Ripper John，使用户能够每秒检查数十亿个密码以防密码哈希。除了执行简单的字典攻击外，这些工具还可以使用密码生成规则来扩展密码词典，例如单词的串联（例如“ password123456”）和轻声说话（例如“ password”变为“ p4s5w0rd”）。尽管这些规则在实践中效果很好，但是将其扩展以模拟更多密码是一项艰巨的任务，需要专业知识。为了解决这个问题，在本文中，我们介绍了PassGAN，这是一种新颖的方法，该方法以理论为基础的机器学习算法取代了人为生成的密码规则。 PassGAN不再依赖人工密码分析，而是使用Genversative Adversarial Network（GAN）来从实际密码泄漏中自动学习真实密码的分布，并生成高质量的密码猜测。我们的实验表明，这种方法非常有前途。当我们在两个大型密码数据集上评估PassGAN时，我们能够超越基于规则和最先进的机器学习密码猜测工具。但是，与其他工具相比，PassGAN在没有任何先验密码知识或通用密码结构的情况下获得了此结果。另外，当我们将PassGAN的输出与HashCat的输出组合在一起时，与仅使用HashCat的情况相比，我们能够匹配多51％-73％的密码。这是很了不起的，因为它表明PassGAN可以自主提取大量当前最新规则无法编码的密码属性。</p>
+
+<h2 id="英文">英文</h2>
+
+<p>State-of-the-art password guessing tools, such as HashCat and John the Ripper, enable users to check billions of passwords per second against password hashes. In addition to performing straightforward dictionary attacks, these tools can expand password dictionaries using password generation rules, such as concatenation of words (e.g., &ldquo;password123456&rdquo;) and leet speak (e.g., &ldquo;password&rdquo; becomes &ldquo;p4s5w0rd&rdquo;). Although these rules work well in practice, expanding them to model further passwords is a laborious task that requires specialized expertise. To address this issue, in this paper we introduce PassGAN, a novel approach that replaces human-generated password rules with theory-grounded machine learning algorithms. Instead of relying on manual password analysis, PassGAN uses a Generative Adversarial Network (GAN) to autonomously learn the distribution of real passwords from actual password leaks, and to generate high-quality password guesses. Our experiments show that this approach is very promising. When we evaluated PassGAN on two large password datasets, we were able to surpass rule-based and state-of-the-art machine learning password guessing tools. However, in contrast with the other tools, PassGAN achieved this result without any a-priori knowledge on passwords or common password structures. Additionally, when we combined the output of PassGAN with the output of HashCat, we were able to match 51%-73% more passwords than with HashCat alone. This is remarkable, because it shows that PassGAN can autonomously extract a considerable number of password properties that current state-of-the art rules do not encode.</p>
+
+<h2 id="关键字">关键字</h2>
+
+<p>密码猜解，密码生成，对抗生成网络</p>
+
+<h1 id="解决问题">解决问题</h1>
+
+<h2 id="现实问题">现实问题</h2>
+
+<p>密码猜解问题，由于密码猜解非常简单且实用，因此被广泛应用。</p>
+
+<h2 id="之前研究的不足">之前研究的不足</h2>
+
+<p>密码猜解工具，如HashCat和Join The Ripper，可以结合给定的关键词，进行给定的启发式的密码变形。但这些规则是基于对用户密码的主观猜测，而不是依据大量的密码数据集来进行密码的猜测。而且添加新的规则依赖大量的测试，因此其可靠性很受限制。
+密码猜解题是一个非常传统的问题，最开始是暴力破解。然后在2005年的时候，Narayanan等人把马尔可夫模型引入到密码猜解中。但是这时候还只是使用人工生成的固定密码规则。Weir等人对这种方法进行了改进，他引入了上下文无关语法（Probabilistic Context-Free Grammars, PCFGs）。
+2006年的时候Ciaramella把神经网络引入到密码猜解领域中。
+最近，Melicher[1]的FLA使用了RNN的方法进行密码的生成和猜解，但是应用的目标为密码强度的验证。Melicher目标为实现尽可能快的密码强度的验证，同时使模型尽可能精简。模型压缩到在本地JavaScript代码可以实现。</p>
+
+<h1 id="方法">方法</h1>
+
+<p>使用对抗生成网络进行密码的生成。
+<img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img20191012134537.png" alt="20191012134537.png" /></p>
+
+<h1 id="特点与不足">特点与不足</h1>
+
+<h2 id="特点">特点</h2>
+
+<ol>
+<li>使用对抗生成网络进行高质量的密码生成，匹配率非常高</li>
+<li>能和最先进的密码生成规则竞争</li>
+<li>密码生成并不局限于密码的小的子集</li>
+<li>性能表现和另外一篇USENix的论文性能相当。 《Fast, Lean, and Accurate: Modeling Password Guessability Using Neural Networks》</li>
+<li>和HashCat结合后，能生成53%-73%多的密码。</li>
+
+<li><p>不需要先验知识</p>
+
+<h1 id="不足">不足</h1></li>
+
+<li><p>不能结合先验知识</p></li>
+</ol>
+
+<h1 id="作者">作者</h1>
+
+<p>一作的研究方向为安全和深度学习。
+<img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img20191012134723.png" alt="20191012134723.png" /></p>
+
+<p>还有个youtube的作者介绍了PassGan这一成果。</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img20191012134738.png" alt="20191012134738.png" /></p>
+
+<p><a href="https://www.youtube.com/watch?v=b92sTdRRwvs">https://www.youtube.com/watch?v=b92sTdRRwvs</a></p>
+
+<h1 id="论文出处">论文出处</h1>
+
+<p>[1] Hitaj B, Gasti P, Ateniese G, Perez-Cruz F. PassGAN: a deep learning approach for password guessing. arXiv:1709.00440 [cs, stat], 2017.</p>
+
+<h1 id="实验及效果">实验及效果</h1>
+
+<p>使用的模型为Improved training of Wasserstein GANs (IWGAN)。</p>
+
+<p>生成网络和判别网络如下图所示。</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img20191012135350.png" alt="20191012135350.png" />
+使用的数据集为RockYou和LinkedIn。</p>
+
+<p>效果：
+PassGan生成的唯一密码的数量以及在测试集中的匹配度。</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img20191012135451.png" alt="20191012135451.png" /></p>
+
+<p>可以看到在训练集中没有，但是在测试集中包含的样本数量达到了34%。</p>
+
+<p>这是在RockYou 训练集中最常见密码，以及分别使用FLA和PassGan生成的最常见的密码的频率对比。</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img20191012135529.png" alt="20191012135529.png" /></p>
+
+<h1 id="收获">收获</h1>
+
+<p>使用对抗神经网络进行密码的生成。</p>
+
+<p>论文中对于密码生成的评价标准有：输出的分布空间；与测试集的匹配度；在与其他同居达到相同性能时，需要生成的密码数目；生成的高频密码的分布。</p>
+
+<p>FLA是另一个使用深度学习进行密码生成的工具，也是本文的主要Benchmark之一。</p>
+
+<h1 id="可扩展结合的点">可扩展结合的点</h1>
+
+<p>可以使用训练后的判别网络进行密码的判断。在HTTP的报文中进行密码的识别。</p>
+
+<h1 id="论文评价">论文评价</h1>
+
+<p><strong>评分</strong>: ⭐⭐⭐⭐</p>
+
+<p><strong>评价</strong>: 想法不错，但是效果不是那么理想。但是能够解决特定场景下的问题。
+在理论推导上有一定欠缺。</p>
+
+<h1 id="参考资料及附件">参考资料及附件</h1>
+
+<p>[1]   Melicher W, Ur B, Segreti SM, Komanduri S, Bauer L, Christin N, Cranor LF. Fast, lean, and accurate: modeling password guessability using neural networks. 25th USENIX Security Symposium (USENIX Security 16). Austin, TX: USENIX Association, 2016: 175–191.
+[2]   <a href="https://www.youtube.com/watch?v=b92sTdRRwvs">https://www.youtube.com/watch?v=b92sTdRRwvs</a>
+[3]   <a href="https://github.com/brannondorsey/PassGAN">https://github.com/brannondorsey/PassGAN</a>
+[4]   <a href="https://github.com/d4ichi/PassGAN">https://github.com/d4ichi/PassGAN</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">m2kar(m2kar.cn@gmail.com)</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-10-12
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/ac24d3a16e8388310f91aa30f3d71a7dbf4338dc" title="new file:   content/post/20191012-PassGAN.md">(ac24d3a)</a>
+    </span>
+  </p>
+  
+    <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20191012-PassGAN.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+    
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a>
+          <a href="/tags/%E9%9A%90%E7%A7%81%E5%AE%89%E5%85%A8/">隐私安全</a>
+          <a href="/tags/%E5%AF%86%E7%A0%81/">密码</a>
+          <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+          <a href="/tags/gan/">GAN</a>
+          <a href="/tags/passgan/">PassGAN</a>
+          <a href="/tags/%E5%AF%86%E7%A0%81%E7%8C%9C%E8%A7%A3/">密码猜解</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/20191011-sok/">
+            <span class="next-text nav-default">【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="m2kar/m2kar.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:m2kar.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/m2kar" class="iconfont icon-github" title="github"></a>
+  <a href="https://m2kar.cn/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m2kar(m2kar.cn@gmail.com)</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
