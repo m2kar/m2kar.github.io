@@ -19,8 +19,8 @@ branches:
 # 安装依赖组件
 before_install:
   - export TZ='Asia/Shanghai'  # 设置时区
-  - docker pull jguyomard/hugo-builder
-  - docker run --rm -it -v $PWD:/src -u ${UID}:hugo jguyomard/hugo-builder hugo version
+#   - docker pull imakar/docker-hugo:latest
+  - docker run --rm -it -v $PWD:/src -u ${UID}:hugo imakar/docker-hugo:0.56 hugo version
 
 install:
   - git log -p -2 | cat
@@ -28,7 +28,7 @@ install:
   - git clone --recursive -b master https://${GH_APIKEY}@github.com/m2kar/m2kar.github.io.git public
 
 script:
-  - docker run --rm -it -v $PWD:/src -u $UID:hugo jguyomard/hugo-builder hugo
+  - docker run --rm -it -v $PWD:/src -u $UID:hugo imakar/docker-hugo:0.56 hugo
   - pushd public
   - ( git add . && git commit -m "${commit_msg}" && git push ) || echo "nothing to commit"
   - echo "depoly done"
