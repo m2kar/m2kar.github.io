@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="UA-150110063-1" />
 
 
-<meta name="generator" content="Hugo 0.55.0 with theme even" />
+<meta name="generator" content="Hugo 0.56.3 with theme even" />
 
 
 <link rel="canonical" href="https://m2kar.cn/post/20190821-deploy-use-travis-ci/" />
@@ -42,9 +42,8 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m2kar.cn/post/20190821-deploy-use-travis-ci/" />
-<meta property="article:published_time" content="2019-08-21T14:17:57&#43;08:00"/>
-<meta property="article:modified_time" content="2019-09-27T10:55:06&#43;08:00"/>
-
+<meta property="article:published_time" content="2019-08-21T14:17:57+08:00" />
+<meta property="article:modified_time" content="2019-09-27T10:55:06+08:00" />
 <meta itemprop="name" content="使用Travis-CI部署Hugo，实现自动化部署">
 <meta itemprop="description" content="">
 
@@ -273,7 +272,7 @@ git push -u origin blog</pre></td></tr></table>
 </span><span class="w">
 </span><span class="w"></span><span class="c"># 安装依赖组件</span><span class="w">
 </span><span class="w"></span>install<span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>wget<span class="w"> </span>https<span class="p">:</span>//github.com/gohugoio/hugo/releases/download/v0.<span class="m">51</span>/hugo_0.51_Linux-64bit.tar.gz<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>wget<span class="w"> </span>https<span class="p">:</span>//github.com/gohugoio/hugo/releases/download/v0<span class="m">.51</span>/hugo_0.51_Linux-64bit.tar.gz<span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span>hugo_0.51_Linux-64bit.tar.gz<span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>hugo<span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>export<span class="w"> </span>PATH=$PATH<span class="p">:</span>$PWD<span class="w">
