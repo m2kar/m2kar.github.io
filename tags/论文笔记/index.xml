@@ -6,10 +6,19 @@
     <description>Recent content in 论文笔记 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 12 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【论文笔记】GENPass: A general deep learning model for password guessing with PCFG rules and adversarial generation</title>
+      <link>https://m2kar.cn/post/20191018-genpass/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191018-genpass/</guid>
+      <description>lastmod: 2019-10-18 论文主题 使用RCFG+LSTM和对抗生成网络猜解密码。 摘要 英文 Password has become today&amp;rsquo;s dominant method of authentication in social network. While the brute-force attack methods, such as HashCat and John the Ripper, are unpractical, the research then switches to the password guess. The state-of-the-art approaches, such</description>
+    </item>
     
     <item>
       <title>【论文笔记】PassGAN: A Deep Learning Approach for Password Guessing</title>

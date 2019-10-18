@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>流量分析 on M2kar - Security World</title>
-    <link>https://m2kar.cn/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</link>
-    <description>Recent content in 流量分析 on M2kar - Security World</description>
+    <title>密码生成 on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90/</link>
+    <description>Recent content in 密码生成 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://m2kar.cn/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.cn/tags/%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://m2kar.cn/post/20191018-genpass/</guid>
       <description>lastmod: 2019-10-18 论文主题 使用RCFG+LSTM和对抗生成网络猜解密码。 摘要 英文 Password has become today&amp;rsquo;s dominant method of authentication in social network. While the brute-force attack methods, such as HashCat and John the Ripper, are unpractical, the research then switches to the password guess. The state-of-the-art approaches, such</description>
-    </item>
-    
-    <item>
-      <title>【论文笔记】SafeHidden: An Efficient and Secure Information Hiding Technique Using Re-randomization</title>
-      <link>https://m2kar.cn/post/20190905-safehidden/</link>
-      <pubDate>Thu, 05 Sep 2019 18:05:00 +0800</pubDate>
-      
-      <guid>https://m2kar.cn/post/20190905-safehidden/</guid>
-      <description>SafeHidden: An Efficient and Secure Information 概览 摘要 中文（翻译） 在众多代码重用攻击的防御手段中，信息隐藏(Information Hiding,IH)由于其有效性和高性能，成</description>
     </item>
     
   </channel>
