@@ -1,8 +1,7 @@
 ---
 title: "【论文笔记】标题"
 date: 2019-MM-DD
-lastmod: 2019-MM-DD
-draft: true
+draft: false
 description: "论文描述"
 tags: ["论文笔记","系统安全","流量分析","静态分析"]
 categories: ["论文笔记"]
