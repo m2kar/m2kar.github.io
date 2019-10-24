@@ -192,3 +192,5 @@ Much attention has been paid to passwords chosen by English speaking users, yet 
 [1] Wang D, Wang P, He D, Tian Y. Birthday, name and bifacial-security: understanding passwords of chinese web users. 28th USENIX Security Symposium (USENIX Security 19). Santa Clara, CA: USENIX Association, 2019: 1537–1555.
 
 # 参考资料及附件
+
+本笔记转载自 https://mp.weixin.qq.com/s/Xywl2gJbonvosW-Gm10MjQ ，侵删
