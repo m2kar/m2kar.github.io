@@ -17,7 +17,7 @@
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://m2kar.cn/post/20191018-genpass/</guid>
-      <description>lastmod: 2019-10-18 论文主题 使用RCFG+LSTM和对抗生成网络猜解密码。 摘要 英文 Password has become today&amp;rsquo;s dominant method of authentication in social network. While the brute-force attack methods, such as HashCat and John the Ripper, are unpractical, the research then switches to the password guess. The state-of-the-art approaches, such</description>
+      <description>论文主题 使用RCFG+LSTM和对抗生成网络猜解密码。 摘要 英文 Password has become today&amp;rsquo;s dominant method of authentication in social network. While the brute-force attack methods, such as HashCat and John the Ripper, are unpractical, the research then switches to the password guess. The state-of-the-art approaches, such as Markov</description>
     </item>
     
     <item>
