@@ -3,30 +3,55 @@
   
   <url>
     <loc>https://m2kar.cn/categories/</loc>
-    <lastmod>2019-10-18T22:33:07+08:00</lastmod>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/</loc>
-    <lastmod>2019-10-18T22:33:07+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://m2kar.cn/tags/pcfg/</loc>
-    <lastmod>2019-10-18T22:33:07+08:00</lastmod>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/</loc>
-    <lastmod>2019-10-18T22:33:07+08:00</lastmod>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/</loc>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/post/20191024-birthday-name-and-bifacial-security-understanding-passwords-of-chinese-web-users/</loc>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/%E5%AF%86%E7%A0%81/</loc>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/pcfg/</loc>
     <lastmod>2019-10-18T22:33:07+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -63,18 +88,6 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-10-18T22:33:07+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-10-18T22:33:07+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://m2kar.cn/tags/gan/</loc>
     <lastmod>2019-10-17T12:16:07+08:00</lastmod>
     <priority>0</priority>
@@ -94,12 +107,6 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E5%AF%86%E7%A0%81/</loc>
-    <lastmod>2019-10-17T12:16:07+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://m2kar.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2019-10-17T12:16:07+08:00</lastmod>
     <priority>0</priority>
@@ -112,6 +119,13 @@
   </url>
   
   <url>
+    <loc>https://m2kar.cn/post/20191011-security-evaluation-of-home-based-iot-deployments/</loc>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://m2kar.cn/post/20191011-sok/</loc>
     <lastmod>2019-10-16T01:35:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -120,13 +134,13 @@
   
   <url>
     <loc>https://m2kar.cn/tags/%E7%89%A9%E8%81%94%E7%BD%91/</loc>
-    <lastmod>2019-10-16T01:35:20+08:00</lastmod>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2019-10-16T01:35:20+08:00</lastmod>
+    <lastmod>2019-10-24T16:20:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   

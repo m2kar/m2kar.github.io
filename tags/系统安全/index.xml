@@ -13,6 +13,15 @@
     
     <item>
       <title>【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</title>
+      <link>https://m2kar.cn/post/20191011-security-evaluation-of-home-based-iot-deployments/</link>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191011-security-evaluation-of-home-based-iot-deployments/</guid>
+      <description>概览 摘要 Home-based IoT devices have a bleak reputation regarding their security practices. On the surface, the insecurities of IoT devices seem to be caused by integration problems that may be addressed by simple measures, but this work finds that to be a naive assumption. The truth is, IoT deployments, at their core, utilize traditional compute systems, such as embedded, mobile, and network. These components have many unexplored</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</title>
       <link>https://m2kar.cn/post/20191011-sok/</link>
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       

@@ -6,10 +6,19 @@
     <description>Recent content in 密码 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 12 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/%E5%AF%86%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【论文笔记】Birthday, Name and Bifacial-security Understanding Passwords of Chinese Web Users</title>
+      <link>https://m2kar.cn/post/20191024-birthday-name-and-bifacial-security-understanding-passwords-of-chinese-web-users/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191024-birthday-name-and-bifacial-security-understanding-passwords-of-chinese-web-users/</guid>
+      <description>论文主题 对中文密码进行实证分析，发现中文密码中有趣的结构和特征，揭示了中文密码的双相安全性（Bifacial-security）。 摘要 英文 Much</description>
+    </item>
     
     <item>
       <title>【论文笔记】PassGAN: A Deep Learning Approach for Password Guessing</title>
