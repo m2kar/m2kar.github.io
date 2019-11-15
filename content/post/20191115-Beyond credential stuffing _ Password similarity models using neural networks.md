@@ -223,4 +223,4 @@ GPU：GTX 1080
 
 1.  上海交通大学GoSSIP笔记： https://loccs.sjtu.edu.cn/gossip/blog/2019/06/21/beyond-credential-stuffing-password-similarity-models-using-neural-networks/ 
 2. 作者主页： https://www.cs.cornell.edu/~bijeeta/ 
-3. 
+3. 论文地址： https://www.cs.cornell.edu/~rahul/papers/ppsm.pdf
