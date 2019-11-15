@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>深度学习 on M2kar - Security World</title>
-    <link>https://m2kar.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
-    <description>Recent content in 深度学习 on M2kar - Security World</description>
+    <title>明文密码 on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/%E6%98%8E%E6%96%87%E5%AF%86%E7%A0%81/</link>
+    <description>Recent content in 明文密码 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 15 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://m2kar.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.cn/tags/%E6%98%8E%E6%96%87%E5%AF%86%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://m2kar.cn/post/20191115-beyond-credential-stuffing-_-password-similarity-models-using-neural-networks/</guid>
       <description>论文主题 同一用户在不同网站的密码相似度模型。 摘要 英文 Attackers increasingly use passwords leaked from one website to compromise associated accounts on other websites. Such targeted attacks work because users reuse, or pick similar, passwords for different websites. We recast one of the core technical challenges underlying targeted attacks as the task of</description>
-    </item>
-    
-    <item>
-      <title>【论文笔记】PassGAN: A Deep Learning Approach for Password Guessing</title>
-      <link>https://m2kar.cn/post/20191012-passgan/</link>
-      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://m2kar.cn/post/20191012-passgan/</guid>
-      <description>论文主题 使用对抗神经网络的方式进行密码生成和密码猜解。 摘要 中文 最先进的密码猜测工具，例如HashCat和Ripper John，使用户能够每秒</description>
     </item>
     
   </channel>
