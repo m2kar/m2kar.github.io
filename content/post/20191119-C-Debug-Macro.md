@@ -41,7 +41,7 @@ categories: ["编程语言"]
 将上述代码加入到头文件中。
 
 Gcc编译时加入-DDEBUG定义DEBUG宏
-```
+```shell
 gcc -DDEBUG -o ./a.out 
 
 ```
