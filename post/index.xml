@@ -6,10 +6,19 @@
     <description>Recent content in Posts on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C语言中常用的调试宏</title>
+      <link>https://m2kar.cn/post/20191119-c-debug-macro/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191119-c-debug-macro/</guid>
+      <description>背景 在C语言编写中，经常想因为调试的原因，插入一些临时输出的变量，或者执行一些不必要的指令。 写完之后频繁注释和反注释很耗时间，而且可能会造成</description>
+    </item>
     
     <item>
       <title>【论文笔记】Beyond credential stuffing: Password similarity models using neural networks</title>

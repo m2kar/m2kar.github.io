@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/c/</link>
+    <description>Recent content in C on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C语言中常用的调试宏</title>
+      <link>https://m2kar.cn/post/20191119-c-debug-macro/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191119-c-debug-macro/</guid>
+      <description>背景 在C语言编写中，经常想因为调试的原因，插入一些临时输出的变量，或者执行一些不必要的指令。 写完之后频繁注释和反注释很耗时间，而且可能会造成</description>
+    </item>
+    
+  </channel>
+</rss>
