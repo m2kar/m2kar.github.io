@@ -62,7 +62,7 @@
       <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
       
       <guid>https://m2kar.cn/post/20181124-recur-decompress/</guid>
-      <description>E02 递归解压并对压缩包内的数字求和 Exercise (2). 定义文件xx.tar.gz 的产生方式如下： - 以xx 为文件名的文件通过tar 和gzip 打包压缩产生，该文件</description>
+      <description>背景 本题目想实现递归解压并对压缩包内的数字求和。 本题目来自中国科学院大学，算法概论课后作业02 源文件 。 Exercise (2). 定义文件xx.tar.gz 的产生方</description>
     </item>
     
   </channel>
