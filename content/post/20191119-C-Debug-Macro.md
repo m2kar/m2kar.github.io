@@ -2,10 +2,9 @@
 title: "C语言中常用的调试宏"
 date: 2019-11-19
 lastmod: 2019-11-19
-tags: ["C","编程语言"]
+tags: ["C","编程语言","code"]
 categories: ["编程语言"]
 
-hiddenFromHomePage: true
 ---
 # 背景
 在C语言编写中，经常想因为调试的原因，插入一些临时输出的变量，或者执行一些不必要的指令。
