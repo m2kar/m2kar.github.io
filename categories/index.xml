@@ -6,10 +6,19 @@
     <description>Recent content in Categories on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>运维</title>
+      <link>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>编程语言</title>
@@ -53,15 +62,6 @@
       <pubDate>Thu, 05 Sep 2019 21:11:00 +0800</pubDate>
       
       <guid>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>运维</title>
-      <link>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</link>
-      <pubDate>Wed, 21 Aug 2019 14:17:57 +0800</pubDate>
-      
-      <guid>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</guid>
       <description></description>
     </item>
     

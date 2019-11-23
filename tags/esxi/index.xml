@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>运维 on M2kar - Security World</title>
-    <link>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</link>
-    <description>Recent content in 运维 on M2kar - Security World</description>
+    <title>ESXi on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/esxi/</link>
+    <description>Recent content in ESXi on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 23 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.cn/tags/esxi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://m2kar.cn/post/20191123-network-topology/</guid>
       <description>描述 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。 拓扑图 具体说明 部门内部 1.1. 部门机房 &amp;gt; (机器均通过网关端口映</description>
-    </item>
-    
-    <item>
-      <title>使用Travis-CI部署Hugo，实现自动化部署</title>
-      <link>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</link>
-      <pubDate>Wed, 21 Aug 2019 14:17:57 +0800</pubDate>
-      
-      <guid>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</guid>
-      <description></description>
     </item>
     
   </channel>

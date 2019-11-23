@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>[Life] 欢迎 - M2kar - Security World</title>
+  <title>某部门内部网络拓扑图 - M2kar - Security World</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="m2kar " /><meta name="description" content="欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="描述 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。 拓扑图 具体说明 部门内部 1.1. 部门机房 &amp;gt; (机器均通过网关端口映" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
 
 
 <meta name="baidu-site-verification" content="gzbN1erS5U" />
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.56.3 with theme even" />
 
 
-<link rel="canonical" href="https://m2kar.cn/post/20190815-new-bolg/" />
+<link rel="canonical" href="https://m2kar.cn/post/20191123-network-topology/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,26 +38,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="[Life] 欢迎" />
-<meta property="og:description" content="欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io" />
+<meta property="og:title" content="某部门内部网络拓扑图" />
+<meta property="og:description" content="描述 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。 拓扑图 具体说明 部门内部 1.1. 部门机房 &gt; (机器均通过网关端口映" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://m2kar.cn/post/20190815-new-bolg/" />
-<meta property="article:published_time" content="2019-08-15T01:37:56+08:00" />
-<meta property="article:modified_time" content="2019-09-29T15:47:51+08:00" />
-<meta itemprop="name" content="[Life] 欢迎">
-<meta itemprop="description" content="欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io">
+<meta property="og:url" content="https://m2kar.cn/post/20191123-network-topology/" />
+<meta property="article:published_time" content="2019-11-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-23T12:27:54+08:00" />
+<meta itemprop="name" content="某部门内部网络拓扑图">
+<meta itemprop="description" content="描述 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。 拓扑图 具体说明 部门内部 1.1. 部门机房 &gt; (机器均通过网关端口映">
 
 
-<meta itemprop="datePublished" content="2019-08-15T01:37:56&#43;08:00" />
-<meta itemprop="dateModified" content="2019-09-29T15:47:51&#43;08:00" />
-<meta itemprop="wordCount" content="16">
+<meta itemprop="datePublished" content="2019-11-23T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-23T12:27:54&#43;08:00" />
+<meta itemprop="wordCount" content="668">
 
 
 
-<meta itemprop="keywords" content="Life," />
+<meta itemprop="keywords" content="运维,网络拓扑,ESXi," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Life] 欢迎"/>
-<meta name="twitter:description" content="欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io"/>
+<meta name="twitter:title" content="某部门内部网络拓扑图"/>
+<meta name="twitter:description" content="描述 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。 拓扑图 具体说明 部门内部 1.1. 部门机房 &gt; (机器均通过网关端口映"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,12 +124,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">[Life] 欢迎</h1>
+      <h1 class="post-title">某部门内部网络拓扑图</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2019-08-15 </span>
+        <span class="post-time"> 2019-11-23 </span>
         <div class="post-category">
-            <a href="/categories/life/"> Life </a>
+            <a href="/categories/%E8%BF%90%E7%BB%B4/"> 运维 </a>
             </div>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -140,10 +140,10 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li><a href="#欢迎来到新博客-m2kar-github-io">欢迎来到新博客 m2kar.github.io</a></li>
-</ul></li>
+<li><a href="#描述">描述</a></li>
+<li><a href="#拓扑图">拓扑图</a></li>
+<li><a href="#具体说明">具体说明</a></li>
+<li><a href="#相关链接">相关链接</a></li>
 </ul>
 </nav>
   </div>
@@ -151,47 +151,140 @@
     <div class="post-content">
       
 
-<h2 id="欢迎来到新博客-m2kar-github-io">欢迎来到新博客 m2kar.github.io</h2>
+<h1 id="描述">描述</h1>
 
-<p>欢迎来到新博客 m2kar.github.io</p>
+<p>某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。</p>
+
+<h1 id="拓扑图">拓扑图</h1>
+
+<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:525px; height:245px;" src="https://www.processon.com/embed/5dd8a635e4b055847e023b56"></iframe>
+
+<h1 id="具体说明">具体说明</h1>
+
+<ol>
+<li><p>部门内部</p>
+
+<ul>
+<li><p>1.1. 部门机房
+&gt; (机器均通过网关端口映射进行端口访问)</p></li>
+
+<li><p>1.1.1. 计算型服务器1(192.168.8.18)</p></li>
+
+<li><p>1.1.2. 存储服务器(192.168.8.19)</p></li>
+
+<li><p>1.2. 办公区域</p></li>
+
+<li><p>1.2.1 网线连接网段192.168.6.0/23.
+&gt; 其中某分组搭建了内部子网。</p></li>
+
+<li><p>1.2.2 公用wifi网段192.168.30.0/23
+&gt; 此网段限制了内部子网桥接，并屏蔽了入站流量。</p></li>
+</ul></li>
+
+<li><p>公司核心机房
+&gt; 受限于部门机房空间和安全性，使用公司核心机房完成部分业务。</p>
+
+<ul>
+<li>2.1. 计算型服务器2(223.0.6.122)</li>
+<li>2.2. 计算型服务器3(223.0.6.123)</li>
+
+<li><p>2.3. 计算型服务器4(223.0.6.121)</p></li>
+
+<li><p><strong>IPMI</strong></p></li>
+</ul></li>
+</ol>
+
+<p>在核心机房服务器开启IPMI管理端口，使用交换机相连。并与服务器2，4操作系统相连。</p>
+
+<p>网段192.168.100.0/24。</p>
+
+<ul>
+<li><strong>ESXi</strong></li>
+</ul>
+
+<p>在计算型服务器3(223.0.6.123)搭建ESXi虚拟化平台：</p>
+
+<ul>
+<li>物理网卡0通过vSwitch_bridge0与虚拟网关(pfSense)桥接</li>
+
+<li><p>虚拟网关</p>
+
+<ul>
+<li>WAN:223.0.6.123</li>
+<li>LAN 192.168.200.1
+<br /></li>
+</ul>
+
+<p>虚拟网关通过vSwitch_Nat_Inner虚拟交换机以下相连</p>
+
+<ul>
+<li>vmk1(主机虚拟网卡，ESXi管理接口,192.168.200.2)</li>
+<li>其他内部虚拟机</li>
+<li>通过端口映射到vmk1实现对ESXi管理接口的访问
+<br /></li>
+</ul></li>
+
+<li><p>vmk0(主机虚拟网卡，ESXi管理接口,192.168.101.3)</p>
+
+<p>通过vSwitch_bridge0与物理网卡1桥接。</p></li>
+
+<li><p>物理网卡1通过网线与服务器2互联。</p>
+
+<p>服务器2可访问ESXi管理接口。</p></li>
+</ul>
+
+<ol>
+<li>公网网段：
+
+<ul>
+<li>223.0.5.0/24</li>
+<li>223.0.6.0/24</li>
+</ul></li>
+</ol>
+
+<p>(公网IP地址已做匿名处理)</p>
+
+<h1 id="相关链接">相关链接</h1>
+
+<ul>
+<li>procresson: <a href="https://www.processon.com/view/link/5dd8b4e4e4b052b7c58c98a3">https://www.processon.com/view/link/5dd8b4e4e4b052b7c58c98a3</a></li>
+</ul>
 
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">m2kar <m2kar.cn@gmail.com></span>
+    <span class="item-content">m2kar(m2kar.cn@gmail.com)</span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-09-29
-        <a href="https://github.com/m2kar/m2kar.github.io/commit/c8cbe640a1ab5ef5333a0a30ab35f1a9cd9524ba" title="modified:   .travis.yml">(c8cbe64)</a>
+        2019-11-23
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/42f24b098da82b90a524c1216a818ea9ad5f9875" title="Rename 2019-11-23-Network-topology.md to 20191123-Network-topology.md">(42f24b0)</a>
     </span>
   </p>
   
     <p class="copyright-item">
       <span class="item-title">原始文档</span>
-      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20190815-new%20bolg.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20191123-Network-topology.md" target="_blank">查看本文 Markdown 版本 »</a></span>
     </p>
     
   <p class="copyright-item">
     <span class="item-title">许可协议</span>
-    <span class="item-content"><a rel="license noopener" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" target="_blank">Creative Commons Attribution-ShareAlike License</a></span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
   </p>
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/life/">Life</a>
+          <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+          <a href="/tags/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91/">网络拓扑</a>
+          <a href="/tags/esxi/">ESXi</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/20190821-deploy-use-travis-ci/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">使用Travis-CI部署Hugo，实现自动化部署</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/20181124-recur-decompress/">
-            <span class="next-text nav-default">[算法] E02 递归解压并对压缩包内的数字求和</span>
+        
+        <a class="next" href="/post/20191119-c-debug-macro/">
+            <span class="next-text nav-default">C语言中常用的调试宏</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
