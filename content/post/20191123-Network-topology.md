@@ -9,7 +9,7 @@ categories: ["运维"]
 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。
 
 # 拓扑图
-<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:525px; height:245px;" src="https://www.processon.com/embed/5dd8a635e4b055847e023b56"></iframe>
+<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:1200px; height:800px;" src="https://www.processon.com/embed/5dd8a635e4b055847e023b56"></iframe>
 
 # 具体说明
 
