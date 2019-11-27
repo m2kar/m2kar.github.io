@@ -3,24 +3,37 @@
   
   <url>
     <loc>https://m2kar.cn/categories/</loc>
-    <lastmod>2019-11-23T13:12:44+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://m2kar.cn/tags/esxi/</loc>
-    <lastmod>2019-11-23T13:12:44+08:00</lastmod>
+    <lastmod>2019-11-27T08:20:18+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/</loc>
-    <lastmod>2019-11-23T13:12:44+08:00</lastmod>
+    <lastmod>2019-11-27T08:20:18+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/</loc>
+    <lastmod>2019-11-27T08:20:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/post/20191127-user-ipython-create-multithread-job/</loc>
+    <lastmod>2019-11-27T08:20:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2019-11-27T08:20:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/esxi/</loc>
     <lastmod>2019-11-23T13:12:44+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -245,59 +258,59 @@
   
   <url>
     <loc>https://m2kar.cn/post/20190920-gitgot/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190920-emagnet/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/sci-hub/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190920-scihub/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190917-kuaishou-code-exam/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/%E7%AC%94%E8%AF%95/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -309,104 +322,104 @@
   
   <url>
     <loc>https://m2kar.cn/post/20190912-meituan-code-exam/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190917-yuewen-code-exam/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190912-huawei-code-exam/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190908-bytedance-code-exam/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190905-jos-csl/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190905-safehidden/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/devops/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/hugo/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/travis/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/categories/life/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/life/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/20190815-new-bolg/</loc>
-    <lastmod>2019-10-11T10:25:29+08:00</lastmod>
+    <lastmod>2019-10-11T10:39:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
