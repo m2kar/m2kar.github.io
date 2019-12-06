@@ -6,10 +6,19 @@
     <description>Recent content on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 27 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>批量迁移Gitee仓库到Github</title>
+      <link>https://m2kar.cn/post/20191206-transfer-gitee-to-github/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191206-transfer-gitee-to-github/</guid>
+      <description>背景 虽然Gitee仓库蓬勃发展，趋势很好，但是客观来讲，和Github的易用性还是有一定差距的。 当初由于Github私有仓库数量的限制，所以</description>
+    </item>
     
     <item>
       <title>[编程]ipython后台任务多线程执行</title>

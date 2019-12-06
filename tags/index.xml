@@ -6,10 +6,46 @@
     <description>Recent content in Tags on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 23 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git</title>
+      <link>https://m2kar.cn/tags/git/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gitee</title>
+      <link>https://m2kar.cn/tags/gitee/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/tags/gitee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>https://m2kar.cn/tags/github/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>迁移仓库</title>
+      <link>https://m2kar.cn/tags/%E8%BF%81%E7%A7%BB%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/tags/%E8%BF%81%E7%A7%BB%E4%BB%93%E5%BA%93/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ESXi</title>
