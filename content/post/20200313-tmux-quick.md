@@ -65,4 +65,4 @@ Tmux 官方默认时`C-b`.
 2. 更多快捷方式参考：[Tmux Cheat Sheet & Quick Reference](https://tmuxcheatsheet.com/)
 
 # 文章链接
-- https://blog.csdn.net/still_night/article/details/104832882
+- [Tmux快速使用](https://blog.csdn.net/still_night/article/details/104832882)
