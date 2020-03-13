@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SSH花式连到内网 - M2kar - Security World</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="SSH花式连到内网 0x01 背景 疫情期间远程办公，自然少不了需要连接到公司内网的服务器跑程序。SSH是一种常用的连接到内网的方式，几乎能做到所有连接" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
+
+
+<meta name="baidu-site-verification" content="gzbN1erS5U" />
+<meta name="google-site-verification" content="UA-150110063-1" />
+
+
+<meta name="generator" content="Hugo 0.56.3 with theme even" />
+
+
+<link rel="canonical" href="https://m2kar.cn/post/20200313-ssh-to-lan/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SSH花式连到内网" />
+<meta property="og:description" content="SSH花式连到内网 0x01 背景 疫情期间远程办公，自然少不了需要连接到公司内网的服务器跑程序。SSH是一种常用的连接到内网的方式，几乎能做到所有连接" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://m2kar.cn/post/20200313-ssh-to-lan/" />
+<meta property="article:modified_time" content="2020-03-14T00:56:57+08:00" />
+<meta itemprop="name" content="SSH花式连到内网">
+<meta itemprop="description" content="SSH花式连到内网 0x01 背景 疫情期间远程办公，自然少不了需要连接到公司内网的服务器跑程序。SSH是一种常用的连接到内网的方式，几乎能做到所有连接">
+
+
+<meta itemprop="dateModified" content="2020-03-14T00:56:57&#43;08:00" />
+<meta itemprop="wordCount" content="2249">
+
+
+
+<meta itemprop="keywords" content="linux,ssh,运维,vpn,内网," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SSH花式连到内网"/>
+<meta name="twitter:description" content="SSH花式连到内网 0x01 背景 疫情期间远程办公，自然少不了需要连接到公司内网的服务器跑程序。SSH是一种常用的连接到内网的方式，几乎能做到所有连接"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">M2kar - Security World</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">目录</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/cv/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">M2kar - Security World</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">目录</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/cv/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SSH花式连到内网</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BF%90%E7%BB%B4/"> 运维 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#ssh花式连到内网">SSH花式连到内网</a>
+<ul>
+<li><a href="#0x01-背景">0x01 背景</a></li>
+<li><a href="#0x02-网络拓扑">0x02 网络拓扑</a></li>
+<li><a href="#0x03-基础知识">0x03 基础知识</a></li>
+<li><a href="#0x04-工具列表">0x04 工具列表</a>
+<ul>
+<li><a href="#0x041-本地pc">0x041 本地PC</a></li>
+<li><a href="#0x042-企业服务器">0x042 企业服务器</a></li>
+</ul></li>
+<li><a href="#0x05-ssh端口转发的基本操作以及通过企业网络访问网站">0x05 ssh端口转发的基本操作以及通过企业网络访问网站</a>
+<ul>
+<li><a href="#0x051-适用情况">0x051 适用情况</a></li>
+<li><a href="#0x052-步骤">0x052 步骤</a></li>
+<li><a href="#0x053-优化">0x053 优化</a></li>
+</ul></li>
+<li><a href="#0x06-访问内网服务器ssh">0x06 访问内网服务器ssh</a>
+<ul>
+<li><a href="#优化">优化</a></li>
+<li><a href="#继续优化">继续优化</a></li>
+</ul></li>
+<li><a href="#0x07-本地访问企业内部数据库端口">0x07 本地访问企业内部数据库端口</a>
+<ul>
+<li><a href="#0x071-保持服务器名称不变">0x071 保持服务器名称不变</a></li>
+</ul></li>
+<li><a href="#0x08-让服务器能访问本地测试环境的数据库">0x08 让服务器能访问本地测试环境的数据库</a></li>
+<li><a href="#0x09-使用vscode远程编程调试">0x09 使用VSCode远程编程调试</a></li>
+<li><a href="#0x10-映射服务器文件夹">0x10 映射服务器文件夹</a></li>
+<li><a href="#0x11-访问同在远程的同事的本地服务">0x11 访问同在远程的同事的本地服务</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="ssh花式连到内网">SSH花式连到内网</h1>
+
+<h2 id="0x01-背景">0x01 背景</h2>
+
+<p>疫情期间远程办公，自然少不了需要连接到公司内网的服务器跑程序。SSH是一种常用的连接到内网的方式，几乎能做到所有连接内网的操作。下面作者将对几种连接到内网的使用情况做一些示例。</p>
+
+<h2 id="0x02-网络拓扑">0x02 网络拓扑</h2>
+
+<p>下面将对网络中的几台机器的网络拓扑做说明。
+&gt; IP均作匿名化处理</p>
+
+<ul>
+<li>个人笔记本1
+
+<ul>
+<li>主机名：PC1</li>
+<li>位置： 公网</li>
+<li>IP：不重要</li>
+</ul></li>
+<li>跳板机
+
+<ul>
+<li>主机名：proxy.test.com</li>
+<li>ssh:</li>
+<li>端口: 5022</li>
+<li>用户名: user</li>
+<li>IP/域名</li>
+<li>公网: proxy.test.com</li>
+<li>内网: 192.168.8.10</li>
+</ul></li>
+<li>服务器1
+
+<ul>
+<li>主机名: srv1</li>
+<li>ssh</li>
+<li>端口: 818</li>
+<li>用户名: user</li>
+<li>IP</li>
+<li>内网：192.168.8.18</li>
+</ul></li>
+</ul>
+
+<h2 id="0x03-基础知识">0x03 基础知识</h2>
+
+<ul>
+<li>ssh
+
+<ul>
+<li>ssh 端口转发</li>
+<li>ssh config文件配置</li>
+<li>ssh 密钥设置</li>
+</ul></li>
+<li>代理服务器</li>
+</ul>
+
+<h2 id="0x04-工具列表">0x04 工具列表</h2>
+
+<h3 id="0x041-本地pc">0x041 本地PC</h3>
+
+<ul>
+<li><p>如果是windows</p>
+
+<ul>
+<li>安装git-bash
+<br /></li>
+</ul></li>
+
+<li><p>如果是MacOS或者是Linux</p>
+
+<ul>
+<li>使用本地自带的ssh</li>
+</ul></li>
+</ul>
+
+<h3 id="0x042-企业服务器">0x042 企业服务器</h3>
+
+<p>需要配置好SSH服务器</p>
+
+<h2 id="0x05-ssh端口转发的基本操作以及通过企业网络访问网站">0x05 ssh端口转发的基本操作以及通过企业网络访问网站</h2>
+
+<h3 id="0x051-适用情况">0x051 适用情况</h3>
+
+<p>本方法可以适用于访问</p>
+
+<ul>
+<li>企业内部搭建的网站</li>
+<li>必须企业IP授权才能访问的网站（如论文检索网站）</li>
+</ul>
+
+<h3 id="0x052-步骤">0x052 步骤</h3>
+
+<ol>
+<li><p>执行ssh动态转发命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 在PC1上执行</span>
+ssh -D <span class="m">10824</span> user@proxy.test.com -p <span class="m">5022</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<p>上面的命令是在PC1本地开放端口10824，该端口作为一个Sock代理服务器，使用此代理可以通过企业内网访问网络</p>
+
+<ol>
+<li>浏览器配置代理</li>
+</ol>
+
+<p>在谷歌Chrome浏览器中配置Proxy SwitchyOmega。<br />
+添加新情景模式，类型为代理服务器。<br />
+配置代理协议为<code>sock4</code>,服务器和端口分别为<code>localhost</code>,<code>10824</code></p>
+
+<p>现在就能在浏览器中访问只有企业内部才可访问的网站了。</p>
+
+<h3 id="0x053-优化">0x053 优化</h3>
+
+<ol>
+<li>速度优化</li>
+</ol>
+
+<p>SSH添加<strong>-C</strong>参数可以实现数据包的压缩，对于大量数据的传输会提高速度。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh -C -D <span class="m">10824</span> user@proxy.test.com -p <span class="m">5022</span></code></pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>bug调试</li>
+</ol>
+
+<p>添加<strong>-v</strong>参数能够显示连接过程中的详细信息，出现错误后可以自行调试。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh -vC -D <span class="m">10824</span> user@proxy.test.com -p <span class="m">5022</span></code></pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>不打开终端</li>
+</ol>
+
+<p>添加<strong>-N</strong>参数可以不打开终端界面。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh -vNC -D <span class="m">10824</span> user@proxy.test.com -p <span class="m">5022</span></code></pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li><p>添加公钥访问，减少密码输入，并提高安全性</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh-keygen <span class="c1"># 生成密钥对</span>
+<span class="c1"># 添加私钥到服务器</span>
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@proxy.test.com -p <span class="m">5022</span>
+<span class="c1"># 此时连接可以不用密码</span>
+ssh -vNC -D <span class="m">10824</span> user@proxy.test.com -p <span class="m">5022</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>保存为config，减少记忆量</p></li>
+</ol>
+
+<p>在用户目录的.ssh下创建config文件,填入以下内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Host proxy <span class="c1"># 别名</span>
+  HostName proxy.test.com <span class="c1"># 远程跳板机的域名或者IP</span>
+  Port <span class="m">5022</span>
+  User user 
+  IdentityFile <span class="s2">&#34;~/.ssh/id_rsa&#34;</span> <span class="c1"># 私钥</span>
+  DynamicForward <span class="m">10824</span> <span class="c1"># 动态转发</span>
+  Compression yes <span class="c1"># 压缩</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>现在使用下面的命令即可访问</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ssh -vN proxy</pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>防止中断</li>
+</ol>
+
+<p>服务器默认会把不活动的ssh断掉，我们可以在config文件中加入keepalive选项来防止中断</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ServerAliveInterval 180
+ServerAliveCountMax 2</pre></td></tr></table>
+</div>
+</div>
+<p>这个配置的意思是每180秒发送一次keepalive的空包，如果两次失败就会断掉连接</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"># 完整.ssh/config
+ServerAliveInterval 180
+ServerAliveCountMax 2
+Host proxy # 别名
+  HostName proxy.test.com # 远程跳板机的域名或者IP
+  Port 5022
+  User user 
+  IdentityFile &#34;~/.ssh/id_rsa&#34; # 私钥
+  DynamicForward 10824 # 动态转发
+  Compression yes # 压缩</pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>自动重播</li>
+</ol>
+
+<p>可以搭配上自动重新连接的操作，来达到PC休眠苏醒后也能及时连接的功能。</p>
+
+<p>使用while循环来重新连接</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">while</span> :<span class="p">;</span> <span class="k">do</span> ssh -vN proxy <span class="p">;</span> <span class="k">done</span></code></pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>制作快捷方式(Windows)
+
+<ol>
+<li>在桌面上新建快捷方式
+<br /></li>
+</ol></li>
+</ol>
+
+<p>目标设定为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">   <span class="s2">&#34;&lt;绝对路径&gt;\git-bash.exe&#34;</span> -c <span class="s2">&#34;while :; do ssh -vN proxy; done&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>注意设置为git-bash的绝对路径。
+  2. 可以拖动该快捷方式到任务栏
+  3. 或者将快捷方式放入开始菜单的<code>启动</code>文件夹，实现开机自启。</p>
+
+<h2 id="0x06-访问内网服务器ssh">0x06 访问内网服务器ssh</h2>
+
+<p>大家可以想到的方式是先访问跳板机，然后再在跳板机上进行ssh连接到srv1。但是这样需要在跳板机proxy上放置自己的私钥，不安全。</p>
+
+<p>作者使用了ssh提供的ssh代理的功能。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh -o <span class="s2">&#34;ProxyCommand ssh user@proxy.test.com -p 5022 -W %h:%p&#34;</span> user@192.168.8.18 -p <span class="m">818</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>-o</strong>:是SSH 选项。本步骤使用了<code>ProxyCommand</code>的选项，它可以做到通过proxy.test.com这台跳板机访问srv1(192.168.8.18)。</p>
+
+<h3 id="优化">优化</h3>
+
+<p>在上一节0x05中，我们配置了ssh config文件，本步骤中可以继续用。</p>
+
+<p>命令可以优化为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh -o <span class="s2">&#34;ProxyCommand ssh proxy -W %h:%p&#34;</span> user@192.168.8.18 -p <span class="m">818</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="继续优化">继续优化</h3>
+
+<p>在ssh config中加入srv1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"># 加入0x05部分的完整ssh config
+Host srv1
+ HostName 192.168.8.18
+ User user
+ port 818
+ IdentityFile &#34;~/.ssh/id_rsa&#34;
+ ProxyCommand ssh proxy -W %h:%p # 这个是核心</pre></td></tr></table>
+</div>
+</div>
+<p>现在可以使用下面的终极简化命令访问srv1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh srv1</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="0x07-本地访问企业内部数据库端口">0x07 本地访问企业内部数据库端口</h2>
+
+<p>假设srv1上面有个redis数据库服务，端口为6379，只能从srv1的本地访问。</p>
+
+<p>现在本地的PC1机器在测试程序，也想直接访问这个端口。</p>
+
+<p>这时候可以用到本地端口转发的功能。命令格式为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 格式</span>
+ssh -L &lt;本地ip&gt;:&lt;本地端口&gt;:&lt;远程ip&gt;:&lt;远程端口&gt; &lt;服务器&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<p>在本情况下的命令为。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh -L <span class="m">6379</span>:6379 srv1</code></pre></td></tr></table>
+</div>
+</div>
+<p>这时候访问127.0.0.1的6379端口即可连到redis数据库。</p>
+
+<p>作者比较喜欢打开调试、压缩和禁止连到终端。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh -vNCL <span class="m">6379</span>:6379 srv1</code></pre></td></tr></table>
+</div>
+</div>
+<p>此转发同样可以写入配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Host srv1
+ HostName 192.168.8.18
+ User user
+ port 818
+ IdentityFile &#34;~/.ssh/id_rsa&#34;
+ ProxyCommand ssh proxy -W %h:%p # 这个是核心
+ LocalForward 6379 6379
+ Compression yes</pre></td></tr></table>
+</div>
+</div>
+<h3 id="0x071-保持服务器名称不变">0x071 保持服务器名称不变</h3>
+
+<p>开发的时候会把服务器的名称固定写到配置文件中，在本地调试的时候为了模拟服务器环境，一般不会更改配置文件。</p>
+
+<p>如果还想以 <code>srv1:6379</code> 连接到redis数据库，可以按如下操作。</p>
+
+<ol>
+<li>修改hosts文件
+<br /></li>
+</ol>
+
+<p>添加下面的一行到hosts文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">127.0.8.18 srv1</pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li><p>修改.ssh/config文件
+把srv1下的LocalForward修改为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">LocalForward 127.0.8.18:6379 6379</pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<p>此时PC1本地可以通过<code>srv1:6379</code>连接到redis数据库。</p>
+
+<h2 id="0x08-让服务器能访问本地测试环境的数据库">0x08 让服务器能访问本地测试环境的数据库</h2>
+
+<h2 id="0x09-使用vscode远程编程调试">0x09 使用VSCode远程编程调试</h2>
+
+<h2 id="0x10-映射服务器文件夹">0x10 映射服务器文件夹</h2>
+
+<h2 id="0x11-访问同在远程的同事的本地服务">0x11 访问同在远程的同事的本地服务</h2>
+
+<hr />
+
+<ul>
+<li><strong>版权声明</strong>：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</li>
+<li><strong>作者</strong>: m2kar</li>
+<li><strong>打赏链接</strong>: <a href="http://m2kar-cn.mikecrm.com/wy97haW">欢迎打赏m2kar</a></li>
+<li><strong>邮箱</strong>: <a href="mailto:m2kar.cn@gmail.com">m2kar.cn#gmail.com</a></li>
+<li><strong>主页</strong>: <a href="https://m2kar.cn">m2kar.cn</a></li>
+<li><strong>Github</strong>: <a href="https://github.com/m2kar">github.com/m2kar</a></li>
+<li><strong>CSDN</strong>: <a href="https://blog.csdn.net/still_night">M2kar的专栏</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">m2kar(m2kar.cn@gmail.com)</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-03-14
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/04e6b6bfc1511780626482b043445e347ac60531" title="20200313-SSH-To-LAN.md">(04e6b6b)</a>
+    </span>
+  </p>
+  
+    <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20200313-SSH-To-LAN.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+    
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/ssh/">ssh</a>
+          <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+          <a href="/tags/vpn/">vpn</a>
+          <a href="/tags/%E5%86%85%E7%BD%91/">内网</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/20181124-recur-decompress/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">[算法] E02 递归解压并对压缩包内的数字求和</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="m2kar/m2kar.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:m2kar.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/m2kar" class="iconfont icon-github" title="github"></a>
+  <a href="https://m2kar.cn/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m2kar(m2kar.cn@gmail.com)</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?b8496db3a9350b6611f36cedfb233de4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

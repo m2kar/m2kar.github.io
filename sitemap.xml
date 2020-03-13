@@ -3,7 +3,7 @@
   
   <url>
     <loc>https://m2kar.cn/categories/</loc>
-    <lastmod>2020-03-13T22:52:38+08:00</lastmod>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -16,19 +16,19 @@
   
   <url>
     <loc>https://m2kar.cn/</loc>
-    <lastmod>2020-03-13T22:52:38+08:00</lastmod>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/</loc>
-    <lastmod>2020-03-13T22:52:38+08:00</lastmod>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/</loc>
-    <lastmod>2020-03-13T22:52:38+08:00</lastmod>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -47,7 +47,7 @@
   
   <url>
     <loc>https://m2kar.cn/tags/linux/</loc>
-    <lastmod>2020-03-13T22:52:38+08:00</lastmod>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -59,7 +59,7 @@
   
   <url>
     <loc>https://m2kar.cn/tags/ssh/</loc>
-    <lastmod>2020-03-13T22:52:38+08:00</lastmod>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -76,14 +76,14 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</loc>
-    <lastmod>2020-03-13T22:52:38+08:00</lastmod>
+    <loc>https://m2kar.cn/tags/%E8%BF%90%E7%BB%B4/</loc>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E8%BF%90%E7%BB%B4/</loc>
-    <lastmod>2020-03-13T22:52:38+08:00</lastmod>
+    <loc>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</loc>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -164,13 +164,13 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</loc>
+    <loc>https://m2kar.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</loc>
     <lastmod>2020-03-13T22:52:38+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</loc>
+    <loc>https://m2kar.cn/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</loc>
     <lastmod>2020-03-13T22:52:38+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -201,13 +201,13 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-03-13T22:52:38+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-03-13T22:52:38+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -378,13 +378,13 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</loc>
+    <loc>https://m2kar.cn/tags/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2020-03-13T22:52:38+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E7%AC%94%E8%AF%95/</loc>
+    <loc>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2020-03-13T22:52:38+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -474,13 +474,13 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/life/</loc>
+    <loc>https://m2kar.cn/tags/life/</loc>
     <lastmod>2020-03-13T22:52:38+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/life/</loc>
+    <loc>https://m2kar.cn/categories/life/</loc>
     <lastmod>2020-03-13T22:52:38+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -502,6 +502,25 @@
   <url>
     <loc>https://m2kar.cn/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-03-13T22:52:38+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/post/20200313-ssh-to-lan/</loc>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/vpn/</loc>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/%E5%86%85%E7%BD%91/</loc>
+    <lastmod>2020-03-14T00:56:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   

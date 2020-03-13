@@ -47,5 +47,14 @@
       <description></description>
     </item>
     
+    <item>
+      <title>SSH花式连到内网</title>
+      <link>https://m2kar.cn/post/20200313-ssh-to-lan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200313-ssh-to-lan/</guid>
+      <description>SSH花式连到内网 0x01 背景 疫情期间远程办公，自然少不了需要连接到公司内网的服务器跑程序。SSH是一种常用的连接到内网的方式，几乎能做到所有连接</description>
+    </item>
+    
   </channel>
 </rss>
