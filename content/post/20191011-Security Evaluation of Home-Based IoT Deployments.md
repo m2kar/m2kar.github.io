@@ -83,3 +83,12 @@ Omar Alrawi, Chaz Lever, Manos Antonakakis, Fabian Monrose
  - [VIDEO: One min Preview](https://www.youtube.com/watch?v=-KCia-uTr-8)
  - [VIDEO: Conf. Presentation](https://www.youtube.com/watch?v=Yg807tkRSZ8)
 
+
+--------
+- **版权声明**：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+- **作者**: m2kar
+- **打赏链接**: [欢迎打赏m2kar](http://m2kar-cn.mikecrm.com/wy97haW)
+- **邮箱**: [m2kar.cn#gmail.com](mailto:m2kar.cn@gmail.com)
+- **主页**: [m2kar.cn](https://m2kar.cn)
+- **Github**: [github.com/m2kar](https://github.com/m2kar)
+- **CSDN**: [M2kar的专栏](https://blog.csdn.net/still_night)
