@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码 - M2kar - Security World</title>
+  <title>ES遍历所有搜索结果(Python实现) - M2kar - Security World</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="m2kar " /><meta name="description" content="介绍 Emagnet是一款非常强大的工具，其主要目的是从pastebin上传的泄漏数据库中捕获电子邮件地址和密码。当密码在pastebin.c" /><meta name="keywords" content="工具, EMAGNET, 复现" />
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="ES遍历所有搜索结果(Python实现)" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
 
 
 <meta name="baidu-site-verification" content="gzbN1erS5U" />
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.56.3 with theme even" />
 
 
-<link rel="canonical" href="https://m2kar.cn/post/20190920-emagnet/" />
+<link rel="canonical" href="https://m2kar.cn/post/20200313-es-get-all-search-result/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,26 +38,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码" />
-<meta property="og:description" content="介绍 Emagnet是一款非常强大的工具，其主要目的是从pastebin上传的泄漏数据库中捕获电子邮件地址和密码。当密码在pastebin.c" />
+<meta property="og:title" content="ES遍历所有搜索结果(Python实现)" />
+<meta property="og:description" content="ES遍历所有搜索结果(Python实现)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://m2kar.cn/post/20190920-emagnet/" />
-<meta property="article:published_time" content="2019-09-20T10:54:24+08:00" />
-<meta property="article:modified_time" content="2019-10-11T11:26:56+08:00" />
-<meta itemprop="name" content="[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码">
-<meta itemprop="description" content="介绍 Emagnet是一款非常强大的工具，其主要目的是从pastebin上传的泄漏数据库中捕获电子邮件地址和密码。当密码在pastebin.c">
+<meta property="og:url" content="https://m2kar.cn/post/20200313-es-get-all-search-result/" />
+<meta property="article:published_time" content="2020-03-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-13T19:55:56+08:00" />
+<meta itemprop="name" content="ES遍历所有搜索结果(Python实现)">
+<meta itemprop="description" content="ES遍历所有搜索结果(Python实现)">
 
 
-<meta itemprop="datePublished" content="2019-09-20T10:54:24&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-11T11:26:56&#43;08:00" />
-<meta itemprop="wordCount" content="336">
+<meta itemprop="datePublished" content="2020-03-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-03-13T19:55:56&#43;08:00" />
+<meta itemprop="wordCount" content="305">
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="elasticsearch,python," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码"/>
-<meta name="twitter:description" content="介绍 Emagnet是一款非常强大的工具，其主要目的是从pastebin上传的泄漏数据库中捕获电子邮件地址和密码。当密码在pastebin.c"/>
+<meta name="twitter:title" content="ES遍历所有搜索结果(Python实现)"/>
+<meta name="twitter:description" content="ES遍历所有搜索结果(Python实现)"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,12 +124,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码</h1>
+      <h1 class="post-title">ES遍历所有搜索结果(Python实现)</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2019-09-20 </span>
+        <span class="post-time"> 2020-03-13 </span>
         <div class="post-category">
-            <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+            <a href="/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
             </div>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -140,15 +140,12 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#介绍">介绍</a></li>
-<li><a href="#安装运行"># 安装运行</a>
+<li><a href="#es遍历所有搜索结果-python实现">ES遍历所有搜索结果(Python实现)</a>
 <ul>
-<li><a href="#发现邮箱">发现邮箱</a></li>
-<li><a href="#后台运行">后台运行</a></li>
-<li><a href="#docker-运行">docker 运行</a></li>
+<li><a href="#示例用法">示例用法</a></li>
 </ul></li>
-<li><a href="#todo-目前还没有出来的结果">TODO 目前还没有出来的结果</a></li>
 <li><a href="#参考">参考</a></li>
+<li><a href="#文章地址">文章地址</a></li>
 </ul>
 </nav>
   </div>
@@ -156,50 +153,81 @@
     <div class="post-content">
       
 
-<h1 id="介绍">介绍</h1>
+<h1 id="es遍历所有搜索结果-python实现">ES遍历所有搜索结果(Python实现)</h1>
 
-<p>Emagnet是一款非常强大的工具，其主要目的是从pastebin上传的泄漏数据库中捕获电子邮件地址和密码。当密码在pastebin.com上不在列表中时，几乎不可能找到泄露的密码。他们已被pastebin的技术人员删除，或仅仅只有个别人上传。说实话，这比在大海中捞针要容易，然后使用我们想要收集的数据在pastebin上查找过时的上传内容。</p>
-
-<h1 id="安装运行"># 安装运行</h1>
-
-<p><strong>环境</strong>: Kali Linux</p>
+<p>ES的搜索是有数量限制的，因此利用官方提供是scroll API实现了一个对全量数据处理的函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/wuseman/emagnet
-<span class="nb">cd</span> emagnet
-chmod +x emagnet*
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">travel_es</span><span class="p">(</span><span class="n">es</span><span class="p">,</span><span class="n">process_func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> 
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    遍历es的搜索结果，并使用process_func处理返回的item
+</span><span class="s2">    process_func: function to process item. 
+</span><span class="s2">    kwargs: arguments same as elasticsearch search api.
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&#34;scroll&#34;</span><span class="p">,</span><span class="s2">&#34;2m&#34;</span><span class="p">)</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&#34;size&#34;</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    
+    <span class="n">sid</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;_scroll_id&#39;</span><span class="p">]</span>
+    <span class="n">scroll_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;hits&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">])</span>
+    <span class="n">total_size</span><span class="o">=</span><span class="n">scroll_size</span>
+    <span class="k">while</span> <span class="n">scroll_size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="s2">&#34;Scrolling...&#34;</span>
 
-./emagnet --emagnet</code></pre></td></tr></table>
+        <span class="c1"># Before scroll, process current batch of hits</span>
+        <span class="n">process_func</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;hits&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">])</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">scroll_id</span><span class="o">=</span><span class="n">sid</span><span class="p">,</span> <span class="n">scroll</span><span class="o">=</span><span class="s1">&#39;4m&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Update the scroll ID</span>
+        <span class="n">sid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_scroll_id&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Get the number of results that returned in the last scroll</span>
+        <span class="n">scroll_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;hits&#39;</span><span class="p">][</span><span class="s1">&#39;hits&#39;</span><span class="p">])</span>
+        <span class="n">total_size</span><span class="o">+=</span><span class="n">scroll_size</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">total_size</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">scroll_size</span>
+    </code></pre></td></tr></table>
 </div>
 </div>
-<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568950222186.png" alt="1568950222186" /></p>
+<h2 id="示例用法">示例用法</h2>
 
-<p>运行失败,提示IP被锁</p>
-
-<h2 id="发现邮箱">发现邮箱</h2>
+<p>下面是把所有的结果存到item_list中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">./emagnet -e</pre></td></tr></table>
-</div>
-</div>
-<h2 id="后台运行">后台运行</h2>
-
-<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568960925457.png" alt="1568960925457" /></p>
-
-<h2 id="docker-运行">docker 运行</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="lnt"> 1
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -217,51 +245,52 @@ chmod +x emagnet*
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> &#34;ubuntu:18.04&#34;</span><span class="err">
-</span><span class="err"></span><span class="k">MAINTAINER</span><span class="s"> &#34;M2kar&lt;m2kar.cn@gmail.com&gt;&#34;</span><span class="err">
-</span><span class="err"></span>ARG <span class="nv">EMAGNET_VERSION</span><span class="o">=</span><span class="m">3</span>.4<span class="err">
-</span><span class="err"></span><span class="k">RUN</span> apt update <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> apt-get install -y --no-install-recommends <span class="se">\
-</span><span class="se"></span>        inetutils-ping <span class="se">\
-</span><span class="se"></span>        wget <span class="se">\
-</span><span class="se"></span>        curl <span class="se">\
-</span><span class="se"></span>        screen <span class="se">\
-</span><span class="se"></span>        ca-certificates <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span class="err">
-</span><span class="err"></span><span class="k">RUN</span> curl https://codeload.github.com/wuseman/EMAGNET/tar.gz/<span class="si">${</span><span class="nv">EMAGNET_VERSION</span><span class="si">}</span> &gt; /tmp/emagnet.tar.gz <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> tar -xzv -f /tmp/emagnet.tar.gz -C / <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> ln -s /EMAGNET-<span class="si">${</span><span class="nv">EMAGNET_VERSION</span><span class="si">}</span> /EMAGNET<span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s">  /EMAGNET</span><span class="err">
-</span><span class="err"></span><span class="k">CMD</span><span class="s"> [&#34;/EMAGNET/emagnet&#34;,&#34;--emagnet&#34;]</span></code></pre></td></tr></table>
-</div>
-</div>
-<h1 id="todo-目前还没有出来的结果">TODO 目前还没有出来的结果</h1>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">item_list</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">def</span> <span class="nf">save_to</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="n">item_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 
+<span class="c1"># 使用save_to 函数处理结果</span>
+<span class="n">count</span><span class="o">=</span><span class="n">travel_es</span><span class="p">(</span>
+        <span class="n">es</span><span class="p">,</span>
+        <span class="n">save_to</span><span class="p">,</span>
+        <span class="n">index</span><span class="o">=</span><span class="s2">&#34;reveye_v2&#34;</span><span class="p">,</span>
+        
+        <span class="n">body</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&#34;match_all&#34;</span><span class="p">:</span> <span class="p">{}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="参考">参考</h1>
 
-<ol>
-<li>[Github] EMAGNET <a href="https://github.com/wuseman/EMAGNET">https://github.com/wuseman/EMAGNET</a></li>
-<li>EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码 <a href="https://www.freebuf.com/sectool/213048.html">https://www.freebuf.com/sectool/213048.html</a></li>
-</ol>
+<ul>
+<li><a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/scroll.html">https://www.elastic.co/guide/cn/elasticsearch/guide/current/scroll.html</a></li>
+</ul>
+
+<h1 id="文章地址">文章地址</h1>
+
+<p><a href="https://blog.csdn.net/still_night/article/details/104830290">ES遍历所有搜索结果(Python实现)</a></p>
 
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">m2kar <m2kar.cn@gmail.com></span>
+    <span class="item-content">m2kar(m2kar.cn@gmail.com)</span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-10-11
-        <a href="https://github.com/m2kar/m2kar.github.io/commit/41ee1445203a63481e22c076461846fab7f5ca13" title="Update 20190929-CaiGaoTing-Mathematics.md">(41ee144)</a>
+        2020-03-13
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/0d290b1ccb804e26d14aec914112dddb7bc13060" title="new file:   content/post/20200313-ES-get-all-search-result.md">(0d290b1)</a>
     </span>
   </p>
   
     <p class="copyright-item">
       <span class="item-title">原始文档</span>
-      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20190920-EMAGNET.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20200313-ES-get-all-search-result.md" target="_blank">查看本文 Markdown 版本 »</a></span>
     </p>
     
   <p class="copyright-item">
@@ -270,15 +299,14 @@ chmod +x emagnet*
   </p>
 </div>
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/elasticsearch/">elasticsearch</a>
+          <a href="/tags/python/">python</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/20190920-gitgot/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/20190920-scihub/">
-            <span class="next-text nav-default">【工具】sci-hub：一个神奇的免费下载文献的网站</span>
+        
+        <a class="next" href="/post/20200313-tmux-quick/">
+            <span class="next-text nav-default">Tmux快速使用</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
