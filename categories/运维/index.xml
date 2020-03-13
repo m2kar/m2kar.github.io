@@ -6,10 +6,19 @@
     <description>Recent content in 运维 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tmux快速使用</title>
+      <link>https://m2kar.cn/post/20200313-tmux-quick/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200313-tmux-quick/</guid>
+      <description>背景 很多时候我们需要通过SSH连接服务器进行一些操作，费了好长时间调好了程序，一顿饭的功夫SSH超时了(broken pipe)，重新连上去正</description>
+    </item>
     
     <item>
       <title>批量迁移Gitee仓库到Github</title>

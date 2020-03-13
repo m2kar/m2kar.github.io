@@ -6,10 +6,28 @@
     <description>Recent content in Posts on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ES遍历所有搜索结果(Python实现)</title>
+      <link>https://m2kar.cn/post/20200313-es-get-all-search-result/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200313-es-get-all-search-result/</guid>
+      <description>ES遍历所有搜索结果(Python实现) ES的搜索是有数量限制的，因此利用官方提供是scroll API实现了一个对全量数据处理的函数。 1 2 3</description>
+    </item>
+    
+    <item>
+      <title>Tmux快速使用</title>
+      <link>https://m2kar.cn/post/20200313-tmux-quick/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200313-tmux-quick/</guid>
+      <description>背景 很多时候我们需要通过SSH连接服务器进行一些操作，费了好长时间调好了程序，一顿饭的功夫SSH超时了(broken pipe)，重新连上去正</description>
+    </item>
     
     <item>
       <title>批量迁移Gitee仓库到Github</title>
@@ -134,7 +152,7 @@
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
       
       <guid>https://m2kar.cn/post/20190917-kuaishou-code-exam/</guid>
-      <description>快手考试遇到了几个笔试题目，先记一下，有些题得重新做 句子逆序 字符串距离 质数分解 数独正确性检测</description>
+      <description>快手考试遇到了几个笔试题目，先记一下，有些题得重新做 句子逆序 字符串距离 质数分解 数独正确性检测 版权声明：本文为 m2kar 的原创文章，遵循CC 4.0 BY-S</description>
     </item>
     
     <item>
@@ -143,15 +161,6 @@
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
       
       <guid>https://m2kar.cn/post/20190912-meituan-code-exam/</guid>
-      <description>美团考试遇到了几个笔试题目，先记一下，有些题得重新做 黑客入侵点定位 题目描述 实现 分为两段执行： 1. 分别将模块1-12，模块1-24，模块1-48</description>
-    </item>
-    
-    <item>
-      <title>美团点评的几道笔试题</title>
-      <link>https://m2kar.cn/post/20190917-yuewen-code-exam/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://m2kar.cn/post/20190917-yuewen-code-exam/</guid>
       <description>美团考试遇到了几个笔试题目，先记一下，有些题得重新做 黑客入侵点定位 题目描述 实现 分为两段执行： 1. 分别将模块1-12，模块1-24，模块1-48</description>
     </item>
     
@@ -170,7 +179,7 @@
       <pubDate>Sun, 08 Sep 2019 00:00:00 +0800</pubDate>
       
       <guid>https://m2kar.cn/post/20190908-bytedance-code-exam/</guid>
-      <description>字节跳动考试遇到了几个笔试题目，先记一下，有些题得重新做 机器人向前看 数字二义性解码 三只水桶倒水问题 数字方块问题</description>
+      <description>字节跳动考试遇到了几个笔试题目，先记一下，有些题得重新做 机器人向前看 数字二义性解码 三只水桶倒水问题 数字方块问题 版权声明：本文为 m2kar 的原创文章，</description>
     </item>
     
     <item>
@@ -206,7 +215,7 @@
       <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
       
       <guid>https://m2kar.cn/post/20190815-new-bolg/</guid>
-      <description>欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io</description>
+      <description>欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io 版权声明：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。 作者: m2kar 打赏链接</description>
     </item>
     
     <item>
