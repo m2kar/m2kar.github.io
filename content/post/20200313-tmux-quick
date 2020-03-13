@@ -59,6 +59,10 @@ Tmux 官方默认时`C-b`.
 | `<preix> %` |  纵向分割 | |
 | `<preix> “` |  水平分割 | |
 | `<preix> ←↑↓→` |  切换 | |
+
 # 参考
 1. Oh My Tmux 参考: [gpakosz/.tmux(github)](https://github.com/gpakosz/.tmux)
 2. 更多快捷方式参考：[Tmux Cheat Sheet & Quick Reference](https://tmuxcheatsheet.com/)
+
+# 文章链接
+- https://blog.csdn.net/still_night/article/details/104832882
