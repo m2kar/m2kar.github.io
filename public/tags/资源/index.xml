@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>资源 on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/%E8%B5%84%E6%BA%90/</link>
+    <description>Recent content in 资源 on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 05 Sep 2019 21:11:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/tags/%E8%B5%84%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>软件学报zotero文献格式</title>
+      <link>https://m2kar.cn/post/20190905-jos-csl/</link>
+      <pubDate>Thu, 05 Sep 2019 21:11:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190905-jos-csl/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
