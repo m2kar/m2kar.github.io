@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>运维 on M2kar - Security World</title>
+    <link>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</link>
+    <description>Recent content in 运维 on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>批量迁移Gitee仓库到Github</title>
+      <link>https://m2kar.cn/post/20191206-transfer-gitee-to-github/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191206-transfer-gitee-to-github/</guid>
+      <description>背景 虽然Gitee仓库蓬勃发展，趋势很好，但是客观来讲，和Github的易用性还是有一定差距的。 当初由于Github私有仓库数量的限制，所以</description>
+    </item>
+    
+    <item>
+      <title>某部门内部网络拓扑图</title>
+      <link>https://m2kar.cn/post/20191123-network-topology/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191123-network-topology/</guid>
+      <description>描述 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。 拓扑图 具体说明 1. 部门内部 1.1. 部门机房 &amp;gt; (机器均通过网关端口</description>
+    </item>
+    
+    <item>
+      <title>使用Travis-CI部署Hugo，实现自动化部署</title>
+      <link>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</link>
+      <pubDate>Wed, 21 Aug 2019 14:17:57 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

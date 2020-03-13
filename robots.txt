@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://m2kar.github.io/sitemap.xml
+Sitemap: https://m2kar.cn/sitemap.xml

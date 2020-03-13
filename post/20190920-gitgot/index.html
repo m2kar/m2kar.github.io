@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具 - M2kar - Security World</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="m2kar " /><meta name="description" content="介绍 今天给大家介绍的是一款名叫GitGot的半自动信息收集工具，在GitGot的帮助下，广大研究人员可以轻松从GitHub公开数据中搜索敏感" /><meta name="keywords" content="工具, GitGot, 复现" />
+
+
+<meta name="baidu-site-verification" content="gzbN1erS5U" />
+<meta name="google-site-verification" content="UA-150110063-1" />
+
+
+<meta name="generator" content="Hugo 0.56.3 with theme even" />
+
+
+<link rel="canonical" href="https://m2kar.cn/post/20190920-gitgot/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具" />
+<meta property="og:description" content="介绍 今天给大家介绍的是一款名叫GitGot的半自动信息收集工具，在GitGot的帮助下，广大研究人员可以轻松从GitHub公开数据中搜索敏感" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://m2kar.cn/post/20190920-gitgot/" />
+<meta property="article:published_time" content="2019-09-20T14:54:24+08:00" />
+<meta property="article:modified_time" content="2019-10-11T11:26:56+08:00" />
+<meta itemprop="name" content="[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具">
+<meta itemprop="description" content="介绍 今天给大家介绍的是一款名叫GitGot的半自动信息收集工具，在GitGot的帮助下，广大研究人员可以轻松从GitHub公开数据中搜索敏感">
+
+
+<meta itemprop="datePublished" content="2019-09-20T14:54:24&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-11T11:26:56&#43;08:00" />
+<meta itemprop="wordCount" content="631">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具"/>
+<meta name="twitter:description" content="介绍 今天给大家介绍的是一款名叫GitGot的半自动信息收集工具，在GitGot的帮助下，广大研究人员可以轻松从GitHub公开数据中搜索敏感"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">M2kar - Security World</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">目录</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/cv/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">M2kar - Security World</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">目录</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/cv/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-09-20 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#介绍">介绍</a></li>
+<li><a href="#安装运行"># 安装运行</a>
+<ul>
+<li><a href="#安装">安装</a>
+<ul>
+<li><a href="#设置token">设置token</a></li>
+</ul></li>
+<li><a href="#工具使用">工具使用</a></li>
+</ul></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="介绍">介绍</h1>
+
+<p>今天给大家介绍的是一款名叫GitGot的半自动信息收集工具，在GitGot的帮助下，广大研究人员可以轻松从GitHub公开数据中搜索敏感信息。</p>
+
+<h1 id="安装运行"># 安装运行</h1>
+
+<p><strong>环境</strong>: Kali Linux + docker</p>
+
+<h2 id="安装">安装</h2>
+
+<p>运行gitgot-docker.sh文件来构建GitGot Docker镜像，并执行Docker化的GitGot版本工具。运行之后，gitgot-docker.sh文件将会在主机当前的工作目录下创建并加载logs和states目录。如果gitgot-docker.sh文件是直接从GitGot项目目录下运行的话，它将会更新Docker容器：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./gitgot-docker.sh</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="设置token">设置token</h3>
+
+<p>由于GitHub会限制访问频率，因此我们还需要一个令牌，我们可以直接创建一个无权限/无范围的GitHub API令牌：【<a href="https://github.com/settings/tokens">传送门</a>】，这个令牌可以直接拿来访问公共GitHub库。Gitgot.py文件的顶部需要添加下列代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">ACCESS_TOKEN</span><span class="o">=</span> <span class="s2">&#34;&lt;NO-PERMISSION-GITHUB-TOKEN-HERE&gt;&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568962383377.png" alt="1568962383377" /></p>
+
+<h2 id="工具使用">工具使用</h2>
+
+<ul>
+<li><p>使用默认正则式列表和日志文件地址(/logs/<query>.log)查询字符串”example.com”</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">./gitgot.py -q example.com</pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<p>尝试了一下 iscas.ac.cn</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">./gitgot.py -q iscas.ac.cn</pre></td></tr></table>
+</div>
+</div>
+<p>搜索到了一些手机号,邮箱,姓名这样的敏感信息</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568963130665.png" alt="1568963130665" /></p>
+
+<p>发现很多机器学习的恶意邮件分类数据集中竟然包含很多的较为敏感的邮箱和域名信息</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568963695626.png" alt="1568963695626" /></p>
+
+<p>可以使用交互命令设置是否显示内容。如果设置是否忽略相似内容，则会根据相似度判断是否忽略。</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568963367464.png" alt="1568963367464" /></p>
+
+<p>还有这种极度敏感的信息。</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568963974671.png" alt="1568963974671" /></p>
+
+<p>这是PHP的password_hash函数生成的密码。</p>
+
+<p><a href="https://moodle.org/mod/forum/discuss.php?d=315092&amp;parent=1262609">https://moodle.org/mod/forum/discuss.php?d=315092&amp;parent=1262609</a></p>
+
+<p><a href="https://www.php.net/password_hash">https://www.php.net/password_hash</a></p>
+
+<h1 id="参考">参考</h1>
+
+<ol>
+<li><p>[Github] GitGot <a href="https://github.com/BishopFox/GitGot">https://github.com/BishopFox/GitGot</a></p></li>
+
+<li><p>GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具 <a href="https://www.freebuf.com/sectool/212124.html">https://www.freebuf.com/sectool/212124.html</a></p></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">m2kar <m2kar.cn@gmail.com></span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-10-11
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/41ee1445203a63481e22c076461846fab7f5ca13" title="Update 20190929-CaiGaoTing-Mathematics.md">(41ee144)</a>
+    </span>
+  </p>
+  
+    <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20190920-GITGOT.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+    
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/20190929-caigaoting-mathematics/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">蔡高厅高等数学课程教材pdf</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/20190920-emagnet/">
+            <span class="next-text nav-default">[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="m2kar/m2kar.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:m2kar.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/m2kar" class="iconfont icon-github" title="github"></a>
+  <a href="https://m2kar.cn/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m2kar(m2kar.cn@gmail.com)</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?b8496db3a9350b6611f36cedfb233de4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

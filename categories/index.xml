@@ -2,92 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on M2kar - Security World</title>
-    <link>https://m2kar.github.io/categories/</link>
+    <link>https://m2kar.cn/categories/</link>
     <description>Recent content in Categories on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://m2kar.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>English</title>
-      <link>https://m2kar.github.io/categories/english/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
+      <title>运维</title>
+      <link>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://m2kar.github.io/categories/english/</guid>
+      <guid>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>编程</title>
+      <link>https://m2kar.cn/categories/%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/categories/%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>编程语言</title>
+      <link>https://m2kar.cn/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>论文笔记</title>
+      <link>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>工具</title>
+      <link>https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 20 Sep 2019 14:54:24 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>笔试</title>
+      <link>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>资源</title>
+      <link>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Thu, 05 Sep 2019 21:11:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/categories/%E8%B5%84%E6%BA%90/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Life</title>
-      <link>https://m2kar.github.io/categories/life/</link>
+      <link>https://m2kar.cn/categories/life/</link>
       <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/categories/life/</guid>
+      <guid>https://m2kar.cn/categories/life/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Syntax Highlighting</title>
-      <link>https://m2kar.github.io/categories/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
+      <title>算法</title>
+      <link>https://m2kar.cn/categories/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/categories/syntax-highlighting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Theme preview</title>
-      <link>https://m2kar.github.io/categories/theme-preview/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/categories/theme-preview/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>category-2</title>
-      <link>https://m2kar.github.io/categories/category-2/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/categories/category-2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>category-3</title>
-      <link>https://m2kar.github.io/categories/category-3/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/categories/category-3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://m2kar.github.io/categories/shortcodes/</link>
-      <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/categories/shortcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>中文</title>
-      <link>https://m2kar.github.io/categories/%E4%B8%AD%E6%96%87/</link>
-      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/categories/%E4%B8%AD%E6%96%87/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>日本語</title>
-      <link>https://m2kar.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
-      <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
+      <guid>https://m2kar.cn/categories/%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     

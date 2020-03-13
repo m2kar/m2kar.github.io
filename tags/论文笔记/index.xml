@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>论文笔记 on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 论文笔记 on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 15 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【论文笔记】Beyond credential stuffing: Password similarity models using neural networks</title>
+      <link>https://m2kar.cn/post/20191115-beyond-credential-stuffing-_-password-similarity-models-using-neural-networks/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191115-beyond-credential-stuffing-_-password-similarity-models-using-neural-networks/</guid>
+      <description>论文主题 同一用户在不同网站的密码相似度模型。 摘要 英文 Attackers increasingly use passwords leaked from one website to compromise associated accounts on other websites. Such targeted attacks work because users reuse, or pick similar, passwords for different websites. We recast one of the core technical challenges underlying targeted attacks as the task of</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】Birthday, Name and Bifacial-security Understanding Passwords of Chinese Web Users</title>
+      <link>https://m2kar.cn/post/20191024-birthday-name-and-bifacial-security-understanding-passwords-of-chinese-web-users/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191024-birthday-name-and-bifacial-security-understanding-passwords-of-chinese-web-users/</guid>
+      <description>论文主题 对中文密码进行实证分析，发现中文密码中有趣的结构和特征，揭示了中文密码的双相安全性（Bifacial-security）。 摘要 英文 Much</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】GENPass: A general deep learning model for password guessing with PCFG rules and adversarial generation</title>
+      <link>https://m2kar.cn/post/20191018-genpass/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191018-genpass/</guid>
+      <description>论文主题 使用RCFG+LSTM和对抗生成网络猜解密码。 摘要 英文 Password has become today&amp;rsquo;s dominant method of authentication in social network. While the brute-force attack methods, such as HashCat and John the Ripper, are unpractical, the research then switches to the password guess. The state-of-the-art approaches, such as Markov</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】PassGAN: A Deep Learning Approach for Password Guessing</title>
+      <link>https://m2kar.cn/post/20191012-passgan/</link>
+      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191012-passgan/</guid>
+      <description>论文主题 使用对抗神经网络的方式进行密码生成和密码猜解。 摘要 中文 最先进的密码猜测工具，例如HashCat和Ripper John，使用户能够每秒</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</title>
+      <link>https://m2kar.cn/post/20191011-security-evaluation-of-home-based-iot-deployments/</link>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191011-security-evaluation-of-home-based-iot-deployments/</guid>
+      <description>概览 摘要 Home-based IoT devices have a bleak reputation regarding their security practices. On the surface, the insecurities of IoT devices seem to be caused by integration problems that may be addressed by simple measures, but this work finds that to be a naive assumption. The truth is, IoT deployments, at their core, utilize traditional compute systems, such as embedded, mobile, and network. These components have many unexplored</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】SafeHidden: An Efficient and Secure Information Hiding Technique Using Re-randomization</title>
+      <link>https://m2kar.cn/post/20190905-safehidden/</link>
+      <pubDate>Thu, 05 Sep 2019 18:05:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190905-safehidden/</guid>
+      <description>SafeHidden: An Efficient and Secure Information 概览 摘要 中文（翻译） 在众多代码重用攻击的防御手段中，信息隐藏(Information Hiding,IH)由于其有效性和高性能，成</description>
+    </item>
+    
+  </channel>
+</rss>

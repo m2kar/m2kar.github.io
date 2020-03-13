@@ -1,2 +1,0 @@
-User-agent: *
-Sitemap: https://m2kar.github.io/sitemap.xml

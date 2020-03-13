@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>华为的几道笔试题 - M2kar - Security World</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="m2kar " /><meta name="description" content="华为考试遇到了几个笔试题目，先记一下，有些题得重新做、 &amp;gt;笔试信息试卷名称：【华为2019年校园招聘】2019-9-11 软件题 &amp;gt;考" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
+
+
+<meta name="baidu-site-verification" content="gzbN1erS5U" />
+<meta name="google-site-verification" content="UA-150110063-1" />
+
+
+<meta name="generator" content="Hugo 0.56.3 with theme even" />
+
+
+<link rel="canonical" href="https://m2kar.cn/post/20190912-huawei-code-exam/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="华为的几道笔试题" />
+<meta property="og:description" content="华为考试遇到了几个笔试题目，先记一下，有些题得重新做、 &gt;笔试信息试卷名称：【华为2019年校园招聘】2019-9-11 软件题 &gt;考" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://m2kar.cn/post/20190912-huawei-code-exam/" />
+<meta property="article:published_time" content="2019-09-11T00:00:00+08:00" />
+<meta property="article:modified_time" content="2019-10-11T11:26:56+08:00" />
+<meta itemprop="name" content="华为的几道笔试题">
+<meta itemprop="description" content="华为考试遇到了几个笔试题目，先记一下，有些题得重新做、 &gt;笔试信息试卷名称：【华为2019年校园招聘】2019-9-11 软件题 &gt;考">
+
+
+<meta itemprop="datePublished" content="2019-09-11T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-11T11:26:56&#43;08:00" />
+<meta itemprop="wordCount" content="655">
+
+
+
+<meta itemprop="keywords" content="code,笔试,算法," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="华为的几道笔试题"/>
+<meta name="twitter:description" content="华为考试遇到了几个笔试题目，先记一下，有些题得重新做、 &gt;笔试信息试卷名称：【华为2019年校园招聘】2019-9-11 软件题 &gt;考"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">M2kar - Security World</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">目录</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/cv/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">M2kar - Security World</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">目录</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/cv/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">华为的几道笔试题</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-09-11 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AF%95/"> 笔试 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#数轴相邻点问题">数轴相邻点问题</a>
+<ul>
+<li><a href="#题目描述">题目描述</a></li>
+<li><a href="#解答">解答</a></li>
+</ul></li>
+<li><a href="#字符串倒序排列问题">字符串倒序排列问题</a>
+<ul>
+<li><a href="#题目描述-1">题目描述</a></li>
+<li><a href="#解答-1">解答</a></li>
+</ul></li>
+<li><a href="#航班线路问题">航班线路问题</a>
+<ul>
+<li><a href="#题目描述-2">题目描述</a></li>
+<li><a href="#解答-2">解答</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>华为考试遇到了几个笔试题目，先记一下，有些题得重新做、
+&gt;笔试信息试卷名称：【华为2019年校园招聘】2019-9-11 软件题
+&gt;考试时间：(北京时间,UTC+08:00)09-11 19:00:00 &ndash; 21:10:00
+&gt;考试时长：120分钟
+&gt;考试地址：<a href="https://exam.nowcoder.com/cts/17045150/summary?xxxxxxxxxxxx（考试地址为你的私人专属地址，请勿转发。如无法直接打开，请拷贝完整链接并粘贴至浏览器地址栏）">https://exam.nowcoder.com/cts/17045150/summary?xxxxxxxxxxxx（考试地址为你的私人专属地址，请勿转发。如无法直接打开，请拷贝完整链接并粘贴至浏览器地址栏）</a>
+&gt;硬件模拟试卷链接：<a href="https://www.nowcoder.com/cts/9540163/summary">https://www.nowcoder.com/cts/9540163/summary</a>
+&gt;软件模拟试卷链接：<a href="https://www.nowcoder.com/cts/9540156/summary">https://www.nowcoder.com/cts/9540156/summary</a>
+&gt;注：可提前进入模拟试卷链接熟悉题型和考试环境，方便您更顺利通过考试。
+&gt;
+&gt;<img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223500508.png" alt="1568223500508" /></p>
+
+<h1 id="数轴相邻点问题">数轴相邻点问题</h1>
+
+<h2 id="题目描述">题目描述</h2>
+
+<p>s</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223716592.png" alt="1568223716592" /></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223741218.png" alt="1568223741218" /></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223775864.png" alt="1568223775864" /></p>
+
+<h2 id="解答">解答</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">s</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span>
+<span class="n">A</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">area</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+<span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;{&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;}&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="p">,</span><span class="s2">&#34;,&#34;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="s2">&#34;ABR&#34;</span><span class="p">:</span>
+        <span class="n">area</span><span class="o">=</span><span class="n">x</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="ow">in</span> <span class="s2">&#34;={}&#34;</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">area</span><span class="o">==</span><span class="s2">&#34;A&#34;</span><span class="p">:</span>
+            <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">area</span><span class="o">==</span><span class="s2">&#34;B&#34;</span><span class="p">:</span>
+            <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">area</span><span class="o">==</span><span class="s2">&#34;R&#34;</span><span class="p">:</span>
+            <span class="n">R</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">j</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">na</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">nb</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">sj</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">na</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">sj</span><span class="o">&lt;</span><span class="n">nb</span> <span class="ow">and</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="n">B</span><span class="p">[</span><span class="n">sj</span><span class="p">]</span> <span class="p">:</span>
+        <span class="n">sj</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">sj</span><span class="o">&gt;=</span><span class="n">nb</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="n">j</span><span class="o">=</span><span class="n">sj</span>
+    <span class="k">while</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">nb</span> <span class="ow">and</span> <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">R</span> <span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;(</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">)&#34;</span><span class="o">%</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span><span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+        <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="n">sj</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;(</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">)&#34;</span><span class="o">%</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span><span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+<span class="k">print</span><span class="p">()</span>
+        
+    
+    </code></pre></td></tr></table>
+</div>
+</div>
+<h1 id="字符串倒序排列问题">字符串倒序排列问题</h1>
+
+<h2 id="题目描述-1">题目描述</h2>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223787906.png" alt="1568223787906" /></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223801491.png" alt="1568223801491" /></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223816084.png" alt="1568223816084" /></p>
+
+<h2 id="解答-1">解答</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">string</span>
+<span class="n">CHR</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="o">+</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span>
+<span class="n">s</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span>
+<span class="n">l</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">CHR</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span> <span class="ow">and</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">CHR</span> <span class="ow">or</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s2">&#34;-&#34;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s2">&#34;-&#34;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">n</span> <span class="ow">and</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">CHR</span><span class="p">):</span>
+                    <span class="k">break</span>
+            <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="n">end</span><span class="o">=</span><span class="s2">&#34; &#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h1 id="航班线路问题">航班线路问题</h1>
+
+<h2 id="题目描述-2">题目描述</h2>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223832820.png" alt="1568223832820" /></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223841507.png" alt="1568223841507" /></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/1568223914401.png" alt="1568223914401" /></p>
+
+<h2 id="解答-2">解答</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">N</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">old</span><span class="o">=</span><span class="p">{}</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">fid</span><span class="p">,</span><span class="n">sid</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">old</span><span class="p">[(</span><span class="n">fid</span><span class="p">,</span><span class="n">sid</span><span class="p">)]</span><span class="o">=</span><span class="n">name</span>
+<span class="n">new</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">M</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">names</span><span class="o">=</span><span class="p">{}</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">ofid</span><span class="p">,</span><span class="n">osid</span><span class="p">,</span><span class="n">nfid</span><span class="p">,</span><span class="n">nsid</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">ofs</span><span class="o">=</span><span class="p">(</span><span class="n">ofid</span><span class="p">,</span><span class="n">osid</span><span class="p">)</span>
+    <span class="n">nfs</span><span class="o">=</span><span class="p">(</span><span class="n">nfid</span><span class="p">,</span><span class="n">nsid</span><span class="p">)</span>
+    <span class="n">name</span><span class="o">=</span><span class="n">old</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ofs</span><span class="p">,)</span>
+    <span class="k">if</span> <span class="n">names</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,(</span><span class="s2">&#34;&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">nfid</span><span class="p">:</span>
+        <span class="n">new</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">name</span><span class="p">],)</span>
+    <span class="n">new</span><span class="p">[(</span><span class="n">nfid</span><span class="p">,</span><span class="n">nsid</span><span class="p">)]</span><span class="o">=</span><span class="n">name</span>
+    <span class="n">names</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">nfid</span><span class="p">,</span><span class="n">nsid</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">fs</span><span class="p">,</span><span class="n">name</span> <span class="ow">in</span> <span class="n">old</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">fs</span> <span class="ow">in</span> <span class="n">new</span> <span class="ow">or</span> <span class="n">names</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,(</span><span class="s2">&#34;&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">nfid</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">new</span><span class="p">[</span><span class="n">fs</span><span class="p">]</span><span class="o">=</span><span class="n">old</span><span class="p">[</span><span class="n">fs</span><span class="p">]</span>
+
+<span class="n">l</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">new</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">fs</span><span class="p">,</span><span class="n">name</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">&#34;</span><span class="o">%</span><span class="p">(</span><span class="n">fs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">fs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">name</span><span class="p">))</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">m2kar <m2kar.cn@gmail.com></span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-10-11
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/41ee1445203a63481e22c076461846fab7f5ca13" title="Update 20190929-CaiGaoTing-Mathematics.md">(41ee144)</a>
+    </span>
+  </p>
+  
+    <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20190912-Huawei-code-exam.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+    
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/code/">code</a>
+          <a href="/tags/%E7%AC%94%E8%AF%95/">笔试</a>
+          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/20190912-meituan-code-exam/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">美团点评的几道笔试题</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/20190908-bytedance-code-exam/">
+            <span class="next-text nav-default">字节跳动的几道笔试题</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="m2kar/m2kar.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:m2kar.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/m2kar" class="iconfont icon-github" title="github"></a>
+  <a href="https://m2kar.cn/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m2kar(m2kar.cn@gmail.com)</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?b8496db3a9350b6611f36cedfb233de4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>物联网 on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/%E7%89%A9%E8%81%94%E7%BD%91/</link>
+    <description>Recent content in 物联网 on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 11 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/tags/%E7%89%A9%E8%81%94%E7%BD%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</title>
+      <link>https://m2kar.cn/post/20191011-security-evaluation-of-home-based-iot-deployments/</link>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191011-security-evaluation-of-home-based-iot-deployments/</guid>
+      <description>概览 摘要 Home-based IoT devices have a bleak reputation regarding their security practices. On the surface, the insecurities of IoT devices seem to be caused by integration problems that may be addressed by simple measures, but this work finds that to be a naive assumption. The truth is, IoT deployments, at their core, utilize traditional compute systems, such as embedded, mobile, and network. These components have many unexplored</description>
+    </item>
+    
+  </channel>
+</rss>

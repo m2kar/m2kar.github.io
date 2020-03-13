@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网络拓扑 on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91/</link>
+    <description>Recent content in 网络拓扑 on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 23 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/tags/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>某部门内部网络拓扑图</title>
+      <link>https://m2kar.cn/post/20191123-network-topology/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191123-network-topology/</guid>
+      <description>描述 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。 拓扑图 具体说明 1. 部门内部 1.1. 部门机房 &amp;gt; (机器均通过网关端口</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,420 +2,220 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>M2kar - Security World</title>
-    <link>https://m2kar.github.io/</link>
+    <link>https://m2kar.cn/</link>
     <description>Recent content on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://m2kar.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://m2kar.cn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Theme preview</title>
-      <link>https://m2kar.github.io/post/even-preview/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
+      <title>批量迁移Gitee仓库到Github</title>
+      <link>https://m2kar.cn/post/20191206-transfer-gitee-to-github/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://m2kar.github.io/post/even-preview/</guid>
-      <description>Based on MarkdownPreview test.md. Markdown 1 2 3 4 5 6 7 8 # H1 ## H2 ### H3 #### H4 ##### H5 ###### H6 ### Duplicate Header ### Duplicate Header H1 H2 H3 H4 H5 H6 Duplicate Header Duplicate Header Paragraphs 1 2 3 4 This is a paragraph. I am still part of the paragraph. New paragraph. This is a paragraph. I am still part of the paragraph.</description>
+      <guid>https://m2kar.cn/post/20191206-transfer-gitee-to-github/</guid>
+      <description>背景 虽然Gitee仓库蓬勃发展，趋势很好，但是客观来讲，和Github的易用性还是有一定差距的。 当初由于Github私有仓库数量的限制，所以</description>
     </item>
     
     <item>
-      <title>Theme preview</title>
-      <link>https://m2kar.github.io/template/even-preview/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
+      <title>[编程]ipython后台任务多线程执行</title>
+      <link>https://m2kar.cn/post/20191127-user-ipython-create-multithread-job/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://m2kar.github.io/template/even-preview/</guid>
-      <description>Based on MarkdownPreview test.md. Markdown 1 2 3 4 5 6 7 8 # H1 ## H2 ### H3 #### H4 ##### H5 ###### H6 ### Duplicate Header ### Duplicate Header H1 H2 H3 H4 H5 H6 Duplicate Header Duplicate Header Paragraphs 1 2 3 4 This is a paragraph. I am still part of the paragraph. New paragraph. This is a paragraph. I am still part of the paragraph.</description>
+      <guid>https://m2kar.cn/post/20191127-user-ipython-create-multithread-job/</guid>
+      <description>背景 jupyter notebook是以ipython为内核的，在编写程序的时候，经常遇到有些高IO的函数在后台运行半天，但是又需要在它运行的时候执行别的</description>
+    </item>
+    
+    <item>
+      <title>某部门内部网络拓扑图</title>
+      <link>https://m2kar.cn/post/20191123-network-topology/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191123-network-topology/</guid>
+      <description>描述 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。 拓扑图 具体说明 1. 部门内部 1.1. 部门机房 &amp;gt; (机器均通过网关端口</description>
+    </item>
+    
+    <item>
+      <title>C语言中常用的调试宏</title>
+      <link>https://m2kar.cn/post/20191119-c-debug-macro/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191119-c-debug-macro/</guid>
+      <description>背景 在C语言编写中，经常想因为调试的原因，插入一些临时输出的变量，或者执行一些不必要的指令。 写完之后频繁注释和反注释很耗时间，而且可能会造成</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】Beyond credential stuffing: Password similarity models using neural networks</title>
+      <link>https://m2kar.cn/post/20191115-beyond-credential-stuffing-_-password-similarity-models-using-neural-networks/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191115-beyond-credential-stuffing-_-password-similarity-models-using-neural-networks/</guid>
+      <description>论文主题 同一用户在不同网站的密码相似度模型。 摘要 英文 Attackers increasingly use passwords leaked from one website to compromise associated accounts on other websites. Such targeted attacks work because users reuse, or pick similar, passwords for different websites. We recast one of the core technical challenges underlying targeted attacks as the task of</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】Birthday, Name and Bifacial-security Understanding Passwords of Chinese Web Users</title>
+      <link>https://m2kar.cn/post/20191024-birthday-name-and-bifacial-security-understanding-passwords-of-chinese-web-users/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191024-birthday-name-and-bifacial-security-understanding-passwords-of-chinese-web-users/</guid>
+      <description>论文主题 对中文密码进行实证分析，发现中文密码中有趣的结构和特征，揭示了中文密码的双相安全性（Bifacial-security）。 摘要 英文 Much</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】GENPass: A general deep learning model for password guessing with PCFG rules and adversarial generation</title>
+      <link>https://m2kar.cn/post/20191018-genpass/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191018-genpass/</guid>
+      <description>论文主题 使用RCFG+LSTM和对抗生成网络猜解密码。 摘要 英文 Password has become today&amp;rsquo;s dominant method of authentication in social network. While the brute-force attack methods, such as HashCat and John the Ripper, are unpractical, the research then switches to the password guess. The state-of-the-art approaches, such as Markov</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】PassGAN: A Deep Learning Approach for Password Guessing</title>
+      <link>https://m2kar.cn/post/20191012-passgan/</link>
+      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191012-passgan/</guid>
+      <description>论文主题 使用对抗神经网络的方式进行密码生成和密码猜解。 摘要 中文 最先进的密码猜测工具，例如HashCat和Ripper John，使用户能够每秒</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</title>
+      <link>https://m2kar.cn/post/20191011-security-evaluation-of-home-based-iot-deployments/</link>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191011-security-evaluation-of-home-based-iot-deployments/</guid>
+      <description>概览 摘要 Home-based IoT devices have a bleak reputation regarding their security practices. On the surface, the insecurities of IoT devices seem to be caused by integration problems that may be addressed by simple measures, but this work finds that to be a naive assumption. The truth is, IoT deployments, at their core, utilize traditional compute systems, such as embedded, mobile, and network. These components have many unexplored</description>
+    </item>
+    
+    <item>
+      <title>蔡高厅高等数学课程教材pdf</title>
+      <link>https://m2kar.cn/post/20190929-caigaoting-mathematics/</link>
+      <pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190929-caigaoting-mathematics/</guid>
+      <description>蔡高厅高等数学课程教材pdf 介绍 蔡高厅，任天津大学数学系教授。他在学生中具有很高的威望，在视频教学中，蔡老师细致的讲解以及认真负责的态度，很</description>
+    </item>
+    
+    <item>
+      <title>[工具]GitGot：一款可从GitHub公开数据中搜索敏感信息的半自动化快速搜索工具</title>
+      <link>https://m2kar.cn/post/20190920-gitgot/</link>
+      <pubDate>Fri, 20 Sep 2019 14:54:24 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190920-gitgot/</guid>
+      <description>介绍 今天给大家介绍的是一款名叫GitGot的半自动信息收集工具，在GitGot的帮助下，广大研究人员可以轻松从GitHub公开数据中搜索敏感</description>
+    </item>
+    
+    <item>
+      <title>[工具]EMAGNET：从Pastebin上传的泄漏数据库中捕获电子邮件地址和密码</title>
+      <link>https://m2kar.cn/post/20190920-emagnet/</link>
+      <pubDate>Fri, 20 Sep 2019 10:54:24 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190920-emagnet/</guid>
+      <description>介绍 Emagnet是一款非常强大的工具，其主要目的是从pastebin上传的泄漏数据库中捕获电子邮件地址和密码。当密码在pastebin.c</description>
+    </item>
+    
+    <item>
+      <title>【工具】sci-hub：一个神奇的免费下载文献的网站</title>
+      <link>https://m2kar.cn/post/20190920-scihub/</link>
+      <pubDate>Fri, 20 Sep 2019 10:44:55 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190920-scihub/</guid>
+      <description>sci-hub：一个神奇的免费下载文献的网站（使用技巧） 转载自 https://zhuanlan.zhihu.com/p/24299207，侵</description>
+    </item>
+    
+    <item>
+      <title>快手笔试题目</title>
+      <link>https://m2kar.cn/post/20190917-kuaishou-code-exam/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190917-kuaishou-code-exam/</guid>
+      <description>快手考试遇到了几个笔试题目，先记一下，有些题得重新做 句子逆序 字符串距离 质数分解 数独正确性检测</description>
+    </item>
+    
+    <item>
+      <title>美团点评的几道笔试题</title>
+      <link>https://m2kar.cn/post/20190912-meituan-code-exam/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190912-meituan-code-exam/</guid>
+      <description>美团考试遇到了几个笔试题目，先记一下，有些题得重新做 黑客入侵点定位 题目描述 实现 分为两段执行： 1. 分别将模块1-12，模块1-24，模块1-48</description>
+    </item>
+    
+    <item>
+      <title>美团点评的几道笔试题</title>
+      <link>https://m2kar.cn/post/20190917-yuewen-code-exam/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190917-yuewen-code-exam/</guid>
+      <description>美团考试遇到了几个笔试题目，先记一下，有些题得重新做 黑客入侵点定位 题目描述 实现 分为两段执行： 1. 分别将模块1-12，模块1-24，模块1-48</description>
+    </item>
+    
+    <item>
+      <title>华为的几道笔试题</title>
+      <link>https://m2kar.cn/post/20190912-huawei-code-exam/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190912-huawei-code-exam/</guid>
+      <description>华为考试遇到了几个笔试题目，先记一下，有些题得重新做、 &amp;gt;笔试信息试卷名称：【华为2019年校园招聘】2019-9-11 软件题 &amp;gt;考</description>
+    </item>
+    
+    <item>
+      <title>字节跳动的几道笔试题</title>
+      <link>https://m2kar.cn/post/20190908-bytedance-code-exam/</link>
+      <pubDate>Sun, 08 Sep 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190908-bytedance-code-exam/</guid>
+      <description>字节跳动考试遇到了几个笔试题目，先记一下，有些题得重新做 机器人向前看 数字二义性解码 三只水桶倒水问题 数字方块问题</description>
+    </item>
+    
+    <item>
+      <title>软件学报zotero文献格式</title>
+      <link>https://m2kar.cn/post/20190905-jos-csl/</link>
+      <pubDate>Thu, 05 Sep 2019 21:11:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190905-jos-csl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】SafeHidden: An Efficient and Secure Information Hiding Technique Using Re-randomization</title>
+      <link>https://m2kar.cn/post/20190905-safehidden/</link>
+      <pubDate>Thu, 05 Sep 2019 18:05:00 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190905-safehidden/</guid>
+      <description>SafeHidden: An Efficient and Secure Information 概览 摘要 中文（翻译） 在众多代码重用攻击的防御手段中，信息隐藏(Information Hiding,IH)由于其有效性和高性能，成</description>
+    </item>
+    
+    <item>
+      <title>使用Travis-CI部署Hugo，实现自动化部署</title>
+      <link>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</link>
+      <pubDate>Wed, 21 Aug 2019 14:17:57 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20190821-deploy-use-travis-ci/</guid>
+      <description></description>
     </item>
     
     <item>
       <title>[Life] 欢迎</title>
-      <link>https://m2kar.github.io/post/2019-08-15-new-bolg-copy-2/</link>
+      <link>https://m2kar.cn/post/20190815-new-bolg/</link>
       <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/2019-08-15-new-bolg-copy-2/</guid>
+      <guid>https://m2kar.cn/post/20190815-new-bolg/</guid>
       <description>欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io</description>
     </item>
     
     <item>
-      <title>[Life] 欢迎</title>
-      <link>https://m2kar.github.io/post/2019-08-15-new-bolg-copy/</link>
+      <title>[算法] E02 递归解压并对压缩包内的数字求和</title>
+      <link>https://m2kar.cn/post/20181124-recur-decompress/</link>
       <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
       
-      <guid>https://m2kar.github.io/post/2019-08-15-new-bolg-copy/</guid>
-      <description>欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io</description>
-    </item>
-    
-    <item>
-      <title>[Life] 欢迎</title>
-      <link>https://m2kar.github.io/post/2019-08-15-new-bolg/</link>
-      <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/post/2019-08-15-new-bolg/</guid>
-      <description>欢迎来到新博客 m2kar.github.io 欢迎来到新博客 m2kar.github.io</description>
-    </item>
-    
-    <item>
-      <title>This is a hidden post.</title>
-      <link>https://m2kar.github.io/post/hidden-post/</link>
-      <pubDate>Thu, 08 Mar 2018 17:40:19 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/post/hidden-post/</guid>
-      <description>&lt;p&gt;This post is hidden from the home page.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>This is a hidden post.</title>
-      <link>https://m2kar.github.io/template/hidden-post/</link>
-      <pubDate>Thu, 08 Mar 2018 17:40:19 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/template/hidden-post/</guid>
-      <description>&lt;p&gt;This post is hidden from the home page.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[English] Creating a New Theme</title>
-      <link>https://m2kar.github.io/post/english-preview/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/post/english-preview/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>[English] Creating a New Theme</title>
-      <link>https://m2kar.github.io/template/english-preview/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/template/english-preview/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>[日本語] 敬語体系</title>
-      <link>https://m2kar.github.io/post/japanese-preview/</link>
-      <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/post/japanese-preview/</guid>
-      <description>日本語の敬語体系は、一般に、大きく尊敬語・謙譲語・丁寧語に分類される。文化審議会国語分科会は、2007年2月に「敬語の指針」を答申し、これに</description>
-    </item>
-    
-    <item>
-      <title>[日本語] 敬語体系</title>
-      <link>https://m2kar.github.io/template/japanese-preview/</link>
-      <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/template/japanese-preview/</guid>
-      <description>日本語の敬語体系は、一般に、大きく尊敬語・謙譲語・丁寧語に分類される。文化審議会国語分科会は、2007年2月に「敬語の指針」を答申し、これに</description>
-    </item>
-    
-    <item>
-      <title>[中文] 《长恨歌》</title>
-      <link>https://m2kar.github.io/post/chinese-preview/</link>
-      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/post/chinese-preview/</guid>
-      <description>《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。 第一段：贵妃受宠爱 汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。 天生丽质难</description>
-    </item>
-    
-    <item>
-      <title>[中文] 《长恨歌》</title>
-      <link>https://m2kar.github.io/template/chinese-preview/</link>
-      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/template/chinese-preview/</guid>
-      <description>《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。 第一段：贵妃受宠爱 汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。 天生丽质难</description>
-    </item>
-    
-    <item>
-      <title>Shortcodes</title>
-      <link>https://m2kar.github.io/post/shortcodes/</link>
-      <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/post/shortcodes/</guid>
-      <description>&lt;h1 id=&#34;admonition&#34;&gt;Admonition&lt;/h1&gt;
-
-&lt;div class=&#34;admonition note&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;I&amp;#39;m title!&lt;/p&gt;
-  &lt;p&gt;biu biu biu.&lt;/p&gt;
-
-&lt;p&gt;&lt;details class=&#34;admonition note&#34;&gt;&lt;summary class=&#34;admonition-title&#34;&gt;note&lt;/summary&gt;
-  &lt;p&gt;biu biu biu.&lt;/p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
-
-&lt;div class=&#34;admonition example&#34;&gt;
-  &lt;p&gt;Without title.&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;{{% admonition note &amp;#34;I&amp;#39;m title!&amp;#34; false %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;biu biu biu.&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% admonition type=&amp;#34;note&amp;#34; title=&amp;#34;note&amp;#34; details=&amp;#34;true&amp;#34; %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;biu biu biu.&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% /admonition %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% admonition example %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;Without title.&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% /admonition %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% /admonition %}}&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Shortcodes</title>
-      <link>https://m2kar.github.io/template/shortcodes/</link>
-      <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/template/shortcodes/</guid>
-      <description>&lt;h1 id=&#34;admonition&#34;&gt;Admonition&lt;/h1&gt;
-
-&lt;div class=&#34;admonition note&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;I&amp;#39;m title!&lt;/p&gt;
-  &lt;p&gt;biu biu biu.&lt;/p&gt;
-
-&lt;p&gt;&lt;details class=&#34;admonition note&#34;&gt;&lt;summary class=&#34;admonition-title&#34;&gt;note&lt;/summary&gt;
-  &lt;p&gt;biu biu biu.&lt;/p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
-
-&lt;div class=&#34;admonition example&#34;&gt;
-  &lt;p&gt;Without title.&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;{{% admonition note &amp;#34;I&amp;#39;m title!&amp;#34; false %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;biu biu biu.&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% admonition type=&amp;#34;note&amp;#34; title=&amp;#34;note&amp;#34; details=&amp;#34;true&amp;#34; %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;biu biu biu.&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% /admonition %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% admonition example %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;Without title.&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% /admonition %}}&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;{{% /admonition %}}&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>JS Flowchart Diagrams</title>
-      <link>https://m2kar.github.io/post/js-flowchart-diagrams/</link>
-      <pubDate>Wed, 04 Mar 2015 21:57:50 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/post/js-flowchart-diagrams/</guid>
-      <description>&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-flow&#34; data-lang=&#34;flow&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-flow&#34; data-lang=&#34;flow&#34;&gt;st=&amp;gt;start: Start|past:&amp;gt;http://www.google.com[blank]
-e=&amp;gt;end: End:&amp;gt;http://www.google.com
-op1=&amp;gt;operation: My Operation|past
-op2=&amp;gt;operation: Stuff|current
-sub1=&amp;gt;subroutine: My Subroutine|invalid
-cond=&amp;gt;condition: Yes
-or No?|approved:&amp;gt;http://www.google.com
-c2=&amp;gt;condition: Good idea|rejected
-io=&amp;gt;inputoutput: catch something...|request
-
-st-&amp;gt;op1(right)-&amp;gt;cond
-cond(yes, right)-&amp;gt;c2
-cond(no)-&amp;gt;sub1(left)-&amp;gt;op1
-c2(yes)-&amp;gt;io-&amp;gt;e
-c2(no)-&amp;gt;op2-&amp;gt;e&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>JS Flowchart Diagrams</title>
-      <link>https://m2kar.github.io/template/js-flowchart-diagrams/</link>
-      <pubDate>Wed, 04 Mar 2015 21:57:50 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/template/js-flowchart-diagrams/</guid>
-      <description>&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-flow&#34; data-lang=&#34;flow&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-flow&#34; data-lang=&#34;flow&#34;&gt;st=&amp;gt;start: Start|past:&amp;gt;http://www.google.com[blank]
-e=&amp;gt;end: End:&amp;gt;http://www.google.com
-op1=&amp;gt;operation: My Operation|past
-op2=&amp;gt;operation: Stuff|current
-sub1=&amp;gt;subroutine: My Subroutine|invalid
-cond=&amp;gt;condition: Yes
-or No?|approved:&amp;gt;http://www.google.com
-c2=&amp;gt;condition: Good idea|rejected
-io=&amp;gt;inputoutput: catch something...|request
-
-st-&amp;gt;op1(right)-&amp;gt;cond
-cond(yes, right)-&amp;gt;c2
-cond(no)-&amp;gt;sub1(left)-&amp;gt;op1
-c2(yes)-&amp;gt;io-&amp;gt;e
-c2(no)-&amp;gt;op2-&amp;gt;e&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>JS Sequence Diagrams</title>
-      <link>https://m2kar.github.io/post/js-sequence-diagrams/</link>
-      <pubDate>Wed, 04 Mar 2015 21:57:45 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/post/js-sequence-diagrams/</guid>
-      <description>&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;Andrew-&amp;gt;China: Says Hello
-Note right of China: China thinks\nabout it
-China--&amp;gt;Andrew: How are you?
-Andrew-&amp;gt;&amp;gt;China: I am good thanks!&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>JS Sequence Diagrams</title>
-      <link>https://m2kar.github.io/template/js-sequence-diagrams/</link>
-      <pubDate>Wed, 04 Mar 2015 21:57:45 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/template/js-sequence-diagrams/</guid>
-      <description>&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;Andrew-&amp;gt;China: Says Hello
-Note right of China: China thinks\nabout it
-China--&amp;gt;Andrew: How are you?
-Andrew-&amp;gt;&amp;gt;China: I am good thanks!&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>https://m2kar.github.io/post/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/post/syntax-highlighting/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;helloWorld&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-  &lt;span class=&#34;nx&#34;&gt;alert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>https://m2kar.github.io/template/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>https://m2kar.github.io/template/syntax-highlighting/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;helloWorld&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-  &lt;span class=&#34;nx&#34;&gt;alert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
+      <guid>https://m2kar.cn/post/20181124-recur-decompress/</guid>
+      <description>背景 本题目想实现递归解压并对压缩包内的数字求和。 本题目来自中国科学院大学，算法概论课后作业02 源文件 。 Exercise (2). 定义文件xx.tar.gz 的产生方</description>
     </item>
     
   </channel>

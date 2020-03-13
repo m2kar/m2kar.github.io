@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments - M2kar - Security World</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="使用图和组合的方法评估家庭物联网的安全性" /><meta name="keywords" content="论文, Sok, 系统安全, 物联网" />
+
+
+<meta name="baidu-site-verification" content="gzbN1erS5U" />
+<meta name="google-site-verification" content="UA-150110063-1" />
+
+
+<meta name="generator" content="Hugo 0.56.3 with theme even" />
+
+
+<link rel="canonical" href="https://m2kar.cn/post/20191011-sok/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments" />
+<meta property="og:description" content="使用图和组合的方法评估家庭物联网的安全性" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://m2kar.cn/post/20191011-sok/" />
+<meta property="article:published_time" content="2019-10-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-16T01:35:20+08:00" />
+<meta itemprop="name" content="【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments">
+<meta itemprop="description" content="使用图和组合的方法评估家庭物联网的安全性">
+
+
+<meta itemprop="datePublished" content="2019-10-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-16T01:35:20&#43;08:00" />
+<meta itemprop="wordCount" content="1031">
+
+
+
+<meta itemprop="keywords" content="论文笔记,系统安全,物联网," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments"/>
+<meta name="twitter:description" content="使用图和组合的方法评估家庭物联网的安全性"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">M2kar - Security World</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">目录</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/cv/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">M2kar - Security World</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">目录</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/cv/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-10-11 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#概览">概览</a>
+<ul>
+<li><a href="#摘要">摘要</a></li>
+<li><a href="#关键词">关键词</a></li>
+<li><a href="#引用格式">引用格式</a></li>
+<li><a href="#作者">作者</a></li>
+</ul></li>
+<li><a href="#笔记">笔记</a>
+<ul>
+<li><a href="#论文主题">论文主题</a></li>
+<li><a href="#待解决问题">待解决问题</a></li>
+<li><a href="#解决方案">解决方案</a></li>
+<li><a href="#效果">效果</a></li>
+</ul></li>
+<li><a href="#思考">思考</a>
+<ul>
+<li><a href="#收获">收获</a></li>
+<li><a href="#不足之处">不足之处</a></li>
+<li><a href="#可扩展结合的点">可扩展结合的点</a></li>
+</ul></li>
+<li><a href="#论文评价">论文评价</a>
+<ul>
+<li><a href="#评分">评分</a></li>
+<li><a href="#评价">评价</a></li>
+</ul></li>
+<li><a href="#参考资料及附件">参考资料及附件</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="概览">概览</h1>
+
+<h2 id="摘要">摘要</h2>
+
+<p>Home-based IoT devices have a bleak reputation regarding their security practices. On the surface, the insecurities of IoT devices seem to be caused by integration problems that may be addressed by simple measures, but this work finds that to be a naive assumption. The truth is, IoT deployments, at their core, utilize traditional compute systems, such as embedded, mobile, and network. These components have many unexplored challenges such as the effect of over-privileged mobile applications on embedded devices. Our work proposes a methodology that researchers and practitioners could employ to analyze security properties for home-based IoT devices. We systematize the literature for home-based IoT using this methodology in order to understand attack techniques, mitigations, and stakeholders. Further, we evaluate 45 devices to augment the systematized literature in order to identify neglected research areas. To make this analysis transparent and easier to adapt by the community, we provide a public portal to share our evaluation data and invite the community to contribute their independent findings.</p>
+
+<p>基于家庭的物联网设备在其安全实践方面惨不忍睹。从表面上看，物联网设备的不安全性似乎是由集成问题引起的，可以通过简单方法解决。但这项工作发现这是非常浅显的认识。事实是，物联网部署的核心是利用传统的计算系统，例如嵌入式，移动和网络。这些组件具有许多未稳定的尝试，例如，过于特权的移动应用程序对嵌入式设备的影响。我们的工作提出了一种方法，研究人员和从业人员可以采用该方法来分析基于家庭的物联网设备的安全属性。我们使用此方法将基于家庭的物联网的参考资料系统化，以了解攻击技术，缓解措施和利益相关方。此外，我们评估了45个设备以扩充系统化的参考资料，以识别被忽视的研究领域。为了使此分析透明并易于社区适应，我们提供了一个公共门户网站来共享我们的评估数据，并邀请社区贡献其独立的发现。</p>
+
+<h2 id="关键词">关键词</h2>
+
+<ul>
+<li>系统安全</li>
+<li>物联网</li>
+</ul>
+
+<h2 id="引用格式">引用格式</h2>
+
+<p>Omar Alrawi, Chaz Lever, Manos Antonakakis, Fabian Monrose; SoK: Security Evaluation of Home-Based IoT Deployments, IEEE S&amp;P (Oakland), May 2019.</p>
+
+<h2 id="作者">作者</h2>
+
+<p>Omar Alrawi, Chaz Lever, Manos Antonakakis, Fabian Monrose</p>
+
+<p>其中一作Omar Alrawi的主页为： <a href="https://alrawi.github.io/">https://alrawi.github.io/</a></p>
+
+<p>作者来自美国佐治亚理工学院，导师为   Manos Antonakakis。</p>
+
+<p>导师研究方向为计算机和网络安全，异常检测，数据挖掘和攻击溯源。导师主页为： <a href="https://sites.google.com/site/antonakakis/pubs。">https://sites.google.com/site/antonakakis/pubs。</a> 发表了很多安全相关的顶会论文。</p>
+
+<h1 id="笔记">笔记</h1>
+
+<h2 id="论文主题">论文主题</h2>
+
+<p>使用图和组合的方法评估家庭物联网的安全性</p>
+
+<h2 id="待解决问题">待解决问题</h2>
+
+<ul>
+<li>物联网安全性太差。</li>
+<li>由于网络系统复杂性搭建安全物联网并不简单。</li>
+<li>供给面太广。</li>
+</ul>
+
+<h2 id="解决方案">解决方案</h2>
+
+<p>使用基于物联网组件的框架，探索设备、软件、云端和网络终端之间的联系，另外还有指纹组件，可以更好地理解网络中的行为。构建了一个图结构表示物联网中的各个组成成分。</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20191011102625.png" alt="设计思想" /></p>
+
+<h2 id="效果">效果</h2>
+
+<p>作者对45款热门的设备进行分析。</p>
+
+<p><strong>实验设备</strong>:</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20191011102911.png" alt="实验设备" /></p>
+
+<p><strong>设备分析情况</strong>:</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20191011102944.png" alt="设备分析情况" /></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20191011102953.png" alt="20191011102953.png" /></p>
+
+<h1 id="思考">思考</h1>
+
+<h2 id="收获">收获</h2>
+
+<p>使用图的思想，对家用物联网环境下的物联网设备进行综合性全面的分析。</p>
+
+<h2 id="不足之处">不足之处</h2>
+
+<p>图只是作为关联和思想，没有真正应用到图。</p>
+
+<h2 id="可扩展结合的点">可扩展结合的点</h2>
+
+<h1 id="论文评价">论文评价</h1>
+
+<h2 id="评分">评分</h2>
+
+<blockquote>
+<p>满分5
+⭐⭐⭐⭐⭐</p>
+</blockquote>
+
+<h2 id="评价">评价</h2>
+
+<p>论文对于设备的分析非常全面和到位。</p>
+
+<h1 id="参考资料及附件">参考资料及附件</h1>
+
+<p>作者官网：<a href="https://alrawi.github.io/">https://alrawi.github.io/</a></p>
+
+<p>其他参考资料</p>
+
+<ul>
+<li><a href="https://alrawi.github.io/static/slides/M3AAWG_iot_feb_2019.pdf">slides-long</a></li>
+<li><a href="https://alrawi.github.io/static/slides/IEEESP_iot_may_2019.pdf">slides-short</a></li>
+<li><a href="https://yourthings.info/">website</a></li>
+<li><a href="https://www.youtube.com/watch?v=-KCia-uTr-8">VIDEO: One min Preview</a></li>
+<li><a href="https://www.youtube.com/watch?v=Yg807tkRSZ8">VIDEO: Conf. Presentation</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">m2kar(m2kar.cn@gmail.com)</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-10-16
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/fff93d1fe8adce48d3bbdcd378b96e010eac9b0d" title="Update 20191011-Sok.md">(fff93d1)</a>
+    </span>
+  </p>
+  
+    <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20191011-Sok.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+    
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a>
+          <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/">系统安全</a>
+          <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/20191011-security-evaluation-of-home-based-iot-deployments/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/20190929-caigaoting-mathematics/">
+            <span class="next-text nav-default">蔡高厅高等数学课程教材pdf</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="m2kar/m2kar.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:m2kar.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/m2kar" class="iconfont icon-github" title="github"></a>
+  <a href="https://m2kar.cn/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m2kar(m2kar.cn@gmail.com)</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?b8496db3a9350b6611f36cedfb233de4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

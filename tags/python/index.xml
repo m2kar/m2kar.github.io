@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/python/</link>
+    <description>Recent content in python on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 15 Aug 2019 01:37:56 +0800</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[算法] E02 递归解压并对压缩包内的数字求和</title>
+      <link>https://m2kar.cn/post/20181124-recur-decompress/</link>
+      <pubDate>Thu, 15 Aug 2019 01:37:56 +0800</pubDate>
+      
+      <guid>https://m2kar.cn/post/20181124-recur-decompress/</guid>
+      <description>背景 本题目想实现递归解压并对压缩包内的数字求和。 本题目来自中国科学院大学，算法概论课后作业02 源文件 。 Exercise (2). 定义文件xx.tar.gz 的产生方</description>
+    </item>
+    
+  </channel>
+</rss>

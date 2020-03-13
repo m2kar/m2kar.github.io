@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PassGAN on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/passgan/</link>
+    <description>Recent content in PassGAN on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 12 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/tags/passgan/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【论文笔记】PassGAN: A Deep Learning Approach for Password Guessing</title>
+      <link>https://m2kar.cn/post/20191012-passgan/</link>
+      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20191012-passgan/</guid>
+      <description>论文主题 使用对抗神经网络的方式进行密码生成和密码猜解。 摘要 中文 最先进的密码猜测工具，例如HashCat和Ripper John，使用户能够每秒</description>
+    </item>
+    
+  </channel>
+</rss>
