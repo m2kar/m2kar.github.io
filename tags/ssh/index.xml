@@ -6,10 +6,19 @@
     <description>Recent content in ssh on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 13 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SSH访问内网/内网穿透的几种情景详解</title>
+      <link>https://m2kar.cn/post/20200314-ssh-to-lan/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200314-ssh-to-lan/</guid>
+      <description>SSH访问内网/内网穿透的几种情景详解 @[TOC] 0x01 背景 疫情期间远程办公，自然少不了需要连接到公司内网的服务器跑程序。SSH是一种常用的连接到内网的方</description>
+    </item>
     
     <item>
       <title>Tmux快速使用</title>
