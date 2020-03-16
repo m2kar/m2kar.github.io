@@ -2,8 +2,8 @@
 title: "安装ubuntu docker完整版"
 date: 2020-03-16
 description: "安装ubuntu docker完整版"
-tags: ["tmux","linux","ssh","运维"]
-categories: ["运维"]
+tags: ["docker","linux","运维","ubuntu"]
+categories: ["运维","Linux"]
 ---
 
 # 安装ubuntu docker完整版
