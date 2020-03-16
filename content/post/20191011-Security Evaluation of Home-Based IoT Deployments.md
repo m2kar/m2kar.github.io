@@ -91,4 +91,4 @@ Omar Alrawi, Chaz Lever, Manos Antonakakis, Fabian Monrose
 - **邮箱**: [m2kar.cn#gmail.com](mailto:m2kar.cn@gmail.com)
 - **主页**: [m2kar.cn](https://m2kar.cn)
 - **Github**: [github.com/m2kar](https://github.com/m2kar)
-- **CSDN**: [M2kar的专栏](https://blog.csdn.net/still_night)
+- **CSDN**: [M2kar的专栏](https://m2kar.blog.csdn.net)
