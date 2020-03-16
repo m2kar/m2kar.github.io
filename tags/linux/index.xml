@@ -6,10 +6,19 @@
     <description>Recent content in linux on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 14 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>安装ubuntu docker完整版</title>
+      <link>https://m2kar.cn/post/20200316-full-ubuntu-docker/</link>
+      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200316-full-ubuntu-docker/</guid>
+      <description>安装ubuntu docker完整版 困扰了很久怎么安装ubuntu docker的完整版，后来发现从ssh登陆进docker镜像的时候有提示，可</description>
+    </item>
     
     <item>
       <title>SSH访问内网/内网穿透的几种情景详解</title>
