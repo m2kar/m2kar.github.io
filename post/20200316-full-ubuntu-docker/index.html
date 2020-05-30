@@ -43,14 +43,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m2kar.cn/post/20200316-full-ubuntu-docker/" />
 <meta property="article:published_time" content="2020-03-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-03-16T22:19:37+08:00" />
+<meta property="article:modified_time" content="2020-05-30T20:04:11+08:00" />
 <meta itemprop="name" content="安装ubuntu docker完整版">
 <meta itemprop="description" content="安装ubuntu docker完整版">
 
 
 <meta itemprop="datePublished" content="2020-03-16T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-16T22:19:37&#43;08:00" />
-<meta itemprop="wordCount" content="917">
+<meta itemprop="dateModified" content="2020-05-30T20:04:11&#43;08:00" />
+<meta itemprop="wordCount" content="1092">
 
 
 
@@ -146,6 +146,8 @@
 <li><a href="#命令">命令</a></li>
 <li><a href="#执行效果">执行效果</a></li>
 <li><a href="#脚本内容">脚本内容</a></li>
+<li><a href="#制作ubuntu完整版docker镜像">制作ubuntu完整版Docker镜像</a></li>
+<li><a href="#对比">对比</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -355,6 +357,47 @@ Would you like to <span class="k">continue</span>? </code></pre></td></tr></tabl
 rm -f /etc/update-motd.d/60-unminimize</code></pre></td></tr></table>
 </div>
 </div>
+<h2 id="制作ubuntu完整版docker镜像">制作ubuntu完整版Docker镜像</h2>
+
+<p>知道上面的命令之后，制作Docker镜像就非常容易了。</p>
+
+<p>将下面的文件保存为<code>Dockerfile</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">FROM</span><span class="s"> ubuntu:18.04</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> <span class="nb">export</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    bash -c <span class="s1">&#39;yes | unminimize&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>然后执行编译docker镜像的操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker build . -t ubuntu:18.04-full</code></pre></td></tr></table>
+</div>
+</div>
+<p>就可以很方便的执行完整版的镜像了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -it --rm ubuntu:18.04 bash</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="对比">对比</h2>
+
+<p>这篇博客介绍的方法相对而言就比较繁琐了。</p>
+
+<p><a href="https://blog.csdn.net/u011774239/article/details/51723140?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task">制作ubuntu完整版docker镜像(cradle08)</a></p>
+
 <hr />
 
 <ul>
@@ -378,8 +421,8 @@ rm -f /etc/update-motd.d/60-unminimize</code></pre></td></tr></table>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-03-16
-        <a href="https://github.com/m2kar/m2kar.github.io/commit/deb1b1d12018ef8e46d73b4ae3b3e147d109c238" title="add tags">(deb1b1d)</a>
+        2020-05-30
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/41a277bb216f1c5a5778460f63423bbd7109ce52" title="modified:20200316-Full-ubuntu-docker.md 20200530-bash-history-multi-terminal.md">(41a277b)</a>
     </span>
   </p>
   
@@ -401,7 +444,11 @@ rm -f /etc/update-motd.d/60-unminimize</code></pre></td></tr></table>
           <a href="/tags/ubuntu/">ubuntu</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/20200530-bash-history-multi-terminal/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Bash优化</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/20200314-ssh-to-lan/">
             <span class="next-text nav-default">SSH访问内网/内网穿透的几种情景详解</span>
             <span class="next-text nav-mobile">下一篇</span>

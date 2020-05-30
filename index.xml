@@ -6,10 +6,19 @@
     <description>Recent content on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bash优化</title>
+      <link>https://m2kar.cn/post/20200530-bash-history-multi-terminal/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200530-bash-history-multi-terminal/</guid>
+      <description>Bash优化 Bash可以称之为使用最为广泛的终端程序了！ 之前特别喜欢用zsh+oh-my-zsh，很方便很好看的终端程序，傻瓜化且人性化的配</description>
+    </item>
     
     <item>
       <title>安装ubuntu docker完整版</title>

@@ -6,10 +6,19 @@
     <description>Recent content in Categories on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>运维</title>
+      <link>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Linux</title>
@@ -17,15 +26,6 @@
       <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://m2kar.cn/categories/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>运维</title>
-      <link>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</link>
-      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</guid>
       <description></description>
     </item>
     
