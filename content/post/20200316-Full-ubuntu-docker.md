@@ -116,6 +116,41 @@ rm -f /etc/update-motd.d/60-unminimize
 
 ```
 
+## 制作ubuntu完整版Docker镜像
+
+知道上面的命令之后，制作Docker镜像就非常容易了。
+
+将下面的文件保存为`Dockerfile`
+
+```Dockerfile
+FROM ubuntu:18.04
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    bash -c 'yes | unminimize'
+
+```
+
+然后执行编译docker镜像的操作
+
+```bash
+docker build . -t ubuntu:18.04-full
+```
+
+就可以很方便的执行完整版的镜像了
+
+```bash
+docker run -it --rm ubuntu:18.04 bash
+```
+
+## 对比
+
+这篇博客介绍的方法相对而言就比较繁琐了。
+
+[制作ubuntu完整版docker镜像(cradle08)][1]
+
+
+
+
+[1]: https://blog.csdn.net/u011774239/article/details/51723140?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
 
 -------
 
