@@ -2,7 +2,7 @@
 title: "Linux 装机必备类软件"
 date: 2020-06-02
 description: "Linux 装机必备类软件 包括生产环境和开发环境 "
-tags: [,"linux","运维"]
+tags: ["linux","运维","软件"]
 categories: ["运维"]
 ---
 
