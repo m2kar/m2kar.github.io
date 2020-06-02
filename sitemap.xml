@@ -3,62 +3,56 @@
   
   <url>
     <loc>https://m2kar.cn/post/20200530-bash-history-multi-terminal/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
+    <lastmod>2020-06-02T21:18:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/categories/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
+    <lastmod>2020-06-02T21:18:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
+    <lastmod>2020-06-02T21:18:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/post/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
+    <lastmod>2020-06-02T21:18:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
+    <lastmod>2020-06-02T21:18:51+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/bash/</loc>
+    <lastmod>2020-06-02T21:18:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/linux/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://m2kar.cn/tags/ssh/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://m2kar.cn/tags/tmux/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
+    <lastmod>2020-06-02T21:18:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
+    <lastmod>2020-06-02T21:18:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://m2kar.cn/tags/%E8%BF%90%E7%BB%B4/</loc>
-    <lastmod>2020-05-30T20:04:11+08:00</lastmod>
+    <lastmod>2020-06-02T21:18:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -92,6 +86,12 @@
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/ssh/</loc>
+    <lastmod>2020-03-16T22:15:26+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -152,6 +152,12 @@
   
   <url>
     <loc>https://m2kar.cn/tags/python/</loc>
+    <lastmod>2020-03-16T22:15:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/tmux/</loc>
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <priority>0</priority>
   </url>
