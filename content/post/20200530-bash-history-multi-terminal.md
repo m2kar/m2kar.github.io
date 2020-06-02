@@ -1,8 +1,8 @@
 ---
-title: "Bash优化"
+title: "Bash 终端配置优化"
 date: 2020-05-30
-description: "Bash同时保存多个终端的命令记录"
-tags: ["tmux","linux","ssh","运维"]
+description: "Bash配置文件类型，同时保存多个终端的命令记录，更改历史记录数"
+tags: ["bash","linux","运维"]
 categories: ["运维"]
 
 ---
