@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Bash 终端配置优化 - M2kar - Security World</title>
+  <title>Linux 装机必备类软件 - M2kar - Security World</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="Bash配置文件类型，同时保存多个终端的命令记录，更改历史记录数" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="Linux 装机必备类软件 包括生产环境和开发环境 " /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
 
 
 <meta name="baidu-site-verification" content="gzbN1erS5U" />
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.56.3 with theme even" />
 
 
-<link rel="canonical" href="https://m2kar.cn/post/20200530-bash-history-multi-terminal/" />
+<link rel="canonical" href="https://m2kar.cn/post/20200602-linux-software/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,26 +38,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Bash 终端配置优化" />
-<meta property="og:description" content="Bash配置文件类型，同时保存多个终端的命令记录，更改历史记录数" />
+<meta property="og:title" content="Linux 装机必备类软件" />
+<meta property="og:description" content="Linux 装机必备类软件 包括生产环境和开发环境 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://m2kar.cn/post/20200530-bash-history-multi-terminal/" />
-<meta property="article:published_time" content="2020-05-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-06-02T21:18:51+08:00" />
-<meta itemprop="name" content="Bash 终端配置优化">
-<meta itemprop="description" content="Bash配置文件类型，同时保存多个终端的命令记录，更改历史记录数">
+<meta property="og:url" content="https://m2kar.cn/post/20200602-linux-software/" />
+<meta property="article:published_time" content="2020-06-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-02T21:22:46+08:00" />
+<meta itemprop="name" content="Linux 装机必备类软件">
+<meta itemprop="description" content="Linux 装机必备类软件 包括生产环境和开发环境 ">
 
 
-<meta itemprop="datePublished" content="2020-05-30T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-02T21:18:51&#43;08:00" />
-<meta itemprop="wordCount" content="604">
+<meta itemprop="datePublished" content="2020-06-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-02T21:22:46&#43;08:00" />
+<meta itemprop="wordCount" content="214">
 
 
 
-<meta itemprop="keywords" content="bash,linux,运维," />
+<meta itemprop="keywords" content="linux,运维,软件," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Bash 终端配置优化"/>
-<meta name="twitter:description" content="Bash配置文件类型，同时保存多个终端的命令记录，更改历史记录数"/>
+<meta name="twitter:title" content="Linux 装机必备类软件"/>
+<meta name="twitter:description" content="Linux 装机必备类软件 包括生产环境和开发环境 "/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,10 +124,10 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Bash 终端配置优化</h1>
+      <h1 class="post-title">Linux 装机必备类软件</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2020-05-30 </span>
+        <span class="post-time"> 2020-06-02 </span>
         <div class="post-category">
             <a href="/categories/%E8%BF%90%E7%BB%B4/"> 运维 </a>
             </div>
@@ -140,18 +140,14 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#bash优化">Bash优化</a>
+<li><a href="#linux-装机必备类软件">Linux 装机必备类软件</a>
 <ul>
-<li><a href="#修改配置文件">修改配置文件</a>
+<li><a href="#开发环境">开发环境</a>
 <ul>
-<li><a href="#配置文件种类">配置文件种类</a></li>
-<li><a href="#加载顺序">加载顺序</a></li>
+<li><a href="#安装oh-my-zsh">安装oh-my-zsh</a></li>
+<li><a href="#docker">docker</a></li>
 </ul></li>
-<li><a href="#bash历史记录优化">Bash历史记录优化</a>
-<ul>
-<li><a href="#bash同时保存多个终端的命令记录">Bash同时保存多个终端的命令记录</a></li>
-<li><a href="#设置可保存的历史记录数量">设置可保存的历史记录数量</a></li>
-</ul></li>
+<li><a href="#生产环境">生产环境</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -160,82 +156,78 @@
     <div class="post-content">
       
 
-<h1 id="bash优化">Bash优化</h1>
+<h1 id="linux-装机必备类软件">Linux 装机必备类软件</h1>
 
-<p>Bash可以称之为使用最为广泛的终端程序了！</p>
-
-<p>之前特别喜欢用zsh+oh-my-zsh，很方便很好看的终端程序，傻瓜化且人性化的配置，但是无奈在windows下不是很理想。最近喜欢用上了Windows下的git-bash，因为这个非常简单的bash在windows下运行的很快很好。因此也寻找了一下zsh中比较喜欢的一些功能，并让它能在bash下支持。</p>
-
-<p>下面将列举一些让默认的Bash更加好用的一些修改。</p>
-
-<h2 id="修改配置文件">修改配置文件</h2>
-
-<h3 id="配置文件种类">配置文件种类</h3>
-
-<p>全局配置：<code>/etc/profile</code>, <code>/etc/profile.d/*.sh</code>, <code>/etc/bashrc</code></p>
-
-<p>个人配置：<code>~/.bash_profile</code>,  <code>~/.bashrc</code></p>
-
-<p>profile类文件作用:</p>
-
-<ul>
-<li>定义环境变量</li>
-<li>运行命令或者脚本</li>
-</ul>
-
-<p>bashrc类文件作用:</p>
-
-<ul>
-<li>定义本地变量，函数</li>
-<li>命令别名</li>
-</ul>
-
-<p>通常会编辑 ~/.bashrc，在文件最后添加某些语句。</p>
-
-<h3 id="加载顺序">加载顺序</h3>
-
-<p>登陆式Shell:</p>
+<h2 id="开发环境">开发环境</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">/etc/profile &gt; .bash_profile &gt; .bash_login &gt; .profile &gt; .bash_logout</code></pre></td></tr></table>
+<pre class="chroma">apt-get install -y
+openssh-server \
+build-essentials \
+python3 \
+pythonpy \
+python \
+curl \
+wget \
+git \
+sshfs \
+screen \
+tmux \
+zsh \
+vim </pre></td></tr></table>
 </div>
 </div>
-<p>非登陆式Shell:</p>
+<h3 id="安装oh-my-zsh">安装oh-my-zsh</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">/etc/bash.bashrc &gt; .bashrc</code></pre></td></tr></table>
+<pre class="chroma">sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34;</pre></td></tr></table>
 </div>
 </div>
-<p>详情参看： <a href="https://www.cnblogs.com/zhaojiedi1992/p/zhaojiedi_linux_010.html">Bash配置文件</a></p>
-
-<h2 id="bash历史记录优化">Bash历史记录优化</h2>
-
-<h3 id="bash同时保存多个终端的命令记录">Bash同时保存多个终端的命令记录</h3>
-
-<p>编辑 ~/.bashrc，在文件最后添加下面的语句：</p>
+<h3 id="docker">docker</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">&#39;history -a&#39;</span></code></pre></td></tr></table>
+<pre class="chroma">docker
+docker-compose</pre></td></tr></table>
 </div>
 </div>
-<p>重新启动终端，即可在多个终端中同时保存命令到History.</p>
+<p>安装方式参看官网</p>
 
-<h3 id="设置可保存的历史记录数量">设置可保存的历史记录数量</h3>
+<h2 id="生产环境">生产环境</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">10000</span></code></pre></td></tr></table>
+<pre class="chroma">apt-get install -y
+git \
+tmux \
+openssh-server</pre></td></tr></table>
 </div>
 </div>
 <hr />
@@ -262,13 +254,13 @@
     <span class="item-title">上次更新</span>
     <span class="item-content">
         2020-06-02
-        <a href="https://github.com/m2kar/m2kar.github.io/commit/4b56e05e8480ba9151c5b13eed6b3c225c8d284a" title="new file:   content/post/20200602-linux-software.md modified:   content/post/20200530-bash-history-multi-terminal.md">(4b56e05)</a>
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/b47963b030740cb9d4210bc8f158a2c23ce57dba" title="change linux software">(b47963b)</a>
     </span>
   </p>
   
     <p class="copyright-item">
       <span class="item-title">原始文档</span>
-      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20200530-bash-history-multi-terminal.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20200602-linux-software.md" target="_blank">查看本文 Markdown 版本 »</a></span>
     </p>
     
   <p class="copyright-item">
@@ -278,18 +270,14 @@
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/bash/">bash</a>
           <a href="/tags/linux/">linux</a>
           <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+          <a href="/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/20200602-linux-software/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Linux 装机必备类软件</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/20200316-full-ubuntu-docker/">
-            <span class="next-text nav-default">安装ubuntu docker完整版</span>
+        
+        <a class="next" href="/post/20200530-bash-history-multi-terminal/">
+            <span class="next-text nav-default">Bash 终端配置优化</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

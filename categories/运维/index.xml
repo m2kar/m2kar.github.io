@@ -6,10 +6,19 @@
     <description>Recent content in 运维 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux 装机必备类软件</title>
+      <link>https://m2kar.cn/post/20200602-linux-software/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200602-linux-software/</guid>
+      <description>Linux 装机必备类软件 开发环境 1 2 3 4 5 6 7 8 9 10 11 12 13 14 apt-get install -y openssh-server \ build-essentials \ python3 \ pythonpy \ python \ curl \ wget \ git \ sshfs \ screen \ tmux \ zsh \ vim 安装oh-my-zsh 1 sh -c &amp;#34;$(curl -fsSL</description>
+    </item>
     
     <item>
       <title>Bash 终端配置优化</title>
