@@ -1,7 +1,7 @@
 ---
-title: "Zotero 使用技巧"
+title: "Zotero使用技巧"
 date: 2020-06-03
-description: "Zotero 使用技巧:文献同步、修改默认文件名、标签快捷键、分级、Sci-hub支持"
+description: "Zotero使用技巧:文献同步、修改默认文件名、标签快捷键、分级、Sci-hub支持"
 tags: ["zotero","论文阅读"]
 categories: ["工具收藏"]
 ---
