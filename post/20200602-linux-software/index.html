@@ -43,14 +43,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://m2kar.cn/post/20200602-linux-software/" />
 <meta property="article:published_time" content="2020-06-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-06-02T21:22:46+08:00" />
+<meta property="article:modified_time" content="2020-06-03T08:40:31+08:00" />
 <meta itemprop="name" content="Linux 装机必备类软件">
 <meta itemprop="description" content="Linux 装机必备类软件 包括生产环境和开发环境 ">
 
 
 <meta itemprop="datePublished" content="2020-06-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-02T21:22:46&#43;08:00" />
-<meta itemprop="wordCount" content="214">
+<meta itemprop="dateModified" content="2020-06-03T08:40:31&#43;08:00" />
+<meta itemprop="wordCount" content="234">
 
 
 
@@ -146,6 +146,7 @@
 <ul>
 <li><a href="#安装oh-my-zsh">安装oh-my-zsh</a></li>
 <li><a href="#docker">docker</a></li>
+<li><a href="#oh-my-tmux">oh-my-tmux</a></li>
 </ul></li>
 <li><a href="#生产环境">生产环境</a></li>
 </ul></li>
@@ -215,6 +216,23 @@ docker-compose</pre></td></tr></table>
 </div>
 <p>安装方式参看官网</p>
 
+<h3 id="oh-my-tmux">oh-my-tmux</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .</pre></td></tr></table>
+</div>
+</div>
+<p>参看: <a href="https://github.com/gpakosz/.tmux">https://github.com/gpakosz/.tmux</a></p>
+
 <h2 id="生产环境">生产环境</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -253,8 +271,8 @@ openssh-server</pre></td></tr></table>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-06-02
-        <a href="https://github.com/m2kar/m2kar.github.io/commit/b47963b030740cb9d4210bc8f158a2c23ce57dba" title="change linux software">(b47963b)</a>
+        2020-06-03
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/fd9e0385ce31e71112b46524b7557ea8f223011c" title="change linux software">(fd9e038)</a>
     </span>
   </p>
   
