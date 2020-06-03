@@ -3,7 +3,50 @@
   
   <url>
     <loc>https://m2kar.cn/categories/</loc>
-    <lastmod>2020-06-03T08:40:31+08:00</lastmod>
+    <lastmod>2020-06-03T11:55:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/</loc>
+    <lastmod>2020-06-03T11:55:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/post/</loc>
+    <lastmod>2020-06-03T11:55:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/</loc>
+    <lastmod>2020-06-03T11:55:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/post/20200603-zotero-tips/</loc>
+    <lastmod>2020-06-03T11:55:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/zotero/</loc>
+    <lastmod>2020-06-03T11:55:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/categories/%E5%B7%A5%E5%85%B7%E6%94%B6%E8%97%8F/</loc>
+    <lastmod>2020-06-03T11:55:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</loc>
+    <lastmod>2020-06-03T11:55:52+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -12,24 +55,6 @@
     <lastmod>2020-06-03T08:40:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://m2kar.cn/</loc>
-    <lastmod>2020-06-03T08:40:31+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://m2kar.cn/post/</loc>
-    <lastmod>2020-06-03T08:40:31+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://m2kar.cn/tags/</loc>
-    <lastmod>2020-06-03T08:40:31+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -45,13 +70,13 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</loc>
+    <loc>https://m2kar.cn/tags/%E8%BF%90%E7%BB%B4/</loc>
     <lastmod>2020-06-03T08:40:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E8%BF%90%E7%BB%B4/</loc>
+    <loc>https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/</loc>
     <lastmod>2020-06-03T08:40:31+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -258,13 +283,13 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</loc>
+    <loc>https://m2kar.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</loc>
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</loc>
+    <loc>https://m2kar.cn/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</loc>
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -295,13 +320,13 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://m2kar.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -472,13 +497,13 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</loc>
+    <loc>https://m2kar.cn/tags/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/%E7%AC%94%E8%AF%95/</loc>
+    <loc>https://m2kar.cn/categories/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -568,13 +593,13 @@
   </url>
   
   <url>
-    <loc>https://m2kar.cn/categories/life/</loc>
+    <loc>https://m2kar.cn/tags/life/</loc>
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://m2kar.cn/tags/life/</loc>
+    <loc>https://m2kar.cn/categories/life/</loc>
     <lastmod>2020-03-16T22:15:26+08:00</lastmod>
     <priority>0</priority>
   </url>
