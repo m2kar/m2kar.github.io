@@ -41,6 +41,18 @@ docker-compose
 ```
 安装方式参看官网
 
+### oh-my-tmux
+
+```
+cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
+```
+
+参看: https://github.com/gpakosz/.tmux
+
+
 ## 生产环境
 
 ```
