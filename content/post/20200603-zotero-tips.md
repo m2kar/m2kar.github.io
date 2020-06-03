@@ -19,7 +19,11 @@ categories: ["工具收藏"]
 
 打开`首选项`-`高级`-`常规`-`设置编辑器`。
 
-搜索`extensions.zotero.attachmentRenameFormatString`，修改为`{%t{50} - }{%c - }{%y}`
+搜索`extensions.zotero.attachmentRenameFormatString`，修改为
+
+```
+{%t{50} - }{%c - }{%y}$
+```
 
 ![修改PDF默认文件名](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20200603113221.png)
 
