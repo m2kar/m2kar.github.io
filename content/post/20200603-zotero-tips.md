@@ -3,7 +3,7 @@ title: "Zotero 使用技巧"
 date: 2020-06-03
 description: "Zotero 使用技巧:文献同步、修改默认文件名、标签快捷键、分级、Sci-hub支持"
 tags: ["zotero","论文阅读"]
-categories: ["资源"]
+categories: ["工具收藏"]
 ---
 
 # Zotero 使用技巧
@@ -56,6 +56,13 @@ categories: ["资源"]
 
 参考： https://github.com/ethanwillis/zotero-scihub
 
+## 参考文献格式
+一般选择国标 GB/T 7714。最新版为2015.
+
+
+### 软件学报格式
+
+参见:[软件学报参考文献格式](https://m2kar.cn/post/20190905-jos-csl/)
 
 -------
 
