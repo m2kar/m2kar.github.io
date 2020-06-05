@@ -21,9 +21,7 @@ categories: ["工具收藏"]
 
 搜索`extensions.zotero.attachmentRenameFormatString`，修改为
 
-```
-{%t{50} - }{%c - }{%y}
-```
+![file name format](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/2020-06-05%20092357.png)
 
 ![修改PDF默认文件名](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20200603113221.png)
 
