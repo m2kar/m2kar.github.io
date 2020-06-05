@@ -6,10 +6,37 @@
     <description>Recent content in Tags on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 03 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>windows</title>
+      <link>https://m2kar.cn/tags/windows/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>右键菜单</title>
+      <link>https://m2kar.cn/tags/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/tags/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>技巧</title>
+      <link>https://m2kar.cn/tags/%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/tags/%E6%8A%80%E5%B7%A7/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>zotero</title>

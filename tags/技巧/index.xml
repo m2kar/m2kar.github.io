@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技巧 on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/%E6%8A%80%E5%B7%A7/</link>
+    <description>Recent content in 技巧 on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows 定制右键菜单</title>
+      <link>https://m2kar.cn/post/20200605-windows-rightclick-menu/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200605-windows-rightclick-menu/</guid>
+      <description>Windows 定制右键菜单 Windows的右键快捷菜单是个非常方便的东西。但有时候因为安装程序过多，所以右键菜单过于冗余。有的时候有需要自定义一些新的右</description>
+    </item>
+    
+  </channel>
+</rss>
