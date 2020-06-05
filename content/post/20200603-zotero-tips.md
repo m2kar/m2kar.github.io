@@ -22,7 +22,7 @@ categories: ["工具收藏"]
 搜索`extensions.zotero.attachmentRenameFormatString`，修改为
 
 ```
-{%t{50} - }{%c - }{%y}$
+{%t{50} - }{%c - }{%y}
 ```
 
 ![修改PDF默认文件名](https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20200603113221.png)
