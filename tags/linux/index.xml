@@ -6,10 +6,19 @@
     <description>Recent content in linux on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Trojan教程</title>
+      <link>https://m2kar.cn/post/20200630-trojan-tutorial/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20200630-trojan-tutorial/</guid>
+      <description># 欢迎评论以及发邮件和作者交流心得。 版权声明：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。 作者: m2kar 打赏</description>
+    </item>
     
     <item>
       <title>Linux 装机必备类软件</title>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>运维 · M2kar - Security World</title>
+  <title>Trojan教程 - M2kar - Security World</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="M2kar的个人博客,用于记录日常技术." /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="# 欢迎评论以及发邮件和作者交流心得。 版权声明：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。 作者: m2kar 打赏" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
 
 
 <meta name="baidu-site-verification" content="gzbN1erS5U" />
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.56.3 with theme even" />
 
 
-<link rel="canonical" href="https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/" />
-  <link href="https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="alternate" type="application/rss+xml" title="M2kar - Security World" />
-  <link href="https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="feed" type="application/rss+xml" title="M2kar - Security World" />
+<link rel="canonical" href="https://m2kar.cn/post/20200630-trojan-tutorial/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,18 +38,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="运维" />
-<meta property="og:description" content="M2kar的个人博客,用于记录日常技术." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/" />
+<meta property="og:title" content="Trojan教程" />
+<meta property="og:description" content="# 欢迎评论以及发邮件和作者交流心得。 版权声明：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。 作者: m2kar 打赏" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://m2kar.cn/post/20200630-trojan-tutorial/" />
+<meta property="article:published_time" content="2020-06-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-30T21:35:08+08:00" />
+<meta itemprop="name" content="Trojan教程">
+<meta itemprop="description" content="# 欢迎评论以及发邮件和作者交流心得。 版权声明：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。 作者: m2kar 打赏">
 
-<meta property="og:updated_time" content="2020-06-30T00:00:00+00:00" />
-<meta itemprop="name" content="运维">
-<meta itemprop="description" content="M2kar的个人博客,用于记录日常技术.">
 
+<meta itemprop="datePublished" content="2020-06-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-30T21:35:08&#43;08:00" />
+<meta itemprop="wordCount" content="115">
+
+
+
+<meta itemprop="keywords" content="linux,trojan,运维," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="运维"/>
-<meta name="twitter:description" content="M2kar的个人博客,用于记录日常技术."/>
+<meta name="twitter:title" content="Trojan教程"/>
+<meta name="twitter:description" content="# 欢迎评论以及发邮件和作者交流心得。 版权声明：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。 作者: m2kar 打赏"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -115,110 +121,97 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="archive" class="archive">
-  <div class="archive-title category">
-        <h2 class="archive-name">运维</h2>
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Trojan教程</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-30 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BF%90%E7%BB%B4/"> 运维 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
+    </header>
 
-  <div class="archive-post">
-      <span class="archive-post-time">
-        2020-06-30
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20200630-trojan-tutorial/" class="archive-post-link">
-          Trojan教程
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2020-06-05
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20200605-windows-rightclick-menu/" class="archive-post-link">
-          Windows 定制右键菜单
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2020-06-02
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20200602-linux-software/" class="archive-post-link">
-          Linux 装机必备类软件
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2020-05-30
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20200530-bash-history-multi-terminal/" class="archive-post-link">
-          Bash 终端配置优化
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2020-03-16
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20200316-full-ubuntu-docker/" class="archive-post-link">
-          安装ubuntu docker完整版
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2020-03-14
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20200314-ssh-to-lan/" class="archive-post-link">
-          SSH访问内网/内网穿透的几种情景详解
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2020-03-13
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20200313-tmux-quick/" class="archive-post-link">
-          Tmux快速使用
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-12-06
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20191206-transfer-gitee-to-github/" class="archive-post-link">
-          批量迁移Gitee仓库到Github
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-11-23
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20191123-network-topology/" class="archive-post-link">
-          某部门内部网络拓扑图
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-08-21
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/20190821-deploy-use-travis-ci/" class="archive-post-link">
-          使用Travis-CI部署Hugo，实现自动化部署
-        </a>
-      </span>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>#</p>
+
+<hr />
+
+<ul>
+<li>欢迎评论以及发邮件和作者交流心得。</li>
+<li><strong>版权声明</strong>：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</li>
+<li><strong>作者</strong>: m2kar</li>
+<li><strong>打赏链接</strong>: <a href="http://m2kar-cn.mikecrm.com/wy97haW">欢迎打赏m2kar,您的打赏是我创作的重要源泉</a></li>
+<li><strong>邮箱</strong>: <a href="mailto:m2kar.cn@gmail.com">m2kar.cn#gmail.com</a></li>
+<li><strong>主页</strong>: <a href="https://m2kar.cn">m2kar.cn</a></li>
+<li><strong>Github</strong>: <a href="https://github.com/m2kar">github.com/m2kar</a></li>
+<li><strong>CSDN</strong>: <a href="https://m2kar.blog.csdn.net">M2kar的专栏</a></li>
+</ul>
+
     </div>
-</section>
 
-<nav class="pagination">
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">m2kar(m2kar.cn@gmail.com)</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-06-30
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/c466db2727a9768cb51ae9c50dd5d0f638d0a63f" title="Create 20200630-trojan-tutorial.md">(c466db2)</a>
+    </span>
+  </p>
   
-  
-</nav>
+    <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20200630-trojan-tutorial.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+    
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/trojan/">trojan</a>
+          <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/20200605-windows-rightclick-menu/">
+            <span class="next-text nav-default">Windows 定制右键菜单</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="m2kar/m2kar.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
 
       </div>
     </main>
@@ -267,6 +260,15 @@
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
