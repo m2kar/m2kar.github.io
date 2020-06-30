@@ -27,7 +27,12 @@ hiddenFromHomePage: true
 |   IOS   | Shadowrocket、Pharos Pro | [Trojan IOS下载教程][5]  | [教程][6]  |
 | 任意    | trojan官方               | [trojan-gfw/trojan][7] | [教程][8] |
 
-备用下载地址: https://wwa.lanzous.com/b00tntnwh 密码:hg55 （可能不是最新版软件）
+### 备用地址
+（可能不是最新版软件）
+
+备用下载地址: https://wwa.lanzous.com/b00tntnwh 密码:hg55 
+
+备用官方客户端下载地址: https://m2kar.lanzous.com/b00tnttgh 密码:cmso
 
 上面的软件Windows和Android是经过本人实测好用的，其他的暂不清楚。trojan的第三方客户端类型较多，而且trojan的官方软件的使用较为复杂，推荐使用第三方客户端。
 
