@@ -111,15 +111,6 @@
     </item>
     
     <item>
-      <title>某部门内部网络拓扑图</title>
-      <link>https://m2kar.cn/post/20191123-network-topology/</link>
-      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://m2kar.cn/post/20191123-network-topology/</guid>
-      <description>描述 某公司某部门内部的网络拓扑图示例。包含ESXi,网关防火墙，多个物理区域配置等。 拓扑图 具体说明 1. 部门内部 1.1. 部门机房 &amp;gt; (机器均通过网关端口</description>
-    </item>
-    
-    <item>
       <title>C语言中常用的调试宏</title>
       <link>https://m2kar.cn/post/20191119-c-debug-macro/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
