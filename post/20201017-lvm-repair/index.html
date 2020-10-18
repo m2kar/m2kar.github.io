@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>lvm磁盘备份、替代、和修复方案 - M2kar - Security World</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="lvm磁盘备份、替代、和修复方案" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
+
+
+<meta name="baidu-site-verification" content="gzbN1erS5U" />
+<meta name="google-site-verification" content="UA-150110063-1" />
+
+
+<meta name="generator" content="Hugo 0.56.3 with theme even" />
+
+
+<link rel="canonical" href="https://m2kar.cn/post/20201017-lvm-repair/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="lvm磁盘备份、替代、和修复方案" />
+<meta property="og:description" content="lvm磁盘备份、替代、和修复方案" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://m2kar.cn/post/20201017-lvm-repair/" />
+<meta property="article:published_time" content="2020-10-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-19T00:25:27+08:00" />
+<meta itemprop="name" content="lvm磁盘备份、替代、和修复方案">
+<meta itemprop="description" content="lvm磁盘备份、替代、和修复方案">
+
+
+<meta itemprop="datePublished" content="2020-10-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-10-19T00:25:27&#43;08:00" />
+<meta itemprop="wordCount" content="950">
+
+
+
+<meta itemprop="keywords" content="linux,lvm,运维," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="lvm磁盘备份、替代、和修复方案"/>
+<meta name="twitter:description" content="lvm磁盘备份、替代、和修复方案"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">M2kar - Security World</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">目录</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/cv/">
+        <li class="mobile-menu-item">About M2kar</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">M2kar - Security World</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">目录</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/cv/">About M2kar</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">lvm磁盘备份、替代、和修复方案</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-10-17 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BF%90%E7%BB%B4/"> 运维 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#lvm磁盘备份-替代-和修复方案">lvm磁盘备份、替代、和修复方案</a>
+<ul>
+<li><a href="#创建lvm组vg0和分区lva并挂载到-a">创建lvm组VG0和分区LVA并挂载到/A</a></li>
+<li><a href="#备份分区lva到a-img">备份分区LVA到A.img</a></li>
+<li><a href="#挂载a-img作为内存设备-并替换掉旧的-a">挂载A.img作为内存设备，并替换掉旧的/A</a></li>
+<li><a href="#删除分区">删除分区</a></li>
+<li><a href="#恢复a-img到新的lvm分区-lva-并挂载到-a">恢复A.img到新的lvm分区 LVA，并挂载到/A</a></li>
+<li><a href="#在线缩容">在线缩容</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="lvm磁盘备份-替代-和修复方案">lvm磁盘备份、替代、和修复方案</h1>
+
+<h2 id="创建lvm组vg0和分区lva并挂载到-a">创建lvm组VG0和分区LVA并挂载到/A</h2>
+
+<blockquote>
+<p>Make lvm volume group VG0 and partition LVA and mount to /A</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@vm-ubu:/home/rui# lvmdiskscan 
+ /dev/loop0 <span class="o">[</span>   <span class="m">14</span>.50 MiB<span class="o">]</span> 
+ /dev/loop1 <span class="o">[</span>   <span class="m">140</span>.66 MiB<span class="o">]</span> 
+ /dev/sda1 <span class="o">[</span>   &lt;<span class="m">80</span>.00 GiB<span class="o">]</span> 
+ /dev/loop2 <span class="o">[</span>   &lt;<span class="m">90</span>.99 MiB<span class="o">]</span> 
+ /dev/loop3 <span class="o">[</span>   &lt;<span class="m">12</span>.99 MiB<span class="o">]</span> 
+ /dev/loop4 <span class="o">[</span>   &lt;<span class="m">34</span>.54 MiB<span class="o">]</span> 
+ /dev/loop5 <span class="o">[</span>   &lt;<span class="m">2</span>.25 MiB<span class="o">]</span> 
+ /dev/loop6 <span class="o">[</span>   &lt;<span class="m">3</span>.70 MiB<span class="o">]</span> 
+ /dev/sdb  <span class="o">[</span>    <span class="m">2</span>.00 GiB<span class="o">]</span> 
+ /dev/sdc  <span class="o">[</span>    <span class="m">2</span>.00 GiB<span class="o">]</span> 
+ <span class="m">2</span> disks
+ <span class="m">8</span> partitions
+ <span class="m">0</span> LVM physical volume whole disks
+ <span class="m">0</span> LVM physical volumes
+
+root@vm-ubu:/home/rui# pvcreate /dev/sdb
+ Physical volume <span class="s2">&#34;/dev/sdb&#34;</span> successfully created.
+ 
+root@vm-ubu:/home/rui# vgcreate VG0 /dev/sdb 
+ Volume group <span class="s2">&#34;VG0&#34;</span> successfully created
+ 
+root@vm-ubu:/home/rui# lvcreate -L 1G VG0 -n LVA
+ Logical volume <span class="s2">&#34;LVA&#34;</span> created.
+ 
+root@vm-ubu:/home/rui# mkfs.ext4 /dev/mapper/VG0-LVA 
+mke2fs <span class="m">1</span>.44.1 <span class="o">(</span><span class="m">24</span>-Mar-2018<span class="o">)</span>
+Creating filesystem with <span class="m">262144</span> 4k blocks and <span class="m">65536</span> inodes
+Filesystem UUID: d2d61132-f79c-486f-a391-8471288bd20e
+Superblock backups stored on blocks: 
+<span class="m">32768</span>, <span class="m">98304</span>, <span class="m">163840</span>, <span class="m">229376</span>
+ 
+Allocating group tables: <span class="k">done</span>              
+Writing inode tables: <span class="k">done</span>              
+Creating journal <span class="o">(</span><span class="m">8192</span> blocks<span class="o">)</span>: <span class="k">done</span>
+Writing superblocks and filesystem accounting information: <span class="k">done</span>
+ 
+root@vm-ubu:/home/rui# mkdir /A
+root@vm-ubu:/home/rui# mount /dev/mapper/VG0-LVA /A
+root@vm-ubu:/home/rui# seq <span class="m">100</span> <span class="p">|</span> xargs -i dd <span class="k">if</span><span class="o">=</span>/dev/urandom <span class="nv">of</span><span class="o">=</span>/A/<span class="o">{}</span>.dat <span class="nv">bs</span><span class="o">=</span><span class="m">1024</span> <span class="nv">count</span><span class="o">=</span><span class="m">1</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="备份分区lva到a-img">备份分区LVA到A.img</h2>
+
+<blockquote>
+<p>Backup partition LVA to img file A.img</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@vm-ubu:/home/rui# apt install gddrescue
+
+root@vm-ubu:/home/rui# ddrescue -d -f -r3 /dev/mapper/VG0-LVA /data/A.img <span class="s2">&#34;rescue.</span><span class="k">$(</span>date<span class="k">)</span><span class="s2">.log&#34;</span>
+GNU ddrescue <span class="m">1</span>.22
+   ipos:  <span class="m">1073</span> MB, non-trimmed:    <span class="m">0</span> B, current rate:  <span class="m">181</span> MB/s
+   opos:  <span class="m">1073</span> MB, non-scraped:    <span class="m">0</span> B, average rate:  <span class="m">214</span> MB/s
+non-tried:    <span class="m">0</span> B, bad-sector:    <span class="m">0</span> B,  error rate:    <span class="m">0</span> B/s
+ rescued:  <span class="m">1073</span> MB,  bad areas:    <span class="m">0</span>,    run time:     4s
+pct rescued: <span class="m">100</span>.00%, <span class="nb">read</span> errors:    <span class="m">0</span>, remaining time:     n/a
+               <span class="nb">time</span> since last successful read:     n/a
+Finished                   
+root@vm-ubu:/home/rui# </code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="挂载a-img作为内存设备-并替换掉旧的-a">挂载A.img作为内存设备，并替换掉旧的/A</h2>
+
+<blockquote>
+<p>Mount A.img as loop device and replace old mount /A</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@vm-ubu:/home/rui# losetup -P /dev/loop52 /data/
+A.img    lost+found/ 
+root@vm-ubu:/home/rui# losetup -P /dev/loop52 /data/A.img 
+root@vm-ubu:/home/rui# umount /A
+root@vm-ubu:/home/rui# mount /dev/loop52 /A
+root@vm-ubu:/home/rui# ls A
+ls: cannot access <span class="s1">&#39;A&#39;</span>: No such file or directory
+root@vm-ubu:/home/rui# ls /A
+<span class="m">100</span>.dat <span class="m">15</span>.dat <span class="m">20</span>.dat <span class="m">26</span>.dat <span class="m">31</span>.dat <span class="m">37</span>.dat <span class="m">42</span>.dat <span class="m">48</span>.dat <span class="m">53</span>.dat <span class="m">59</span>.dat 
+root@vm-ubu:/home/rui# </code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="删除分区">删除分区</h2>
+
+<blockquote>
+<p>Delete partition A</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@vm-ubu:/home/rui# lvremove /dev/mapper/VG0-LVA 
+Do you really want to remove and DISCARD active logical volume VG0/LVA? <span class="o">[</span>y/n<span class="o">]</span>: y
+ Logical volume <span class="s2">&#34;LVA&#34;</span> successfully removed</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="恢复a-img到新的lvm分区-lva-并挂载到-a">恢复A.img到新的lvm分区 LVA，并挂载到/A</h2>
+
+<blockquote>
+<p>Recovery A.img to new lvm Partition A , Mount A to /A and replace loop device A.img</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@vm-ubu:/home/rui# fdisk -l /dev/loop52 
+Disk /dev/loop52: <span class="m">1</span> GiB, <span class="m">1073741824</span> bytes, <span class="m">2097152</span> sectors
+Units: sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
+Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+root@vm-ubu:/home/rui# lvcreate -L <span class="m">1073741824</span> bytes VG0 -n LVA
+ Volume group <span class="s2">&#34;bytes&#34;</span> not found
+ Cannot process volume group bytes
+ 
+root@vm-ubu:/home/rui# lvcreate -L 1073741824bytes VG0 -n LVA
+WARNING: ext4 signature detected on /dev/VG0/LVA at offset <span class="m">1080</span>. Wipe it? <span class="o">[</span>y/n<span class="o">]</span>: ^C Interrupted...
+ Aborted wiping of ext4.
+ <span class="m">1</span> existing signature left on the device.
+ Logical volume <span class="s2">&#34;LVA&#34;</span> created.
+
+root@vm-ubu:/home/rui# mkdir /A2
+root@vm-ubu:/home/rui# sudo mount /dev/mapper/VG0-LVA /A2/
+mount: /A2: wrong fs type, bad option, bad superblock on /dev/mapper/VG0-LVA, missing codepage or helper program, or other error.
+root@vm-ubu:/home/rui# ddrescue -d -f -r3 /data/A.img /dev/mapper/VG0-LVA rescue_from_img.log
+GNU ddrescue <span class="m">1</span>.22
+   ipos:  <span class="m">1073</span> MB, non-trimmed:    <span class="m">0</span> B, current rate:  <span class="m">266</span> MB/s
+   opos:  <span class="m">1073</span> MB, non-scraped:    <span class="m">0</span> B, average rate:  <span class="m">357</span> MB/s
+non-tried:    <span class="m">0</span> B, bad-sector:    <span class="m">0</span> B,  error rate:    <span class="m">0</span> B/s
+ rescued:  <span class="m">1073</span> MB,  bad areas:    <span class="m">0</span>,    run time:     2s
+pct rescued: <span class="m">100</span>.00%, <span class="nb">read</span> errors:    <span class="m">0</span>, remaining time:     n/a
+               <span class="nb">time</span> since last successful read:     n/a
+Finished                   
+root@vm-ubu:/home/rui# sudo mount /dev/mapper/VG0-LVA /A2/
+root@vm-ubu:/home/rui# ls /A2/
+<span class="m">100</span>.dat <span class="m">15</span>.dat <span class="m">20</span>.dat <span class="m">26</span>.dat <span class="m">31</span>.dat <span class="m">37</span>.dat <span class="m">42</span>.dat <span class="m">48</span>.dat <span class="m">53</span>.dat <span class="m">59</span>.dat 
+root@vm-ubu:/home/rui# </code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="在线缩容">在线缩容</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@vm-ubu:/home/rui# lvresize -L -300M --resizefs /dev/mapper/VG0-LVA 
+Do you want to unmount <span class="s2">&#34;/A2&#34;</span> ? <span class="o">[</span>Y<span class="p">|</span>n<span class="o">]</span> y
+fsck from util-linux <span class="m">2</span>.31.1
+/dev/mapper/VG0-LVA: <span class="m">111</span>/65536 files <span class="o">(</span><span class="m">0</span>.0% non-contiguous<span class="o">)</span>, <span class="m">13055</span>/262144 blocks
+resize2fs <span class="m">1</span>.44.1 <span class="o">(</span><span class="m">24</span>-Mar-2018<span class="o">)</span>
+Resizing the filesystem on /dev/mapper/VG0-LVA to <span class="m">185344</span> <span class="o">(</span>4k<span class="o">)</span> blocks.
+The filesystem on /dev/mapper/VG0-LVA is now <span class="m">185344</span> <span class="o">(</span>4k<span class="o">)</span> blocks long.
+ 
+ Size of logical volume VG0/LVA changed from <span class="m">1</span>.00 GiB <span class="o">(</span><span class="m">256</span> extents<span class="o">)</span> to <span class="m">724</span>.00 MiB <span class="o">(</span><span class="m">181</span> extents<span class="o">)</span>.
+ Logical volume VG0/LVA successfully resized.
+root@vm-ubu:/home/rui# 
+root@vm-ubu:/home/rui# ls /A2/
+<span class="m">100</span>.dat <span class="m">15</span>.dat <span class="m">20</span>.dat <span class="m">26</span>.dat <span class="m">31</span>.dat <span class="m">37</span>.dat <span class="m">42</span>.dat <span class="m">48</span>.dat <span class="m">53</span>.dat <span class="m">59</span>.dat </code></pre></td></tr></table>
+</div>
+</div>
+<hr />
+
+<ul>
+<li>欢迎评论以及发邮件和作者交流心得。</li>
+<li><strong>版权声明</strong>：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</li>
+<li><strong>作者</strong>: m2kar</li>
+<li><strong>打赏链接</strong>: <a href="http://m2kar-cn.mikecrm.com/wy97haW">欢迎打赏m2kar,您的打赏是我创作的重要源泉</a></li>
+<li><strong>邮箱</strong>: <a href="mailto:m2kar.cn@gmail.com">m2kar.cn#gmail.com</a></li>
+<li><strong>主页</strong>: <a href="https://m2kar.cn">m2kar.cn</a></li>
+<li><strong>Github</strong>: <a href="https://github.com/m2kar">github.com/m2kar</a></li>
+<li><strong>CSDN</strong>: <a href="https://m2kar.blog.csdn.net">M2kar的专栏</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">m2kar(m2kar.cn@gmail.com)</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-10-19
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/577f02a94c9874c3323129ab0c7c1e0b5d7cb465" title="20201017-lvm-repair.md">(577f02a)</a>
+    </span>
+  </p>
+  
+    <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20201017-lvm-repair.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+    
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/lvm/">lvm</a>
+          <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/20201018-halucinator/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">【论文笔记】HALucinator 虚拟化硬件层模拟启动固件</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/20200630-trojan-tutorial/">
+            <span class="next-text nav-default">Trojan教程</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="m2kar/m2kar.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:m2kar.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/m2kar" class="iconfont icon-github" title="github"></a>
+  <a href="https://m2kar.cn/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m2kar(m2kar.cn@gmail.com)</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?b8496db3a9350b6611f36cedfb233de4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

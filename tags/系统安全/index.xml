@@ -6,10 +6,19 @@
     <description>Recent content in 系统安全 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 11 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【论文笔记】HALucinator 虚拟化硬件层模拟启动固件</title>
+      <link>https://m2kar.cn/post/20201018-halucinator/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20201018-halucinator/</guid>
+      <description>标题:HALucinator: Firmware Re-hosting Through Abstraction Layer Emulation 作者: Abraham A Clements, Eric Gustafson; Tobias Scharnowski; Paul Grosen; David Fritz; Christopher Kruegel and Giovanni Vigna; Saurabh Bagchi; Mathias Payer 来源: USENIX Security 2020 链接: https://www.usenix.org/conference/usenixsecurity20/presentation/clements 引用: Clements, A. A., Gustafson, E., Scharnowski, T., Grosen, P., Fritz, D., Kruegel, C.,</description>
+    </item>
     
     <item>
       <title>【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</title>

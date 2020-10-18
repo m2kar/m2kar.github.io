@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qemu on M2kar - Security World</title>
+    <link>https://m2kar.cn/tags/qemu/</link>
+    <description>Recent content in Qemu on M2kar - Security World</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://m2kar.cn/tags/qemu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【论文笔记】HALucinator 虚拟化硬件层模拟启动固件</title>
+      <link>https://m2kar.cn/post/20201018-halucinator/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20201018-halucinator/</guid>
+      <description>标题:HALucinator: Firmware Re-hosting Through Abstraction Layer Emulation 作者: Abraham A Clements, Eric Gustafson; Tobias Scharnowski; Paul Grosen; David Fritz; Christopher Kruegel and Giovanni Vigna; Saurabh Bagchi; Mathias Payer 来源: USENIX Security 2020 链接: https://www.usenix.org/conference/usenixsecurity20/presentation/clements 引用: Clements, A. A., Gustafson, E., Scharnowski, T., Grosen, P., Fritz, D., Kruegel, C.,</description>
+    </item>
+    
+  </channel>
+</rss>

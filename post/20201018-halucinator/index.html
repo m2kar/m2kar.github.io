@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>【论文笔记】HALucinator 虚拟化硬件层模拟启动固件 - M2kar - Security World</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="HALucinator 虚拟化硬件层模拟启动固件" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
+
+
+<meta name="baidu-site-verification" content="gzbN1erS5U" />
+<meta name="google-site-verification" content="UA-150110063-1" />
+
+
+<meta name="generator" content="Hugo 0.56.3 with theme even" />
+
+
+<link rel="canonical" href="https://m2kar.cn/post/20201018-halucinator/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="【论文笔记】HALucinator 虚拟化硬件层模拟启动固件" />
+<meta property="og:description" content="HALucinator 虚拟化硬件层模拟启动固件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://m2kar.cn/post/20201018-halucinator/" />
+<meta property="article:published_time" content="2020-10-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-19T00:20:09+08:00" />
+<meta itemprop="name" content="【论文笔记】HALucinator 虚拟化硬件层模拟启动固件">
+<meta itemprop="description" content="HALucinator 虚拟化硬件层模拟启动固件">
+
+
+<meta itemprop="datePublished" content="2020-10-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-10-19T00:20:09&#43;08:00" />
+<meta itemprop="wordCount" content="1740">
+
+
+
+<meta itemprop="keywords" content="论文笔记,系统安全,固件分析,Qemu,HALucinator," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【论文笔记】HALucinator 虚拟化硬件层模拟启动固件"/>
+<meta name="twitter:description" content="HALucinator 虚拟化硬件层模拟启动固件"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">M2kar - Security World</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">目录</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/cv/">
+        <li class="mobile-menu-item">About M2kar</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">M2kar - Security World</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">目录</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/cv/">About M2kar</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">【论文笔记】HALucinator 虚拟化硬件层模拟启动固件</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-10-18 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#摘要">摘要</a></li>
+<li><a href="#介绍">介绍</a>
+<ul>
+<li><a href="#现实问题">现实问题</a></li>
+<li><a href="#待解决的问题">待解决的问题</a></li>
+<li><a href="#当前研究的不足">当前研究的不足</a></li>
+<li><a href="#主要解决思路">主要解决思路</a></li>
+<li><a href="#主要贡献">主要贡献</a></li>
+</ul></li>
+<li><a href="#动机-motivation">动机(Motivation)</a></li>
+<li><a href="#设计">设计</a>
+<ul>
+<li><a href="#hal-fuzz-模糊测试功能">hal-fuzz 模糊测试功能</a></li>
+</ul></li>
+<li><a href="#实验评估">实验评估</a>
+<ul>
+<li><a href="#实验效果">实验效果</a>
+<ul>
+<li><a href="#cve">CVE</a></li>
+<li><a href="#csaw-esc-2019-比赛结果">CSAW ESC 2019 比赛结果</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#讨论">讨论</a></li>
+<li><a href="#总结">总结</a></li>
+<li><a href="#作者介绍">作者介绍</a>
+<ul>
+<li><a href="#abraham-a-clements">Abraham A. Clements</a></li>
+<li><a href="#eric-gustafson">Eric Gustafson</a></li>
+<li><a href="#合作实验室">合作实验室</a></li>
+</ul></li>
+<li><a href="#收获">收获</a>
+<ul>
+<li><a href="#本文优势">本文优势</a></li>
+<li><a href="#可扩展结合的点">可扩展结合的点</a></li>
+</ul></li>
+<li><a href="#论文评价">论文评价</a></li>
+<li><a href="#参考资料及附件">参考资料及附件</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<ul>
+<li><strong>标题:</strong>HALucinator: Firmware Re-hosting Through Abstraction Layer Emulation</li>
+<li><strong>作者:</strong> Abraham A Clements, Eric Gustafson; Tobias Scharnowski; Paul Grosen; David Fritz; Christopher Kruegel and Giovanni Vigna; Saurabh Bagchi; Mathias Payer</li>
+<li><strong>来源:</strong> USENIX Security 2020</li>
+<li><strong>链接:</strong> <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/clements">https://www.usenix.org/conference/usenixsecurity20/presentation/clements</a></li>
+<li><strong>引用:</strong> Clements, A. A., Gustafson, E., Scharnowski, T., Grosen, P., Fritz, D., Kruegel, C., … Payer, M. (2020). HALucinator: Firmware Re-hosting Through Abstraction Layer Emulation. <em>29th USENIX Security Symposium (USENIX Security 20)</em>, 1201–1218. USENIX Association. Retrieved from <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/clements">https://www.usenix.org/conference/usenixsecurity20/presentation/clements</a></li>
+</ul>
+
+<h2 id="摘要">摘要</h2>
+
+<p>鉴于在线嵌入式设备无处不在的情况，分析其固件对于安全性，隐私性和安全性至关重要。硬件和固件之间的紧密耦合以及嵌入式系统中的多样性使得难以对固件执行动态分析。但是，固件开发人员会定期使用诸如<strong>硬件抽象层（HAL）</strong>之类的抽象来开发代码，以简化其工作。我们利用这些抽象作为重新托管和分析固件的基础。通过提供HAL功能的高级替代品（称为“HLE”），我们使硬件与固件脱钩。这种方法的工作方式是，首先通过二进制分析在固件样本中找到库函数，然后在全系统仿真器中提供这些函数的通用实现。我们在原型系统HALucinator中提出了这些想法，该系统可以重新托管固件，并允许虚拟设备正常使用。首先，我们介绍了现有库匹配技术的扩展，这些扩展是识别二进制固件中的库函数，减少冲突以及推断其他函数名所必需的。接下来，我们通过使用简化的处理程序和外围模型演示重新托管过程，这些过程使固件样本和芯片供应商之间的过程快速，灵活且可移植。最后，通过向<strong>HALucinator</strong>添加AFL模糊器，在固件中间件库中定位多个以前未知的漏洞，我们证明了HLE在安全性分析方面的实用性。</p>
+
+<h2 id="介绍">介绍</h2>
+
+<h3 id="现实问题">现实问题</h3>
+
+<p>物联网安全问题严峻，固件检测问题难以解决。</p>
+
+<p>固件测试通常使用物理方法。但存在以下问题：
+- 调试接口
+  - 被禁用
+- 被限制
+- 并行困难
+- 其他限制
+- 贵   💎💎💎
+- 易坏💀💀💀</p>
+
+<h3 id="待解决的问题">待解决的问题</h3>
+
+<p>使用固件模拟(firmware re-hosting)的方式，在普通计算机上执行固件。但由于固件的差异性，固件的模拟难以实现。</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/image-20201018234452206.png" alt="image-20201018234452206" /></p>
+
+<h3 id="当前研究的不足">当前研究的不足</h3>
+
+<p>当前的研究把对硬件的请求转发到实际的硬件中，但这种方式需要源硬件。</p>
+
+<p>另外还有技术可以重放或者对硬件建模，但这种方式限制需要严格按照已经记录好的路径执行。</p>
+
+<h3 id="主要解决思路">主要解决思路</h3>
+
+<p>硬件抽象层是一些对实际硬件抽象处理的操作系统库。通过模拟硬件抽象层，可以达到模拟的底层硬件的目的。</p>
+
+<h3 id="主要贡献">主要贡献</h3>
+
+<ol>
+<li>提出HAL库模拟技术，可在无需依赖实际硬件的情况下使用QEMU等模拟器仿真二进制固件</li>
+<li>改进了现有的依赖库匹配技术</li>
+<li>提出HALucinator仿真系统，可通过抽象处理程序和外围模型库的方式进行交互式仿真和固件Fuzzing</li>
+<li>通过对16个固件的模拟，证明了方法的实用性。并通过Fuzzing的方式发现了两个0day漏洞</li>
+</ol>
+
+<h2 id="动机-motivation">动机(Motivation)</h2>
+
+<ul>
+<li><p>模拟硬件和外设</p></li>
+
+<li><p>模拟固件栈</p></li>
+
+<li><p>高层级模拟</p></li>
+</ul>
+
+<h2 id="设计">设计</h2>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20201018225644.png" alt="架构图" /></p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20201018225845.png" alt="HTTP服务器软硬件堆栈、替换" />
+最终能达到多层级的模拟。</p>
+
+<h3 id="hal-fuzz-模糊测试功能">hal-fuzz 模糊测试功能</h3>
+
+<ol>
+<li>基于AFL-Unicorn</li>
+<li>输入用尽时程序退出</li>
+<li>基于块计数的确定性计时器</li>
+<li>中断事件也基于块计数</li>
+<li>通过Unicorn自身的错误检测到崩溃</li>
+<li>检测器以及处理程序断言</li>
+</ol>
+
+<h2 id="实验评估">实验评估</h2>
+
+<h3 id="实验效果">实验效果</h3>
+
+<h4 id="cve">CVE</h4>
+
+<ol>
+<li>CVE-2019-8359：Contiki OS数据包重组功能中的缓冲区溢出导致的远程执行代码漏洞。</li>
+<li>CVE-2019-9183：Contiki OS数据包重组功能中的整数下溢漏洞导致的远程拒绝服务漏洞。</li>
+</ol>
+
+<h4 id="csaw-esc-2019-比赛结果">CSAW ESC 2019 比赛结果</h4>
+
+<ol>
+<li><p>ESC是一个比较知名的嵌入式安全比赛。2019年的比赛为无线射频识别(RFID) 的安全性。</p></li>
+
+<li><p>比赛使用美国国家安全局(NSA)开发的逆向工程工具黑客定制的 RFID 读卡器固件。</p></li>
+</ol>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/image-20201019001646472.png" alt="image-20201019001646472" /></p>
+
+<p>团队成绩：</p>
+
+<ul>
+<li>模拟了所有挑战集的ARM部分</li>
+<li>解决了18/19的挑战</li>
+<li>使用模糊测试自动解决3个挑战</li>
+<li>获得第一名！</li>
+</ul>
+
+<h2 id="讨论">讨论</h2>
+
+<h2 id="总结">总结</h2>
+
+<h2 id="作者介绍">作者介绍</h2>
+
+<h3 id="abraham-a-clements">Abraham A. Clements</h3>
+
+<p>【<a href="https://dblp.org/pid/187/9046.html">DBLP</a> 】</p>
+
+<p>普渡大学PhD；从2017年开始做物联网安全研究；3篇一作顶会</p>
+
+<h3 id="eric-gustafson">Eric Gustafson</h3>
+
+<p>【<a href="http://subwire.net/">主页</a>】</p>
+
+<p>加州大学圣芭芭拉分校已毕业PhD。</p>
+
+<p>专注于移动端和物联网安全。</p>
+
+<p>有很多顶会论文。</p>
+
+<h3 id="合作实验室">合作实验室</h3>
+
+<p>几个合作实验室都很有来头。</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/m2kar/bucket/img/20201018225115.png" alt="合作实验室" /></p>
+
+<h2 id="收获">收获</h2>
+
+<h3 id="本文优势">本文优势</h3>
+
+<p>这篇论文解决了一篇经典论文Firmadyne在固件模拟上的核心问题。</p>
+
+<h3 id="可扩展结合的点">可扩展结合的点</h3>
+
+<p>可以尝试复现此文章来解决固件漏洞挖掘的问题。</p>
+
+<h2 id="论文评价">论文评价</h2>
+
+<p><strong>评分</strong>: ⭐⭐⭐⭐⭐</p>
+
+<p><strong>评价</strong>: 很有参考价值！</p>
+
+<h2 id="参考资料及附件">参考资料及附件</h2>
+
+<ul>
+<li>[1] 论文笔记幻灯片: <a href="https://cdn.jsdelivr.net/gh/m2kar/bucket/annex/papernote-slides-HALucinator-sec20.pdf">https://cdn.jsdelivr.net/gh/m2kar/bucket/annex/papernote-slides-HALucinator-sec20.pdf</a></li>
+<li>[2] 论文原稿: <a href="https://www.usenix.org/system/files/sec20-clements.pdf">https://www.usenix.org/system/files/sec20-clements.pdf</a></li>
+<li>[3] 论文原幻灯片: <a href="https://www.usenix.org/system/files/sec20_slides_clements.pdf">https://www.usenix.org/system/files/sec20_slides_clements.pdf</a></li>
+</ul>
+
+<hr />
+
+<ul>
+<li>欢迎评论以及发邮件和作者交流心得。</li>
+<li><strong>版权声明</strong>：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</li>
+<li><strong>作者</strong>: m2kar</li>
+<li><strong>打赏链接</strong>: <a href="http://m2kar-cn.mikecrm.com/wy97haW">欢迎打赏m2kar,您的打赏是我创作的重要源泉</a></li>
+<li><strong>邮箱</strong>: <a href="mailto:m2kar.cn@gmail.com">m2kar.cn#gmail.com</a></li>
+<li><strong>主页</strong>: <a href="https://m2kar.cn">m2kar.cn</a></li>
+<li><strong>Github</strong>: <a href="https://github.com/m2kar">github.com/m2kar</a></li>
+<li><strong>CSDN</strong>: <a href="https://m2kar.blog.csdn.net">M2kar的专栏</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">m2kar(m2kar.cn@gmail.com)</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-10-19
+        <a href="https://github.com/m2kar/m2kar.github.io/commit/779b1d9e53ea3b4636af0eb5d766d9bc4a86e188" title="new file:   20201018-HALucinator.md">(779b1d9)</a>
+    </span>
+  </p>
+  
+    <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20201018-HALucinator.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+    
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a>
+          <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/">系统安全</a>
+          <a href="/tags/%E5%9B%BA%E4%BB%B6%E5%88%86%E6%9E%90/">固件分析</a>
+          <a href="/tags/qemu/">Qemu</a>
+          <a href="/tags/halucinator/">HALucinator</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/20201017-lvm-repair/">
+            <span class="next-text nav-default">lvm磁盘备份、替代、和修复方案</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="m2kar/m2kar.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:m2kar.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/m2kar" class="iconfont icon-github" title="github"></a>
+  <a href="https://m2kar.cn/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m2kar(m2kar.cn@gmail.com)</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?b8496db3a9350b6611f36cedfb233de4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

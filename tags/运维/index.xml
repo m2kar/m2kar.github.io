@@ -6,10 +6,19 @@
     <description>Recent content in 运维 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>lvm磁盘备份、替代、和修复方案</title>
+      <link>https://m2kar.cn/post/20201017-lvm-repair/</link>
+      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20201017-lvm-repair/</guid>
+      <description>lvm磁盘备份、替代、和修复方案 创建lvm组VG0和分区LVA并挂载到/A Make lvm volume group VG0 and partition LVA and mount to /A 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21</description>
+    </item>
     
     <item>
       <title>Trojan教程</title>
