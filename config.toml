@@ -49,7 +49,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   identifier = "archives"
   url = "/post/"
 [[menu.main]]
-  name = "关于"
+  name = "About M2kar"
   weight = 50
   identifier = "cv"
   url = "/cv/"
