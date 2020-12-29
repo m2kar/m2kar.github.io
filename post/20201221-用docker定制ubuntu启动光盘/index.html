@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>用Docker定制Ubuntu启动光盘镜像 - M2kar - Security World</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="m2kar(m2kar.cn@gmail.com)" /><meta name="description" content="用Docker定制Ubuntu启动光盘" /><meta name="keywords" content="m2kar, Security, Computer, Coding" />
+
+
+<meta name="baidu-site-verification" content="gzbN1erS5U" />
+<meta name="google-site-verification" content="UA-150110063-1" />
+
+
+<meta name="generator" content="Hugo 0.56.3 with theme even" />
+
+
+<link rel="canonical" href="https://m2kar.cn/post/20201221-%E7%94%A8docker%E5%AE%9A%E5%88%B6ubuntu%E5%90%AF%E5%8A%A8%E5%85%89%E7%9B%98/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="用Docker定制Ubuntu启动光盘镜像" />
+<meta property="og:description" content="用Docker定制Ubuntu启动光盘" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://m2kar.cn/post/20201221-%E7%94%A8docker%E5%AE%9A%E5%88%B6ubuntu%E5%90%AF%E5%8A%A8%E5%85%89%E7%9B%98/" />
+<meta property="article:published_time" content="2020-12-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-21T00:00:00+00:00" />
+<meta itemprop="name" content="用Docker定制Ubuntu启动光盘镜像">
+<meta itemprop="description" content="用Docker定制Ubuntu启动光盘">
+
+
+<meta itemprop="datePublished" content="2020-12-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-12-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2266">
+
+
+
+<meta itemprop="keywords" content="tmux,linux,ssh,运维," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="用Docker定制Ubuntu启动光盘镜像"/>
+<meta name="twitter:description" content="用Docker定制Ubuntu启动光盘"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">M2kar - Security World</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">目录</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/cv/">
+        <li class="mobile-menu-item">About M2kar</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">M2kar - Security World</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">目录</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/cv/">About M2kar</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">用Docker定制Ubuntu启动光盘镜像</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-21 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BF%90%E7%BB%B4/"> 运维 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#用docker定制ubuntu启动光盘镜像">用Docker定制Ubuntu启动光盘镜像</a>
+<ul>
+<li><a href="#构建环境">构建环境</a></li>
+<li><a href="#创建docker基础映像">创建Docker基础映像</a></li>
+<li><a href="#customising-using-a-dockerfile">Customising using a Dockerfile</a></li>
+<li><a href="#重新打包squashfs映像">重新打包squashfs映像</a></li>
+<li><a href="#重新打包iso映像">重新打包ISO映像</a></li>
+<li><a href="#注意事项">注意事项</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="用docker定制ubuntu启动光盘镜像">用Docker定制Ubuntu启动光盘镜像</h1>
+
+<p>ubuntu 启动光盘镜像通常用于安装Ubuntu，但也可以用于其他一些情况，包括没有持久性的预配置桌面和用于安装的自定义iso。传统上，这些都是用<a href="https://help.ubuntu.com/community/LiveCDCustomizationFromScratch">chroots</a>制作的。还有一些图形化工具也可以制作，比如<a href="https://launchpad.net/cubic">Cubic</a>，这使得这个过程更容易。
+但是，这个过程没有任何内置的“检查点”，所以很难迭代。不过，Docker的<a href="https://docs.docker.com/develop/develop-images/baseimages/">镜像创建系统</a>是其中一个做得很好的工具. 本文将介绍如何使用该系统创建ubuntu 启动光盘镜像。</p>
+
+<h2 id="构建环境">构建环境</h2>
+
+<p>本工具需要一个支持<a href="https://github.com/AgentD/squashfs-tools-ng">squashfs-tools-ng</a>工具的Linux发行版，用来解包和重打包ISO镜像。截止本文创作时，Ubuntu 20.04LTS时是最好的支持该工具的Ubuntu发行版。因此本工具采取了一个Ubuntu 20.04LTS的虚拟机作为构建环境。</p>
+
+<p><a href="https://docs.docker.com/engine/install/ubuntu/">Docker</a> 当然是必不可少的.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装docker</span>
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh ./get-docker.sh</code></pre></td></tr></table>
+</div>
+</div>
+<p>用下面的命令安装其他的依赖包。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">sudo apt-get install p7zip-full grub2-common mtools xorriso squashfs-tools-ng</code></pre></td></tr></table>
+</div>
+</div>
+<p>最后，需要下载基础的Ubuntu启动光盘镜像。下载地址在<a href="https://ubuntu.com/download/desktop。">https://ubuntu.com/download/desktop。</a> (此过程可能也适用于其他Ubuntu版本（例如服务器版本），但是通常有更好的方法来部署服务器。)</p>
+
+<h2 id="创建docker基础映像">创建Docker基础映像</h2>
+
+<p>ISO通过引导Linux内核，挂载squashfs映像并从中启动Ubuntu来工作。 因此，我们需要从ISO中获取该squashfs映像并从中创建一个Docker基础映像。</p>
+
+<p>运行以下命令以从ISO中提取squashfs映像：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># UBUNTU_ISO_PATH=path to the Ubuntu live ISO downloaded earlier</span>
+7z e -o. <span class="s2">&#34;</span><span class="nv">$UBUNTU_ISO_PATH</span><span class="s2">&#34;</span> casper/filesystem.squashfs</code></pre></td></tr></table>
+</div>
+</div>
+<p>然后将该squashfs映像导入Docker：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">sqfs2tar filesystem.squashfs <span class="p">|</span> sudo docker import - <span class="s2">&#34;ubuntulive:base&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这将需要几分钟才能完成。</p>
+
+<h2 id="customising-using-a-dockerfile">Customising using a Dockerfile</h2>
+
+<p>现在，squashfs映像可作为Docker中的映像使用，我们可以构建一个对其进行修改的<a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># 在上一节中，我们将squashfs映像导入Docker中，镜像名为&#39;ubuntulive:base&#39;</span><span class="err">
+</span><span class="err"></span><span class="k">FROM</span><span class="s"> ubuntulive:base</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># 设置环境变量，以便apt非交互地安装软件包</span><span class="err">
+</span><span class="err"></span><span class="c"># 这些变量将仅在Docker中设置，而不在安装镜像中设置</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span><span class="s"> DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># 进行一些修改，例如 安装谷歌浏览器</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub <span class="p">|</span> apt-key add -<span class="err">
+</span><span class="err"></span><span class="k">RUN</span> sh -c <span class="s1">&#39;echo &#34;deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main&#34; &gt;&gt; /etc/apt/sources.list.d/google-chrome.list&#39;</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt-get update<span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt-get install -y google-chrome-stable<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># 安装重新包装ISO所需的软件包（我们将使用此映像重新包装自身）</span><span class="err">
+</span><span class="err"></span><span class="c"># 安装BIOS支持：grub-pc-bin</span><span class="err">
+</span><span class="err"></span><span class="c"># 安装EFI支持：grub-egi-amd64-bin and grub-efi-amd64-signed </span><span class="err">
+</span><span class="err"></span><span class="c"># 构建ISO：grub2-common, mtools and xorriso</span><span class="err">
+</span><span class="err"></span><span class="c"># 其中xorriso在universe源</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> add-apt-repository <span class="s2">&#34;deb http://archive.ubuntu.com/ubuntu </span><span class="k">$(</span>lsb_release -sc<span class="k">)</span><span class="s2"> universe&#34;</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt-get install -y grub2-common grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed mtools xorriso<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># 删除过时的软件包和任何临时状态</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt-get autoremove -y <span class="o">&amp;&amp;</span> apt-get clean<span class="err">
+</span><span class="err"></span><span class="k">RUN</span> rm -rf <span class="se">\
+</span><span class="se"></span>    /tmp/* <span class="se">\
+</span><span class="se"></span>    /boot/* <span class="se">\
+</span><span class="se"></span>    /var/backups/* <span class="se">\
+</span><span class="se"></span>    /var/log/* <span class="se">\
+</span><span class="se"></span>    /var/run/* <span class="se">\
+</span><span class="se"></span>    /var/crash/* <span class="se">\
+</span><span class="se"></span>    /var/lib/apt/lists/* <span class="se">\
+</span><span class="se"></span>    ~/.bash_history</code></pre></td></tr></table>
+</div>
+</div>
+<p>在尝试构建自定义映像之前，请运行以下命令从构建上下文中排除squashfs映像和ISO，以节省时间。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="s2">&#34;**/*.squashfs&#34;</span> &gt;&gt; .dockerignore
+<span class="nb">echo</span> <span class="s2">&#34;**/*.iso&#34;</span> &gt;&gt; .dockerignore</code></pre></td></tr></table>
+</div>
+</div>
+<p>现在，要构建您的自定义图像，请运行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">sudo docker build -t ubuntulive:image .</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果您对输出不满意或发生错误，请修改Dockerfile并再次运行以上命令以重试。 通过复制docker build输出中的最后一个成功的Image ID并运行其实例，还可以随时探索映像和/或测试命令。 例如：<code>sudo docker run -it --rm IMAGE_ID /bin/bash</code>.</p>
+
+<h2 id="重新打包squashfs映像">重新打包squashfs映像</h2>
+
+<p>完成<code>docker build</code>后，提取Docker镜像并将其转换回squashfs镜像。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># run an instance of the Docker image</span>
+<span class="nv">CONTAINER_ID</span><span class="o">=</span><span class="k">$(</span>sudo docker run -d ubuntulive:image /usr/bin/tail -f /dev/null<span class="k">)</span>
+<span class="c1"># delete the auto-created .dockerenv marker file so it doesn&#39;t end up in the squashfs image</span>
+sudo docker <span class="nb">exec</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">CONTAINER_ID</span><span class="si">}</span><span class="s2">&#34;</span> rm /.dockerenv
+<span class="c1"># extract the Docker image contents to a tarball</span>
+sudo docker cp <span class="s2">&#34;</span><span class="si">${</span><span class="nv">CONTAINER_ID</span><span class="si">}</span><span class="s2">:/&#34;</span> - &gt; newfilesystem.tar
+<span class="c1"># get the package listing for installation from ISO</span>
+sudo docker <span class="nb">exec</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">CONTAINER_ID</span><span class="si">}</span><span class="s2">&#34;</span> dpkg-query -W --showformat<span class="o">=</span><span class="s1">&#39;${Package} ${Version}\n&#39;</span> &gt; newfilesystem.manifest
+<span class="c1"># kill the container instance of the Docker image</span>
+sudo docker rm -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">CONTAINER_ID</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="c1"># convert the image tarball into a squashfs image</span>
+tar2sqfs --quiet newfilesystem.squashfs &lt; newfilesystem.tar</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="重新打包iso映像">重新打包ISO映像</h2>
+
+<p>现在我们有了新的squashfs镜像，下一步将重新打包ISO镜像。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># create a directory to build the ISO from</span>
+mkdir iso
+
+<span class="c1"># extract the contents of the ISO to the directory, except the original squashfs image</span>
+<span class="c1"># UBUNTU_ISO_PATH=path to the Ubuntu live ISO downloaded earlier</span>
+7z x <span class="s1">&#39;-xr!filesystem.squashfs&#39;</span> -oiso <span class="s2">&#34;</span><span class="nv">$UBUNTU_ISO_PATH</span><span class="s2">&#34;</span>
+
+<span class="c1"># copy our custom squashfs image and manifest into place</span>
+cp newfilesystem.squashfs iso/casper/filesystem.squashfs
+stat --printf<span class="o">=</span><span class="s2">&#34;%s&#34;</span> iso/casper/filesystem.squashfs &gt; iso/casper/filesystem.size
+cp newfilesystem.manifest iso/casper/filesystem.manifest
+
+<span class="c1"># update state files</span>
+<span class="o">(</span><span class="nb">cd</span> iso<span class="p">;</span> find . -type f -print0 <span class="p">|</span> xargs -0 md5sum <span class="p">|</span> grep -v <span class="s2">&#34;\./md5sum.txt&#34;</span> &gt; md5sum.txt<span class="o">)</span>
+
+<span class="c1"># remove obsolete files</span>
+rm iso/casper/filesystem.squashfs.gpg
+
+<span class="c1"># build the ISO image using the image itself</span>
+sudo docker run <span class="se">\
+</span><span class="se"></span>    -it <span class="se">\
+</span><span class="se"></span>    --rm <span class="se">\
+</span><span class="se"></span>    -v <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&#34;</span> <span class="se">\
+</span><span class="se"></span>    ubuntulive:image <span class="se">\
+</span><span class="se"></span>    grub-mkrescue -v -o /app/ubuntulive.iso /app/iso/ -- -volid UbuntuLive</code></pre></td></tr></table>
+</div>
+</div>
+<p>大功告成！ 重新打包的自定义Ubuntu启动光盘镜像现在可以在<code>./ubuntulive.iso</code>中找到。 使用<a href="https://help.gnome.org/users/gnome-boxes/stable/">GNOME Boxes</a>或其他VM工具对其进行测试，或使用<code>dd</code>或GUI工具（例如<a href="https://www.balena.io/etcher/">balenaEtcher</a>）将其转变为可启动的USB驱动器。</p>
+
+<h2 id="注意事项">注意事项</h2>
+
+<ul>
+<li>我没有使用这些ISO进行安装，因此自定义后我还没有测试过部分功能</li>
+<li>在安装过程中与systemd交互的软件包将失败，因为Docker环境中没有运行systemd实例。 这仅是非标准包装的问题； 所有Ubuntu / Debian软件包都可以正确处理这种情况</li>
+<li>用于引导的内核映像是ISO的一部分，不会通过此过程从Dockerfile中进行更新（例如，通过<code>apt</code>）。 要更新内核映像，请下载新的Ubuntu live ISO，然后重复所有步骤，包括重新创建Docker基本映像。 如果未重新创建Docker基本映像，则它可能与内核映像版本不同步，并且ISO不会启动。</li>
+</ul>
+
+<h2 id="参考">参考</h2>
+
+<p>1: <a href="https://slai.github.io/posts/customising-ubuntu-live-isos-with-docker/">Customising Ubuntu live ISOs with Docker</a>
+2: 相关代码已经上传至此：<a href="https://github.com/m2kar/make-live-iso">make-live-iso</a></p>
+
+<ul>
+<li>欢迎评论以及发邮件和作者交流心得。</li>
+<li><strong>版权声明</strong>：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</li>
+<li><strong>作者</strong>: m2kar</li>
+<li><strong>打赏链接</strong>: <a href="http://m2kar-cn.mikecrm.com/wy97haW">欢迎打赏m2kar,您的打赏是我创作的重要源泉</a></li>
+<li><strong>邮箱</strong>: <a href="mailto:m2kar.cn@gmail.com">m2kar.cn#gmail.com</a></li>
+<li><strong>主页</strong>: <a href="https://m2kar.cn">m2kar.cn</a></li>
+<li><strong>Github</strong>: <a href="https://github.com/m2kar">github.com/m2kar</a></li>
+<li><strong>CSDN</strong>: <a href="https://m2kar.blog.csdn.net">M2kar的专栏</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">m2kar(m2kar.cn@gmail.com)</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-12-21
+        
+    </span>
+  </p>
+  
+    <p class="copyright-item">
+      <span class="item-title">原始文档</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://github.com/m2kar/m2kar.github.io/blob/blog/content/post/20201221-%e7%94%a8Docker%e5%ae%9a%e5%88%b6Ubuntu%e5%90%af%e5%8a%a8%e5%85%89%e7%9b%98.md" target="_blank">查看本文 Markdown 版本 »</a></span>
+    </p>
+    
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/tmux/">tmux</a>
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/ssh/">ssh</a>
+          <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/20201201-firmscope-%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E7%8E%B0%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%9A%84%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E/">
+            <span class="next-text nav-default">【论文笔记】FIRMSCOPE：自动化发现安卓系统应用的提权漏洞</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="m2kar/m2kar.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:m2kar.cn@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/m2kar" class="iconfont icon-github" title="github"></a>
+  <a href="https://m2kar.cn/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">m2kar(m2kar.cn@gmail.com)</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?b8496db3a9350b6611f36cedfb233de4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

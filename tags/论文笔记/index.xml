@@ -6,10 +6,28 @@
     <description>Recent content in 论文笔记 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【论文笔记】FIRMSCOPE：自动化发现安卓系统应用的提权漏洞</title>
+      <link>https://m2kar.cn/post/20201201-firmscope-%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E7%8E%B0%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%9A%84%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20201201-firmscope-%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E7%8E%B0%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%9A%84%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E/</guid>
+      <description>标题: FIRMSCOPE: Automatic Uncovering of Privilege-Escalation Vulnerabilities in Pre-Installed Apps in Android Firmware 作者: Mohamed Elsabagh, Ryan Johnson,..,Chaoshun Zuo 关键字: 论文笔记, 系统安全, 安卓应用, 提权漏洞 来源: sec20 链接: 引用: Elsabagh, Mohamed, Ryan Johnson, Angelos Stavrou, Chaoshun Zuo, Qingchuan Zhao, and Zhiqiang Lin. “</description>
+    </item>
+    
+    <item>
+      <title>【论文笔记】针对已部署的物联网设备漏洞的大规模研究-NESA实验室-浙江大学</title>
+      <link>https://m2kar.cn/post/20201118-a-large-scale-empirical-study-on-the-vulnerability-of-deployed-iot-devices-nesa-binbin-zhao/</link>
+      <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20201118-a-large-scale-empirical-study-on-the-vulnerability-of-deployed-iot-devices-nesa-binbin-zhao/</guid>
+      <description>标题: A Large-scale Empirical Study on the Vulnerability of Deployed IoT Devices 作者:Binbin Zhao, Shouling Ji, Wei-Han Lee, Changting Lin, Haiqin Weng, Jingzheng Wu, Pan Zhou, Liming Fang, Raheem Beyah 关键字: IoT Search Engine, Vulnerable Device Assessment. 来源: IEEE Trans. Dependable and Secure Comput. 链接:https://</description>
+    </item>
     
     <item>
       <title>【论文笔记】CyGraph:用图数据库发现并可视化网络流量中的安全威胁</title>

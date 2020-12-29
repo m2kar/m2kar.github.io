@@ -6,10 +6,19 @@
     <description>Recent content in 物联网 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 11 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/tags/%E7%89%A9%E8%81%94%E7%BD%91/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【论文笔记】针对已部署的物联网设备漏洞的大规模研究-NESA实验室-浙江大学</title>
+      <link>https://m2kar.cn/post/20201118-a-large-scale-empirical-study-on-the-vulnerability-of-deployed-iot-devices-nesa-binbin-zhao/</link>
+      <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20201118-a-large-scale-empirical-study-on-the-vulnerability-of-deployed-iot-devices-nesa-binbin-zhao/</guid>
+      <description>标题: A Large-scale Empirical Study on the Vulnerability of Deployed IoT Devices 作者:Binbin Zhao, Shouling Ji, Wei-Han Lee, Changting Lin, Haiqin Weng, Jingzheng Wu, Pan Zhou, Liming Fang, Raheem Beyah 关键字: IoT Search Engine, Vulnerable Device Assessment. 来源: IEEE Trans. Dependable and Secure Comput. 链接:https://</description>
+    </item>
     
     <item>
       <title>【论文笔记】SoK: Security Evaluation of Home-Based IoT Deployments</title>

@@ -6,10 +6,19 @@
     <description>Recent content in 运维 on M2kar - Security World</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 17 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://m2kar.cn/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>用Docker定制Ubuntu启动光盘镜像</title>
+      <link>https://m2kar.cn/post/20201221-%E7%94%A8docker%E5%AE%9A%E5%88%B6ubuntu%E5%90%AF%E5%8A%A8%E5%85%89%E7%9B%98/</link>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://m2kar.cn/post/20201221-%E7%94%A8docker%E5%AE%9A%E5%88%B6ubuntu%E5%90%AF%E5%8A%A8%E5%85%89%E7%9B%98/</guid>
+      <description>用Docker定制Ubuntu启动光盘镜像 ubuntu 启动光盘镜像通常用于安装Ubuntu，但也可以用于其他一些情况，包括没有持久性的预配置桌面和用于</description>
+    </item>
     
     <item>
       <title>lvm磁盘备份、替代、和修复方案</title>
