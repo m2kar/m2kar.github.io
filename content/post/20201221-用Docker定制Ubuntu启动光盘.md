@@ -167,9 +167,8 @@ sudo docker run \
 
 
 ## 参考
-[1]: https://slai.github.io/posts/customising-ubuntu-live-isos-with-docker/
-
-
+1: [Customising Ubuntu live ISOs with Docker]( https://slai.github.io/posts/customising-ubuntu-live-isos-with-docker/)
+2: 相关代码已经上传至此：[make-live-iso](https://github.com/m2kar/make-live-iso)
 
 - 欢迎评论以及发邮件和作者交流心得。
 - **版权声明**：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
