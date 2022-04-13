@@ -1,7 +1,7 @@
 baseURL = "https://m2kar.cn/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
-title = "M2kar - Security World"
+title = "M2kar的经验学习"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true
@@ -18,7 +18,7 @@ hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否�
 paginate = 50                                              # 首页每页显示的文章数
 disqusShortname = ""      # disqus_shortname
 googleAnalytics = ""      # UA-XXXXXXXX-X
-copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
+copyright = "m2kar(m2kar.cn#gmail.com)<br/><a href="https://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a>"            # default: author.name         # 默认为下面配置的author.name 
 
 [author]                  # essential                     # 必需
   name = "m2kar(m2kar.cn@gmail.com)"
