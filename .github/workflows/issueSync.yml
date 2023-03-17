@@ -1,6 +1,6 @@
 name: Sync Issue to Blog
 
-on:
+on: 
   issues:
     types: [opened, edited]
 
