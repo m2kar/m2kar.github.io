@@ -1,0 +1,46 @@
+name: Sync Issue to Blog
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  sync-issue-to-blog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+
+      - name: Create Blog Post
+        id: create_post
+        run: |
+          issue_title=$(echo "${{ github.event.issue.title }}" | sed 's/[[:space:]]/-/g')
+          issue_date=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10 | sed 's/-//g')
+          post_path="content/post/${issue_date}-${issue_title}.md"
+          post_date=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10)
+          post_title=$(echo "${{ github.event.issue.title }}" | sed 's/"/\\"/g')
+          post_body=$(echo "${{ github.event.issue.body }}" | sed 's/"/\\"/g')
+          echo "---" > "${post_path}"
+          echo "title: \"${post_title}\"" >> "${post_path}"
+          echo "date: \"${post_date}\"" >> "${post_path}"
+          echo "lastmod: \"${post_date}\"" >> "${post_path}"
+          echo "draft: false" >> "${post_path}"
+          echo "tags:" >> "${post_path}"
+          echo "---" >> "${post_path}"
+          echo "${post_body}" >> "${post_path}"
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add .
+          git commit -m "Sync issue #${{ github.event.issue.number }} to blog"
+          git push origin blog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
