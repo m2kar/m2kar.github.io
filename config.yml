@@ -36,28 +36,28 @@ languages:
                   url: tags/
                   weight: 10
                 - name: 关于
-                  url: https://m2kar.cn/cn
+                  url: https://m2kar.cn/cv
 
-    en:
-        languageName: "English"
-        weight: 2
-        taxonomies:
-          category: categories
-          tag: tags
-          series: series
-        menu:
-            main:
-                - name: Archive
-                  url: archives
-                  weight: 5
-                - name: Search
-                  url: search/
-                  weight: 10
-                - name: Tags
-                  url: tags/
-                  weight: 10
-                - name: About
-                  url: https://m2kar.cn/cn
+    # en:
+    #     languageName: "English"
+    #     weight: 2
+    #     taxonomies:
+    #       category: categories
+    #       tag: tags
+    #       series: series
+    #     menu:
+    #         main:
+    #             - name: Archive
+    #               url: archives
+    #               weight: 5
+    #             - name: Search
+    #               url: search/
+    #               weight: 10
+    #             - name: Tags
+    #               url: tags/
+    #               weight: 10
+    #             - name: About
+    #               url: https://m2kar.cn/cv
 
 outputs:
     home:
@@ -114,8 +114,8 @@ params:
           url: "index.xml"
 
     editPost:
-        URL: "https://github.com/m2kar/m2kar.github.io/tree/blog/content/posts"
-        Text: "Suggest Changes" # edit text
+        URL: "https://github.com/m2kar/m2kar.github.io/tree/blog/content"
+        Text: "源文件" # edit text
         appendFilePath: true # to append file path to Edit link
 
     # label:
