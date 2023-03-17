@@ -67,7 +67,7 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: ""M2kar的个人博客,用于记录系统安全研究相关、运维相关技术，以及其他各种事情."
+    description: "M2kar的个人博客,用于记录系统安全研究相关、运维相关技术，以及其他各种事情."
     author: M2kar
     # author: ["Me", "You"] # multiple authors
 
@@ -114,7 +114,7 @@ params:
           url: "index.xml"
 
     editPost:
-        URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
+        URL: "https://github.com/m2kar/m2kar.github.io/tree/blog/content/posts"
         Text: "Suggest Changes" # edit text
         appendFilePath: true # to append file path to Edit link
 
