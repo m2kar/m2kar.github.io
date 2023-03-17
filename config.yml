@@ -16,6 +16,7 @@ minify:
     disableXML: true
     # minifyOutput: true
 
+defaultContentLanguage:zh-cn
 languages:
     zh-cn:
         languageName: "简体中文"
