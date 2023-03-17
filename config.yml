@@ -10,16 +10,37 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
-# googleAnalytics: UA-123-45
+googleAnalytics: UA-150110063-1
 
 minify:
     disableXML: true
     # minifyOutput: true
 
 languages:
+    zh-cn:
+        languageName: "简体中文"
+        weight: 1
+        taxonomies:
+          category: 目录
+          tag: 标签
+          series: 系列
+        menu:
+            main:
+                - name: 归档
+                  url: archives
+                  weight: 5
+                - name: 搜索
+                  url: search/
+                  weight: 10
+                - name: 标签
+                  url: tags/
+                  weight: 10
+                - name: 关于
+                  url: https://m2kar.cn/cn
+
     en:
         languageName: "English"
-        weight: 1
+        weight: 2
         taxonomies:
           category: categories
           tag: tags
@@ -35,66 +56,8 @@ languages:
                 - name: Tags
                   url: tags/
                   weight: 10
-                - name: WiKi
-                  url: https://github.com/adityatelange/hugo-PaperMod/wiki/
-                - name: Discord
-                  url: https://discord.gg/ahpmTvhVmp
-
-    fr:
-        languageName: ":fr:"
-        languageAltTitle: French
-        weight: 2
-        title: PaperModL2
-        taxonomies:
-          category: FRcategories
-          tag: FRtags
-          series: FRseries
-        profileMode:
-            enabled: true
-            title: PaperMod
-            imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
-            imageTitle: ProfileMode image
-            # imageWidth: 120
-            # imageHeight: 120
-            subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
-            buttons:
-                - name: Blog
-                  url: posts
-                - name: Profile Mode
-                  url: https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode
-        menu:
-            main:
-                - name: Archive
-                  url: archives/
-                  weight: 5
-                - name: FRTags
-                  url: frtags
-                  weight: 10
-                - name: FRCategories
-                  url: frcategories
-                  weight: 10
-                - name: FRSeries
-                  url: frseries
-                  weight: 10
-                - name: NullLink
-                  url: "#"
-
-    fa:
-        languagedirection: rtl
-        weight: 3
-        title: PaperMod RTL
-        homeInfoParams:
-            Title: "Hi there \U0001F44B"
-            Content: Welcome to RTL layout
-        taxonomies:
-          category: FAcategories
-          tag: FAtags
-          series: FAseries
-        menu:
-            main:
-                - name: FATags
-                  url: fatags
-                  weight: 10
+                - name: About
+                  url: https://m2kar.cn/cn
 
 outputs:
     home:
@@ -104,8 +67,8 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-    author: Theme PaperMod
+    description: ""M2kar的个人博客,用于记录系统安全研究相关、运维相关技术，以及其他各种事情."
+    author: M2kar
     # author: ["Me", "You"] # multiple authors
 
     defaultTheme: auto
@@ -136,21 +99,17 @@ params:
               url: tags
 
     homeInfoParams:
-        Title: "PaperMod"
+        Title: "M2kar's Security World"
         Content: >
-            Welcome to demo of hugo's theme PaperMod.
+            欢迎来到M2kar的安全世界博客！
 
-            - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
-
-            - Do give a 🌟 on Github !
-
-            - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper).
+            - 本博客用于记录系统安全研究的论文笔记，安全技术思考，欢迎和我留言讨论。
 
     socialIcons:
         - name: github
-          url: "https://github.com/adityatelange/hugo-PaperMod"
-        - name: KoFi
-          url: "https://ko-fi.com/adityatelange"
+          url: "https://github.com/m2kar"
+        - name: email
+          url: "mailto:m2kar.cn<at>gmail.com"
         - name: Rss
           url: "index.xml"
 
