@@ -16,7 +16,7 @@ minify:
     disableXML: true
     # minifyOutput: true
 
-defaultContentLanguage:zh-cn
+defaultContentLanguage: "zh-cn"
 languages:
     zh-cn:
         languageName: "简体中文"
@@ -69,8 +69,9 @@ outputs:
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     description: "M2kar的个人博客,用于记录系统安全研究相关、运维相关技术，以及其他各种事情."
-    author: M2kar
+    author: M2kar 
     # author: ["Me", "You"] # multiple authors
+    copyright: "&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a> <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2022010448号</a>"
 
     defaultTheme: auto
     # disableThemeToggle: true
@@ -88,7 +89,7 @@ params:
 
     profileMode:
         enabled: false
-        title: PaperMod
+        title: M2kar
         imageUrl: "#"
         imageTitle: my image
         # imageWidth: 120
@@ -130,7 +131,7 @@ params:
 
     assets:
         disableHLJS: true
-    #     favicon: "<link / abs url>"
+        favicon: "<link / abs url>"
     #     favicon16x16: "<link / abs url>"
     #     favicon32x32: "<link / abs url>"
     #     apple_touch_icon: "<link / abs url>"
