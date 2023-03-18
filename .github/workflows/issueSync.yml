@@ -30,11 +30,11 @@ jobs:
             ISSUE_DATE=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10 | sed 's/-//g')
             POST_PATH="content/post/${ISSUE_DATE}-${ISSUE_TITLE}.md"
           fi
-          export BLOG_TITLE="$(echo \"$issue_data\" | jq -r '.title')"
-          export BLOG_DATE="$(echo \"$issue_data\" | jq -r '.created_at')"
-          export BLOG_DESCRIPTION=""
-          export BLOG_TAGS="$(echo \"$issue_data\" | jq -r '[.labels[].name]')"
-          export BLOG_CONTENT="$(echo \"$issue_data\" | jq -r '.body')"
+          BLOG_TITLE=$(echo "$issue_data" | jq -r '.title')
+          BLOG_DATE=$(echo "$issue_data" | jq -r '.created_at')
+          BLOG_DESCRIPTION=""
+          BLOG_TAGS=$(echo "$issue_data" | jq -r '[.labels[].name]')
+          BLOG_CONTENT=$(echo "$issue_data" | jq -r '.body')
           export ISSUE_ID POST_PATH BLOG_TITLE BLOG_DATE BLOG_DESCRIPTION BLOG_TAGS BLOG_CONTENT
           envsubst < template/template.md > ${POST_PATH}
 
