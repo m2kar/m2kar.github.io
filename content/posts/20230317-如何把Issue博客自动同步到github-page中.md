@@ -199,6 +199,10 @@ on:
       - completed
 ```
 
+测试成功！ 
+<img width="1009" alt="image" src="https://user-images.githubusercontent.com/16930652/226110130-be93d818-add5-4aaa-9e41-2a4a96cd820b.png">
+
+
 > 参考：https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
 
 <hr/>
