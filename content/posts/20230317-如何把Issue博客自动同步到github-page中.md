@@ -199,4 +199,8 @@ on:
       - completed
 ```
 
-> 参考：https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
+> 参考：https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
+
+<hr/>
+
+**欢迎在ISSUE参与本博客讨论**: [m2kar/m2kar.github.io#14](https://github.com/m2kar/m2kar.github.io/issues/14)
