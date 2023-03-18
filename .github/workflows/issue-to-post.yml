@@ -17,6 +17,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ISSUE_ID=${{ github.event.issue.number }}
+          GITHUB_REPO="${{ github.repository }}"
           issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
           ISSUE_TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/[[:space:]]/-/g')
           ISSUE_DATE=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10 | sed 's/-//g')
@@ -36,7 +37,7 @@ jobs:
           BLOG_DESCRIPTION=""
           BLOG_TAGS=$(echo "$issue_data" | jq -r '[.labels[].name]')
           BLOG_CONTENT=$(echo "$issue_data" | jq -r '.body')
-          export ISSUE_ID POST_PATH BLOG_TITLE BLOG_DATE BLOG_DESCRIPTION BLOG_TAGS BLOG_CONTENT
+          export GITHUB_REPO ISSUE_ID POST_PATH BLOG_TITLE BLOG_DATE BLOG_DESCRIPTION BLOG_TAGS BLOG_CONTENT
           envsubst < template/template.md > ${POST_PATH}
 
       - name: Commit and Push Changes
