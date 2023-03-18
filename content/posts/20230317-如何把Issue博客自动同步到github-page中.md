@@ -238,7 +238,7 @@ on:
           export BLOG_DESCRIPTION BLOG_TAGS
 ```
 
-` CONTENT=$(echo "$issue_data" | jq -r '.body' | sed 's/ [ [:punct:]]//g' | head -c 3000 )`出现管道错误。
+` CONTENT=$(echo "$issue_data" | jq -r '.body' | sed 's/ [ [:punct:]]//g' | head -c 3000 )`出现管道错误。尝试再增加 `tr -d '\n'| tr -d '\r'`
 
 > 参考：https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
 
