@@ -17,7 +17,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ISSUE_ID=${{ github.event.issue.number }}
-          issue_data=$(gh api /repos/${{ github.actor }}/${{ github.repository }}/issues/${ISSUE_ID})
+          issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
           for file in content/posts/*.md; do
             yaml=$(sed -n '/---/,/---/p' $file)
             if echo "$yaml" | grep -q "issue_id: ${ISSUE_ID}"; then
