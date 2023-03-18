@@ -19,22 +19,22 @@ jobs:
           ISSUE_ID=${{ github.event.issue.number }}
           issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
           for file in content/posts/*.md; do
-            yaml=$(sed -n '/---/,/---/p' $file)
-            if echo "$yaml" | grep -q "issue_id: ${ISSUE_ID}"; then
-              POST_PATH=$file
+            yaml=$(sed -n '/---/,/---/p' "${file}")
+            if echo "${yaml}" | grep -q "issue_id: ${ISSUE_ID}"; then
+              POST_PATH="${file}"
               break
             fi
           done
-          if [ -z "$POST_PATH" ]; then
+          if [ -z "${POST_PATH}" ]; then
             ISSUE_TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/[[:space:]]/-/g')
             ISSUE_DATE=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10 | sed 's/-//g')
             POST_PATH="content/post/${ISSUE_DATE}-${ISSUE_TITLE}.md"
           fi
-          export BLOG_TITLE=$(echo "$issue_data" | jq -r '.title')
-          export BLOG_DATE=$(echo "$issue_data" | jq -r '.created_at')
+          export BLOG_TITLE="$(echo \"$issue_data\" | jq -r '.title')"
+          export BLOG_DATE="$(echo \"$issue_data\" | jq -r '.created_at')"
           export BLOG_DESCRIPTION=""
-          export BLOG_TAGS=$(echo "$issue_data" | jq -r '[.labels[].name]')
-          export BLOG_CONTENT=$(echo "$issue_data" | jq -r '.body')
+          export BLOG_TAGS="$(echo \"$issue_data\" | jq -r '[.labels[].name]')"
+          export BLOG_CONTENT="$(echo \"$issue_data\" | jq -r '.body')"
           export ISSUE_ID POST_PATH BLOG_TITLE BLOG_DATE BLOG_DESCRIPTION BLOG_TAGS BLOG_CONTENT
           envsubst < template/template.md > ${POST_PATH}
 
