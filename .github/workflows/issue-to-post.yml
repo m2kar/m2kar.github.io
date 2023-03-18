@@ -1,4 +1,4 @@
-name: Sync Issue to Blog
+name: issue-to-post
 
 on: 
   issues:
