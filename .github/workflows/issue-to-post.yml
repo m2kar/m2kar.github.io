@@ -15,7 +15,7 @@ jobs:
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_TOKEN: ${{ secrets.OPENAI_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_TOKEN }}
         run: |
           ISSUE_ID=${{ github.event.issue.number }}
           issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
@@ -31,7 +31,6 @@ jobs:
             "frequency_penalty": 0,
             "presence_penalty": 0
           }'
-
           REQUEST=$(echo "$REQUEST" | jq  --ascii-output --arg CONTENT "$CONTENT" --arg TITLE "$BLOG_TITLE"  '.prompt = .prompt + "标题："+ $TITLE + $CONTENT')
           RESPONSE=$(curl https://api.openai.com/v1/completions \
             -H "Content-Type: application/json" \
