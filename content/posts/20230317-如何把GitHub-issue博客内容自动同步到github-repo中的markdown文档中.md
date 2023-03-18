@@ -1,5 +1,5 @@
 ---
-title: "如何把GitHub issue博客内容自动同步到github repo中的markdown文档中"
+title: "如何把Issue博客自动同步到github page中"
 date: 2023-03-17T03:31:47Z
 
 description: 
