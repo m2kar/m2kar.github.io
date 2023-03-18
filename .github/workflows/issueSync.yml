@@ -28,7 +28,7 @@ jobs:
           if [ -z "${POST_PATH}" ]; then
             ISSUE_TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/[[:space:]]/-/g')
             ISSUE_DATE=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10 | sed 's/-//g')
-            POST_PATH="content/post/${ISSUE_DATE}-${ISSUE_TITLE}.md"
+            POST_PATH="content/posts/${ISSUE_DATE}-${ISSUE_TITLE}.md"
           fi
           BLOG_TITLE=$(echo "$issue_data" | jq -r '.title')
           BLOG_DATE=$(echo "$issue_data" | jq -r '.created_at')
