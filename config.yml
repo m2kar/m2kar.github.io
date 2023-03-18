@@ -120,7 +120,7 @@ params:
         URL: "https://github.com/m2kar/m2kar.github.io/tree/blog/content"
         Text: "源文件" # edit text
         appendFilePath: true # to append file path to Edit link
-
+        repo: "m2kar/m2kar.github.io"
     # label:
     #     text: "Home"
     #     icon: icon.png

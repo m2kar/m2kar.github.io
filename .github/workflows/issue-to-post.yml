@@ -24,7 +24,7 @@ jobs:
           POST_PATH="content/posts/${ISSUE_DATE}-${ISSUE_TITLE}.md"
           for file in content/posts/*.md; do
             yaml=$(sed -n '/---/,/---/p' "${file}")
-            if echo "${yaml}" | grep -q "issue_id: ${ISSUE_ID}"; then
+            if echo "${yaml}" | grep -q "issueId: ${ISSUE_ID}"; then
               OLD_POST_PATH="${file}"
               if [ "$OLD_POST_PATH" != "$POST_PATH" ]; then
                 mv "$OLD_POST_PATH" "$POST_PATH"
