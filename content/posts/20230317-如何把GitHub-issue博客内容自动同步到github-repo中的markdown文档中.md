@@ -186,4 +186,17 @@ github cli客户端是默认安装在github workflow的container中的，所以�
 
 所以删除了Install GitHub CLI和Authenticate to GitHub的步骤.
 
+### 触发网站更新操作
+在gh-page.yml中的on下添加workflow_run配置。
+
+```yaml
+on:
+ ......
+  workflow_run:
+    workflows:
+      - "issue-to-post"
+    types:
+      - completed
+```
+
 > 参考：https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
