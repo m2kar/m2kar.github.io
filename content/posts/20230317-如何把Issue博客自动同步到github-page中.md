@@ -3,7 +3,9 @@ title: "如何把Issue博客自动同步到github page中"
 date: 2023-03-17T03:31:47Z
 
 description: 
-tags: []
+tags: [
+  "运维"
+]
 issueId: 14
 ---
 
@@ -202,8 +204,52 @@ on:
 测试成功！ 
 <img width="1009" alt="image" src="https://user-images.githubusercontent.com/16930652/226110130-be93d818-add5-4aaa-9e41-2a4a96cd820b.png">
 
+### 尝试接入openAI生成文章摘要和关键词
+```yaml
+      - name: Generate Abstract
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_TOKEN: ${{ secrets.OPENAI_TOKEN }}
+        run: |
+          ISSUE_ID=${{ github.event.issue.number }}
+          issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
+          BLOG_CONTENT=$(echo "$issue_data" | jq -r '.body')
+          BLOG_TITLE=$(echo "$issue_data" | jq -r '.title')
+          CONTENT=$(echo "$issue_data" | jq -r '.body' | tr -d '[:punct:]' | head -c 3000 )
+          REQUEST='{
+            "model": "text-davinci-003",
+            "prompt": "下面是一个markdown文档，请生成不超过300字的摘要和5个关键词，用json格式输出，如：{\"abstract\":\"the abstract\", \"keywords\":[\"keyword1\",\"keywordd2\"] }请再输出结果前插入--OPENAI-RESULT-START--。\n\n",
+            "temperature": 0.618,
+            "max_tokens": 500,
+            "top_p": 1,
+            "frequency_penalty": 0,
+            "presence_penalty": 0
+          }'
+
+          REQUEST=$(echo "$REQUEST" | jq  --ascii-output --arg CONTENT "$CONTENT" --arg TITLE "$BLOG_TITLE"  '.prompt = .prompt + "标题："+ $TITLE + $CONTENT')
+          RESPONSE=$(curl https://api.openai.com/v1/completions \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $OPENAI_API_KEY" \
+            -d "${REQUEST}")
+          ANSWER=$(echo $RESPONSE | jq -r ".choices[0].text" | sed -n '/--OPENAI-RESULT-START--/,$p'  | sed '1d')
+          BLOG_DESCRIPTION=$(echo $ANSWER | jq -r ".abstract")
+          BLOG_TAGS=$(echo $BLOG_TAGS $(echo $ANSWER | jq -r '.keywords') | jq -s "add")
+          export BLOG_DESCRIPTION BLOG_TAGS
+```
 
 > 参考：https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
+
+<hr/>
+
+- 欢迎[评论](https://github.com/m2kar/m2kar.github.io/issues/14)以及发邮件和作者交流心得。
+- **版权声明**：本文为 m2kar 的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+- **作者**: m2kar
+- **打赏链接**: [欢迎打赏m2kar,您的打赏是我创作的重要源泉](http://m2kar-cn.mikecrm.com/wy97haW)
+- **邮箱**: `m2kar.cn<at>gmail.com`
+- **主页**: [m2kar.cn](https://m2kar.cn)
+- **Github**: [github.com/m2kar](https://github.com/m2kar)
+- **CSDN**: [M2kar的专栏](https://m2kar.blog.csdn.net)
 
 <hr/>
 
