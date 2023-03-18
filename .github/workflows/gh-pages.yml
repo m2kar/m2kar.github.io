@@ -1,4 +1,4 @@
-name: Deploy Hugo PaperMod Demo to Pages
+name: Deploy Hugo Blog to Pages
 
 on:
   push:

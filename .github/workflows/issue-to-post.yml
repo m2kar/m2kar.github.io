@@ -18,18 +18,19 @@ jobs:
         run: |
           ISSUE_ID=${{ github.event.issue.number }}
           issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
+          ISSUE_TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/[[:space:]]/-/g')
+          ISSUE_DATE=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10 | sed 's/-//g')
+          POST_PATH="content/posts/${ISSUE_DATE}-${ISSUE_TITLE}.md"
           for file in content/posts/*.md; do
             yaml=$(sed -n '/---/,/---/p' "${file}")
             if echo "${yaml}" | grep -q "issue_id: ${ISSUE_ID}"; then
-              POST_PATH="${file}"
+              OLD_POST_PATH="${file}"
+              if [ "$OLD_POST_PATH" != "$POST_PATH" ]; then
+                mv "$OLD_POST_PATH" "$POST_PATH"
+              fi
               break
             fi
           done
-          if [ -z "${POST_PATH}" ]; then
-            ISSUE_TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/[[:space:]]/-/g')
-            ISSUE_DATE=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10 | sed 's/-//g')
-            POST_PATH="content/posts/${ISSUE_DATE}-${ISSUE_TITLE}.md"
-          fi
           BLOG_TITLE=$(echo "$issue_data" | jq -r '.title')
           BLOG_DATE=$(echo "$issue_data" | jq -r '.created_at')
           BLOG_DESCRIPTION=""
