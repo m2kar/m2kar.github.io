@@ -17,6 +17,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_TOKEN }}
         run: |
+          set -x
           ISSUE_ID=${{ github.event.issue.number }}
           issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
           BLOG_CONTENT=$(echo "$issue_data" | jq -r '.body')
