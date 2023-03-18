@@ -11,29 +11,42 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "latest"
+      - name: Install GitHub CLI
+        run: |
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+          sudo apt-add-repository https://cli.github.com/packages
+          sudo apt update
+          sudo apt install gh
+      - name: Authenticate to GitHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh auth login --with-token < $GITHUB_TOKEN
 
       - name: Create Blog Post
         id: create_post
         run: |
-          issue_title=$(echo "${{ github.event.issue.title }}" | sed 's/[[:space:]]/-/g')
-          issue_date=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10 | sed 's/-//g')
-          post_path="content/post/${issue_date}-${issue_title}.md"
-          post_date=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10)
-          post_title=$(echo "${{ github.event.issue.title }}" | sed 's/"/\\"/g')
-          post_body=$(echo "${{ github.event.issue.body }}" | sed 's/"/\\"/g')
-          echo "---" > "${post_path}"
-          echo "title: \"${post_title}\"" >> "${post_path}"
-          echo "date: \"${post_date}\"" >> "${post_path}"
-          echo "lastmod: \"${post_date}\"" >> "${post_path}"
-          echo "draft: false" >> "${post_path}"
-          echo "tags:" >> "${post_path}"
-          echo "---" >> "${post_path}"
-          echo "${post_body}" >> "${post_path}"
+          issue_data=$(gh api issues/${ISSUE_ID})
+          ISSUE_ID=${{ github.event.issue.number }}
+          for file in content/posts/*.md; do
+            yaml=$(sed -n '/---/,/---/p' $file)
+            if echo "$yaml" | grep -q "issue_id: ${ISSUE_ID}"; then
+              POST_PATH=$file
+              break
+            fi
+          done
+          if [ -z "$POST_PATH" ]; then
+            ISSUE_TITLE=$(echo "${{ github.event.issue.title }}" | sed 's/[[:space:]]/-/g')
+            ISSUE_DATE=$(echo "${{ github.event.issue.created_at }}" | cut -c1-10 | sed 's/-//g')
+            POST_PATH="content/post/${ISSUE_DATE}-${ISSUE_TITLE}.md"
+          fi
+          export BLOG_TITLE=$(echo "$issue_data" | jq -r '.title')
+          export BLOG_DATE=$(echo "$issue_data" | jq -r '.created_at')
+          export BLOG_DESCRIPTION=""
+          export BLOG_TAGS=$(echo "$issue_data" | jq -r '[.labels[].name]')
+          export BLOG_CONTENT=$(echo "$issue_data" | jq -r '.body')
+          export ISSUE_ID POST_PATH BLOG_TITLE BLOG_DATE BLOG_DESCRIPTION BLOG_TAGS BLOG_CONTENT
+          envsubst < template/template.md > ${POST_PATH}
 
       - name: Commit and Push Changes
         run: |
