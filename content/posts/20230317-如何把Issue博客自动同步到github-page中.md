@@ -210,7 +210,7 @@ on:
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_TOKEN: ${{ secrets.OPENAI_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_TOKEN }}
         run: |
           ISSUE_ID=${{ github.event.issue.number }}
           issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
