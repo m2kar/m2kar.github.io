@@ -21,7 +21,7 @@ jobs:
           issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
           BLOG_CONTENT=$(echo "$issue_data" | jq -r '.body')
           BLOG_TITLE=$(echo "$issue_data" | jq -r '.title')
-          CONTENT=$(echo "$issue_data" | jq -r '.body' | tr -d '[:punct:]' | head -c 3000 )
+          CONTENT=$(echo "$issue_data" | jq -r '.body' | sed 's/ [ [:punct:]]//g' | head -c 3000 )
           REQUEST='{
             "model": "text-davinci-003",
             "prompt": "下面是一个markdown文档，请生成不超过300字的摘要和5个关键词，用json格式输出，如：{\"abstract\":\"the abstract\", \"keywords\":[\"keyword1\",\"keywordd2\"] }请再输出结果前插入--OPENAI-RESULT-START--。\n\n",
@@ -39,7 +39,9 @@ jobs:
             -d "${REQUEST}")
           ANSWER=$(echo $RESPONSE | jq -r ".choices[0].text" | sed -n '/--OPENAI-RESULT-START--/,$p'  | sed '1d')
           BLOG_DESCRIPTION=$(echo $ANSWER | jq -r ".abstract")
+          echo BLOG_DESCRIPTION:$BLOG_DESCRIPTION
           BLOG_TAGS=$(echo $BLOG_TAGS $(echo $ANSWER | jq -r '.keywords') | jq -s "add")
+          echo BLOG_TAGS:$BLOG_TAGS
           export BLOG_DESCRIPTION BLOG_TAGS
 
       - name: Create Blog Post
