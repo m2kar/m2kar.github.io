@@ -216,7 +216,7 @@ on:
           issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
           BLOG_CONTENT=$(echo "$issue_data" | jq -r '.body')
           BLOG_TITLE=$(echo "$issue_data" | jq -r '.title')
-          CONTENT=$(echo "$issue_data" | jq -r '.body' | tr -d '[:punct:]' | head -c 3000 )
+          CONTENT=$(echo "$issue_data" | jq -r '.body' | sed 's/ [ [:punct:]]//g' | head -c 3000 )
           REQUEST='{
             "model": "text-davinci-003",
             "prompt": "下面是一个markdown文档，请生成不超过300字的摘要和5个关键词，用json格式输出，如：{\"abstract\":\"the abstract\", \"keywords\":[\"keyword1\",\"keywordd2\"] }请再输出结果前插入--OPENAI-RESULT-START--。\n\n",
