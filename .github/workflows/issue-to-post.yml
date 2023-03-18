@@ -40,7 +40,7 @@ jobs:
           ANSWER=$(echo $RESPONSE | jq -r ".choices[0].text" | sed -n '/--OPENAI-RESULT-START--/,$p'  | sed '1d')
           BLOG_DESCRIPTION=$(echo $ANSWER | jq -r ".abstract")
           echo BLOG_DESCRIPTION:$BLOG_DESCRIPTION
-          BLOG_TAGS=$(echo $BLOG_TAGS $(echo $ANSWER | jq -r '.keywords') | jq -s "add")
+          BLOG_TAGS=$(echo $BLOG_TAGS $(echo $ANSWER | jq -r '.keywords') | jq -j -s "add")
           echo BLOG_TAGS:$BLOG_TAGS
           export BLOG_DESCRIPTION BLOG_TAGS
 
