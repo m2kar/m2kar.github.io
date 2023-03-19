@@ -10,6 +10,12 @@ tags: [
 issueId: 18
 ---
 
+- **标题:**  How Machine Learning Is Solving the Binary Function Similarity Problem
+- **作者:** Andrea Marcelli, Mariano Graziano, Xabier Ugarte-Pedrero, and Yanick Fratantonio, Cisco Systems, Inc.; Mohamad Mansouri and Davide Balzarotti, EURECOM
+- **关键字:** 二进制安全
+- **来源:** SEC'22
+- **链接:** https://www.usenix.org/conference/usenixsecurity22/presentation/marcelli
+
 本文是关于二进制函数相似性问题的Measurement研究，这是一个在系统安全领域非常重要和具有挑战性的问题。作者对现有的研究进行了系统化的分析，并重新实现了一些代表性的方法，然后在一个新的数据集上进行了公平和有意义的比较。他们发现当前的研究存在一些主要的挑战，例如可重复性、评估结果的不透明性和研究方向的不清晰。他们希望通过发布他们的整个模块化框架和数据集来激励未来在这个研究领域的工作。
 
 ## Measuring Function Similarity 函数相似性对比技术的分类。
