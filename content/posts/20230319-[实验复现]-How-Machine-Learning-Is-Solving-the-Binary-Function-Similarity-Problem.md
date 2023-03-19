@@ -7,6 +7,24 @@ tags: []
 issueId: 19
 ---
 
+## 论文信息
+- **标题:**  How Machine Learning Is Solving the Binary Function Similarity Problem
+- **作者:** Andrea Marcelli, Mariano Graziano, Xabier Ugarte-Pedrero, and Yanick Fratantonio, Cisco Systems, Inc.; Mohamad Mansouri and Davide Balzarotti, EURECOM
+- **关键字:** 二进制安全
+- **来源:** SEC'22
+- **链接:** https://www.usenix.org/conference/usenixsecurity22/presentation/marcelli
+- **实验代码:** https://github.com/Cisco-Talos/binary_function_similarity
+
+## 数据获取
+
+## 数据集处理
+
+## 复现Asm2Vec & Doc2vec实验
+
+Asm2vec和Doc2vec实现由两个模块构成。第一个模块以ACFG逆向数据为输入，并输出所选函数的随机路径。然后，这些随机路径作为机器学习第二部分的输入。
+
+## 
+
 - [ ] 待补充
 
 <hr/>
