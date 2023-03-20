@@ -16,8 +16,15 @@ issueId: 19
 - **实验代码:** https://github.com/Cisco-Talos/binary_function_similarity
 
 ## 数据获取
+训练所需的数据作者均整理到了Google云盘，并可通过`gdrive_download.py`脚本下载。
+```
+python gdrive_download.py --binaries --features --results
+```
+> 旧版本的代码中的gdown版本不兼容，需要安装gdown==4.6.4，最新版本已解决此问题
 
 ## 数据集处理
+
+### 生成IDBs
 
 ## 复现Asm2Vec & Doc2vec实验
 
