@@ -14,6 +14,16 @@ issueId: 19
 - **来源:** SEC'22
 - **链接:** https://www.usenix.org/conference/usenixsecurity22/presentation/marcelli
 - **实验代码:** https://github.com/Cisco-Talos/binary_function_similarity
+## 0x0 复现环境
+
+- Window
+- Ubuntu18.04(in WSL)  
+> 由于环境依赖问题，本人复现时会在Windows和WSL之间切换，涉及到IDA Pro的部分使用Windows，其他部分使用WSL
+
+- IDA Pro 7.3 For Windows
+- capstone 3.0.5
+- Python 3.8.16
+- Python 2.7.13
 
 ## 0x01 数据获取
 训练所需的数据作者均整理到了Google云盘，并可通过`gdrive_download.py`脚本下载。
@@ -111,6 +121,23 @@ $ ida64.exe -L debug.log -a- -B -obinaryfile.idb  /path/to/binaryfile
 ![image](https://user-images.githubusercontent.com/16930652/227766238-dd6efbd7-2b11-45be-91a4-482572ef634a.png)
 
 #### 生成Flow图
+
+在`IDA_scripts\IDA_flowchart`下执行： 
+
+```powershell
+#powershell
+
+$env:IDA_PATH='D:\IDA 7.3\ida64.exe'
+
+python .\cli_flowchart.py -i ..\..\IDBs\Dataset-1\ -o flowchart_Dataset-1.csv
+
+```
+
+运行成功截图：
+
+![image](https://user-images.githubusercontent.com/16930652/227767320-cb13992e-4522-4467-af74-a936f587bab1.png)
+
+> 如在WSL下运行，需要处理依赖路径转换的问题。
 
 #### 生成ACFG汇编代码
 
