@@ -140,7 +140,49 @@ python .\cli_flowchart.py -i ..\..\IDBs\Dataset-1\ -o flowchart_Dataset-1.csv
 > 如在WSL下运行，需要处理依赖路径转换的问题。
 
 #### 生成ACFG汇编代码
+本步骤可以对选定的函数生成ACFG。包括函数中涉及的基本块、汇编指令、控制流图的边结构等。
 
+运行方式： 在`IDA_Script/IDA_acfg_disam`下运行`cli_acfg_disam.py`
+
+示例(poweshell)：
+
+```powershell
+$env:IDA_PATH='D:\IDA 7.3\ida64.exe'
+python cli_acfg_disasm.py -j  ../../DBs/Dataset-Vulnerability/features/selected_Dataset-Vulnerability.json -o acfg_disam_Dataset-Vulnerability2
+
+```
+
+
+```jsonc
+// 示例文件: ACFG_arm32-clang-3.5-O0_afalg.so_acfg_disasm.json
+	{
+	    "IDBs/Dataset-1/openssl/arm32-clang-3.5-O0_afalg.so.i64": {
+	        "arch": "arm-32",
+	        "0x215c": { // 函数地址
+	            "elapsed_time": 0.0019881725311279297,
+	            "nodes": [  // 控制流图节点,即每个基本块的编号
+	                8640, 8584, 8652, 8588, 8660, 8620, 8540
+	            ],
+	            "edges": [ //控制流图的边
+	                [ 8620, 8640 ], [ 8588, 8620 ], [ 8584, 8620 ], [ 8620, 8652 ],
+	                // ...
+	            ],
+	            "basic_blocks": { //每个基本块的详细信息
+	                "8640": { //基本块编号
+	                    "bb_len": 12, //基本块长度
+	                    "bb_mnems": [ "movw", "str", "b" ], //基本块中的指令(简化版)
+	                    "bb_norm": [ "movw_r0,_0x0", "str_r0,_[fp-4]", "b_himm" ], //基本块中的指令(标准版)
+	                    "bb_disasm": [ "movw r0, #0", "str r0, [fp, #-4]", "b #0x21d4" ], //基本块中的指令(反汇编)
+	                    "b64_bytes": "AAAA4wQAC+UBAADq", //基本块的字节码
+	                    "bb_heads": [ 8640, 8644, 8648 ] //基本块的头部
+	                },
+	                "8584": {/* ...*/ } //,
+	                // ...
+	            }
+	        }
+	    }
+}
+```
 #### 生成ACFG特征
 
 ### 0x02.4 数据筛选清洗
@@ -151,7 +193,6 @@ python .\cli_flowchart.py -i ..\..\IDBs\Dataset-1\ -o flowchart_Dataset-1.csv
 
 ### 0x02.6 
 6. 数据集拆分：拆分得到训练、验证、测试集
-
 
 
 
