@@ -1,5 +1,5 @@
 ---
-title: "[Android] Airtest自动化测试大麦网app"
+title: "[Android] 基于Airtest实现大麦网app自动抢票程序"
 date: 2023-05-17T10:19:30Z
 
 description: 
