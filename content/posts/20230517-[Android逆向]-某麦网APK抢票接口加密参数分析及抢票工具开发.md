@@ -1,5 +1,5 @@
 ---
-title: "[Android逆向] 某麦网抢票接口分析及抢票工具开发"
+title: "[Android逆向] 某麦网APK抢票接口加密参数分析及抢票工具开发"
 date: 2023-05-17T10:45:07Z
 
 description: 
