@@ -226,14 +226,16 @@ frida -U -l .\sslkeyfilelog.js  -f cn.damai
 ```
 ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/e0c46289-213e-4e49-821a-def3fcfc8367)
 
-- 最后将得到的key保存到sslkey.txt，格式是下面这样的，不要掺杂别的。
+- 最后，抓包结束后将得到的key保存到sslkey.txt，格式是下面这样的，不要掺杂别的。
 ```
 CLIENT_RANDOM 557e6dc49faec93dddd41d8c55d3a0084c44031f14d66f68e3b7fb53d3f9586d 886de4677511305bfeaee5ffb072652cbfba626af1465d09dc1f29103fd947c997f6f28962189ee809944887413d8a20
 CLIENT_RANDOM e66fb5d6735f0b803426fa88c3692e8b9a1f4dca37956187b22de11f1797e875 65a07797c144ecc86026a44bbc85b5c57873218ce5684dc22d4d4ee9b754eb1961a0789e2086601f5b0441c35d76c448
 
 ```
 
-用wireshark打开tcpdump抓包获得的pcap文件，在wireshark首选项-protocols-TLS中，设置 (Pre)-Master-Secret log filename为上述sslkey.txt。
+在运行Frida Hook获取sslkey的同时，运行tcpdump抓包。抓包中依次测试获取详情页、选择价位、提交订单等操作，并对应记录下执行操作的时间，方便后续分析。
+
+抓包完成后，用wireshark打开tcpdump抓包获得的pcap文件，在wireshark首选项-protocols-TLS中，设置 (Pre)-Master-Secret log filename为上述sslkey.txt。
 
 ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/30197b16-e429-4b9b-bb32-e18be8b1952e)
 
@@ -255,12 +257,54 @@ CLIENT_RANDOM e66fb5d6735f0b803426fa88c3692e8b9a1f4dca37956187b22de11f1797e875 6
 
 ### apk流量分析
 
-首先用过滤器`http && tcp.port==443`，得到所有https流量。
+首先用过滤器`http && tcp.dstport==443`，得到向服务器发送的https包，如下图：
 
-![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/ce1f9928-cc83-4305-886e-f0c70bb9ec40)
+![https包](https://github.com/m2kar/m2kar.github.io/assets/16930652/ce1f9928-cc83-4305-886e-f0c70bb9ec40)
 
-- [ ]  TODO 未完待续
+可以看到大量向服务器请求的数据包，但其中有很多干扰的图片请求，因为修改过滤器把图片过滤一下。过滤器：`http && tcp.dstport==443 and !(http.request.uri contains ".webp" or http.request.uri contains ".jpg" or http.request.uri contains ".png")` 
 
+结果清爽了很多。
+
+#### 订单构建(order.build)
+
+根据之前记录的操作的时间，以及对网页版的分析结果，笔者注意到了下图的这条流量：
+
+![订单创建包](https://github.com/m2kar/m2kar.github.io/assets/16930652/10ff344a-ee60-4eb4-a0da-5447d1cdc34e)
+
+然后我们右键选择这条流量包，点击追踪http流，可以看到对应的响应包。
+
+![追踪流](https://github.com/m2kar/m2kar.github.io/assets/16930652/1acd1ae8-d7ed-4df4-bef4-c99ad6647583)
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/61724496-f60c-4501-a28c-0e8cf0ecb468)
+
+响应包里有些中文使用了UTF-8编码，可以点击右下角的`Show data as`，选择UTF-8，便可以正常显示。此时可以点击另存为，保存为txt文件，方便后续分析。
+
+![请求包内容](https://github.com/m2kar/m2kar.github.io/assets/16930652/e2398d11-2da8-4461-8719-94a652143d0b)
+
+订单构建的请求包中核心的数据部分为图中青色圈出来的部分，使用URL解码后为：
+
+```
+{"buyNow":"true","buyParam":"716435462268_2_5005943905715","exParams":"{\"atomSplit\":\"1\",\"channel\":\"damai_app\",\"coVersion\":\"2.0\",\"coupon\":\"true\",\"seatInfo\":\"\",\"umpChannel\":\"10001\",\"websiteLanguage\":\"zh_CN_#Hans\"}"}
+```
+
+buyParam为最核心的部分，拼接方式为演出id+数量+票档id。其他部分只需照抄。
+
+请求包中还包含大量的各种加密参数、ID，而破解实现自动购票脚本的关键就在于如何通过代码的方式拿到这些加密参数。
+
+订单构建的响应包为订单提交表单的各项参数，用于生成“确认订单”的表单。
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/628bec87-c60b-450f-93a7-380ec51bbad3)
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/32cf7a2f-1a9b-42bf-b5ab-9bbf696729cb)
+
+
+#### 订单提交(order.create)
+
+按照同样的方式可以找到订单提交包，订单提交包的API路径为`/gw/mtop.trade.order.create`，
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/990b1661-c675-4c17-ba65-664f6aafe0e9)
+
+- [ ] 未完待续
 
 # 0x05 trace分析
 
