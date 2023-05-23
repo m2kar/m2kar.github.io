@@ -375,7 +375,8 @@ Started tracing 27 functions. Press Ctrl+C to stop.
     function HashMap2Str(params_hm) {
       var HashMap=Java.use('java.util.HashMap');
       var args_map=Java.cast(params_hm,HashMap);
-      return args_map.toString();	};
+      return args_map.toString();
+  };
      // 当调用函数时，输出函数参数
     log(`InnerSignImpl.getUnifiedSign(${HashMap2Str(args[0])},${HashMap2Str(args[1])},${args[2]},${args[3]})`);
   }, onLeave(log, retval, state) {
@@ -507,17 +508,208 @@ public class MtopContext {
 
 # 0x06 hook得到接口参数
 
-- [ ] 未完待续
+通过以上对trace的分析，已经知道了具体执行的操作，因此我们可以使用frida编写js代码，直接调用APK中的类，实现功能调用。
+
+先展示一个简单的示例，用于构建一个自定义的MtopRequest 类:
+
+```js
+// new_request.js
+Java.perform(function () {
+    const MtopRequest = Java.use("mtopsdk.mtop.domain.MtopRequest");
+    let myMtopRequest = MtopRequest.$new();
+    myMtopRequest.setApiName("mtop.trade.order.build");
+    //item_id + count + ski_id  716435462268_1_5005943905715
+    myMtopRequest.setData("{\"buyNow\":\"true\",\"buyParam\":\"716435462268_1_5005943905715\",\"exParams\":\"{\\\"atomSplit\\\":\\\"1\\\",\\\"channel\\\":\\\"damai_app\\\",\\\"coVersion\\\":\\\"2.0\\\",\\\"coupon\\\":\\\"true\\\",\\\"seatInfo\\\":\\\"\\\",\\\"umpChannel\\\":\\\"10001\\\",\\\"websiteLanguage\\\":\\\"zh_CN_#Hans\\\"}\"}")
+    myMtopRequest.setNeedEcode(true);
+    myMtopRequest.setNeedSession(true);
+    myMtopRequest.setVersion("4.0");
+    console.log(`${myMtopRequest}`)
+});
+```
+再使用运行命令 `frida -U -l .\reverse\new_request.js 大麦`，以在大麦Apk中执行js hook代码。运行之后即可输出笔者自己构建的MtopRequest实例。（frida真的很奇妙！）
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/13d32747-5e05-4fee-a0af-c4ea9c0cc5d8)
+
+有了上面的结果，下面继续完善这个示例，添加MtopBussiness的构建过程和输出过程
+
+```js
+        //引入Java中的类
+	const MtopBusiness = Java.use("com.taobao.tao.remotebusiness.MtopBusiness");
+	const MtopBuilder = Java.use("mtopsdk.mtop.intf.MtopBuilder");
+	// let RemoteBusiness = Java.use("com.taobao.tao.remotebusiness.RemoteBusiness");
+	const MethodEnum = Java.use("mtopsdk.mtop.domain.MethodEnum");
+	const MtopListenerProxyFactory = Java.use("com.taobao.tao.remotebusiness.listener.MtopListenerProxyFactory");
+	const System = Java.use('java.lang.System');
+	const ApiID = Java.use("mtopsdk.mtop.common.ApiID");
+	const MtopStatistics = Java.use("mtopsdk.mtop.util.MtopStatistics");
+	const InnerProtocolParamBuilderImpl = Java.use('mtopsdk.mtop.protocol.builder.impl.InnerProtocolParamBuilderImpl');
+
+	// create MtopBusiness
+	let myMtopBusiness = MtopBusiness.build(myMtopRequest);
+	myMtopBusiness.useWua();
+	myMtopBusiness.reqMethod(MethodEnum.POST.value);
+	myMtopBusiness.setCustomDomain("mtop.damai.cn");
+	myMtopBusiness.setBizId(24);
+	myMtopBusiness.setErrorNotifyAfterCache(true);
+	myMtopBusiness.reqStartTime = System.currentTimeMillis();
+	myMtopBusiness.isCancelled = false;
+	myMtopBusiness.isCached = false;
+	myMtopBusiness.clazz = null;
+	myMtopBusiness.requestType = 0;
+	myMtopBusiness.requestContext = null;
+	myMtopBusiness.mtopCommitStatData(false);
+	myMtopBusiness.sendStartTime = System.currentTimeMillis();
+
+	let createListenerProxy = myMtopBusiness.$super.createListenerProxy(myMtopBusiness.$super.listener.value);
+	let createMtopContext = myMtopBusiness.createMtopContext(createListenerProxy);
+	let myMtopStatistics = MtopStatistics.$new(null, null); //创建一个空的统计类
+	createMtopContext.stats.value = myMtopStatistics;
+	myMtopBusiness.$super.mtopContext.value = createMtopContext;
+	createMtopContext.apiId.value = ApiID.$new(null, createMtopContext);
+
+	let myMtopContext = createMtopContext;
+	myMtopContext.mtopRequest.value = myMtopRequest;
+	let myInnerProtocolParamBuilderImpl = InnerProtocolParamBuilderImpl.$new();
+	let res = myInnerProtocolParamBuilderImpl.buildParams(myMtopContext);
+	console.log(`myInnerProtocolParamBuilderImpl.buildParams => ${HashMap2Str(res)}`)
+```
+
+再次执行`frida -U -l .\reverse\new_request.js 大麦`，输出结果如下图，此时已能根据笔者任意构建的请求data输出其他加密参数：
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/53a239e1-38e8-471b-9be8-584f8c9dba0f)
+
+对于order.create的原理类似，此处不再赘述。
+
+## 补充说明
+
+通过frida调用Apk中的Java类有时候会出现找不到类的情况，原因可能是classloader没有正确加载。可以在js代码前的最前面加上下面的代码，指定正确的classloader，即可解决该问题
+
+```js
+Java.perform(function () {
+    //get real classloader
+    //from http://www.lixiaopeng.top/article/63.html
+    var application = Java.use("android.app.Application");
+    var classloader;
+    application.attach.overload('android.content.Context')
+        .implementation = function (context) {
+            var result = this.attach(context); // run attach as it is
+            classloader = context.getClassLoader(); // get real classloader
+            Java.classFactory.loader = classloader;
+            return result;
+        }
+});
+```
+
+## frida hook 的强大功能
+
+通过frida操纵Java类的功能实在过于强大，安全人员可以执行以下操作：
+
+1.  *打印函数输入输出*。通过hook函数，以实现打印函数的输入输出结果。
+操作代码可以在jadx右键菜单可以很方便的生成。
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/c741ef2d-a144-4187-8233-bc2ae81ee4a1)
+
+```
+
+let LocalInnerSignImpl = Java.use("mtopsdk.security.LocalInnerSignImpl");
+LocalInnerSignImpl["$init"].implementation = function (str, str2) {
+    console.log(`LocalInnerSignImpl.$init is called: str=${str}, str2=${str2}`);
+    this["$init"](str, str2);
+};
+
+```
+2. *修改已有的类和函数*。
+3. *定义新类和新函数*。
+4. *主动生成类的实例或调用函数*。
+5. *RPC调用*。通过RPC调用提供python编程接口。
 
 # 0x07 通过rpc调用
 
+前文提到frida的一个特性是可以通过rpc调用提供python编程接口。
+
+一个简单的示例：
+```python
+import frida
+
+def on_message(message, data):
+    if message["type"] == "send":
+        print("[*] {0}".format(message["payload"]))
+    else:
+        print(message)
+
+# hook代码
+jscode = """
+rpc.exports = {
+    testrpc: function (a, b) { return a + b; },
+};  """
+
+def start_hook():
+# 开始hook
+    process = frida.get_usb_device().attach("大麦")
+    script = process.create_script(jscode)
+    script.on("message", on_message)
+    script.load()
+    return script
+
+script = start_hook()
+# 调用hook代码
+print(script.exports.testrpc(1, 2))
+
+# >>> 输出
+# 3
+```
+
+frida使用rpc的方法也很简单，仅需使用rpc.exports，将对应的函数暴露出来，就能被python调用。
+
+完整的代码就是将上一章的代码封装为函数，并通过rpc对外提供接口，就可以了。为避免侵权，本文不贴出完整利用代码。
+
+代码封装完成后测了一下，平均一次调用的时间为0.024秒，完全可以达到抢票的要求。
 
 # 0x08 踩坑经历花絮
+## 关于wiresharkhelper
 
+txthinking放出了一个抓包辅助工具[wiresharkhelper](https://github.com/txthinking/wiresharkhelper)，看视频介绍很诱人很方便，但是实测是要收费的。本人穷，所以就没用他的方法。然而也是因为这个才开始尝试用frida工具得到https的密钥，发现了frida这个神器。
+
+## 关于Cookie
+细心的朋友可能发现发送的请求头里是包含cookie的，但是本文没有介绍。其实笔者本来是再继续找cookie的，但是发现把`InnerProtocolParamBuilderImpl.buildParams`函数的参数填进去之后，就已经能正常获取服务器的返回值了，所以就没继续搞cookie
+
+## 关于MtopStatistics
+
+MtopStatistics是mtopsdk里比较重要的一个类，用来跟踪用户的操作记录状态，可能有助于判断用户是否是机器人。但笔者尝试自己构建MtopStatistics失败，所以直接生成了一个空的MtopStatistics类，好在也没对服务器的正常返回造成影响。
+
+## 如何获取票价信息
+
+这里笔者是直接用的大麦网Web端PC版，网页中有一段json，包含静态的描述信息和动态的场次、余票信息。
+
+## 如何脱离模拟器运行
+
+目前是需要模拟器一直运行着的，而且仅能用一个人的账户。这对于个人使用是完全够用的。如何能脱离模拟器，而且增加并发用户数量还需要继续研究。目前时间不允许，暂时不再继续此问题的研究。
+
+## 还是抢不到票
+
+虽然流程全都搞定，而且对于非热门场次抢票完全没有问题。但对于热门场次，官方可能还是增加了或明或暗的检测机制。比如有些是淘票票限定渠道，在对特权用户开放抢票一段时间后才会对其他人，但开放状态仅从网页端无法判断，导致脚本会提前开抢，被系统提前拦截。或者有的场次明明第一时间开抢，却还是一直提示请求失败。这个还需要进一步踩坑理解大麦网的机制。
+
+## BP链接
+这篇公众号文章( https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MDEzMTg0OQ==&action=getalbum&album_id=2885498232984993792#wechat_redirect ) 介绍了大麦网的bp链接及使用方式，可以跳过票档选择直接进入订单确认页面。后续可以尝试用于自动抢票。
+
+如：
+```
+- 毛不易 -  5月27日 上海站
+1、五层480 x 1张
+https://m.damai.cn/app/dmfe/h5-ultron-buy/index.html?buyParam=718707599799_1_5008768308765&buyNow=true&exParams=%257B%2522channel%2522%253A%2522damai_app%2522%252C%2522damai%2522%253A%25221%2522%252C%2522umpChannel%2522%253A%2522100031004%2522%252C%2522subChannel%2522%253A%2522damai%2540damaih5_h5%2522%252C%2522atomSplit%2522%253A1%257D&spm=a2o71.project.sku.dbuy&sqm=dianying.h5.unknown.value
+
+2、五层480 x 2张
+https://m.damai.cn/app/dmfe/h5-ultron-buy/index.html?buyParam=718707599799_2_5008768308765&buyNow=true&exParams=%257B%2522channel%2522%253A%2522damai_app%2522%252C%2522damai%2522%253A%25221%2522%252C%2522umpChannel%2522%253A%2522100031004%2522%252C%2522subChannel%2522%253A%2522damai%2540damaih5_h5%2522%252C%2522atomSplit%2522%253A1%257D&spm=a2o71.project.sku.dbuy&sqm=dianying.h5.unknown.value
+```
 
 # 0x09 总结
 
-[1]: 
+本文完整的记录了笔者对于Apk与服务器交互API的解析过程，包括环境搭建、抓包、trace分析、hook、rpc调用。本文对于淘系Apk的分析可以提供较多参考。本文算是笔者第一次深入且成功的用动态+静态分析结合的方式，借助神器frida+jadx，成功破解Apk，因此本文的记录也较为细致的记录了作者的思考过程，可以给新手提供参考。
+
+本文也有一些不足之处，如无法脱离模拟器运行、仅能单用户、抢票成功率仍不高等。对于这些问题，如果未来作者有时间，会再回来填坑。
+
+最后，欢迎大家多多提出问题相互交流。
+
 
 <hr/>
 
