@@ -430,7 +430,7 @@ ApiID apiId = builder.addListener(new MyListener).asyncRequest();
 
 输出的结果大概有2000行，直接看太费劲，我们复制到文本编辑器里做进一步分析。
 
-我们按照阿里的官方文档介绍的流程，对应可以找到在输出的trace中找到一些关键的函数。
+我们按照阿里的官方文档介绍的流程，对应可以找到在输出的trace中找到一些关键的日志。
 
 ```bash
 # MtopRequest初始化
@@ -443,16 +443,71 @@ ApiID apiId = builder.addListener(new MyListener).asyncRequest();
 
 # MtopBuilder初始化
   3251 ms  MtopBuilder.$init("<instance: mtopsdk.mtop.intf.Mtop>", "<instance: mtopsdk.mtop.domain.MtopRequest>", null)
-# MtopBuilder发送异步请求
 
+# MtopBuilder发送异步请求
 3268 ms  MtopBuilder.asyncRequest()
 
+# 参数构建
+3301 ms     |    |    | InnerProtocolParamBuilderImpl.buildParams("<instance: mtopsdk.framework.domain.MtopContext>")
+3391 ms     |    |    | <= "<instance: java.util.Map, $className: java.util.HashMap>",{wua=CofS_+7HCuvRCdz1EN8ICI6A4ZBCJwgY1hi+Bsivjcijs8GggmUxLQQUVTEQ5mYYtPuV7R2QNG5JEONIJRfmzjxFXMrs9AHdepIuqoJJJAyewWALprRnjIAu75t47Tm/RU9xRi7IEo9w0P2aCquLzf7uhiO8JEDSRK/ZdVhURBbof7reFtzEBoYYeIPgnwz7CL3kRlbyqyJcYKxO7ZmmVq1PtMXF2HGJqRSDjdv9l4mySJljIQzBmpX393L6eO1ZQVG1fpp6RaCRcFF+UgfjJXaeMFziHzfQF7KfUQZIeAJV/4GyVEE2f55RwPluOTuQubXQnq+qu41a0V5oyEOFXMoQRYFZzLOv3CjwkiIXsqJFeIHc=, x-sgext=JA0VLKcO8e9Fqqhj38VJuiwkHCUbIA8jGCwUNh0mDzYdIxQhFCcVJxskDyUedk0lHCUVJU4nGyZIc0g2HDYdJg90GDYcJRwiDyYPJA8kDyQPJA8kDyQPJA8nDyQPJQ8lDyUPJQ8lDyUPJQ82STYPLRlwSiUcNhwlHCUcNhw2HnFNNhw2Dy0PJQ8lD1JvfU42HA==, nq=WIFI, data={"buyNow":"true","buyParam":"719193771661_1_5182956442779","exParams":"{\"atomSplit\":\"1\",\"channel\":\"damai_app\",\"coVersion\":\"2.0\",\"coupon\":\"true\",\"seatInfo\":\"\",\"umpChannel\":\"10001\",\"websiteLanguage\":\"zh_CN_#Hans\"}"}, pv=6.3, sign=azG34N002xAAKiYA2sv237H04abW2iYKIxaD3GVPak+JifYV0u6VzpriFiKiP+HuuF26BzWpVTClaOIGdjtibfQ99JomGiYKJhomCi, deviceId=null, sid=13abe677c5076a4fa3382afc38a96a04, uid=2215803849550, x-features=27, x-app-conf-v=0, x-mini-wua=a3gSvx5K5/NRy/W8+fDouCSQ6VSmMK3awHwo5X+IayY7JL5SwHtiL0soynSAvCobk01qRQ2fQcTvZWakhmhA9xlNOKdwvxdA5nZ4Tno2asO5e7EvSMj6yqVYAXZZUBjZPUOBw3vpH8L2GUq9Gi6MTszU57a58+hJE2BCGTVsxhRonDw1Nnxp74Ffm, appKey=23781390, api=mtop.trade.order.build, umt=+D0B/05LPEvOgwKIQ1x+SeV5wNE6NzOo, f-refer=mtop, utdid=ZF3KUN8khtQDAIlImefp4RYz, netType=WIFI, x-app-ver=8.5.4, x-c-traceid=ZF3KUN8khtQDAIlImefp4RYz1684829318230001316498, ttid=10005890@damai_android_8.5.4, t=1684829318, v=4.0, user-agent=MTOPSDK/3.1.1.7 (Android;9;samsung;SM-S908E)}
 ```
 
-- [ ] 未完待续
+笔者注意到了InnerProtocolParamBuilderImpl.buildParams函数的输出结果完全覆盖了需要的各类加密参数，其输入类型是MtopContext。从jadx逆向的apk代码中可以找到MtopContext类，即包含Mtop生命周期的各个类的一个容器。
+
+```java
+public class MtopContext {
+    public ApiID apiId;
+    public String baseUrl;
+    public MtopBuilder mtopBuilder;
+    public Mtop mtopInstance;
+    public MtopListener mtopListener;
+    public MtopRequest mtopRequest;
+    public MtopResponse mtopResponse;
+    public Request networkRequest;
+    public Response networkResponse;
+    public MtopNetworkProp property = new MtopNetworkProp();
+    public Map<String, String> protocolParams;
+    public Map<String, String> queryParams;
+    public ResponseSource responseSource;
+    public String seqNo;
+    @NonNull
+    public MtopStatistics stats;
+}
+```
+
+所以现在的问题变为如何能够构建出来MtopContext，然后调用buildParams函数生成各类加密参数。
+
+## 分析业务模块与mtopsdk的交互过程
+
+在写本文复盘分析过程的时候，笔者发现仅依赖mtopsdk的调用过程其实已经可以得到MtopContext的全部生成逻辑了。但所谓当局者迷，笔者在当时分析的时候还是一头雾水。因此在此也介绍一下笔者的思考逻辑。
+
+当时看着mtopsdk的调用过程，感觉很复杂。但是猜想从用户点击操作->业务代码->mtopsdk的数据流，以及模块间高内聚低耦合的原则，所以猜想模块间的调用不会很复杂，所以笔者就想分析业务代码与mtopsdk的调用逻辑。所以就想跟踪主要业务代码的trace。所以笔者继续跟踪trace，运行`frida-trace -U -j "*cn.damai*!*" 大麦 `，以分析`cn.damai`包的调用过程，在其中发现了 `NcovSkuFragment.buyNow()` 函数，看起来是和购买紧密相关的函数。又找到DMBaseMtopRequest类。
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/2349df97-2e39-441a-b66a-e43e91a64ae5)
+
+但是在这里有点卡住了，因为只找到了构建MtopRequest，并未在cn.damai的trace日志中并未发现其他对mtop的调用。
+
+然后笔者又尝试搜索和api(order.build)相关的代码，找到了：
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/c609e091-af47-4555-b925-bd3940416e12)
+
+然而并没有多大用处。
+
+然后，作者又读了大量的源代码，终于定位到了 `com.taobao.tao.remotebusiness.MtopBussiness`这个关键类。
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/ed0df1c1-ce0f-4e4e-89d7-02e9bc75742b)
+
+笔者本以为com.taobao开头的代码不是那么重要，所以最开始把这个类完全忽略了。但通过对源码的阅读，发现这个类是motpsdk中MtopBuilder类的子类，主要负责管理业务代码和Mtopsdk的交互。
+
+因此我们继续通过trace跟踪MtopBussiness类。运行`frida-trace -U -j "*!*buyNow*" -j "com.taobao.tao.remotebusiness.MtopBusiness!*" -j "*MtopContext!*" -j "*mtopsdk.mtop.intf.MtopBuilder!*" 大麦`
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/56d6ee8d-9395-45b9-bf3e-23461e4850d9)
+
+现在业务代码和mtopsdk的交互就很清晰了，红色的部分是业务代码的函数，绿色的部分是mtopsdk的函数。
 
 # 0x06 hook得到接口参数
 
+- [ ] 未完待续
 
 # 0x07 通过rpc调用
 
