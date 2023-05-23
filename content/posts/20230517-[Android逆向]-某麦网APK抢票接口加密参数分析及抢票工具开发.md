@@ -304,11 +304,152 @@ buyParam为最核心的部分，拼接方式为演出id+数量+票档id。其他
 
 ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/990b1661-c675-4c17-ba65-664f6aafe0e9)
 
-- [ ] 未完待续
+其中青色圈出来的部分为data发送的核心数据，对数据用URL解码后为：
+
+```
+{"feature":"{\"gzip\":\"true\"}","params":"H4sIAAAAAAA.................AAWk3NKAAA\n"}
+```
+
+看起来像是把原始数据用gzip压缩后又使用了base64编码，尝试解码：
+
+```python
+import base64
+import gzip
+import json
+
+# 解码后变为python dict
+decode_data=base64.b64decode(params_str.replace("\\n",""))
+decompressed_data=gzip.decompress(decode_data).decode("utf-8")
+params=json.loads(decompressed_data)
+
+with open("reverse\order.create-params.json","w") as f:
+    json.dump(params,f,indent=2)
+```
+
+解码成功，存到`order.create-params.json`,
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/b4fad1b9-9943-4eac-ba78-84eee3620cee)
+
+解码后发现order.create发送的data参数和order.build请求返回的结果很相似，增加了一些用户对表单操作的记录。
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/3c59f063-3b70-451d-9ce6-b09d533bcdf4)
+
+order.create请求的header中的各种加密参数和order.build一致。
+
+order.create请求的返回结果中包含了订单创建是否成功的结果以及支付链接。
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/7aef0ac4-3d91-4ed9-a736-85ba62ae559c)
+
 
 # 0x05 trace分析
+通过前面对流量的分析，我们已经知道客户端向服务器发送的核心数据和加密参数，核心数据的拼接相对简单，但加密参数怎么获得还比较困难。因此，下面要开始分析加密参数的生成方法。本章节主要采用frida trace动态分析和jadx静态分析相结合的方式，旨在找到加密参数生成的核心函数和输入输出数据的格式。
 
+根据文章 ( [app安卓逆向x-sign，x-sgext，x_mini_wua，x_umt加密参数解析](https://blog.csdn.net/qq_44130722/article/details/126621134) )，其中数据包的加密参数和本文的大麦网很类似，而且提到了 mtopsdk.security.InnerSignImpl 生成的加密函数，本文也参考了这篇文章的思路进行分析。
 
+## 跟踪 InnerSignImpl
+
+运行`frida-trace -U -j "*InnerSignImpl*!*" 大麦`，执行选座提交订单的操作，发现确实有结果输出：
+
+```
+(py3) PS E:\TEMP\damai> frida-trace -U -j "*InnerSignImpl*!*" 大麦
+Instrumenting...
+InnerSignImpl$1.$init: Loaded handler at "E:\\TEMP\\damai\\__handlers__\\mtopsdk.security.InnerSignImpl_1\\_init.js"
+....此处省略...
+InnerSignImpl.init: Loaded handler at "E:\\TEMP\\damai\\__handlers__\\mtopsdk.security.InnerSignImpl\\init.js"
+Started tracing 27 functions. Press Ctrl+C to stop.
+           /* TID 0x144f */
+  6725 ms  InnerSignImpl.getUnifiedSign("<instance: java.util.HashMap>", "<instance: java.util.HashMap>", "23781390", null, true)
+  6726 ms     | InnerSignImpl.convertInnerBaseStrMap("<instance: java.util.Map, $className: java.util.HashMap>", "23781390", true)
+  6726 ms     | <= "<instance: java.util.Map, $className: java.util.HashMap>"
+  6727 ms     | InnerSignImpl.getMiddleTierEnv()
+  6727 ms     | <= 0
+  6737 ms  <= "<instance: java.util.HashMap>"
+```
+
+点击发送请求时，调用了InnerSignImpl.getUnifiedSign函数。但是输入参数和数据参数均为HashMap类型，结果中未显示具体内容。从结果输出中猜测frida-trace是通过对需要hook的函数在__handlers__下生成js文件，并调用js文件进行hook操作的，因此笔者修改了“__handlers__\mtopsdk.security.InnerSignImpl\getUnifiedSign.js”，使其能正确输出HashMap类型。
+```js
+// __handlers__\mtopsdk.security.InnerSignImpl\getUnifiedSign.js
+
+{onEnter(log, args, state) {
+ // 增加了HashMap2Str函数，将HashMap类型转换为字符串
+    function HashMap2Str(params_hm) {
+      var HashMap=Java.use('java.util.HashMap');
+      var args_map=Java.cast(params_hm,HashMap);
+      return args_map.toString();	};
+     // 当调用函数时，输出函数参数
+    log(`InnerSignImpl.getUnifiedSign(${HashMap2Str(args[0])},${HashMap2Str(args[1])},${args[2]},${args[3]})`);
+  }, onLeave(log, retval, state) {
+      function HashMap2Str(params_hm) {
+        var HashMap=Java.use('java.util.HashMap');
+        var args_map=Java.cast(params_hm,HashMap);
+        return args_map.toString();	};
+    if (retval !== undefined) {
+     // 当函数运行结束时，输出函数结果
+      log(`<= ${HashMap2Str(retval)}`);
+    } }}
+```
+
+再次运行frida-trace，输出的结果已经可以看到具体内容了：
+```
+(py3) PS E:\TEMP\damai> frida-trace -U -j "*InnerSignImpl*!*" 大麦
+        ......
+Started tracing 27 functions. Press Ctrl+C to stop.
+           /* TID 0x15ab */
+  2653 ms  InnerSignImpl.getUnifiedSign({data={"itemId":"719193771661","performId":"211232892","skuParamListJson":"[{\"count\":1,\"price\":36000,\"priceId\":\"251592963\"}]","dmChannel":"*@damai_android_*","channel_from":"damai_market","appType":"1","osType":"2","calculateTag":"0_0_0_0","source":"10101","version":"6000168"}, deviceId=null, sid=13abe677c5076a4fa3382afc38a96a04, uid=2215803849550, x-features=27, appKey=23781390, api=mtop.damai.item.calcticketprice, utdid=ZF3KUN8khtQDAIlImefp4RYz, ttid=10005890@damai_android_8.5.4, t=1684828096, v=2.0},{pageId=, pageName=},23781390,null)
+  2654 ms     | InnerSignImpl.convertInnerBaseStrMap("<instance: java.util.Map, $className: java.util.HashMap>", "23781390", true)
+  2655 ms     | <= "<instance: java.util.Map, $className: java.util.HashMap>"
+  2655 ms     | InnerSignImpl.getMiddleTierEnv()
+  2655 ms     | <= 0
+  2662 ms  <= {x-sgext=JA2qmBOxRVDxFRzca3r9BZibqJqvn7uerZOriayYu4mpnKCeoJiunKGZu5qqyfmaqJqhmvqYr5n8zPyJqImpmbvLrImomqidu5m7m7uYu5u7mLuYu5u7m7ubqYmtiaiJqImoiaiJqImoiaiJu8+7iaCf/cypnruaqJqomruau5j8y7uau4mgiaiJqInf6fDIu5o=, x-umt=+D0B/05LPEvOgwKIQ1x+SeV5wNE6NzOo, x-mini-wua=atASnVJw3vGX1Tw3Y/zDaVZkDUbLxOxtlUmgDOnIjMTBcMPMqQJLpnxoOWEL53Fq/OPcQZiMpDXWNvDz8UQkI5mtkZvIcDN1oxZnuH0M22LHKar4rnO/xm4LtAiniKgYtfgMGK3stXuCmvtE4raIhROimslSk7hCkxaL/DYuLzBLYwXmNyr9UZi1g, x-sign=azG34N002xAAK0H9KwNr3txWFMxzW0H7ROfkLQK+Db7ueJHktR/yP/0TcdPFzoYf36zd9lJYMsHCmYX3EcoFnJPMk2pxu0H7QbtB+0}
+```
+
+可以看到返回结果中包含了 `x-sgext`,`x-umt`,`x-mini-wua`,`x-sign` 等加密参数。至此，前面的一大堆分析也算有了小的收获。但对比流量分析结果中的发送参数，还是缺失了很多参数。下面我们继续跟踪，找出剩下的参数。
+
+## 跟踪 mtopsdk
+调研发现淘系的apk都包含mtopsdk，猜想会不会有公开的官方文档描述mtopsdk的使用方法，因此我们就找到了 [【阿里云mtopsdk Android接入文档】](https://help.aliyun.com/apsara/agile/v_3_5_0_20210228/emas/development-guide/android.html)  。其中介绍了请求构建的流程为，笔者重点关注了请求构建和发送的部分：
+
+```java
+// 3. 请求构建
+// 3.1生成MtopRequest实例
+MtopRequest request = new MtopRequest();
+// 3.2 生成MtopBuilder实例
+MtopBuilder builder = instance.build(MtopRequest request, String ttid);
+// 4. 请求发送
+// 4.2 异步调用
+ApiID apiId = builder.addListener(new MyListener).asyncRequest();
+
+```
+
+因此我们不妨大胆一些，直接跟踪所有对mtopsdk中函数的调用。
+
+```
+(py3) PS E:\TEMP\damai> frida-trace -U -j "*mtopsdk*!*" 大麦
+```
+
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/95ff2d41-9fd6-4ed6-aeb9-4bba0547261c)
+
+输出的结果大概有2000行，直接看太费劲，我们复制到文本编辑器里做进一步分析。
+
+我们按照阿里的官方文档介绍的流程，对应可以找到在输出的trace中找到一些关键的函数。
+
+```bash
+# MtopRequest初始化
+  3249 ms  MtopRequest.$init()
+  3249 ms  MtopRequest.setApiName("mtop.trade.order.build")
+  3249 ms  MtopRequest.setVersion("4.0")
+  3249 ms  MtopRequest.setNeedSession(true)
+  3249 ms  MtopRequest.setNeedEcode(true)
+  3249 ms  MtopRequest.setData("{\"buyNow\":\"true\",\"buyParam\":\"7191937661_1_51826442779\",\"exParams\":\"{\\\"atomSplit\\\":\\\"1\\\",\\\"channel\\\":\\\"damai_app\\\",\\\"coVersion\\\":\\\"2.0\\\",\\\"coupon\\\":\\\"true\\\",\\\"seatInfo\\\":\\\"\\\",\\\"umpChannel\\\":\\\"10001\\\",\\\"websiteLanguage\\\":\\\"zh_CN_#Hans\\\"}\"}")
+
+# MtopBuilder初始化
+  3251 ms  MtopBuilder.$init("<instance: mtopsdk.mtop.intf.Mtop>", "<instance: mtopsdk.mtop.domain.MtopRequest>", null)
+# MtopBuilder发送异步请求
+
+3268 ms  MtopBuilder.asyncRequest()
+
+```
+
+- [ ] 未完待续
 
 # 0x06 hook得到接口参数
 
