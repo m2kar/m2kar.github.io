@@ -708,7 +708,7 @@ https://m.damai.cn/app/dmfe/h5-ultron-buy/index.html?buyParam=718707599799_2_500
 
 本文也有一些不足之处，如无法脱离模拟器运行、仅能单用户、抢票成功率仍不高等。对于这些问题，如果未来作者有时间，会再回来填坑。
 
-本文作者为m2kar，原文发表在https://github.com/m2kar/m2kar.github.io/issues/21，转载请注明出处。
+本文作者为m2kar，原文发表在( https://github.com/m2kar/m2kar.github.io/issues/21) ，转载请注明出处。
 
 最后，欢迎大家多多提出问题相互交流。
 
