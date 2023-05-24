@@ -4,7 +4,7 @@ date: 2023-05-17T10:45:07Z
 
 description: 
 tags: [
-  "draft"
+  "移动端安全"
 ]
 issueId: 21
 ---
@@ -12,23 +12,23 @@ issueId: 21
 # **[Android逆向] 某麦网APK抢票接口加密参数分析及抢票工具开发**
 # 0x00 概述
 
-针对大麦网部分演唱会门票仅能在app渠道抢票的问题，本文研究了APK的抢票接口并编写了抢票工具。本文介绍的顺序为环境搭建、抓包、trace分析、接口参数获取、rpc调用实现，以及最终的功能实现。通过阅读本文，你将学到反抓包技术破解、Frida hook、jadx apk逆向技术，并能对淘系APP的运行逻辑有所了解。本文仅用于学习交流，严禁用于非法用途。
+针对某麦网部分演唱会门票仅能在app渠道抢票的问题，本文研究了APK的抢票接口并编写了抢票工具。本文介绍的顺序为环境搭建、抓包、trace分析、接口参数获取、rpc调用实现，以及最终的功能实现。通过阅读本文，你将学到反抓包技术破解、Frida hook、jadx apk逆向技术，并能对淘系APP的运行逻辑有所了解。本文仅用于学习交流，严禁用于非法用途。
 
-**关键词**： frida, 大麦网, Android逆向
+**关键词**： frida, damai.cn, Android逆向
 先放成功截图：
 
 ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/b7c8e2be-cf53-432f-9a33-9960a66f715e)
 
 # 0x01 缘起
 
-疫情结束的2023年5月，大家对出去玩都有点疯狂，歌手们也扎堆开演唱会。演唱会虽多，票却一点也不好抢，抢五月天的门票难度不亚于买五一的高铁票。所以想尝试找一些脚本来辅助抢票，之前经常用selenium和request做一些小爬虫来搞定自动化的工作，所以在 [MakiNaruto/Automatic_ticket_purchase](https://github.com/MakiNaruto/Automatic_ticket_purchase)  的基础上改了改，实现抢票功能。但是大麦网实在太**狡猾**了，改完爬虫才发现几乎所有的热门演唱会只允许在app购买，所以就需要利用APP实现接口自动化。
+疫情结束的2023年5月，大家对出去玩都有点疯狂，歌手们也扎堆开演唱会。演唱会虽多，票却一点也不好抢，抢五月天的门票难度不亚于买五一的高铁票。所以想尝试找一些脚本来辅助抢票，之前经常用selenium和request做一些小爬虫来搞定自动化的工作，所以在 [MakiNaruto/Automatic_ticket_purchase](https://github.com/MakiNaruto/Automatic_ticket_purchase)  的基础上改了改，实现抢票功能。但是某麦网实在太**狡猾**了，改完爬虫才发现几乎所有的热门演唱会只允许在app购买，所以就需要利用APP实现接口自动化。
 
-本着能省事则省事的原则，笔者在文章 [[Android] 基于Airtest实现大麦网app自动抢票程序](https://github.com/m2kar/m2kar.github.io/issues/20) 中用自动化测试技术实现了抢票程序，但是速度太慢，几乎不能用。果然捷径往往不好走，因此继续尝试分析大麦网apk的api接口。
+本着能省事则省事的原则，笔者在文章 [[Android] 基于Airtest实现某麦网app自动抢票程序](https://github.com/m2kar/m2kar.github.io/issues/20) 中用自动化测试技术实现了抢票程序，但是速度太慢，几乎不能用。果然捷径往往不好走，因此继续尝试分析某麦网apk的api接口。
 
 # 0x02 环境
 
 - windows 10
-- 大麦网 apk 版本8.5.4 (2023-04-26)
+- cn.damai apk 版本8.5.4 (2023-04-26)
 - bluestacks 5.11.56.1003 p64
 - adb 31.0.2
 - Root Checker 6.5.3
@@ -112,7 +112,7 @@ chmod +x frida-server
 
   ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/92c87610-7dd7-4352-9744-7f29a504bf00)
 
-  > 有些情况下，应用程序会检测在是否在模拟器中运行，但对于大麦网app的分析暂无影响。
+  > 有些情况下，应用程序会检测在是否在模拟器中运行，但对某麦网app的分析暂无影响。
 
 4. 测试是否连接成功
 
@@ -248,11 +248,11 @@ CLIENT_RANDOM e66fb5d6735f0b803426fa88c3692e8b9a1f4dca37956187b22de11f1797e875 6
 
 ## 流量分析
 
-在上述步骤中拿到了解密后的流量，我们就能对大麦网的流量做进一步分析了。
+在上述步骤中拿到了解密后的流量，我们就能对某麦网的流量做进一步分析了。
 
-### 大麦网的API流
+### 某麦网的API流
 
-在此铺垫一下，通过前期对大麦网PC端和移动端H5的分析，大麦网购票的工作流程大概为：
+在此铺垫一下，通过前期对某麦网PC端和移动端H5的分析，某麦网购票的工作流程大概为：
 
 1. 获得详情：接口为`mtop.alibaba.damai.detail.getdetail`。基于某演出的id(itemId)获得演出的详细信息，包括详情、场次、票档(SkuId)价位及状态信息，
 2. 构建订单：接口为`mtop.trade.order.build.h5`。发送 演出id+数量+票档id(`itemId_count_skuId`)，得到提交订单所需的表单信息，包括观众、收货地址等。
@@ -347,7 +347,7 @@ order.create请求的返回结果中包含了订单创建是否成功的结果�
 # 0x05 trace分析
 通过前面对流量的分析，我们已经知道客户端向服务器发送的核心数据和加密参数，核心数据的拼接相对简单，但加密参数怎么获得还比较困难。因此，下面要开始分析加密参数的生成方法。本章节主要采用frida trace动态分析和jadx静态分析相结合的方式，旨在找到加密参数生成的核心函数和输入输出数据的格式。
 
-根据文章 ( [app安卓逆向x-sign，x-sgext，x_mini_wua，x_umt加密参数解析](https://blog.csdn.net/qq_44130722/article/details/126621134) )，其中数据包的加密参数和本文的大麦网很类似，而且提到了 mtopsdk.security.InnerSignImpl 生成的加密函数，本文也参考了这篇文章的思路进行分析。
+根据文章 ( [app安卓逆向x-sign，x-sgext，x_mini_wua，x_umt加密参数解析](https://blog.csdn.net/qq_44130722/article/details/126621134) )，其中数据包的加密参数和本文的某麦网很类似，而且提到了 mtopsdk.security.InnerSignImpl 生成的加密函数，本文也参考了这篇文章的思路进行分析。
 
 ## 跟踪 InnerSignImpl
 
@@ -529,7 +529,7 @@ Java.perform(function () {
     console.log(`${myMtopRequest}`)
 });
 ```
-再使用运行命令 `frida -U -l .\reverse\new_request.js 大麦`，以在大麦Apk中执行js hook代码。运行之后即可输出笔者自己构建的MtopRequest实例。（frida真的很奇妙！）
+再使用运行命令 `frida -U -l .\reverse\new_request.js 大麦`，以在某麦Apk中执行js hook代码。运行之后即可输出笔者自己构建的MtopRequest实例。（frida真的很奇妙！）
 
 ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/13d32747-5e05-4fee-a0af-c4ea9c0cc5d8)
 
@@ -681,7 +681,7 @@ MtopStatistics是mtopsdk里比较重要的一个类，用来跟踪用户的操�
 
 ## 如何获取票价信息
 
-这里笔者是直接用的大麦网Web端PC版，网页中有一段json，包含静态的描述信息和动态的场次、余票信息。
+这里笔者是直接用的某麦网Web端PC版，网页中有一段json，包含静态的描述信息和动态的场次、余票信息。
 
 ## 如何脱离模拟器运行
 
@@ -689,10 +689,10 @@ MtopStatistics是mtopsdk里比较重要的一个类，用来跟踪用户的操�
 
 ## 还是抢不到票
 
-虽然流程全都搞定，而且对于非热门场次抢票完全没有问题。但对于热门场次，官方可能还是增加了或明或暗的检测机制。比如有些是淘票票限定渠道，在对特权用户开放抢票一段时间后才会对其他人，但开放状态仅从网页端无法判断，导致脚本会提前开抢，被系统提前拦截。或者有的场次明明第一时间开抢，却还是一直提示请求失败。这个还需要进一步踩坑理解大麦网的机制。
+虽然流程全都搞定，而且对于非热门场次抢票完全没有问题。但对于热门场次，官方可能还是增加了或明或暗的检测机制。比如有些是淘票票限定渠道，在对特权用户开放抢票一段时间后才会对其他人，但开放状态仅从网页端无法判断，导致脚本会提前开抢，被系统提前拦截。或者有的场次明明第一时间开抢，却还是一直提示请求失败。这个还需要进一步踩坑理解某麦网的机制。
 
 ## BP链接
-这篇公众号文章( https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MDEzMTg0OQ==&action=getalbum&album_id=2885498232984993792#wechat_redirect ) 介绍了大麦网的bp链接及使用方式，可以跳过票档选择直接进入订单确认页面。后续可以尝试用于自动抢票。
+这篇公众号文章( https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MDEzMTg0OQ==&action=getalbum&album_id=2885498232984993792#wechat_redirect ) 介绍了某麦网的bp链接及使用方式，可以跳过票档选择直接进入订单确认页面。后续可以尝试用于自动抢票。
 
 如：
 ```
