@@ -9,6 +9,7 @@ tags: [
 issueId: 21
 ---
 
+# **[Android逆向] 某麦网APK抢票接口加密参数分析及抢票工具开发**
 # 0x00 概述
 
 针对大麦网部分演唱会门票仅能在app渠道抢票的问题，本文研究了APK的抢票接口并编写了抢票工具。本文介绍的顺序为环境搭建、抓包、trace分析、接口参数获取、rpc调用实现，以及最终的功能实现。通过阅读本文，你将学到反抓包技术破解、Frida hook、jadx apk逆向技术，并能对淘系APP的运行逻辑有所了解。本文仅用于学习交流，严禁用于非法用途。
@@ -35,11 +36,11 @@ issueId: 21
 - frida 16.0.19
 - jadx-gui 1.4.7
 
-# 0x03 bluestacks 环境搭建
-
+# 0x03 环境搭建
+## bluestacks 环境搭建
 目前Android模拟器竞品很多，选择Bluestacks **5**是因为它能和windows的hyper-v完美兼容，root过程也相对简单。
 
-## 首先需要root Bluestacks环境。
+### 首先需要root Bluestacks环境。
 
 1. 下载安装Bluestacks。
 2. 运行Bluestacks Multi-instance Manager，发现默认安装的版本为Android Pie 64bit版本，即Android 9.0。此时退出bluestack所有程序。
@@ -60,79 +61,80 @@ bst.instance.Pie64.enable_root_access="1"
 
 > 上述 root 过程主要参考了 https://appuals.com/root-bluestacks/ ，部分地方做了改正，在此感谢原文作者。
 
-## 打开 adb调试
+### 打开 adb调试
 
 1. bluestack设置-高级中打开Adb调试，并记录下端口
 
-![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/d4165eb6-960a-4c19-bad7-5115548b04a5)
+  ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/d4165eb6-960a-4c19-bad7-5115548b04a5)
 
 2. 打开主机命令行，运行 `adb connect localhost:6652`，端口号修改为上一步的端口号，即可连接。再运行`adb devices`，如有对应设备则连接成功。
 3. 进入adb shell，执行su进入root权限，命令行标识由`$`变为`#`，即表示adb 进入root权限成功。
 
 ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/e8f2f0c5-7df1-4226-9f16-a5d5d2a8cb2b)
 
-# 0x02 frida环境搭建
+## frida环境搭建
 
 frida是大名鼎鼎的动态分析的hook神器，用它可以直接访问修改二进制的内存、函数和对象，非常方便。它对于Android的支持也是很完美。
 
 frida的运行采用C/S架构，客户端为电脑端的开发环境，服务器端为Android，均需对应部署搭建。
-## 客户端环境搭建(Windows)
+### 客户端环境搭建(Windows)
 firda客户端基于python3开发，因此首先需要配置好python3的运行环境，然后执行 `pip install frida-tools`即可完成安装。运行 `frida --version`可验证frida版本。
 
 ```
 (py3) PS E:\TEMP\damai> frida --version
 16.0.19
 ```
-## 服务器 环境搭建(Android)
+### 服务器 环境搭建(Android)
 环境搭建第二步是在Android模拟器中运行frida-server。这样可以让Frida通过ADB/USB调试与我们的Android模拟器连接。
 
 1. 下载frida-server
 最新的frida-server可以从 https://github.com/frida/frida/releases 下载。请注意下载与设备匹配的架构。如果您的模拟器是x86_64，请下载相应版本的frida-server。本文使用的版本为 [frida-server-16.0.18-android-x86_64.xz](https://github.com/frida/frida/releases/download/16.0.18/frida-server-16.0.18-android-x86_64.xz)
-![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/d9d085a1-f4dd-4873-8e95-a3a3d881d585)
+  ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/d9d085a1-f4dd-4873-8e95-a3a3d881d585)
 
 2. 传入Android模拟器。
 
-将下载后的.xz文件解压，将`frida-server`传入Android模拟器
-```
-adb push frida-server /data/local/tmp/
-```
+  将下载后的.xz文件解压，将`frida-server`传入Android模拟器
+  ```
+  adb push frida-server /data/local/tmp/
+  ```
 3. 运行 frida-server
 
-使用adb root以root模式重新启动ADB，并通过adb shell重新进入shell的访问。进入shell后，进入我们放置frida-server的目录并为其授予执行权限：
+  使用adb root以root模式重新启动ADB，并通过adb shell重新进入shell的访问。进入shell后，进入我们放置frida-server的目录并为其授予执行权限：
 
-```bash
+  ```bash
 cd /data/local/tmp/
 chmod +x frida-server
 ```
 
-执行：`./frida-server `，运行frida-server，并保持本shell窗口开启。
+  执行：`./frida-server `，运行frida-server，并保持本shell窗口开启。
 
-成功截图：
+  成功截图：
 
-![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/92c87610-7dd7-4352-9744-7f29a504bf00)
+  ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/92c87610-7dd7-4352-9744-7f29a504bf00)
 
-> 有些情况下，应用程序会检测在是否在模拟器中运行，但对于大麦网app的分析暂无影响。
+  > 有些情况下，应用程序会检测在是否在模拟器中运行，但对于大麦网app的分析暂无影响。
 
 4. 测试是否连接成功
-在window端运行frida-ps命令：
 
-![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/b150db94-ed85-4f8e-a3a2-c90839f263a1)
+  在window端运行frida-ps命令：
 
-看到一堆熟悉的Android进程，我们就连接成功啦
+  ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/b150db94-ed85-4f8e-a3a2-c90839f263a1)
+
+  看到一堆熟悉的Android进程，我们就连接成功啦
 
 5. 转发frida-server端口 (可选)
 
-frida-server跑在Android端，frida需要通过连接frida-server。上一步使用adb的方式连接，frida认为是USB模式，需要`-U`命令。frida也支持依赖端口的远程连接模式，在某些场景下更加灵活。可以通过端口转发的方式实现此功能。
+  frida-server跑在Android端，frida需要通过连接frida-server。上一步使用adb的方式连接，frida认为是USB模式，需要`-U`命令。frida也支持依赖端口的远程连接模式，在某些场景下更加灵活。可以通过端口转发的方式实现此功能。
 
-```
-adb forward tcp:27042 tcp:27042
-adb forward tcp:27043 tcp:27043
-```
+  ```
+  adb forward tcp:27042 tcp:27042
+  adb forward tcp:27043 tcp:27043
+  ```
 
-27042 用于与frida-server通信的默认端口号,之后的每个端口对应每个注入的进程，检查27042端口可检测 Frida 是否存在。
+  27042是用于与frida-server通信的默认端口号,之后的每个端口对应每个注入的进程，检查27042端口可检测 Frida 是否存在。
 
 
-> 本部分主要参考了 https://learnfrida.info/java/ ， 在此感谢原文作者。
+  > 本部分主要参考了 https://learnfrida.info/java/ ， 在此感谢原文作者。
 
 # 0x04 抓包
 
@@ -146,7 +148,7 @@ adb forward tcp:27043 tcp:27043
 
 上述的抓包方式只能抓到http协议层以上的流量，这次我们来点不一样的，用tcpdump+frida+wireshark实现Android的全流量抓包，能实现https解密。
 
-1. 搞定tcpdump
+### 1. 搞定tcpdump
 
 本文基于termux安装使用tcpdump。
 
@@ -181,7 +183,7 @@ sudo tcpdump -i any -s 0 -w ~/storage/downloads/capture.pcap
 
 之后就可以把downloads目录下的抓包文件拷贝到电脑上，用wireshark打开做进一步分析。
 
-2. 解密https流量
+### 2. 解密https流量
 
 Wireshark解密https流量的方法和原理介绍有很多，可参考以下文章，本文不再赘述。
 
@@ -227,6 +229,7 @@ frida -U -l .\sslkeyfilelog.js  -f cn.damai
 ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/e0c46289-213e-4e49-821a-def3fcfc8367)
 
 - 最后，抓包结束后将得到的key保存到sslkey.txt，格式是下面这样的，不要掺杂别的。
+
 ```
 CLIENT_RANDOM 557e6dc49faec93dddd41d8c55d3a0084c44031f14d66f68e3b7fb53d3f9586d 886de4677511305bfeaee5ffb072652cbfba626af1465d09dc1f29103fd947c997f6f28962189ee809944887413d8a20
 CLIENT_RANDOM e66fb5d6735f0b803426fa88c3692e8b9a1f4dca37956187b22de11f1797e875 65a07797c144ecc86026a44bbc85b5c57873218ce5684dc22d4d4ee9b754eb1961a0789e2086601f5b0441c35d76c448
@@ -607,17 +610,16 @@ Java.perform(function () {
 1.  *打印函数输入输出*。通过hook函数，以实现打印函数的输入输出结果。
 操作代码可以在jadx右键菜单可以很方便的生成。
 
-![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/c741ef2d-a144-4187-8233-bc2ae81ee4a1)
+  ![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/c741ef2d-a144-4187-8233-bc2ae81ee4a1)
 
-```
-
+  ```js
 let LocalInnerSignImpl = Java.use("mtopsdk.security.LocalInnerSignImpl");
 LocalInnerSignImpl["$init"].implementation = function (str, str2) {
     console.log(`LocalInnerSignImpl.$init is called: str=${str}, str2=${str2}`);
     this["$init"](str, str2);
 };
 
-```
+  ```
 2. *修改已有的类和函数*。
 3. *定义新类和新函数*。
 4. *主动生成类的实例或调用函数*。
@@ -708,7 +710,7 @@ https://m.damai.cn/app/dmfe/h5-ultron-buy/index.html?buyParam=718707599799_2_500
 
 本文也有一些不足之处，如无法脱离模拟器运行、仅能单用户、抢票成功率仍不高等。对于这些问题，如果未来作者有时间，会再回来填坑。
 
-本文作者为m2kar，原文发表在( https://github.com/m2kar/m2kar.github.io/issues/21) ，转载请注明出处。
+本文作者为m2kar，原文发表在https://github.com/m2kar/m2kar.github.io/issues/21，转载请注明出处。
 
 最后，欢迎大家多多提出问题相互交流。
 
