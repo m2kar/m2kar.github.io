@@ -174,7 +174,8 @@ ls ~/storage/
  - 安装tcpdump
 ```
 pkg install root-repo
-pkg install sudo tcpdump
+pkg install tcpdump
+pkg install tsu
 ```
 
 - 运行抓包
