@@ -112,7 +112,7 @@ params:
         - name: github
           url: "https://github.com/m2kar"
         - name: email
-          url: "mailto:m2kar.cn<at>gmail.com"
+          url: "mailto:m2kar.cn@gmail.com"
         - name: Rss
           url: "index.xml"
 
