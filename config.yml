@@ -37,8 +37,8 @@ languages:
                 - name: 标签
                   url: tags/
                   weight: 10
-                - name: 关于
-                  url: https://m2kar.cn/cv/files/CV_Zhiqing_Rui.pdf
+                #- name: 关于
+                #  url: https://m2kar.cn/cv/files/CV_Zhiqing_Rui.pdf
 
     # en:
     #     languageName: "English"
