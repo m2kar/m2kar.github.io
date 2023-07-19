@@ -673,7 +673,30 @@ frida使用rpc的方法也很简单，仅需使用rpc.exports，将对应的函�
 
 代码封装完成后测了一下，平均一次调用的时间为0.024秒，完全可以达到抢票的要求。
 
-# 0x08 踩坑经历花絮
+# 0x08 提示和技巧
+
+参考大家经常问的问题以及评论区大佬的思路,总结一些提示和技巧.
+
+## 编码格式细节
+很多朋友出现服务端返回"非法签名的情况",是由于细节的问题.
+
+order.build和order.create接口的具体编码规则很细节,比如一些空格,引号,是否urlEncode等等. python requests包自己的封装格式可能和和大麦apk不兼容,因此最后出来的包实质是差别比较大. 
+
+解决措施:
+1. 用wireshark抓apk发包和自己代码发的包,分析区别
+2. 尝试一层一层解apk发的包,然后再重新打包,看是否能和之前保持一致
+3. request的post内容不要用dict,用文本.
+4. 编码多用字符串拼接.
+
+## 禁用spdy
+
+- [ ] 
+
+## 滑动验证码
+
+- [ ] 
+
+# 0x09 踩坑经历花絮
 ## 关于wiresharkhelper
 
 txthinking放出了一个抓包辅助工具[wiresharkhelper](https://github.com/txthinking/wiresharkhelper)，看视频介绍很诱人很方便，但是实测是要收费的。本人穷，所以就没用他的方法。然而也是因为这个才开始尝试用frida工具得到https的密钥，发现了frida这个神器。
@@ -710,7 +733,8 @@ https://m.damai.cn/app/dmfe/h5-ultron-buy/index.html?buyParam=718707599799_1_500
 https://m.damai.cn/app/dmfe/h5-ultron-buy/index.html?buyParam=718707599799_2_5008768308765&buyNow=true&exParams=%257B%2522channel%2522%253A%2522damai_app%2522%252C%2522damai%2522%253A%25221%2522%252C%2522umpChannel%2522%253A%2522100031004%2522%252C%2522subChannel%2522%253A%2522damai%2540damaih5_h5%2522%252C%2522atomSplit%2522%253A1%257D&spm=a2o71.project.sku.dbuy&sqm=dianying.h5.unknown.value
 ```
 
-# 0x09 总结
+
+# 0x10 总结
 
 本文完整的记录了笔者对于Apk与服务器交互API的解析过程，包括环境搭建、抓包、trace分析、hook、rpc调用。本文对于淘系Apk的分析可以提供较多参考。本文算是笔者第一次深入且成功的用动态+静态分析结合的方式，借助神器frida+jadx，成功破解Apk，因此本文的记录也较为细致的记录了作者的思考过程，可以给新手提供参考。
 
