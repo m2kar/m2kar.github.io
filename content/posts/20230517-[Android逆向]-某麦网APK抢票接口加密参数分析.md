@@ -687,14 +687,45 @@ order.build和order.create接口的具体编码规则很细节,比如一些空�
 2. 尝试一层一层解apk发的包,然后再重新打包,看是否能和之前保持一致
 3. request的post内容不要用dict,用文本.
 4. 编码多用字符串拼接.
-
+5. header里的字段名大小写/顺序最好保持一致.
+6. create发送的data是在build的返回值做了一些编辑
+7. 
 ## 禁用spdy
+感谢 @IWasSleeping 
+参考: https://github.com/m2kar/m2kar.github.io/issues/21#issuecomment-1634733885
 
-- [ ] 
+对于mtopsdk ssl的抓包可以通过屏蔽掉spdy协议，关闭spdy ssl和全局的spdy来实现让APP通过http协议，来方便任何安卓版本实现简单抓包，通过hook的方式：
+
+    let SwitchConfig = Java.use("mtopsdk.mtop.global.SwitchConfig");
+    SwitchConfig["isGlobalSpdySslSwitchOpen"].implementation = function () {
+        console.log(`SwitchConfig.isGlobalSpdySslSwitchOpen is called`);
+        let result = this["isGlobalSpdySslSwitchOpen"]();
+        console.log(`SwitchConfig.isGlobalSpdySslSwitchOpen result=${result}`);
+        return false;
+    };
+    
+    SwitchConfig["isGlobalSpdySwitchOpen"].implementation = function () {
+        console.log(`SwitchConfig.isGlobalSpdySwitchOpen is called`);
+        let result = this["isGlobalSpdySwitchOpen"]();
+        console.log(`SwitchConfig.isGlobalSpdySwitchOpen result=${result}`);
+        return false;
+    };
+通过主动调用的方式：
+
+    var SwitchConfig = Java.use('mtopsdk.mtop.global.SwitchConfig')
+    var config = SwitchConfig.getInstance();
+    config.setGlobalSpdySslSwitchOpen(false);
+    config.setGlobalSpdySwitchOpen(false);
 
 ## 滑动验证码
+感谢: @svcvit 
+参考: https://github.com/m2kar/m2kar.github.io/issues/21#issuecomment-1635989770
 
-- [ ] 
+![image](https://github.com/m2kar/m2kar.github.io/assets/16930652/3512f3fb-8876-4007-ac53-c76b7697d6bc)
+
+滑块过了，原理：FAIL_SYS_USER_VALIDATE的时候，返回头里有个location，用浏览器打开这个url，滑动，获取cookies，装入request里，就可以了。效果参考下方。
+
+代码参考：https://github.com/kuxigua/TaoBaoSpider/blob/02fd1dc437c1b0fd49fc64bfbedd6c070d9e21e5/AntiReptile/imgCodeHandle.py
 
 # 0x09 踩坑经历花絮
 ## 关于wiresharkhelper
