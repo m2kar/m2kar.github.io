@@ -773,8 +773,9 @@ https://m.damai.cn/app/dmfe/h5-ultron-buy/index.html?buyParam=718707599799_2_500
 
 本文作者为m2kar，原文发表在https://github.com/m2kar/m2kar.github.io/issues/21，转载请注明出处。
 
-最后，欢迎大家多多提出问题相互交流。
-
+分享一个tg讨论组， https://t.me/+IbWm3n0o1KlkMTg1 ,感谢 @svcvit 
+
+最后，欢迎大家在issue评论区或tg讨论组多多提出问题相互交流。
 
 <hr/>
 
