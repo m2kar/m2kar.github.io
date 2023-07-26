@@ -3,6 +3,7 @@ name: issue-to-post
 on: 
   issues:
     types: [opened, edited]
+    author: m2kar
 
 jobs:
   sync-issue-to-blog:
@@ -48,6 +49,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          if ${{ github.event.issue.author_association }} != 'COLLABORATOR'; then
+            echo "not COLLABORATOR,exit"
+            exit 
+          fi
           ISSUE_ID=${{ github.event.issue.number }}
           GITHUB_REPO="${{ github.repository }}"
           issue_data=$(gh api /repos/${{ github.repository }}/issues/${ISSUE_ID})
