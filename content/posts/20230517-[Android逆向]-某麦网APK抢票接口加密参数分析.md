@@ -727,6 +727,19 @@ order.build和order.create接口的具体编码规则很细节,比如一些空�
 
 代码参考：https://github.com/kuxigua/TaoBaoSpider/blob/02fd1dc437c1b0fd49fc64bfbedd6c070d9e21e5/AntiReptile/imgCodeHandle.py
 
+## traceid
+> 请问header中的x-c-traceid是怎么构建的，rpc返回的对象中这个值是空的
+
+```
+utdid = "ZHmSZ78mpAEDALjcMTWN1YHF"
+timestamp = int(time.time() * 1000)
+padded_number = format(int(number), "04")
+f71332q = "122782"
+x_c_traceid = str(utdid) + (str(timestamp)) + (str(padded_number)) + (str(f71332q))
+```
+感谢 @nobewp 
+
+
 # 0x09 踩坑经历花絮
 ## 关于wiresharkhelper
 
