@@ -730,6 +730,13 @@ order.build和order.create接口的具体编码规则很细节,比如一些空�
 ## traceid
 > 请问header中的x-c-traceid是怎么构建的，rpc返回的对象中这个值是空的
 
+建议参考： 
+
+![2ffee419651189d952611ad6d3fbef8](https://github.com/m2kar/m2kar.github.io/assets/16930652/1cc88b97-27cf-4f05-b204-86187c83fc80)
+
+感谢 @HenryWu01 
+
+也可以参考，但固定较多内容，可能增加被识别的概率：
 ```
 utdid = "ZHmSZ78mpAEDALjcMTWN1YHF"
 timestamp = int(time.time() * 1000)
