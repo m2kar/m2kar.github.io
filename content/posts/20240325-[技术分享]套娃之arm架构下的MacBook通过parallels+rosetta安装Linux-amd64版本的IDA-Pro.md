@@ -124,8 +124,30 @@ dlopen(/opt/idapro-8.3/plugins/idapython3_64.so): libpython3.6m.so.1.0: cannot o
 ```
 看起来是`idapython3_64.so`运行时无法找到`libpython3.6m.so.1.0`，导致出错。
 
-尝试安装amd64架构下的`python3:amd64`.
-[ ] todo
+尝试安装amd64架构下的`python3:amd64`和`libpython3.10:amd64`，但还是不行。
+
+尝试使用miniconda安装python3.6的环境。
+
+```
+curl -O https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash ./Miniconda3-latest-Linux-x86_64.sh
+/opt/miniconda3/bin/conda init
+conda create --name idapy36 "python=3.6,<3.7"
+```
+
+设定库搜索路径
+```
+export LD_LIBRARY_PATH=/home/parallels/.conda/envs/idapy36/lib:$LD_LIBRARY_PATH
+```
+
+再次打开，idapython可以正常运行。
+
+<img width="783" alt="image" src="https://github.com/m2kar/m2kar.github.io/assets/16930652/5e58998c-df04-4b46-a892-3c20d195b30b">
+
+> 这里有个问题：指定了库的搜索路径为3.6版本，但idapython仍然是3.10版本。
+
+# 总结
+非常套娃的踩了安装IDA Pro的坑，在arm架构下的MacBook通过parallels+rosetta安装Linux amd64版本的IDA Pro。本技术也可以用于安装其他跨架构软件。
 
 <hr/>
 
