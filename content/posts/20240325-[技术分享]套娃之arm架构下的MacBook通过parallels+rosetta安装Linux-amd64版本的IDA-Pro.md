@@ -10,6 +10,8 @@ issueId: 26
 # 前言
 苹果公司在MacBook这种生产力平台使用无疑是个伟大且大胆的创新，经过几年的软件生态环境的改善，各种常用工具基本都能在mac下运行。但仍有些闭源发布的软件仍需要在amd64架构下的Linux环境中才能运行，比如本文中的IDA Pro 7.6版，因此整理一下踩坑记录，可供相关需求的同学参考。
 
+**划重点**：arm环境下运行amd64程序;ldd跨架构运行
+
 # 环境和工具
 - MacBook with M3 chip
 - parallels Desktop 19
@@ -21,7 +23,7 @@ parallels是Mac生态下非常好用的虚拟机软件，但之前的版本仅�
 因此，我们只需要点击创建虚拟机，下载Ubuntu with x86_emulation，即可获得amd64的模拟运行环境。如下图。
 <img width="872" alt="image" src="https://github.com/m2kar/m2kar.github.io/assets/16930652/d8e4710c-c9ca-4d28-b9df-d2c1ccac175a">
 
-# 安装IDA pro
+# 安装IDA pro并解决各种依赖缺失
 打开安装好的虚拟机，把安装包拷贝进来，在终端中运行。
 
 ```bash
@@ -41,11 +43,89 @@ sudo apt-get install binutils:amd64
 
 然后，安装程序顺利进行，作者将idapro安装在/opt/idapro-8.3目录下。
 
-尝试运行，果然又提示各种库文件缺失
+尝试运行`ida64`，果然又提示各种库文件缺失。
 
-# 修改ldd使其在arm下支持amd64程序
-这一步做的
-
+比如以下报错提示：
+
+```
+/opt/idapro-8.3/ida64: error while loading shared libraries: libGL.so.1: cannot open shared object file: No such file or directory
+```
+
+表示缺失了`libGL.so.1`动态链接库，谷歌搜索后发现需要安装`libgl1-mesa-glx`库，则运行命令`sudo apt install libgl1-mesa-glx:amd64`安装amd64架构下的`libgl1-mesa-glx`库。
+
+类似的，提示`libgthread-2.0.so.0`缺失则安装`libglib2.0-0:amd64`，提示`libSM.so.6`则安装`libsm6:amd64`和`libxext6:amd64`
+
+# 解决Qt插件无法运行的问题
+
+经过不断修补缺失链接库，ida不再提示缺失链接库，开始提示QT的xcb插件无法加载。如下：
+
+```
+qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
+This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+
+Available platform plugins are: eglfs, linuxfb, minimal, minimalegl, offscreen, vnc, xcb.
+```
+
+这是因为IDA安装目录下`libQt5XcbQpa.so.5`所依赖的其他链接库无法运行，将在下一章使用ldd命令分析缺失的动态链接库。
+
+# 修改ldd使其支持分析amd64程序
+
+通常情况下，我们选择使用ldd命令分析程序所需的动态链接库，寻找其中的缺失项。
+
+但当运行`ldd libQt5XcbQpa.so.5`，终端却提示`not a dynamic executable`。
+
+而尝试使用ldd分析系统自带的arm架构二进制文件时，却能正常显示。
+
+因此猜测是ldd无法跨架构运行。ldd工具包含在libc-bin中，所以尝试使用`sudo apt install libc-bin:amd64`安装amd64架构下的ldd工具。但很不幸，由于amd64下的libc-bin和arm原生的libc-bin冲突，无法正常安装。
+
+```
+The following packages have unmet dependencies:
+ libc-bin : Conflicts: libc-bin:amd64
+ libc-bin:amd64 : Conflicts: libc-bin
+E: Error, pkgProblemResolver::Resolve generated breaks, this may be caused by held packages.
+```
+
+`libc-bin`看起来又像是系统比较重要的库，因此没有冒险把原本的`libc-bin`替换为amd64架构的软件。
+
+通过进一步查阅资料，发现`ldd`程序本身其实是脚本，并非二进制程序。`/usr/bin/ldd`代码中使用`RTLDLIST`定义了使用哪个ld-linux。
+
+```
+RTLDLIST=/lib/ld-linux-aarch64.so.1
+```
+
+```ldd```是依赖于`ld-linux`动态链接库的实现的，而`ld-linux`在不同架构下对应有不同的二进制包。比如在arm下为`ld-linux-aarch64.so.1`，在amd64下为`ld-linux-x86-64.so.2`。
+
+因此，作者尝试使用`ld-linux-x86-64.so.2`替换掉arm架构的版本，并将程序保存为`/usr/bin/ldd-amd64`，现在可以成功运行 `ldd libQt5XcbQpa.so.5`，分析缺失的依赖项。
+
+# 继续解决Qt插件无法运行的问题
+
+尝试运行 `ldd libQt5XcbQpa.so.5`，解决依赖缺失问题。
+
+```
+$ ldd-amd64 /opt/idapro-8.3/libQt5XcbQpa.so.5 
+...(省略)
+	/lib64/ld-linux-x86-64.so.2 (0x00007ffffffc4000)
+	libdbus-1.so.3 => not found
+	libxcb-util.so.1 => /lib/x86_64-linux-gnu/libxcb-util.so.1 (0x00007ffffe6b5000)
+...(省略)
+```
+发现是`libdbus-1.so.3`缺失，搜索发现缺少了`libdbus-1-3`,于是运行安装`sudo apt install libdbus-1-3:amd64`。
+
+终于可以顺利的反编译！
+
+<img width="1193" alt="image" src="https://github.com/m2kar/m2kar.github.io/assets/16930652/9cc320d9-f4a7-4593-a876-176a05db4565">
+
+# 解决idapython无法运行的问题
+
+运行后，IDA控制台提示：
+```
+dlopen(/opt/idapro-8.3/plugins/idapython3_64.so): libpython3.6m.so.1.0: cannot open shared object file: No such file or directory
+/opt/idapro-8.3/plugins/idapython3_64.so: can't load file
+```
+看起来是`idapython3_64.so`运行时无法找到`libpython3.6m.so.1.0`，导致出错。
+
+尝试安装amd64架构下的`python3:amd64`.
+[ ] todo
 
 <hr/>
 
