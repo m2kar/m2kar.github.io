@@ -1,5 +1,5 @@
 ---
-title: "[技术分享]mac"
+title: "[技术分享]套娃之arm架构下的MacBook通过parallels+rosetta安装Linux amd64版本的IDA Pro"
 date: 2024-03-25T13:39:45Z
 
 description: 
