@@ -158,6 +158,19 @@ export LD_LIBRARY_PATH=/home/parallels/.conda/envs/idapy36/lib:$LD_LIBRARY_PATH
 
 </details>
 
+# 解决乱码的缺失库的问题
+
+本来运行的挺好，但是重启后出现以下错误：
+
+```
+$ /opt/idapro-8.3/ida
+/opt/idapro-8.3/ida: error while loading shared libraries: ��: cannot open shared object file: No such file or directory
+```
+
+暂时无法解决，重启后也无法解决。甚至退回快照重新安装还是会出现这个错误，怀疑是rosetta2的问题。
+
+- [ ]: todo
+
 # All in One
 
 使用以下命令解决IDAPro安装时所有的依赖问题。
