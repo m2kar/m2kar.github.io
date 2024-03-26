@@ -100,7 +100,7 @@ RTLDLIST=/lib/ld-linux-aarch64.so.1
 
 # 继续解决Qt插件无法运行的问题
 
-尝试运行 `ldd libQt5XcbQpa.so.5`，解决依赖缺失问题。
+尝试运行 `ldd-amd64 libQt5XcbQpa.so.5`，解决依赖缺失问题。
 
 ```
 $ ldd-amd64 /opt/idapro-8.3/libQt5XcbQpa.so.5 
