@@ -27,10 +27,10 @@ parallels是Mac生态下非常好用的虚拟机软件，但之前的版本仅�
 打开安装好的虚拟机，把安装包拷贝进来，在终端中运行。
 
 ```bash
-idapronl_xxx.run
+sudo idapronl_xxx.run
 ```
 
-但直接报错： `rosetta error: failed to open elf at /lib64/ld-linux-x86-64.so.2`
+但直接报错： `rosetta error: failed to open elf at /lib64/ld-linux-x86-64.so.2` 
 
 这是因为parallel提供的虚拟机仅安装了基础了amd64的组件，仍有大量的组件缺失。比如在这里，是缺失了binutils组件。
 
@@ -53,7 +53,8 @@ sudo apt-get install binutils:amd64
 
 表示缺失了`libGL.so.1`动态链接库，谷歌搜索后发现需要安装`libgl1-mesa-glx`库，则运行命令`sudo apt install libgl1-mesa-glx:amd64`安装amd64架构下的`libgl1-mesa-glx`库。
 
-类似的，提示`libgthread-2.0.so.0`缺失则安装`libglib2.0-0:amd64`，提示`libSM.so.6`则安装`libsm6:amd64`和`libxext6:amd64`
+类似的，提示`libgthread-2.0.so.0`缺失则安装`libglib2.0-0:amd64`。提示`libSM.so.6`则安装`libsm6:amd64`和`libxext6:amd64`。提示`libfontconfig.so.1`则安装`libsm6:amd64`
+
 
 # 解决Qt插件无法运行的问题
 
@@ -95,7 +96,7 @@ RTLDLIST=/lib/ld-linux-aarch64.so.1
 
 ```ldd```是依赖于`ld-linux`动态链接库的实现的，而`ld-linux`在不同架构下对应有不同的二进制包。比如在arm下为`ld-linux-aarch64.so.1`，在amd64下为`ld-linux-x86-64.so.2`。
 
-因此，作者尝试使用`ld-linux-x86-64.so.2`替换掉arm架构的版本，并将程序保存为`/usr/bin/ldd-amd64`，现在可以成功运行 `ldd libQt5XcbQpa.so.5`，分析缺失的依赖项。
+因此，作者尝试使用`/lib64/ld-linux-x86-64.so.2`替换掉arm架构的版本，并将程序保存为`/usr/bin/ldd-amd64`，现在可以成功运行 `ldd libQt5XcbQpa.so.5`，分析缺失的依赖项。
 
 # 继续解决Qt插件无法运行的问题
 
@@ -124,10 +125,25 @@ dlopen(/opt/idapro-8.3/plugins/idapython3_64.so): libpython3.6m.so.1.0: cannot o
 ```
 看起来是`idapython3_64.so`运行时无法找到`libpython3.6m.so.1.0`，导致出错。
 
-尝试安装amd64架构下的`python3:amd64`和`libpython3.10:amd64`，但还是不行。
+尝试安装amd64架构下的`libpython3.10:amd64`，但还是不行。
+
+参考 https://askubuntu.com/a/1432778 ,可以将高版本的libpython强行软链接为低版本的libpython。
+
+```
+sudo apt install libpython3.10:amd64
+dpkg -L libpython3.10:amd64  #查看libpython3.10的so文件所在路径
+sudo ln -s libpython3.10.so.1 libpython3.6m.so.1
+sudo ln -s libpython3.10.so.1.0 libpython3.6m.so.1.0
+``` 
+
+再次打开IDA，已经可以正确运行idapython。
+
+<img width="783" alt="image" src="https://github.com/m2kar/m2kar.github.io/assets/16930652/5e58998c-df04-4b46-a892-3c20d195b30b">
+
+<details>
+<summary>也可以通过安装python3.6并且制定库搜索路径的方式解决该问题</summary>
 
 尝试使用miniconda安装python3.6的环境。
-
 ```
 curl -O https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash ./Miniconda3-latest-Linux-x86_64.sh
@@ -140,11 +156,21 @@ conda create --name idapy36 "python=3.6,<3.7"
 export LD_LIBRARY_PATH=/home/parallels/.conda/envs/idapy36/lib:$LD_LIBRARY_PATH
 ```
 
-再次打开，idapython可以正常运行。
+</details>
 
-<img width="783" alt="image" src="https://github.com/m2kar/m2kar.github.io/assets/16930652/5e58998c-df04-4b46-a892-3c20d195b30b">
+# All in One
 
-> 这里有个问题：指定了库的搜索路径为3.6版本，但idapython仍然是3.10版本。
+使用以下命令解决IDAPro安装时所有的依赖问题。
+```
+sudo apt-get update
+sudo apt-get install binutils:amd64 libgl1-mesa-glx:amd64 libglib2.0-0:amd64 libsecret-1-0:amd64
+sudo apt-get install libfontconfig1:amd64 libxcb-icccm4:amd64 libxcb-image0:amd64 libxcb-keysyms1:amd64 libxcb-render-util0:amd64 libxcb-render0:amd64 libxcb-shape0:amd64 libxcb-xinerama0:amd64 libxcb-xkb1:amd64 libsm6:amd64 libice6:amd64 libxkbcommon-x11-0:amd64 libxkbcommon0:amd64 libdbus-1-3:amd64
+
+sudo apt install libpython3.10:amd64
+cd /usr/lib/x86_64-linux-gnu/
+sudo ln -s libpython3.10.so.1 libpython3.6m.so.1
+sudo ln -s libpython3.10.so.1.0 libpython3.6m.so.1.0
+```
 
 # 总结
 非常套娃的踩了安装IDA Pro的坑，在arm架构下的MacBook通过parallels+rosetta安装Linux amd64版本的IDA Pro。本技术也可以用于安装其他跨架构软件。
