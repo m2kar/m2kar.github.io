@@ -125,38 +125,26 @@ dlopen(/opt/idapro-8.3/plugins/idapython3_64.so): libpython3.6m.so.1.0: cannot o
 ```
 看起来是`idapython3_64.so`运行时无法找到`libpython3.6m.so.1.0`，导致出错。
 
-尝试安装amd64架构下的`libpython3.10:amd64`，但还是不行。
+这里推荐的方式是不改变系统里的`libpython3`和`python3`相关包，通过miniconda创建单独的python环境，并设定库搜索路径。
 
-参考 https://askubuntu.com/a/1432778 ,可以将高版本的libpython强行软链接为低版本的libpython。
-
-```
-sudo apt install libpython3.10:amd64
-dpkg -L libpython3.10:amd64  #查看libpython3.10的so文件所在路径
-sudo ln -s libpython3.10.so.1 libpython3.6m.so.1
-sudo ln -s libpython3.10.so.1.0 libpython3.6m.so.1.0
-``` 
-
-再次打开IDA，已经可以正确运行idapython。
-
-<img width="783" alt="image" src="https://github.com/m2kar/m2kar.github.io/assets/16930652/5e58998c-df04-4b46-a892-3c20d195b30b">
-
-<details>
-<summary>也可以通过安装python3.6并且制定库搜索路径的方式解决该问题</summary>
-
-尝试使用miniconda安装python3.6的环境。
+使用miniconda安装python3.6的环境。
 ```
 curl -O https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash ./Miniconda3-latest-Linux-x86_64.sh
 /opt/miniconda3/bin/conda init
-conda create --name idapy36 "python=3.6,<3.7"
+source ~/.bashrc
+conda create --name idapy "python=3.6,<3.7"
 ```
 
 设定库搜索路径
 ```
-export LD_LIBRARY_PATH=/home/parallels/.conda/envs/idapy36/lib:$LD_LIBRARY_PATH
+# 编辑.bashrc
+export LD_LIBRARY_PATH="/home/parallels/miniconda3/envs/idapy/lib:$LD_LIBRARY_PATH"
 ```
 
-</details>
+应用环境变量后再次打开IDA，已经可以正确运行idapython。
+
+<img width="783" alt="image" src="https://github.com/m2kar/m2kar.github.io/assets/16930652/5e58998c-df04-4b46-a892-3c20d195b30b">
 
 # 解决乱码的缺失库的问题
 
@@ -167,9 +155,7 @@ $ /opt/idapro-8.3/ida
 /opt/idapro-8.3/ida: error while loading shared libraries: ��: cannot open shared object file: No such file or directory
 ```
 
-暂时无法解决，重启后也无法解决。甚至退回快照重新安装还是会出现这个错误，怀疑是rosetta2的问题。
-
-- [ ]: todo
+在给Hex-Ray官方支持发了邮件之后，重新试了一下，自己把问题解决了。。。原因是之前装的时候是已经通过miniconda配置好了python环境，但重启之后环境出了些问题。如果各位遇到类似问题，可先配置python环境，再进行安装。
 
 # All in One
 
@@ -179,10 +165,7 @@ sudo apt-get update
 sudo apt-get install binutils:amd64 libgl1-mesa-glx:amd64 libglib2.0-0:amd64 libsecret-1-0:amd64
 sudo apt-get install libfontconfig1:amd64 libxcb-icccm4:amd64 libxcb-image0:amd64 libxcb-keysyms1:amd64 libxcb-render-util0:amd64 libxcb-render0:amd64 libxcb-shape0:amd64 libxcb-xinerama0:amd64 libxcb-xkb1:amd64 libsm6:amd64 libice6:amd64 libxkbcommon-x11-0:amd64 libxkbcommon0:amd64 libdbus-1-3:amd64
 
-sudo apt install libpython3.10:amd64
-cd /usr/lib/x86_64-linux-gnu/
-sudo ln -s libpython3.10.so.1 libpython3.6m.so.1
-sudo ln -s libpython3.10.so.1.0 libpython3.6m.so.1.0
+# 解决python环境的代码在此省略
 ```
 
 # 总结
