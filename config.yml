@@ -10,6 +10,7 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
+mainsections: ["posts"]
 googleAnalytics: UA-150110063-1
 
 minify:
