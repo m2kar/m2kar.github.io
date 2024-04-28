@@ -155,8 +155,14 @@ $ /opt/idapro-8.3/ida
 /opt/idapro-8.3/ida: error while loading shared libraries: ��: cannot open shared object file: No such file or directory
 ```
 
-在给Hex-Ray官方支持发了邮件之后，重新试了一下，自己把问题解决了。。。原因是之前装的时候是已经通过miniconda配置好了python环境，但重启之后环境出了些问题。如果各位遇到类似问题，可先配置python环境，再进行安装。
+在给Hex-Ray官方支持发了邮件，但官方表示不支持rosette2环境下的软件运行。求助stack overflow获得了解决方案。
 
+可以杀掉rosettad进程来解决该问题。
+
+```
+sudo pkill rosettad
+```
+详细解释参看： https://stackoverflow.com/a/78245031/9841711 
 # All in One
 
 使用以下命令解决IDAPro安装时所有的依赖问题。
