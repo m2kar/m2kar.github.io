@@ -1,7 +1,7 @@
 ---
 title: "windows7安装低版本Flash"
 draft: true
-date: 2020-00-00
+date: 2020-03-13
 description: ""
 tags: ["flash","windows","运维"]
 categories: ["运维"]
