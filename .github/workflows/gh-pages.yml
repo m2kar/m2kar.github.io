@@ -63,7 +63,7 @@ jobs:
         run: git submodule update --remote --merge
       - name: Build with Hugo
         run: |
-          hugo \
+          hugo build \
             --buildDrafts --gc --verbose \
             --baseURL ${{ steps.pages.outputs.base_url }}
       - name: Upload artifact
