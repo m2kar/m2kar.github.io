@@ -14,7 +14,7 @@ on:
       hugoVersion:
         description: "Hugo Version"
         required: false
-        default: "0.112.4"
+        default: "0.161.0"
   workflow_run:
     workflows:
       - "issue-to-post"
@@ -41,7 +41,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: "0.112.4"
+      HUGO_VERSION: "0.161.0"
     steps:
       - name: Check version
         if: ${{ github.event.inputs.hugoVersion }}
@@ -51,12 +51,12 @@ jobs:
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: blog
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
       - name: Get Theme
         run: git submodule update --init --recursive
       - name: Update theme to Latest commit

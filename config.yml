@@ -11,7 +11,6 @@ buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
 mainsections: ["posts", "papermod"]
-googleAnalytics: UA-150110063-1
 
 minify:
   disableXML: true
